@@ -114,7 +114,6 @@ namespace inSyca.foundation.framework.application.windowsforms
                     if (configFile.Value.isDirty)
                     {
                         File.Move(configFile.Value.configFileName, string.Format(config_backup, configFile.Value.configFileName, DateTime.Now));
-                        configuration.RegistrySettings.SetRegistryLogLevel(configFile.Value.GetEventLogLevel(), configFile.Value.GetMailLogLevel(), configFile.Value.RegistryKey);
                         configFile.Value.configDocument.Save(configFile.Value.configFileName);
                     }
                 }

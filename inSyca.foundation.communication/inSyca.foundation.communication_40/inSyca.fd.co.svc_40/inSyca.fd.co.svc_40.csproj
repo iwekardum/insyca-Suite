@@ -69,7 +69,6 @@
   <ItemGroup>
     <Compile Include="foundation.framework\configuration.cs" />
     <Compile Include="foundation.framework\log.cs" />
-    <Compile Include="foundation.framework\testing.cs" />
     <Compile Include="MessageBrokerService.cs" />
     <Compile Include="MessageBrokerServiceHost.cs" />
     <Compile Include="MessageBrokerService_Data.cs" />

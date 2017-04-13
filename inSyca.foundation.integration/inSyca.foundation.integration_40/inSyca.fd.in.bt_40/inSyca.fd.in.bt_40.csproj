@@ -83,7 +83,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsManagementConfig.xsd</DependentUpon>
     </Compile>
-    <Compile Include="foundation.framework\testing.cs" />
     <Compile Include="management\ControlBase.cs" />
     <Compile Include="management\Host.cs" />
     <Compile Include="management\HostInstance.cs" />

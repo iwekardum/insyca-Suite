@@ -35,115 +35,120 @@ using Microsoft.BizTalk.Message.Interop;
 
 namespace inSyca.foundation.integration.biztalk.adapter.common
 {
-	//  Anything fails in this batch we abort the lot!
-	public sealed class AbortOnFailureReceiveTxnBatch : TxnBatch
-	{
-		public delegate void TxnAborted ();
+    //  Anything fails in this batch we abort the lot!
+    public sealed class AbortOnFailureReceiveTxnBatch : TxnBatch
+    {
+        public delegate void TxnAborted();
 
-		private TxnAborted txnAborted;
+        private TxnAborted txnAborted;
 
-        public AbortOnFailureReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, CommittableTransaction transaction, ManualResetEvent orderedEvent, TxnAborted txnAborted) : base(transportProxy, control, transaction, orderedEvent, false)
-        { 
-			this.txnAborted = txnAborted;
-		}
+        public AbortOnFailureReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, CommittableTransaction transaction, ManualResetEvent orderedEvent, TxnAborted txnAborted)
+            : base(transportProxy, control, transaction, orderedEvent, false)
+        {
+            this.txnAborted = txnAborted;
+        }
         public AbortOnFailureReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, IDtcTransaction comTxn, CommittableTransaction transaction, ManualResetEvent orderedEvent, TxnAborted txnAborted)
             : base(transportProxy, control, comTxn, transaction, orderedEvent, false)
         {
             this.txnAborted = txnAborted;
         }
-        protected override void StartBatchComplete (int hrBatchComplete)
+        protected override void StartBatchComplete(int hrBatchComplete)
         {
             if (this.HRStatus >= 0)
             {
                 this.SetComplete();
             }
         }
-        protected override void StartProcessFailures ()
-		{
-			this.SetAbort();
-            this.txnAborted?.Invoke();
-        }
-	}
-
-	//  Anything fails in this batch we abort the lot - even the case where we get an "S_FALSE" because the EPM has handled the error
-	public sealed class AbortOnAllFailureReceiveTxnBatch : TxnBatch
-	{
-		public delegate void StopProcessing ();
-
-		private StopProcessing stopProcessing;
-
-        public AbortOnAllFailureReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, CommittableTransaction transaction, ManualResetEvent orderedEvent, StopProcessing stopProcessing) : base(transportProxy, control, transaction, orderedEvent, false)
+        protected override void StartProcessFailures()
         {
-			this.stopProcessing = stopProcessing;
-		}
-		protected override void StartBatchComplete (int hrBatchComplete)
+            this.SetAbort();
+            if (this.txnAborted != null)
+                this.txnAborted();
+        }
+    }
+
+    //  Anything fails in this batch we abort the lot - even the case where we get an "S_FALSE" because the EPM has handled the error
+    public sealed class AbortOnAllFailureReceiveTxnBatch : TxnBatch
+    {
+        public delegate void StopProcessing();
+
+        private StopProcessing stopProcessing;
+
+        public AbortOnAllFailureReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, CommittableTransaction transaction, ManualResetEvent orderedEvent, StopProcessing stopProcessing)
+            : base(transportProxy, control, transaction, orderedEvent, false)
+        {
+            this.stopProcessing = stopProcessing;
+        }
+        protected override void StartBatchComplete(int hrBatchComplete)
 		{
             if (this.HRStatus != 0)
             {
                 this.SetAbort();
-                this.stopProcessing?.Invoke();
+                if (this.stopProcessing != null)
+                    this.stopProcessing();
             }
             else
             {
                 this.SetComplete();
             }
 		}
-	}
+    }
 
-	//  Submit fails we MoveToSuspendQ
-	public sealed class SingleMessageReceiveTxnBatch : TxnBatch
-	{
-        public SingleMessageReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, CommittableTransaction transaction, ManualResetEvent orderedEvent) : base(transportProxy, control, transaction, orderedEvent, true)
+    //  Submit fails we MoveToSuspendQ
+    public sealed class SingleMessageReceiveTxnBatch : TxnBatch
+    {
+        public SingleMessageReceiveTxnBatch(IBTTransportProxy transportProxy, ControlledTermination control, CommittableTransaction transaction, ManualResetEvent orderedEvent)
+            : base(transportProxy, control, transaction, orderedEvent, true)
         { }
-		protected override void StartProcessFailures ()
-		{
-			if (!this.OverallSuccess)
-			{
-				this.innerBatch = new AbortOnFailureReceiveTxnBatch(this.TransportProxy, this.control, this.comTxn, this.transaction, this.orderedEvent, null);
-				this.innerBatchCount = 0;
-			}
-		}
-		protected override void SubmitFailure (IBaseMessage message, Int32 hrStatus, object userData)
-		{
-			if (this.innerBatch != null)
-			{
+        protected override void StartProcessFailures()
+        {
+            if (!this.OverallSuccess)
+            {
+                this.innerBatch = new AbortOnFailureReceiveTxnBatch(this.TransportProxy, this.control, this.comTxn, this.transaction, this.orderedEvent, null);
+                this.innerBatchCount = 0;
+            }
+        }
+        protected override void SubmitFailure(IBaseMessage message, Int32 hrStatus, object userData)
+        {
+            if (this.innerBatch != null)
+            {
                 try
                 {
                     Stream originalStream = message.BodyPart.GetOriginalDataStream();
-				    originalStream.Seek(0, SeekOrigin.Begin);
-				    message.BodyPart.Data = originalStream;
+                    originalStream.Seek(0, SeekOrigin.Begin);
+                    message.BodyPart.Data = originalStream;
                     this.innerBatch.MoveToSuspendQ(message);
-					this.innerBatchCount++;
-				}
-				catch (Exception e)
-				{
+                    this.innerBatchCount++;
+                }
+                catch (Exception e)
+                {
                     Trace.WriteLine("SingleMessageReceiveTxnBatch.SubmitFailure Exception: {0}", e.Message);
-					this.innerBatch = null;
-					this.SetAbort();
-				}
-			}
-		}
+                    this.innerBatch = null;
+                    this.SetAbort();
+                }
+            }
+        }
         protected override void SubmitSuccess(IBaseMessage message, Int32 hrStatus, object userData)
         {
             this.SetComplete();
         }
-		protected override void EndProcessFailures ()
-		{
-			if (this.innerBatch != null && this.innerBatchCount > 0)
-			{
-				try
-				{
-					this.innerBatch.Done();
-					this.SetPendingWork();
-				}
-				catch (Exception)
-				{
-					this.SetAbort();
-				}
-			}
-		}
-		private Batch innerBatch;
-		private int innerBatchCount;
-	}
+        protected override void EndProcessFailures()
+        {
+            if (this.innerBatch != null && this.innerBatchCount > 0)
+            {
+                try
+                {
+                    this.innerBatch.Done();
+                    this.SetPendingWork();
+                }
+                catch (Exception)
+                {
+                    this.SetAbort();
+                }
+            }
+        }
+        private Batch innerBatch;
+        private int innerBatchCount;
+    }
 }
 

@@ -19,6 +19,8 @@ namespace inSyca.foundation.framework.diagnostics
         static private List<ManagementEventWatcher> eventLogSystemWatcherList;
         static private List<ManagementEventWatcher> eventLogSecurityWatcherList;
 
+        static private MonitorEventLog monitorEventLog;
+
         public static void disposeWatcher()
         {
             Log.Debug("disposeWatcher()");
@@ -58,6 +60,9 @@ namespace inSyca.foundation.framework.diagnostics
         {
             Log.Debug("invokeWatcher()");
 
+            monitorEventLog = new MonitorEventLog();
+            monitorEventLog.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorEventLog_MonitoringEvent);
+
             string[] serverCollection = Configuration.GetTextAppSettingsValue("LogServerNames").Split(';');
             string[] eventLogApplicationSourceNames = Configuration.GetTextAppSettingsValue("ApplicationSource").Split(';');
             string[] eventLogSystemSourceNames = Configuration.GetTextAppSettingsValue("SystemSource").Split(';');
@@ -73,7 +78,8 @@ namespace inSyca.foundation.framework.diagnostics
             {
                 Log.Info(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Setup watcher for server: {0}", new object[] { server }));
 
-                MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Start WMI for Server: " + server));
+               if (MonitoringEvent != null)
+                    MonitoringEvent(null, new MonitoringEventArgs("Start WMI for Server: " + server));
 
                 if (string.IsNullOrEmpty(server))
                     return;
@@ -105,7 +111,8 @@ namespace inSyca.foundation.framework.diagnostics
                             eventLogApplicationWatcher.Start();
                             eventLogApplicationWatcherList.Add(eventLogApplicationWatcher);
 
-                            MonitoringEvent?.Invoke(null, new MonitoringEventArgs("eventLogApplicationWatcher started. Query:" + eventLogApplicationQuery.QueryString));
+                            if (MonitoringEvent != null)
+                                MonitoringEvent(null, new MonitoringEventArgs("eventLogApplicationWatcher started. Query:" + eventLogApplicationQuery.QueryString));
                         }
                     }
                 }
@@ -117,7 +124,8 @@ namespace inSyca.foundation.framework.diagnostics
                         eventLogApplicationWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (eventLogApplicationWatcher): " + excep.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (eventLogApplicationWatcher): " + excep.Message));
                 }
 
                 ManagementEventWatcher eventLogSystemWatcher = null;
@@ -134,7 +142,8 @@ namespace inSyca.foundation.framework.diagnostics
                             eventLogSystemWatcher.Start();
                             eventLogSystemWatcherList.Add(eventLogSystemWatcher);
 
-                            MonitoringEvent?.Invoke(null, new MonitoringEventArgs("eventLogSystemWatcher started. Query:" + eventLogSystemQuery.QueryString));
+                            if (MonitoringEvent != null)
+                                MonitoringEvent(null, new MonitoringEventArgs("eventLogSystemWatcher started. Query:" + eventLogSystemQuery.QueryString));
                         }
                     }
                 }
@@ -146,20 +155,22 @@ namespace inSyca.foundation.framework.diagnostics
                         eventLogSystemWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (eventLogSystemWatcher): " + excep.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (eventLogSystemWatcher): " + excep.Message));
                 }
 
                 ManagementEventWatcher eventLogSecurityWatcher = null;
 
                 try
                 {
-                    WqlEventQuery eventLogQuery = new WqlEventQuery("__InstanceCreationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA \"Win32_NTLogEvent\" AND TargetInstance.LogFile=\"Security\"");
+                    WqlEventQuery eventLogQuery = new WqlEventQuery("__InstanceCreationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA 'Win32_NTLogEvent' AND TargetInstance.LogFile='Security'");
                     eventLogSecurityWatcher = new ManagementEventWatcher(new ManagementScope(managementPathSystem, managementConnectionOptions), eventLogQuery);
                     eventLogSecurityWatcher.EventArrived += new EventArrivedEventHandler(eventLogSecurityEventHandler);
                     //eventLogSecurityWatcher.Start();
                     //eventLogSecurityWatcherList.Add(eventLogSecurityWatcher);
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("eventLogSecurityWatcher started. Query:" + eventLogQuery.QueryString));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("eventLogSecurityWatcher started. Query:" + eventLogQuery.QueryString));
                 }
                 catch (Exception excep)
                 {
@@ -169,7 +180,8 @@ namespace inSyca.foundation.framework.diagnostics
                         eventLogSecurityWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (eventLogSecurityWatcher): " + excep.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (eventLogSecurityWatcher): " + excep.Message));
                 }
 
                 Log.Info(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Setup done", new object[] { server }));
@@ -178,8 +190,6 @@ namespace inSyca.foundation.framework.diagnostics
 
         static public void eventLogApplicationEventHandler(object sender, EventArrivedEventArgs e)
         {
-            MonitorEventLog monitorEventLog = new MonitorEventLog();
-            monitorEventLog.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorEventLog_MonitoringEvent);
             DataRow eventEntryRow;
             monitorEventLog.SetEvent(e, WindowsEventType.eventLogApplicationEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -187,8 +197,6 @@ namespace inSyca.foundation.framework.diagnostics
 
         static public void eventLogSystemEventHandler(object sender, EventArrivedEventArgs e)
         {
-            MonitorEventLog monitorEventLog = new MonitorEventLog();
-            monitorEventLog.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorEventLog_MonitoringEvent);
             DataRow eventEntryRow;
             monitorEventLog.SetEvent(e, WindowsEventType.eventLogSystemEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -196,8 +204,6 @@ namespace inSyca.foundation.framework.diagnostics
 
         static public void eventLogSecurityEventHandler(object sender, EventArrivedEventArgs e)
         {
-            MonitorEventLog monitorEventLog = new MonitorEventLog();
-            monitorEventLog.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorEventLog_MonitoringEvent);
             DataRow eventEntryRow;
             monitorEventLog.SetEvent(e, WindowsEventType.eventLogSecurityEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));

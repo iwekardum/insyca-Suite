@@ -120,7 +120,8 @@ namespace inSyca.foundation.integration.visualstudio.external
         {
             SetBusy();
 
-            eventActivateOutputWindow?.Invoke(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk" });
+            if (eventActivateOutputWindow != null)
+                eventActivateOutputWindow(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk" });
 
             RunHandler rh = new RunHandler(Run);
             AsyncCallback callback = new AsyncCallback(RunCallback);
@@ -166,7 +167,7 @@ namespace inSyca.foundation.integration.visualstudio.external
 
             if (eventWriteToOutputWindow != null)
             {
-                eventWriteToOutputWindow(this, new OutputWindowEventArgs() { Name= "Deployment Framework for BizTalk", Text = "Starting build..." });
+                eventWriteToOutputWindow(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk", Text = "Starting build..." });
                 eventWriteToOutputWindow(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk", Text = exePath + " " + arguments });
                 eventWriteToOutputWindow(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk", Text = string.Empty });
             }
@@ -186,7 +187,8 @@ namespace inSyca.foundation.integration.visualstudio.external
 
         private void proc_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
         {
-            eventWriteToOutputWindow?.Invoke(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk", Text = e.Data });
+            if (eventWriteToOutputWindow != null)
+                eventWriteToOutputWindow(this, new OutputWindowEventArgs() { Name = "Deployment Framework for BizTalk", Text = e.Data });
         }
     }
 }

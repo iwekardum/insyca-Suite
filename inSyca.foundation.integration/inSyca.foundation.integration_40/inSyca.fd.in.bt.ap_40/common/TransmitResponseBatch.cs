@@ -41,7 +41,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
 
             if (stream == null || stream.CanSeek == false)
                 throw new InvalidOperationException("Message body stream is null or it is not seekable");
-            
+
             base.SubmitResponseMessage(solicitDocSent, responseDocToSubmit, solicitDocSent);
         }
 
@@ -119,7 +119,8 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
 
         protected override void EndBatchComplete()
         {
-            this.allWorkDoneDelegate?.Invoke();
+            if (this.allWorkDoneDelegate != null)
+                this.allWorkDoneDelegate();
         }
 
         // This is for submit-response
@@ -135,7 +136,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
 
                 IBaseMessagePart responseBodyPart = message.BodyPart;
 
-                if (responseBodyPart != null )
+                if (responseBodyPart != null)
                 {
                     Stream stream = responseBodyPart.GetOriginalDataStream();
                     stream.Position = 0;

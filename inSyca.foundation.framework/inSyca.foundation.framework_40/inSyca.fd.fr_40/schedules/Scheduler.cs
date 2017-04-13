@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 
 namespace inSyca.foundation.framework.schedules
-
 {
-
     /// <summary>
     /// First you fill in tasks that can be performed
     /// and finally you fill in the scheduling of tasks
@@ -22,7 +20,7 @@ namespace inSyca.foundation.framework.schedules
     /// </summary>
     public class Scheduler
     {
-        #region Attributter
+        #region Attributes
 
         private bool m_isRunning = true;
 

@@ -19,9 +19,9 @@ namespace inSyca.foundation.framework.diagnostics
         public SmtpMonitoringAppender()
         {
         }
-        public LogEntry LogEntry { get; set; }
 
-        public LoggingEvent LoggingEvent { get; set; }
+        private LogEntry LogEntry { get; set; }
+        private LoggingEvent LoggingEvent { get; set; }
 
         void IAppender.DoAppend(LoggingEvent loggingEvent)
         {

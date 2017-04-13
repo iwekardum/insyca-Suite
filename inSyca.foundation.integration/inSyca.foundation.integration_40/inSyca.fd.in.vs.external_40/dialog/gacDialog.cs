@@ -46,7 +46,7 @@ namespace inSyca.foundation.integration.visualstudio.external.dialog
         {
             try
             {
-                assemblyGridView.DataSource = new BindingList< AssemblyDescription >(AssemblyBindingList.Where(m => m.Name.ToLower().Contains(searchTextBox.Text.ToLower()) || m.PublicKeyToken.Contains(searchTextBox.Text)).ToList<AssemblyDescription>());
+                assemblyGridView.DataSource = new BindingList<AssemblyDescription>(AssemblyBindingList.Where(m => m.Name.ToLower().Contains(searchTextBox.Text.ToLower()) || m.PublicKeyToken.Contains(searchTextBox.Text)).ToList<AssemblyDescription>());
             }
             catch (Exception ex)
             {
@@ -62,7 +62,8 @@ namespace inSyca.foundation.integration.visualstudio.external.dialog
             AssemblyBindingList.RemoveAt(3);
             AssemblyBindingList.RemoveAt(4);
             AssemblyBindingList.RemoveAt(5);
-            refreshEvent?.Invoke(this, null);
+            if (refreshEvent != null)
+                refreshEvent(this, null);
 
             assemblyGridView.DataSource = AssemblyBindingList;
         }
@@ -73,7 +74,7 @@ namespace inSyca.foundation.integration.visualstudio.external.dialog
         private Font oldFont = null;
         private Boolean waterMarkTextEnabled = false;
 
-        #region Attributes 
+        #region Attributes
         private Color _waterMarkColor = Color.Gray;
         public Color WaterMarkColor
         {

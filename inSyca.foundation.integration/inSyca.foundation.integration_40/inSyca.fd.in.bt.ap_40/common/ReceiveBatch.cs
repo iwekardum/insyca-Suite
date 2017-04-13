@@ -39,7 +39,8 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
 
     public class ReceiveBatch : Batch
     {
-        public ReceiveBatch (IBTTransportProxy transportProxy, ControlledTermination control, ManualResetEvent orderedEvent, int depth) : base(transportProxy, true)
+        public ReceiveBatch(IBTTransportProxy transportProxy, ControlledTermination control, ManualResetEvent orderedEvent, int depth)
+            : base(transportProxy, true)
         {
             this.control = control;
             this.orderedEvent = orderedEvent;
@@ -47,11 +48,12 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
             this.depth = depth;
         }
 
-        public ReceiveBatch(IBTTransportProxy transportProxy, ControlledTermination control, ReceiveBatchCompleteHandler callback, int depth) : base(transportProxy, true)
+        public ReceiveBatch(IBTTransportProxy transportProxy, ControlledTermination control, ReceiveBatchCompleteHandler callback, int depth)
+            : base(transportProxy, true)
         {
             this.control = control;
 
-            if( callback != null )
+            if (callback != null)
             {
                 this.ReceiveBatchComplete += callback;
             }
@@ -60,7 +62,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
             this.depth = depth;
         }
 
-        protected override void StartProcessFailures ()
+        protected override void StartProcessFailures()
         {
             // Keep a recusive batch depth so we stop trying at some point.
             if (!this.OverallSuccess && this.depth > 0)
@@ -78,7 +80,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
                 this.innerBatchCount = 0;
             }
         }
-        protected override void EndProcessFailures ()
+        protected override void EndProcessFailures()
         {
             if (this.innerBatch != null && this.innerBatchCount > 0)
             {
@@ -94,7 +96,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
                 }
             }
         }
-        protected override void EndBatchComplete ()
+        protected override void EndBatchComplete()
         {
             if (this.needToLeave)
                 this.control.Leave();
@@ -105,14 +107,15 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
                 // Theoretically, suspend should never fail unless DB is down/not-reachable
                 // or the stream is not seekable. In such cases, there is a chance of duplicates
                 // but that's safer than deleting messages that are not in the DB.
-                this.ReceiveBatchComplete?.Invoke(this.OverallSuccess && !this.suspendFailed);
+                if (this.ReceiveBatchComplete != null)
+                    this.ReceiveBatchComplete(this.OverallSuccess && !this.suspendFailed);
 
                 if (this.orderedEvent != null)
                     this.orderedEvent.Set();
             }
         }
 
-        protected override void SubmitFailure (IBaseMessage message, Int32 hrStatus, object userData)
+        protected override void SubmitFailure(IBaseMessage message, Int32 hrStatus, object userData)
         {
             failedMessages.Add(new FailedMessage(message, hrStatus));
             Stream originalStream = message.BodyPart.GetOriginalDataStream();
@@ -133,7 +136,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
                 }
             }
         }
-        protected override void SubmitSuccess (IBaseMessage message, Int32 hrStatus, object userData)
+        protected override void SubmitSuccess(IBaseMessage message, Int32 hrStatus, object userData)
         {
             Stream originalStream = message.BodyPart.GetOriginalDataStream();
 
@@ -148,7 +151,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
                     this.innerBatch.SubmitMessage(message, userData);
                     this.innerBatchCount++;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Trace.WriteLine("ReceiveBatch.SubmitSuccess Exception: {0}", e.Message);
                     this.innerBatch = null;
@@ -208,7 +211,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
             }
         }
 
-        protected override void MoveToSuspendQFailure (IBaseMessage message, Int32 hrStatus, object userData)
+        protected override void MoveToSuspendQFailure(IBaseMessage message, Int32 hrStatus, object userData)
         {
             suspendFailed = true;
 
@@ -216,7 +219,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
             originalStream.Close();
         }
 
-        protected override void MoveToSuspendQSuccess (IBaseMessage message, Int32 hrStatus, object userData)
+        protected override void MoveToSuspendQSuccess(IBaseMessage message, Int32 hrStatus, object userData)
         {
             Stream originalStream = message.BodyPart.GetOriginalDataStream();
 

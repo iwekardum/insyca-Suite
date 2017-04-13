@@ -229,12 +229,12 @@ namespace inSyca.foundation.integration.biztalk.components
                 try
                 {
                     string sXslt = string.Concat(new string[]{
-                    "<xsl:stylesheet version=\"1.0\" xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">",
-                    "<xsl:output method=\"xml\" indent=\"yes\"/>",
-                    "<xsl:variable name=\"lowercase\" select=\"'abcdefghijklmnopqrstuvwxyz'\"/>",
-                    "<xsl:variable name=\"uppercase\" select=\"'ABCDEFGHIJKLMNOPQRSTUVWXYZ'\" />",
-                    "<xsl:template match=\"*\">",
-                    "<xsl:element name=\"{ translate(local-name(), $uppercase, $lowercase)}\" namespace=\"{namespace-uri()}\">",
+                    "<xsl:stylesheet version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>",
+                    "<xsl:output method='xml' indent='yes'/>",
+                    "<xsl:variable name='lowercase' select='abcdefghijklmnopqrstuvwxyz'/>",
+                    "<xsl:variable name='uppercase' select='ABCDEFGHIJKLMNOPQRSTUVWXYZ' />",
+                    "<xsl:template match='*'>",
+                    "<xsl:element name='{ translate(local-name(), $uppercase, $lowercase)}' namespace='{namespace-uri()}'>",
                     "<xsl:apply-templates/>",
                     "</xsl:element>",
                     "</xsl:template>",

@@ -68,7 +68,6 @@
     <Compile Include="endpointbehavior\ImpersonateNtlmCredentialsBehaviourElement.cs" />
     <Compile Include="foundation.framework\configuration.cs" />
     <Compile Include="foundation.framework\log.cs" />
-    <Compile Include="foundation.framework\testing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="endpointbehavior\BizTalkMessageBehavior.cs" />
     <Compile Include="endpointbehavior\BizTalkMessageBehaviorExtensionElement.cs" />

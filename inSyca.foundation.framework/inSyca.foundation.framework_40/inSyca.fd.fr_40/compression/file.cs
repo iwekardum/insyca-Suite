@@ -30,17 +30,14 @@ namespace inSyca.foundation.framework.compression
                         {
                             if (theEntry.Name != "")
                             {
-                                string strNewFile = @"" + targetFolder + @"\" +
-
-theEntry.Name;
+                                string strNewFile = @"" + targetFolder + @"\" + theEntry.Name;
                                 string fullDirPath = Path.GetDirectoryName(strNewFile);
-                                if (!Directory.Exists(fullDirPath)) Directory.CreateDirectory(fullDirPath);
+                                if (!Directory.Exists(fullDirPath)) 
+                                    Directory.CreateDirectory(fullDirPath);
 
 
                                 if (File.Exists(strNewFile))
-                                {
                                     continue;
-                                }
 
                                 using (FileStream streamWriter = File.Create(strNewFile))
                                 {
@@ -60,12 +57,10 @@ theEntry.Name;
                         }
                         else if (theEntry.IsDirectory)
                         {
-                            string strNewDirectory = @"" + targetFolder + @"\" +
-theEntry.Name;
+                            string strNewDirectory = @"" + targetFolder + @"\" + theEntry.Name;
+                           
                             if (!Directory.Exists(strNewDirectory))
-                            {
                                 Directory.CreateDirectory(strNewDirectory);
-                            }
                         }
                     }
                     ZipStream.Close();
@@ -75,11 +70,6 @@ theEntry.Name;
             {
                 throw ex;
             }
-            finally
-            {
-
-            }
-
         }
 
         #endregion

@@ -82,6 +82,10 @@
       <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
       <Name>inSyca.fd.fr_40</Name>
     </ProjectReference>
+    <ProjectReference Include="..\inSyca.fd.co.itf_40\inSyca.fd.co.itf_40.csproj">
+      <Project>{fd8ef0fb-425f-449b-97c8-00db3dc3465f}</Project>
+      <Name>inSyca.fd.co.itf_40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\inSyca.fd.co.svc_40\inSyca.fd.co.svc_40.csproj">
       <Project>{6e70f7fa-5db3-4adb-bab9-ddd43cc35ab6}</Project>
       <Name>inSyca.fd.co.svc_40</Name>

@@ -90,8 +90,7 @@
     <Compile Include="configuration\Configuration.cs" />
     <Compile Include="configuration\ConfigurationBase.cs" />
     <Compile Include="configuration\Parameters.cs" />
-    <Compile Include="configuration\RegistrySettings.cs" />
-    <Compile Include="configuration\SourceAttributes.cs" />
+    <Compile Include="configuration\RegistryKeySourceAttribute.cs" />
     <Compile Include="data\dsFileSystemConfig1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,11 +121,10 @@
     <Compile Include="diagnostics\MonitorEventLog.cs" />
     <Compile Include="diagnostics\Monitoring.cs" />
     <Compile Include="diagnostics\SmtpMonitoringAppender.cs" />
-    <Compile Include="diagnostics\testing.cs" />
     <Compile Include="io\FileSystem.cs" />
     <Compile Include="diagnostics\LogBase.cs" />
     <Compile Include="LogEntry.cs" />
-    <Compile Include="diagnostics\SourceAttributes.cs" />
+    <Compile Include="diagnostics\LogSourceAttribute.cs" />
     <Compile Include="messaging\MSMQ.cs" />
     <Compile Include="messaging\SendMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

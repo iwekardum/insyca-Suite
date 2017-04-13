@@ -359,9 +359,9 @@ namespace inSyca.foundation.integration.biztalk.components
                 }
 
                 if (fileName.Substring(fileName.LastIndexOf('.')).ToLower() == ".xlsx")
-                    strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties=\"Excel 12.0;HDR=" + HDR + ";IMEX=0\"";
+                    strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties='Excel 12.0;HDR=" + HDR + ";IMEX=0'";
                 else
-                    strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fileName + ";Extended Properties=\"Excel 8.0;HDR=" + HDR + ";IMEX=0\"";
+                    strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fileName + ";Extended Properties='Excel 8.0;HDR=" + HDR + ";IMEX=0'";
 
                 DataSet dataSet = new DataSet(RootNodeName);
                 dataSet.Namespace = NamespaceBase;

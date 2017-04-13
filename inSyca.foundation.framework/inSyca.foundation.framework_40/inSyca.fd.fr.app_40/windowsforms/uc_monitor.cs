@@ -32,7 +32,8 @@ namespace inSyca.foundation.framework.application.windowsforms
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            UserControlEventFired?.Invoke(rtb_monitoring, new UserControlEventFiredArgs(UserControlEventFiredArgs.function.Start));
+            if (UserControlEventFired != null)
+                UserControlEventFired(rtb_monitoring, new UserControlEventFiredArgs(UserControlEventFiredArgs.function.Start));
         }
 
         public void WriteOutput(string output, Color color)
@@ -43,7 +44,7 @@ namespace inSyca.foundation.framework.application.windowsforms
 
             Invoke((Action)(() =>
             {
-                if(rtb_monitoring.Text.Length > 1)
+                if (rtb_monitoring.Text.Length > 1)
                     rtb_monitoring.Select(rtb_monitoring.Text.Length - 1, 0);
                 //  Write the output.
                 rtb_monitoring.SelectionColor = color;
@@ -54,7 +55,8 @@ namespace inSyca.foundation.framework.application.windowsforms
 
         private void btn_Stop_Click(object sender, EventArgs e)
         {
-            UserControlEventFired?.Invoke(rtb_monitoring, new UserControlEventFiredArgs(UserControlEventFiredArgs.function.Stop));
+            if (UserControlEventFired != null)
+                UserControlEventFired(rtb_monitoring, new UserControlEventFiredArgs(UserControlEventFiredArgs.function.Stop));
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)

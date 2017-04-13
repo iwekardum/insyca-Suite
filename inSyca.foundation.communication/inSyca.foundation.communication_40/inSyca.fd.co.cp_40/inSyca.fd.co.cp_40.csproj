@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="foundation.framework\testing.cs" />
     <Compile Include="Ftp.cs" />
     <Compile Include="foundation.framework\configuration.cs" />
     <Compile Include="foundation.framework\log.cs" />

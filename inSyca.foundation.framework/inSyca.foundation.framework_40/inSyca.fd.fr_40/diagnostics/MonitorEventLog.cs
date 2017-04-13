@@ -12,14 +12,14 @@ namespace inSyca.foundation.framework.diagnostics
 {
     public class WindowsEventType : EventType
     {
-        public const string eventLogApplicationEvent = "Application Log Event";
-        public const string eventLogSystemEvent = "System Log Event";
-        public const string eventLogSecurityEvent = "Security Log Event";
+        internal const string eventLogApplicationEvent = "Application Log Event";
+        internal const string eventLogSystemEvent = "System Log Event";
+        internal const string eventLogSecurityEvent = "Security Log Event";
     }
 
-    class MonitorEventLog : Monitor<MonitorEventLog>
+    internal class MonitorEventLog : Monitor<MonitorEventLog>
     {
-        public MonitorEventLog()
+        internal MonitorEventLog()
         {
         }
 

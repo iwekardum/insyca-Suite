@@ -11,7 +11,7 @@ namespace inSyca.foundation.framework.diagnostics
  
         internal static bool logInitialized = false;
 
-        protected static log4net.ILog inSycaLogger
+        private static log4net.ILog inSycaLogger
         {
             get
             {

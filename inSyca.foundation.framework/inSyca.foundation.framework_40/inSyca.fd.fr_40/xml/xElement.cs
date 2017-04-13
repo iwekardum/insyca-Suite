@@ -21,6 +21,5 @@ namespace inSyca.foundation.framework.xml
             }
             while (empties.Count() > 0);
         }
-
     }
 }

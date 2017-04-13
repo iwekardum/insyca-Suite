@@ -137,7 +137,7 @@ namespace inSyca.foundation.integration.biztalk.adapter.common
 	[Serializable()]
     public class ErrorTransmitUnexpectedClrException : AdapterException
 	{
-		public ErrorTransmitUnexpectedClrException (string message) : base(String.Format("An unexpected failure occurred while processing a message. The text associated with the exception is \"{0}\".", message)) { }
+		public ErrorTransmitUnexpectedClrException (string message) : base(String.Format("An unexpected failure occurred while processing a message. The text associated with the exception is '{0}'.", message)) { }
 
 		protected ErrorTransmitUnexpectedClrException (SerializationInfo info, StreamingContext context) : base(info, context) { }
 	}

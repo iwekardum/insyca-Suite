@@ -70,7 +70,6 @@
     <Compile Include="BizTalkClient.cs" />
     <Compile Include="foundation.framework\configuration.cs" />
     <Compile Include="foundation.framework\log.cs" />
-    <Compile Include="foundation.framework\testing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

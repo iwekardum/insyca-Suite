@@ -86,7 +86,7 @@ namespace inSyca.foundation.framework.configuration
                     }
                     catch (Exception ex)
                     {
-                        diagnostics.Log.Warn(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
+                        Log.Warn(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
                         // do not convert! do not throw exception!
                     }
 

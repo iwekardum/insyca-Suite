@@ -198,7 +198,6 @@ namespace inSyca.foundation.framework.io
             dsFileSystemEntry.dtFolderEntry.AdddtFolderEntryRow(folderEntryRow);
         }
 
-
         private void ProcessFile(data.dsFileSystemConfig.EntryRow entryRow, data.dsFileSystemEntry.dtResultRow resultRow, data.dsFileSystemEntry.dtFolderEntryRow folderEntryRow, string strFile, ref List<string> errorFiles)
         {
             FileInfo fileInfo = new FileInfo(strFile);
@@ -325,8 +324,6 @@ namespace inSyca.foundation.framework.io
         protected void SetHtmlMessage(data.dsFileSystemConfig.EntryRow oScanFilesRow, data.dsFileSystemEntry.dtResultRow resultDataRow, out LogEntry logEntry)
         {
             logEntry = new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null);
-
-            //logEntry.Settings.MailLogLevel = 2;
 
             string entryTypeColor = EntryType.InformationColor;
 

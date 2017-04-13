@@ -30,7 +30,7 @@ namespace inSyca.foundation.framework.schedules
     public class Schedulation
     {
 
-        #region Attributter
+        #region Attributes
 
         private DateTime m_lastAlarm = DateTime.MinValue;
         /// <summary>

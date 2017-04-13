@@ -112,7 +112,8 @@ namespace inSyca.foundation.framework.diagnostics
 
                 Log.DebugFormat("SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, DataSet logEntryDataSet {2}, DataRow logEntryDataRow {3})\nBefore Fire Monitoring Event: MonitoringEvent {4}", eventArrivedEventArgs, eventType, logEntryDataSet, logEntryDataRow, MonitoringEvent );
 
-                MonitoringEvent?.Invoke(null, new MonitoringEventArgs(logEntryDataRow));
+                if (MonitoringEvent != null)
+                    MonitoringEvent(null, new MonitoringEventArgs(logEntryDataRow));
 
                 Log.DebugFormat("SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, DataSet logEntryDataSet {2}, DataRow logEntryDataRow {3})\nAfter Fire Monitoring Event: MonitoringEvent {4}", eventArrivedEventArgs, eventType, logEntryDataSet, logEntryDataRow, MonitoringEvent);
             }

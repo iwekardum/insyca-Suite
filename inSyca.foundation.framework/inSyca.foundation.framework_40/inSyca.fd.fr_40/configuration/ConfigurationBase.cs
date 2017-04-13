@@ -43,8 +43,6 @@ namespace inSyca.foundation.framework.configuration
                 if (settings == null)
                     settings = new Settings();
 
-                //                settings.ConfigFileInfo = new FileInfo(configuration.FilePath);
-
                 return settings;
             }
         }

@@ -26,7 +26,8 @@ namespace inSyca.foundation.framework.configuration
 
         public void FireLogEvent(object sender, LogEventFiredArgs logEventFiredArgs)
         {
-            LogEventFired?.Invoke(sender, logEventFiredArgs);
+            if (LogEventFired != null)
+                LogEventFired(sender, logEventFiredArgs);
         }
     }
 }

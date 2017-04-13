@@ -90,7 +90,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
             {
                Log.InfoFormat("Setup watcher for server: {0}", server );
 
-                MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Start WMI for Server: " + server));
+                if (MonitoringEvent != null)
+                    MonitoringEvent(null, new MonitoringEventArgs("Start WMI for Server: " + server));
 
                 if (string.IsNullOrEmpty(server))
                     return;
@@ -114,13 +115,14 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
 
                 try
                 {
-                    WqlEventQuery hostInstanceQuery = new WqlEventQuery("__InstanceModificationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA \"MSBTS_HostInstance\"");
+                    WqlEventQuery hostInstanceQuery = new WqlEventQuery("__InstanceModificationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA 'MSBTS_HostInstance'");
                     hostInstanceWatcher = new ManagementEventWatcher(new ManagementScope(managementPathBizTalk, managementConnectionOptions), hostInstanceQuery);
                     hostInstanceWatcher.EventArrived += new EventArrivedEventHandler(hostInstanceEventHandler);
                     hostInstanceWatcher.Start();
                     hostInstanceWatcherList.Add(hostInstanceWatcher);
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("hostInstanceWatcher started. Query:" + hostInstanceQuery.QueryString));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("hostInstanceWatcher started. Query:" + hostInstanceQuery.QueryString));
 
                     Log.InfoFormat("hostInstanceWatcher started. Query: {0}", hostInstanceQuery.QueryString );
                 }
@@ -132,7 +134,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                         hostInstanceWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (hostInstanceWatcher): " + ex.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (hostInstanceWatcher): " + ex.Message));
 
                     Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Error (hostInstanceWatcher): {0}", new object[] { ex.Message }));
                 }
@@ -147,7 +150,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     serviceInstanceSuspendedWatcher.Start();
                     serviceInstanceSuspendedWatcherList.Add(serviceInstanceSuspendedWatcher);
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("serviceInstanceSuspendedWatcher started. Query:" + serviceInstanceSuspendedQuery.QueryString));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("serviceInstanceSuspendedWatcher started. Query:" + serviceInstanceSuspendedQuery.QueryString));
 
                     Log.InfoFormat("serviceInstanceSuspendedWatcher started. Query: {0}", serviceInstanceSuspendedQuery.QueryString );
                 }
@@ -159,7 +163,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                         serviceInstanceSuspendedWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (serviceInstanceSuspendedWatcher): " + ex.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (serviceInstanceSuspendedWatcher): " + ex.Message));
 
                     Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Error (serviceInstanceSuspendedWatcher): {0}", new object[] { ex.Message }));
                 }
@@ -168,13 +173,14 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
 
                 try
                 {
-                    WqlEventQuery receiveLocationQuery = new WqlEventQuery("__InstanceModificationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA \"MSBTS_ReceiveLocation\"");
+                    WqlEventQuery receiveLocationQuery = new WqlEventQuery("__InstanceModificationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA 'MSBTS_ReceiveLocation'");
                     receiveLocationWatcher = new ManagementEventWatcher(new ManagementScope(managementPathBizTalk, managementConnectionOptions), receiveLocationQuery);
                     receiveLocationWatcher.EventArrived += new EventArrivedEventHandler(receiveLocationEventHandler);
                     receiveLocationWatcher.Start();
                     receiveLocationWatcherList.Add(receiveLocationWatcher);
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("receiveLocationWatcher started. Query:" + receiveLocationQuery.QueryString));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("receiveLocationWatcher started. Query:" + receiveLocationQuery.QueryString));
 
                     Log.InfoFormat("receiveLocationWatcher started. Query: {0}",  receiveLocationQuery.QueryString );
                 }
@@ -186,7 +192,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                         receiveLocationWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (receiveLocationWatcher): " + ex.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (receiveLocationWatcher): " + ex.Message));
 
                     Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Error (receiveLocationWatcher): {0}", new object[] { ex.Message }));
                 }
@@ -195,13 +202,14 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
 
                 try
                 {
-                    WqlEventQuery sendPortQuery = new WqlEventQuery("__InstanceModificationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA \"MSBTS_SendPort\"");
+                    WqlEventQuery sendPortQuery = new WqlEventQuery("__InstanceModificationEvent", new TimeSpan(0, 0, 10), "TargetInstance ISA 'MSBTS_SendPort'");
                     sendPortWatcher = new ManagementEventWatcher(new ManagementScope(managementPathBizTalk, managementConnectionOptions), sendPortQuery);
                     sendPortWatcher.EventArrived += new EventArrivedEventHandler(sendPortEventHandler);
                     sendPortWatcher.Start();
                     sendPortWatcherList.Add(sendPortWatcher);
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("sendPortWatcher started. Query:" + sendPortQuery.QueryString));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("sendPortWatcher started. Query:" + sendPortQuery.QueryString));
 
                     Log.InfoFormat("sendPortWatcher started. Query: {0}", sendPortQuery.QueryString );
                 }
@@ -213,7 +221,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                         sendPortWatcher.Dispose();
                     }
 
-                    MonitoringEvent?.Invoke(null, new MonitoringEventArgs("Error (sendPortWatcher): " + ex.Message));
+                    if (MonitoringEvent != null)
+                        MonitoringEvent(null, new MonitoringEventArgs("Error (sendPortWatcher): " + ex.Message));
 
                     Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Error (sendPortWatcher): {0}", new object[] { ex.Message }));
                 }
@@ -224,7 +233,7 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
 
         static public void hostInstanceEventHandler(object sender, EventArrivedEventArgs e)
         {
-           Log.DebugFormat("hostInstanceEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e );
+            Log.DebugFormat("hostInstanceEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
             //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
             //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
@@ -235,7 +244,7 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
 
         static public void receiveLocationEventHandler(object sender, EventArrivedEventArgs e)
         {
-           Log.DebugFormat("receiveLocationEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e );
+            Log.DebugFormat("receiveLocationEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
             //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
             //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);

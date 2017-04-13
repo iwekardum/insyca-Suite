@@ -24,7 +24,8 @@ namespace inSyca.foundation.framework.application.windowsforms
         private void tabStrip_Navigation_SelectedTabChanged(object sender, SelectedTabChangedEventArgs e)
         {
             this.Invalidate();
-            NavigationChanged?.Invoke(tabStrip_navigation, new SelectedTabChangedEventArgs(tabStrip_navigation.SelectedTab));
+            if (NavigationChanged != null)
+                NavigationChanged(tabStrip_navigation, new SelectedTabChangedEventArgs(tabStrip_navigation.SelectedTab));
         }
 
         private void uc_main_Load(object sender, EventArgs e)
