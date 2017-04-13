@@ -11,8 +11,6 @@ namespace inSyca.foundation.framework.application.windowsforms
 {
     abstract public partial class configurator : Form
     {
-        protected decimal maxLogRecords { get; set; }
-
         protected DataSet eventEntry { get; set; }
         protected DataSet logEntry { get; set; }
 

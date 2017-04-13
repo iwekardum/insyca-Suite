@@ -207,23 +207,8 @@
   <data name="info_workingset" xml:space="preserve">
     <value>Working Set</value>
   </data>
-  <data name="logpath" xml:space="preserve">
-    <value>Path to use for storing Logfiles</value>
-  </data>
   <data name="logservernames" xml:space="preserve">
     <value>Servers to log WMI Events~Separate multiple servers with semicolon</value>
-  </data>
-  <data name="mailloglevel" xml:space="preserve">
-    <value>Loglevel for Mail Logging~-1 = No Logging; 0 = Error only; 1 = Error and Warning only; 2 = Error, Warning and Information</value>
-  </data>
-  <data name="mailmessagefrom" xml:space="preserve">
-    <value>Specifies the from address for outgoing e-mails.</value>
-  </data>
-  <data name="mailmessageto" xml:space="preserve">
-    <value>Receipients for Mail Logging~Separate multiple recipients with semicolon</value>
-  </data>
-  <data name="maxlogrecords" xml:space="preserve">
-    <value>Maximum Records to log before writing to file on disk~-1 = do not store to disk; 0 = On Configurator exit only; &gt;0 = Number of Records to keep in Memory before writing to file</value>
   </data>
   <data name="mb_caption" xml:space="preserve">
     <value>Application Configuration</value>

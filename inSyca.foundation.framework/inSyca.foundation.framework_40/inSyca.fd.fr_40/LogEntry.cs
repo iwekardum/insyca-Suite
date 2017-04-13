@@ -21,7 +21,7 @@ namespace inSyca.foundation.framework
                 return new System.Net.Mail.Attachment(ContentStream, ContentName);
             }
         }
-        
+
         public Stream ContentStream { get; set; }
         public string ContentName { get; set; }
 
@@ -111,15 +111,16 @@ namespace inSyca.foundation.framework
             }
         }
 
-        public string Subject
+
+        public override string ToString()
         {
-            get
+            try
             {
-                StringBuilder sbEntry = new StringBuilder();
-
-                sbEntry.Append(Dns.GetHostName());
-
-                return sbEntry.ToString();
+                return string.Format(AdditionalString, AdditionalParameters);
+            }
+            catch (Exception)
+            {
+                return AdditionalString;
             }
         }
 
@@ -237,7 +238,7 @@ namespace inSyca.foundation.framework
             try
             {
                 eventEntry.Append("\rAdditional Information:\n");
-                
+
                 if (AdditionalParameters != null)
                     eventEntry.AppendFormat(AdditionalString, AdditionalParameters);
                 else

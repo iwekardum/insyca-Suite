@@ -195,7 +195,7 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
             dsLogEntry logEntry = (dsLogEntry)logEntryDataSet;
             dsLogEntry.dtLogEntryRow logEntryRow = (dsLogEntry.dtLogEntryRow)logEntryDataRow;
 
-            if ((data.Value != null && data.Name == "TargetInstance"))
+            if (data.Value != null && (data.Name == "TargetInstance"))
             {
                 ManagementBaseObject mbo = (ManagementBaseObject)data.Value;
                 dsLogEntry.dtManagementBaseObjectRow managementBaseObjectRow = logEntry.dtManagementBaseObject.NewdtManagementBaseObjectRow();
@@ -582,7 +582,6 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                                         break;
                                     case "Status":
                                         GenerateSendPortMessage(Convert.ToInt16(propertiesRow.value), eventEntryRow);
-                                        eventEntryRow.status = propertiesRow.value;
                                         break;
                                     case "STCustomCfg":
                                         eventEntryRow.stcustomcfg = propertiesRow.value;
@@ -648,11 +647,13 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
             {
                 eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                 eventEntryRow.message = string.Format("<span style='color: {0}'>Disabled</span>", EntryType.InactiveColor);
+                eventEntryRow.status = "Disabled";
             }
             else
             {
                 eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Information).ToString();
                 eventEntryRow.message = string.Format("<span style='color: {0}'>Enabled</span>", EntryType.ActiveColor);
+                eventEntryRow.status = "Enabled";
             }
         }
 
@@ -665,14 +666,17 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                 case (int)SendPortStatus.Bound:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Information).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Bound</span>", EntryType.InformationColor);
+                    eventEntryRow.status = "Bound";
                     break;
                 case (int)SendPortStatus.Stopped:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Stopped</span>", EntryType.InactiveColor);
+                    eventEntryRow.status = "Stopped";
                     break;
                 case (int)SendPortStatus.Started:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Information).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Started</span>", EntryType.ActiveColor);
+                    eventEntryRow.status = "Started";
                     break;
             }
         }
@@ -806,34 +810,42 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                 case (int)HostInstanceServiceState.Continuepending:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Continue Pending</span>", EntryType.WarningColor);
+                    eventEntryRow.status = "Continue Pending";
                     break;
                 case (int)HostInstanceServiceState.Paused:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Paused</span>", EntryType.WarningColor);
+                    eventEntryRow.status = "Paused";
                     break;
                 case (int)HostInstanceServiceState.PausePending:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Pause Pending</span>", EntryType.WarningColor);
+                    eventEntryRow.status = "Pause Pending";
                     break;
                 case (int)HostInstanceServiceState.Running:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Information).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Running</span>", EntryType.ActiveColor);
+                    eventEntryRow.status = "Running";
                     break;
                 case (int)HostInstanceServiceState.StartPending:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Start Pending</span>", EntryType.WarningColor);
+                    eventEntryRow.status = "Start Pending";
                     break;
                 case (int)HostInstanceServiceState.Stopped:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Stopped</span>", EntryType.InactiveColor);
+                    eventEntryRow.status = "Stopped";
                     break;
                 case (int)HostInstanceServiceState.StopPending:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Stop Pending</span>", EntryType.WarningColor);
+                    eventEntryRow.status = "Stop Pending";
                     break;
                 case (int)HostInstanceServiceState.Unknown:
                     eventEntryRow.entrytypecode = ((int)System.Diagnostics.EventLogEntryType.Warning).ToString();
                     eventEntryRow.message = string.Format("<span style='color: {0}'>Unknown</span>", EntryType.InactiveColor);
+                    eventEntryRow.status = "Unknown";
                     break;
             }
         }
@@ -868,6 +880,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
             {
                 case BizTalkEventType.suspendedMessageEvent:
                     {
+                        logEntry.AdditionalString = "Host Name: {0}, Service Name: {1}, Message Status {2}, Adapter Type: {3}, Url: {4}";
+                        logEntry.AdditionalParameters = new object[] { eventEntryRow.hostname, eventEntryRow.servicetype, eventEntryRow.messagestatus, eventEntryRow.adaptername, eventEntryRow.url };
+
                         htmlHeader = Properties.Resource.SuspendedMessage.Substring(0, Properties.Resource.SuspendedMessage.IndexOf("<body>"));
                         htmlBody = string.Format(Properties.Resource.SuspendedMessage.Substring(Properties.Resource.SuspendedMessage.IndexOf("<body>")),
                                                         string.Format("<span style='color: {0}'>{1}</span>", entryTypeColor, eventEntryRow.messagestatus),
@@ -890,6 +905,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     break;
                 case BizTalkEventType.hostInstanceEvent:
                     {
+                        logEntry.AdditionalString = "Server: {0}, Hostinstance Name: {1}, Hostinstance Status: {2}, Hostinstance Type: {3}";
+                        logEntry.AdditionalParameters = new object[] { eventEntryRow.server, eventEntryRow.hostname, eventEntryRow.status, eventEntryRow.hosttype };
+
                         htmlHeader = Properties.Resource.HostInstance.Substring(0, Properties.Resource.HostInstance.IndexOf("<body>"));
                         htmlBody = string.Format(Properties.Resource.HostInstance.Substring(Properties.Resource.HostInstance.IndexOf("<body>")),
                                                         eventEntryRow.message,
@@ -907,6 +925,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     break;
                 case BizTalkEventType.receiveLocationEvent:
                     {
+                        logEntry.AdditionalString = "Server: {0}, Receiveport Name: {1}, Receiveport Status: {2}, Receiveport Type: {3}, Receiveport Address: {4}";
+                        logEntry.AdditionalParameters = new object[] { eventEntryRow.server, eventEntryRow.receiveportname, eventEntryRow.status, eventEntryRow.adaptername, eventEntryRow.inboundtransporturl };
+
                         htmlHeader = Properties.Resource.ReceiveLocation.Substring(0, Properties.Resource.ReceiveLocation.IndexOf("<body>"));
                         htmlBody = string.Format(Properties.Resource.ReceiveLocation.Substring(Properties.Resource.ReceiveLocation.IndexOf("<body>")),
                                                         eventEntryRow.message,
@@ -920,6 +941,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     break;
                 case BizTalkEventType.sendPortEvent:
                     {
+                        logEntry.AdditionalString = "Server: {0}, Sendport Name: {1}, Sendport Status: {2}, Sendport Type: {3}, Sendport Address: {4}";
+                        logEntry.AdditionalParameters = new object[] { eventEntryRow.server, eventEntryRow.name, eventEntryRow.status, eventEntryRow.pttransporttype, eventEntryRow.ptaddress };
+
                         htmlHeader = Properties.Resource.SendPort.Substring(0, Properties.Resource.SendPort.IndexOf("<body>"));
                         htmlBody = string.Format(Properties.Resource.SendPort.Substring(Properties.Resource.SendPort.IndexOf("<body>")),
                                                         eventEntryRow.message,

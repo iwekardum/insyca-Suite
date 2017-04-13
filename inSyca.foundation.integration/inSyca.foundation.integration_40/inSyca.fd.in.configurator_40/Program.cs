@@ -14,9 +14,7 @@ namespace inSyca.foundation.integration.configurator
         [STAThread]
         static void Main(string[] args)
         {
-            log4net.Util.LogLog.InternalDebugging = true;
-
-            Log.InfoFormat("Main(string[] args {0}\nApplication started)", args);
+            Log.InfoFormat("Main(string[] args {0}\nApplication started)", args.ToString());
 
             if (!SingleInstance.Start()) { return; } // mutex not obtained so exit
 
@@ -48,7 +46,7 @@ namespace inSyca.foundation.integration.configurator
 
             SingleInstance.Stop(); // all finished so release the mutex
 
-            Log.InfoFormat("Main(string[] args {0}\nApplication closed)", args);
+            Log.InfoFormat("Main(string[] args {0}\nApplication closed)", args.ToString());
         }
     }
 }

@@ -211,6 +211,9 @@ namespace inSyca.foundation.framework.diagnostics
                 case WindowsEventType.eventLogSecurityEvent:
                 case WindowsEventType.eventLogSystemEvent:
                     {
+                        logEntry.AdditionalString = "Computername: {0}, Logname: {1}, Source: {2}, Message: {3}";
+                        logEntry.AdditionalParameters = new object[] { eventEntryRow.computername, eventEntryRow.logname, eventEntryRow.source, eventEntryRow.message.Replace("\r\n", "\t").Replace(" \t", "\t").Replace("\t ", "\t") };
+
                         htmlHeader = Properties.Resources.EventLog.Substring(0, Properties.Resources.EventLog.IndexOf("<body>"));
                         htmlBody = string.Format(Properties.Resources.EventLog.Substring(Properties.Resources.EventLog.IndexOf("<body>")),
                                                         string.Format("<span style='color: {0}'>{1}</span>", entryTypeColor, eventEntryRow.entrytype),
@@ -220,7 +223,7 @@ namespace inSyca.foundation.framework.diagnostics
                                                         eventEntryRow.eventcode,
                                                         eventEntryRow.logname,
                                                         string.Format("{0}", System.Management.ManagementDateTimeConverter.ToDateTime(eventEntryRow.timegenerated)),
-                                                        eventEntryRow.message.Replace("\n\r", "<br/><br/>").Replace("\n", "<br/>"));
+                                                        eventEntryRow.message.Replace("\r\n", "<br/>").Replace("\n", "<br/>"));
                     }
                     break;
             }

@@ -361,56 +361,11 @@ namespace inSyca.foundation.framework.application.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Path to use for storing Logfiles.
-        /// </summary>
-        public static string logpath {
-            get {
-                return ResourceManager.GetString("logpath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Servers to log WMI Events~Separate multiple servers with semicolon.
         /// </summary>
         public static string logservernames {
             get {
                 return ResourceManager.GetString("logservernames", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loglevel for Mail Logging~-1 = No Logging; 0 = Error only; 1 = Error and Warning only; 2 = Error, Warning and Information.
-        /// </summary>
-        public static string mailloglevel {
-            get {
-                return ResourceManager.GetString("mailloglevel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Specifies the from address for outgoing e-mails..
-        /// </summary>
-        public static string mailmessagefrom {
-            get {
-                return ResourceManager.GetString("mailmessagefrom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Receipients for Mail Logging~Separate multiple recipients with semicolon.
-        /// </summary>
-        public static string mailmessageto {
-            get {
-                return ResourceManager.GetString("mailmessageto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Maximum Records to log before writing to file on disk~-1 = do not store to disk; 0 = On Configurator exit only; &gt;0 = Number of Records to keep in Memory before writing to file.
-        /// </summary>
-        public static string maxlogrecords {
-            get {
-                return ResourceManager.GetString("maxlogrecords", resourceCulture);
             }
         }
         

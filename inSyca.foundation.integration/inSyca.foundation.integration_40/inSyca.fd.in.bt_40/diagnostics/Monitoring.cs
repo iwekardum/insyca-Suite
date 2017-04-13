@@ -14,37 +14,15 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
 {
     public static class Monitoring
     {
-        static public event EventHandler<inSyca.foundation.framework.diagnostics.MonitoringEventArgs> MonitoringEvent;
-        static public event EventHandler<inSyca.foundation.framework.diagnostics.MonitoringEventArgs> EventEntryEvent;
-
-        static private decimal _MaxLogRecords = decimal.MaxValue;
-        static public decimal MaxLogRecords
-        {
-            get
-            {
-                if (_MaxLogRecords == decimal.MaxValue)
-                    _MaxLogRecords = Configuration.GetNumericAppSettingsValue("MaxLogRecords");
-
-                return _MaxLogRecords;
-            }
-        }
-
-        static private string _LogPath;
-        static public string LogPath
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_LogPath))
-                    _LogPath = Configuration.GetTextAppSettingsValue("LogPath");
-
-                return _LogPath;
-            }
-        }
+        static public event EventHandler<MonitoringEventArgs> MonitoringEvent;
+        static public event EventHandler<MonitoringEventArgs> EventEntryEvent;
 
         static private List<ManagementEventWatcher> hostInstanceWatcherList;
         static private List<ManagementEventWatcher> serviceInstanceSuspendedWatcherList;
         static private List<ManagementEventWatcher> receiveLocationWatcherList;
         static private List<ManagementEventWatcher> sendPortWatcherList;
+
+        static private MonitorBizTalk monitorBizTalk;
 
         public static void disposeWatcher()
         {
@@ -94,6 +72,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         public static void invokeWatcher()
         {
             Log.Debug("invokeWatcher()");
+
+            monitorBizTalk = new MonitorBizTalk();
+            monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
 
             string[] serverCollection = Configuration.GetTextAppSettingsValue("LogServerNames").Split(';');
 
@@ -245,8 +226,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
            Log.DebugFormat("hostInstanceEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e );
 
-            MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
+            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
+            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.hostInstanceEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -256,8 +237,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
            Log.DebugFormat("receiveLocationEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e );
 
-            MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
+            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
+            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.receiveLocationEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -267,8 +248,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("sendPortEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
-            MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
+            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
+            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.sendPortEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -278,8 +259,8 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("suspendedMessageEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
-            MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
+            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
+            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.suspendedMessageEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));

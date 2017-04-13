@@ -129,10 +129,10 @@ publish/
 #*.pubxml
 
 # NuGet Packages Directory
-packages/*
+!packages/*
 ## TODO: If the tool you use requires repositories.config
 ## uncomment the next line
-#!packages/repositories.config
+!packages/repositories.config
 
 # Enable "build/" folder in the NuGet Packages folder since
 # NuGet packages use it for MSBuild targets.
@@ -206,3 +206,4 @@ ModelManifest.xml
 /inSyca.bt.global/insyca.bt.gl.documentation/Help/toc
 /inSyca.bt.global/insyca.bt.gl.documentation/Help/styles
 /inSyca.bt.global/insyca.bt.gl.documentation/Help/scripts
+/.vs/config

@@ -24,10 +24,10 @@ namespace inSyca.foundation.framework.configurator
 
             try
             {
-                if (framework.application.Program.Uninstall())
+                if (application.Program.Uninstall())
                     return;
 
-                if (framework.application.Program.UnattendedMode())
+                if (application.Program.UnattendedMode())
                 {
                     Application.Run(new framework_configurator());
 

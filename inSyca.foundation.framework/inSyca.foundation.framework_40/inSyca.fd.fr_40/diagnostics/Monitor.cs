@@ -52,13 +52,16 @@ namespace inSyca.foundation.framework.diagnostics
 
             switch (eventEntryTypeCode)
             {
-                case (int)System.Diagnostics.EventLogEntryType.Error:
+                //Error
+                case 1:
                     SetError(eventEntryDataRow);
                     break;
-                case (int)System.Diagnostics.EventLogEntryType.Warning:
+                //Warning
+                case 2:
                     SetWarning(eventEntryDataRow);
                     break;
-                case (int)System.Diagnostics.EventLogEntryType.Information:
+                //Info
+                case 3:
                     SetInformation(eventEntryDataRow);
                     break;
                 default:
@@ -82,14 +85,14 @@ namespace inSyca.foundation.framework.diagnostics
                     InsertLogEntryRow(eventType, logEntryDataSet, logEntryDataRow, data);
                 }
 
-                QualifierDataCollection qualifierDataCollection = managementBaseObject.Qualifiers;
-                QualifierDataCollection.QualifierDataEnumerator qualifierDataEnumerator = qualifierDataCollection.GetEnumerator();
+                //QualifierDataCollection qualifierDataCollection = managementBaseObject.Qualifiers;
+                //QualifierDataCollection.QualifierDataEnumerator qualifierDataEnumerator = qualifierDataCollection.GetEnumerator();
 
-                while (qualifierDataEnumerator.MoveNext())
-                {
-                    QualifierData data = qualifierDataEnumerator.Current;
-//                    InsertLogEntryRow(eventType, logEntryDataSet, logEntryDataRow, data);
-                }
+                //while (qualifierDataEnumerator.MoveNext())
+                //{
+                //    QualifierData data = qualifierDataEnumerator.Current;
+                //    InsertLogEntryRow(eventType, logEntryDataSet, logEntryDataRow, data);
+                //}
 
                 PropertyDataCollection systemPropertyDataCollection = managementBaseObject.SystemProperties;
                 PropertyDataCollection.PropertyDataEnumerator systemPropertyDataEnumerator = systemPropertyDataCollection.GetEnumerator();
@@ -97,7 +100,7 @@ namespace inSyca.foundation.framework.diagnostics
                 while (systemPropertyDataEnumerator.MoveNext())
                 {
                     PropertyData data = systemPropertyDataEnumerator.Current;
-                    //InsertLogEntryRow(eventType, logEntryDataSet, logEntryDataRow, data);
+                    InsertLogEntryRow(eventType, logEntryDataSet, logEntryDataRow, data);
                 }
 
                 propertyDataEnumerator.Reset();

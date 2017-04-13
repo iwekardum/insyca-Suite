@@ -1,12 +1,10 @@
-﻿using System.Windows.Forms;
-
-using inSyca.foundation.framework.application.windowsforms;
-using inSyca.foundation.framework.diagnostics;
+﻿using inSyca.foundation.framework.application.windowsforms;
 using inSyca.foundation.framework.data;
-using System.Drawing;
+using inSyca.foundation.framework.diagnostics;
 using System;
 using System.Data;
-using System.Reflection;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace inSyca.foundation.framework.configurator
 {
@@ -24,22 +22,21 @@ namespace inSyca.foundation.framework.configurator
             InitializeComponent();
             
             configFiles[fr_lib].RegistryKey = reg_fr_lib;
-            maxLogRecords = foundation.framework.diagnostics.Monitoring.MaxLogRecords;
         }
 
         private void uc_framework_NavigationChanged(object sender, SelectedTabChangedEventArgs e)
         {
             UserControl control = null;
 
-            if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_logging_name)
+            if (e.SelectedTab.Name == application.Properties.Resources.tab_logging_name)
                 control = new uc_logging(configFiles[fr_lib]);
-            else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
+            else if (e.SelectedTab.Name == application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp(configFiles[fr_lib]);
-            else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
+            else if (e.SelectedTab.Name == application.Properties.Resources.tab_information_name)
                 control = new uc_information(configFiles[fr_lib], new Information());
-            else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
+            else if (e.SelectedTab.Name == application.Properties.Resources.tab_test_name)
                 control = new uc_test(configFiles[fr_lib]);
-            else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_monitoring_name)
+            else if (e.SelectedTab.Name == application.Properties.Resources.tab_monitoring_name)
                 control = new uc_monitoring(configFiles[fr_lib]);
             else
                 return;
@@ -64,18 +61,18 @@ namespace inSyca.foundation.framework.configurator
             eventEntry = new dsEventEntry();
             logEntry = new dsLogEntry();
 
-            framework.diagnostics.Monitoring.MonitoringEvent += new System.EventHandler<MonitoringEventArgs>(MonitoringEvent);
-            framework.diagnostics.Monitoring.EventEntryEvent += new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+            Monitoring.MonitoringEvent += new System.EventHandler<MonitoringEventArgs>(MonitoringEvent);
+            Monitoring.EventEntryEvent += new EventHandler<MonitoringEventArgs>(EventEntryEvent);
 
-            framework.diagnostics.Monitoring.invokeWatcher();
+            Monitoring.invokeWatcher();
         }
 
         override protected void DisposeWatcher()
         {
-            framework.diagnostics.Monitoring.MonitoringEvent -= new System.EventHandler<MonitoringEventArgs>(MonitoringEvent);
-            framework.diagnostics.Monitoring.EventEntryEvent -= new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+            Monitoring.MonitoringEvent -= new System.EventHandler<MonitoringEventArgs>(MonitoringEvent);
+            Monitoring.EventEntryEvent -= new EventHandler<MonitoringEventArgs>(EventEntryEvent);
 
-            framework.diagnostics.Monitoring.disposeWatcher();
+            Monitoring.disposeWatcher();
 
             uc_monitor.WriteOutput("----------------------------------------", Color.Red);
             uc_monitor.WriteOutput("\nMONITORING STOPPED\n", Color.Red);

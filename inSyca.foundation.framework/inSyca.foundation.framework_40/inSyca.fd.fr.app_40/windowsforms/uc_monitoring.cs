@@ -38,10 +38,8 @@ namespace inSyca.foundation.framework.application.windowsforms
                 switch (xNode.Attribute("key").Value.ToLower())
                 {
                     case "logservernames":
-                    case "maxlogrecords":
                     case "applicationsource":
                     case "systemsource":
-                    case "logpath":
                         propertyComponent.AddProperty(transformAppSettingsXnode(xNode));
                         break;
                 }

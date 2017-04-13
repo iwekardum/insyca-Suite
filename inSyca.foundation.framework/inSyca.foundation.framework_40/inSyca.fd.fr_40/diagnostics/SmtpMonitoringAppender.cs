@@ -56,7 +56,7 @@ namespace inSyca.foundation.framework.diagnostics
 
             if (LogEntry != null)
             {
-                mailMessage.Subject = string.Format("[{0}] - {1}", LoggingEvent.Level.DisplayName, LogEntry.Subject);
+                mailMessage.Subject = string.Format("[{0}] - {1}", LoggingEvent.Level.DisplayName, LogEntry.ToString());
                 mailMessage.Body = LogEntry.MessageEntry;
                 if (!string.IsNullOrEmpty(LogEntry.HtmlString))
                 {
