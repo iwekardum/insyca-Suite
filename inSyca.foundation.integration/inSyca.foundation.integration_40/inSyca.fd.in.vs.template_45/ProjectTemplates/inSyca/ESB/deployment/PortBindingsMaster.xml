@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Variables set $-Sign before use of variable
+{bt_schema_AlwaysTrackAllProperties}  {bt_orchestration_TrackingOption} {bt_sp_Tracking}          {bt_rp_Tracking}          {bt_pipeline_TrackingOption}  {bt_orchestration_State}
+{wcf_closeTimeout}                    {wcf_openTimeout}                 {wcf_receiveTimeout}      {wcf_sendTimeout}         {wcf_maxBufferSize}           {wcf_maxBufferPoolSize}   {wcf_maxReceivedMessageSize}  {wcf_maxDepth}  {wcf_maxStringContentLength}  {wcf_maxArrayLength}  {wcf_maxBytesPerRead} {wcf_maxNameTableCharCount}
+{ax_service_identity}                 {ax_credential_domain}            {ax_credential_username}  {ax_credential_password}
+{rl_mp_sp_en1_status_in_file_address} {rl_mp_sp_en1_status_in_file_fileMask}
+{sp_mp_sp_en2_wcf_custom_address}     {sp_mp_sp_en2_wcf_custom_action}
+Variables-->
+<BindingInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Assembly="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Version="3.5.1.0" BindingStatus="FullyBound" BoundEndpoints="1" TotalEndpoints="1">
+  <Timestamp>2016-03-18T11:36:55.7654344+01:00</Timestamp>
+  <ModuleRefCollection xsi:nil="true">
+  </ModuleRefCollection>
+  <SendPortCollection xsi:nil="true">
+  </SendPortCollection>
+  <DistributionListCollection xsi:nil="true">
+  </DistributionListCollection>
+  <ReceivePortCollection xsi:nil="true">
+  </ReceivePortCollection>
+  <PartyCollection xsi:nil="true">
+  </PartyCollection>
+</BindingInfo>

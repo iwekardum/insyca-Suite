@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8BD3EF6-BFE3-4E0A-9E26-E3BB537D923D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>unittest</RootNamespace>
+    <AssemblyName>unittest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="configuration\createService.cmd" />
+    <None Include="configuration\deleteService.cmd" />
+    <None Include="configuration\messagebroker.reg" />
+    <None Include="documentation\ReleaseNotes.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="custom\inSyca_ExitDialog.wxs" />
+    <Content Include="custom\inSyca_InstallDirDlg.wxs" />
+    <Content Include="custom\inSyca_ProgressDlg.wxs" />
+    <Content Include="custom\inSyca_ReleaseNotesDlg.wxs" />
+    <Content Include="custom\inSyca_ServiceAccountDlg.wxs" />
+    <Content Include="custom\inSyca_VerifyReadyDlg.wxs" />
+    <Content Include="custom\inSyca_WelcomeDlg.wxs" />
+    <Content Include="custom\inSyca_WixUI_InstallDir.wxs" />
+    <Content Include="eventlog.wxi" />
+    <Content Include="gac.wxi" />
+    <Content Include="global.wxi" />
+    <Content Include="product.wxi" />
+    <Content Include="registry.wxi" />
+    <Content Include="ressources\banner_bitmap_001.bmp" />
+    <Content Include="ressources\banner_bitmap_002.bmp" />
+    <Content Include="ressources\product.ico" />
+    <Content Include="ressources\warning.bmp" />
+    <Content Include="setup.wxs" />
+    <Content Include="shortcuts.wxi" />
+    <Content Include="deployment.wixproj" />
+    <Content Include="destinationDeployment.cmd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

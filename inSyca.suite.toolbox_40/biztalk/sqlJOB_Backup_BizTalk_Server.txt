@@ -1,0 +1,16 @@
++++++++++++++ STEP 2: BackupFull +++++++++++++++++++++++
+
+exec [dbo].[sp_BackupAllFull_Schedule]
+'d'					/* Frequency */
+,'BTS'				/* Name */
+,'C:\BT_BCKUP' 		/* location of backup files */
+,1					/* auto full backup after failure */
+,20					/* local time hour for the full backup process to run */
+
++++++++++++++ STEP 3: MarkAndBackupLog +++++++++++++++++++++++
+
+exec [dbo].[sp_MarkAll] 
+'BTS'				/*  Log mark name */
+,'C:\BT_BCKUP' 		/* location of backup files */
+,1					/*use local time */
+

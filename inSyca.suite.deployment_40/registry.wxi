@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="registry">
+
+    <?define fd.fr        = "foundation.framework" ?>
+    <?define fd.fr.app    = "foundation.framework.application" ?>
+    <?define fd.fr.cfg    = "configurator.framework" ?>
+    <?define fd.fr.wsh    = "foundation.framework.wsh" ?>
+    <?define fd.co.cli    = "foundation.communication.clients" ?>
+    <?define fd.co.cp     = "foundation.communication.components" ?>
+    <?define fd.co.svc    = "foundation.communication.service" ?>
+    <?define fd.co.wcf    = "foundation.communication.wcf" ?>
+    <?define fd.co.wsh    = "foundation.communication.wsh" ?>
+    <?define fd.co.cfg    = "configurator.communication" ?>
+    <?define fd.in.bt.ap  = "foundation.integration.biztalk.adapter" ?>
+    <?define fd.in.bt.cp  = "foundation.integration.biztalk.components" ?>
+    <?define fd.in.bt.fx  = "foundation.integration.biztalk.functions" ?>
+    <?define fd.in.bt     = "foundation.integration.biztalk" ?>
+    <?define fd.in.wsh    = "foundation.integration.wsh" ?>
+    <?define fd.in.cfg    = "configurator.integration" ?>
+
+    <Component Id="registryEntries_x86" Guid="{A510109E-74EE-4852-B29E-91F4124DB89D}" Win64="no" Directory="INSTALLDIR">
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.app)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.app).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.cfg).exe.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.wsh).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.cfg).exe.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cli)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.cli).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cp)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.cp).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.svc)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.svc).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.wcf)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.wcf).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.wsh).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.cp)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.cp).config"/>
+        <RegistryValue Type="string" Name="SubstituteConfiguration" Value="[INSTALLDIR]cfg\substitute.xml"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.cfg).exe.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.ap)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.ap).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.fx)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.fx).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.wsh).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Value="inSyca File Adapter"/>
+        <RegistryValue Type="string" Name="AppID" Value="{12A6EBAA-CF68-4B58-B36E-A5A19B22C04E}"/>
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}\BizTalk" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Value="BizTalk"/>
+        <RegistryValue Type="string" Name="TransportType" Value="inSyca File"/>
+        <RegistryValue Type="integer" Name="Constraints" Value="15371"/>
+        <RegistryValue Type="string" Name="InboundProtocol_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A281}"/>
+        <RegistryValue Type="string" Name="OutboundProtocol_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A283}"/>
+        <RegistryValue Type="string" Name="ReceiveLocation_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A280}"/>
+        <RegistryValue Type="string" Name="TransmitLocation_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A282}"/>
+        <RegistryValue Type="string" Name="InboundEngineCLSID" Value="{62E68109-C8B0-43B2-A708-0DDB301F5972}"/>
+        <RegistryValue Type="string" Name="InboundTypeName" Value="inSyca.foundation.integration.biztalk.adapter.file.runtime.Receiver, inSyca.fd.in.bt.ap_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615"/>
+        <RegistryValue Type="string" Name="OutboundEngineCLSID" Value="{17A6257D-9A41-4EA4-8AFD-0ABEB7959976}"/>
+        <RegistryValue Type="string" Name="OutboundTypeName" Value="inSyca.foundation.integration.biztalk.adapter.file.runtime.Transmitter, inSyca.fd.in.bt.ap_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615"/>
+        <RegistryValue Type="string" Name="AdapterMgmtTypeName" Value="inSyca.foundation.integration.biztalk.adapter.file.design.StaticAdapterManagement, inSyca.fd.in.bt.ap_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615"/>
+        <RegistryValue Type="string" Name="PropertyNameSpace" Value="http://schemas.microsoft.com/BizTalk/2003/SDK_Samples/Messaging/Transports/dotnetfile-properties"/>
+        <RegistryValue Type="string" Name="AliasesXML" Value="&lt;AdapterAliasList&gt;&lt;AdapterAlias&gt;DotNetFILE://&lt;/AdapterAlias&gt;&lt;/AdapterAliasList&gt;"/>
+        <RegistryValue Type="string" Name="ReceiveHandlerPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+        <RegistryValue Type="string" Name="SendHandlerPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+        <RegistryValue Type="string" Name="ReceiveLocationPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+        <RegistryValue Type="string" Name="SendLocationPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}\Implemented Categories" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}\Implemented Categories\{7F46FC3E-3C2C-405B-A47F-8D17942BA8F9}" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+      </RegistryKey>
+    </Component>
+
+    <Component Id="registryEntries_x64" Guid="{9899E3A1-FC83-4BD1-88C5-9CCDB466C18D}" Win64="yes" Directory="ProgramFiles64Folder">
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.app)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.app).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.cfg).exe.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.wsh).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.cfg).exe.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cli)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.cli).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cp)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.cp).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.svc)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.svc).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.wcf)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.wcf).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.wsh).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.cfg).exe.config"/>
+        <RegistryValue Type="string" Name="eventLogLevel" Value="-1"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.cp)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.cp).config"/>
+        <RegistryValue Type="string" Name="SubstituteConfiguration" Value="[INSTALLDIR]cfg\substitute.xml"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.ap)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.ap).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.fx)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.fx).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.wsh).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Value="inSyca File Adapter"/>
+        <RegistryValue Type="string" Name="AppID" Value="{12A6EBAA-CF68-4B58-B36E-A5A19B22C04E}"/>
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}\BizTalk" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Value="BizTalk"/>
+        <RegistryValue Type="string" Name="TransportType" Value="inSyca File"/>
+        <RegistryValue Type="integer" Name="Constraints" Value="15371"/>
+        <RegistryValue Type="string" Name="InboundProtocol_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A281}"/>
+        <RegistryValue Type="string" Name="OutboundProtocol_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A283}"/>
+        <RegistryValue Type="string" Name="ReceiveLocation_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A280}"/>
+        <RegistryValue Type="string" Name="TransmitLocation_PageProv" Value="{2DE93EE6-CB01-4007-93E9-C3D71689A282}"/>
+        <RegistryValue Type="string" Name="InboundEngineCLSID" Value="{62E68109-C8B0-43B2-A708-0DDB301F5972}"/>
+        <RegistryValue Type="string" Name="InboundTypeName" Value="inSyca.foundation.integration.biztalk.adapter.file.runtime.Receiver, inSyca.fd.in.bt.ap_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615"/>
+        <RegistryValue Type="string" Name="OutboundEngineCLSID" Value="{17A6257D-9A41-4EA4-8AFD-0ABEB7959976}"/>
+        <RegistryValue Type="string" Name="OutboundTypeName" Value="inSyca.foundation.integration.biztalk.adapter.file.runtime.Transmitter, inSyca.fd.in.bt.ap_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615"/>
+        <RegistryValue Type="string" Name="AdapterMgmtTypeName" Value="inSyca.foundation.integration.biztalk.adapter.file.design.StaticAdapterManagement, inSyca.fd.in.bt.ap_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615"/>
+        <RegistryValue Type="string" Name="PropertyNameSpace" Value="http://schemas.microsoft.com/BizTalk/2003/SDK_Samples/Messaging/Transports/dotnetfile-properties"/>
+        <RegistryValue Type="string" Name="AliasesXML" Value="&lt;AdapterAliasList&gt;&lt;AdapterAlias&gt;DotNetFILE://&lt;/AdapterAlias&gt;&lt;/AdapterAliasList&gt;"/>
+        <RegistryValue Type="string" Name="ReceiveHandlerPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+        <RegistryValue Type="string" Name="SendHandlerPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+        <RegistryValue Type="string" Name="ReceiveLocationPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+        <RegistryValue Type="string" Name="SendLocationPropertiesXML" Value="&lt;CustomProps&gt;&lt;AdapterConfig vt=&quot;8&quot;/&gt;&lt;/CustomProps&gt;"/>
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}\Implemented Categories" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+      </RegistryKey>
+      <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}\Implemented Categories\{7F46FC3E-3C2C-405B-A47F-8D17942BA8F9}" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+      </RegistryKey>
+    </Component>
+  </ComponentGroup>
+</Include>

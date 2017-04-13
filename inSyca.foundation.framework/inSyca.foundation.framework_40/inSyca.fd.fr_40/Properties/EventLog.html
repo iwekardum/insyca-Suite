@@ -1,0 +1,192 @@
+<html xml:lang='de-de'>
+<head>
+    <title>EventLog Mail Template</title>
+    <style type='text/css'>
+        .header
+        {
+            width: 100%;
+            font-size: x-small;
+            height: 17px;
+            font-weight:bolder;
+        }
+
+        .signature
+        {
+            font-size: xx-small;
+        }
+
+        .disclaimer
+        {
+            font-size: xx-small;
+            color: #666666; 
+        }
+
+        .rowname
+        {
+            background-color: #666666; 
+            color: #FFFFFF;
+            width: 15%;
+            font-weight:bold;
+        }
+
+        .table1
+        {
+            font-size: xx-small;
+            width: 100%; 
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .table2
+        {
+            font-size: xx-small;
+            width: 100%; 
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse; 
+            border-style: solid; 
+            border-color: #666666;
+            border-width: thin;
+        }
+        
+        .message
+        {
+        }
+        
+        .category
+        {
+            font-size: x-small;
+            background-color: #CCCCCC; 
+            color: #000000;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <table class='table1'>
+        <tr>
+            <td class='header'>
+                Event Log {0}
+            </td>
+            <td>
+                <img alt='inSyca UG (haftungsbeschr&auml;nkt)' height='70' src='cid:logo_001' />
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2' class='category'>
+                Context<br />
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                <table cellspacing='0' cellpadding='4' class='table2'>
+                    <tr>
+                        <td class='rowname'>
+                            Computer
+                        </td>
+                        <td class='rowvalue'>
+                            {1}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='rowname'>
+                            User
+                        </td>
+                        <td class='rowvalue'>
+                            {2}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='rowname'>
+                            Source
+                        </td>
+                        <td class='rowvalue'>
+                            {3}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='rowname'>
+                            Event ID
+                        </td>
+                        <td class='rowvalue'>
+                            {4}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='rowname'>
+                            Log Name
+                        </td>
+                        <td class='rowvalue'>
+                            {5}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='rowname'>
+                            Logged
+                        </td>
+                        <td class='rowvalue'>
+                            {6}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='category'>
+                            Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='message'>
+                            {7}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class='signature'>
+            <td colspan='2'>
+                <strong>
+                    <br />
+                    Dies ist eine automatisch generierte Nachricht.</strong> Bei Fragen ist unser
+                Supportteam gerne f&uuml;r Sie da.<br />
+                <br />
+                E-Mail: <a href='mailto:support@muc.sunato.de'>support@muc.sunato.de</a>
+                <br />
+                Fon: +49-89-2554 1980
+                <br />
+                Fax: +49-89-2554 1981
+                <br />
+                <br />
+                Ihr inSyca Support Team
+                <br />
+            </td>
+        </tr>
+        <tr class='disclaimer'>
+            <td colspan='2'>
+                <br />
+                Sunato München, Klausenburger Strasse 9, 81677 München
+                <br />
+                Handelsregister: Amtsgericht M&uuml;nchen, HRB 211710
+                <br />
+                Fon: +49-89-2554 1980
+                <br />
+                Fax: +49-89-2554 1981
+                <br />
+                Web: <a href='http://www.sunato.de'>http://www.sunato.de</a>
+                <br />
+                Gesch&auml;ftsf&uuml;hrer: Iwe Kardum
+                <br />
+                <br />
+                Der Inhalt dieser E-Mail ist vertraulich und ausschlie&szlig;lich f&uuml;r den bezeichneten
+                Adressaten bestimmt. Wenn Sie nicht der vorgesehene Adressat dieser E-Mail oder
+                dessen Vertreter sein sollten, so beachten Sie bitte, dass jede Form der Kenntnisnahme,
+                Ver&ouml;ffentlichung, Vervielf&auml;ltigung oder Weitergabe des Inhalts dieser
+                E-Mail unzul&auml;ssig ist. Ich bitte Sie, sich in diesem Fall mit dem Absender
+                der E-Mail in Verbindung zu setzen.
+                <br />
+                <br />
+                Attorney-client privilege: This e-mail message is for the sole use of the intended
+                recipient(s) and may contain legal advice and privileged or confidential information.
+                Any unauthorized review, use, disclosure or distribution is prohibited. If you are
+                not the intended recipient, please immediately contact the sender by reply.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

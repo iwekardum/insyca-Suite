@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="product">
+
+    <Component Id='productMain' Guid='176EA8D2-0F31-44A0-BA9F-FB1FF9F48964' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.messagebroker.root.ns.wsh.TargetPath)' Vital='yes' /> <!-- IMPORTANT! First element have to be service executable -->
+      <File Source='$(var.inSyca.messagebroker.root.ns.itf.TargetPath)' Vital='yes' />
+      <File Source='$(var.inSyca.messagebroker.root.ns.svc.TargetPath)' Vital='yes' />
+      <File Source='.\documentation\ReleaseNotes.rtf'/>
+      <File Source='.\configuration\createService.cmd'/>
+      <File Source='.\configuration\deleteService.cmd'/>
+      <ServiceInstall
+      Id="ServiceInstaller"
+      Type="ownProcess"
+      Name="inSyca.messagebroker.root.ns"
+      DisplayName="inSyca.messagebroker.root.ns Service"
+      Description="inSyca.messagebroker.root.ns Service für den Datenaustausch"
+      Start="auto"
+      Account="[SERVICEACCOUNT]"
+      Password="[SERVICEPASSWORD]"
+      ErrorControl="normal"
+      Arguments=" /start WindowsServiceHost" />
+      <ServiceControl Id="StartService" Start="install" Stop="both" Remove="uninstall" Name="inSyca.messagebroker.root.ns" Wait="no" />
+
+    </Component>
+
+    <Component Id='productServiceConfiguration' Guid='{14DE752E-0A52-492D-8062-75C1204C01F6}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.messagebroker.root.ns.svc.ProjectDir)inSyca.messagebroker.root.ns.svc.config' Vital='yes' KeyPath='yes' />
+    </Component>
+
+    <Component Id='productHostConfiguration' Guid='{813C9F89-2A5B-4169-B153-76A21D584551}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.messagebroker.root.ns.wsh.TargetPath).config' Vital='yes' KeyPath='yes'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

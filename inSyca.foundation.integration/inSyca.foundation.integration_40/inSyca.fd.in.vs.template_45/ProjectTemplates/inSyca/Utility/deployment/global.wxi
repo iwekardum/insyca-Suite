@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define productVersion = "1.0.0" ?>
+  <?define productNameExtension = "" ?>
+  <?define productName = "inSyca.utility.root.ns" ?>
+  <?define appName = "inSyca.utility.root.ns" ?>
+  <?define apprunDescription = "" ?>
+  <?define uninstallDescription = "Uninstall inSyca.utility.root.ns" ?>
+  <?define manufacturer = "inSyca" ?>
+  <?define setupID = "{C46ED558-58CC-4947-82A3-B9B3ACC55872}" ?>
+  <?define upgradeID = "{D8A68D83-01B5-4B22-895D-04496F49FBB0}" ?>
+
+</Include>

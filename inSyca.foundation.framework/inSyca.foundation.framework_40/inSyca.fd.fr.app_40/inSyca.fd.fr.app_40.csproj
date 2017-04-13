@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0850829E-D622-4370-BC5E-5E34938E9466}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>inSyca.foundation.framework.application</RootNamespace>
+    <AssemblyName>inSyca.fd.fr.app</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>inSyca.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>inSyca.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Label="TemplateBuilder">
+    <TemplateBuilderTargets Condition=" '$(TemplateBuilderTargets)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\..\..\packages\TemplateBuilder.1.1.1\tools\ligershark.templates.targets ))</TemplateBuilderTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="baseProgram.cs" />
+    <Compile Include="configXml.cs" />
+    <Compile Include="foundation.framework\configuration.cs" />
+    <Compile Include="foundation.framework\log.cs" />
+    <Compile Include="programinfo.cs" />
+    <Compile Include="Properties\Resources.de.Designer.cs">
+      <DependentUpon>Resources.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="service\frameworkService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="singleinstance.cs" />
+    <Compile Include="winapi.cs" />
+    <Compile Include="windowsforms\configurator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="windowsforms\configurator.Designer.cs">
+      <DependentUpon>configurator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\FrameworkApplicationContext.cs" />
+    <Compile Include="windowsforms\FrameworkManager.cs" />
+    <Compile Include="windowsforms\TabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="windowsforms\PropertyComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="windowsforms\uc_info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_info.Designer.cs">
+      <DependentUpon>uc_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_logging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_logging.Designer.cs">
+      <DependentUpon>uc_logging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_framework.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_framework.Designer.cs">
+      <DependentUpon>uc_framework.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_monitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_monitor.Designer.cs">
+      <DependentUpon>uc_monitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_monitoring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_monitoring.Designer.cs">
+      <DependentUpon>uc_monitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_setting.Designer.cs">
+      <DependentUpon>uc_setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_smtp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_smtp.Designer.cs">
+      <DependentUpon>uc_smtp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_test.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_test.Designer.cs">
+      <DependentUpon>uc_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="windowsforms\uc_test_diagnostics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="windowsforms\uc_test_diagnostics.Designer.cs">
+      <DependentUpon>uc_test_diagnostics.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="foundation.framework.application.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="inSyca.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\configurator.de.resx">
+      <DependentUpon>configurator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\configurator.resx">
+      <DependentUpon>configurator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\PropertyComponent.resx">
+      <DependentUpon>PropertyComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_info.resx">
+      <DependentUpon>uc_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_logging.resx">
+      <DependentUpon>uc_logging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_framework.resx">
+      <DependentUpon>uc_framework.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_monitor.resx">
+      <DependentUpon>uc_monitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_monitoring.resx">
+      <DependentUpon>uc_monitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_setting.resx">
+      <DependentUpon>uc_setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_smtp.resx">
+      <DependentUpon>uc_smtp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_test.resx">
+      <DependentUpon>uc_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="windowsforms\uc_test_diagnostics.resx">
+      <DependentUpon>uc_test_diagnostics.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="inSyca.ico" />
+    <None Include="packages.config" />
+    <None Include="resources\inSyca2.png" />
+    <None Include="resources\inSyca1.png" />
+    <None Include="resources\inSyca.png" />
+    <None Include="resources\icon12.ico" />
+    <None Include="resources\icon11.ico" />
+    <None Include="resources\icon1.ico" />
+    <None Include="resources\logo.png" />
+    <None Include="resources\company.png" />
+    <None Include="resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
+      <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
+      <Name>inSyca.fd.fr_40</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(TemplateBuilderTargets)" Condition="Exists('$(TemplateBuilderTargets)')" Label="TemplateBuilder" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

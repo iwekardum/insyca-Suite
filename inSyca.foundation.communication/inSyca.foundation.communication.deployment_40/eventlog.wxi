@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="eventlog">
+
+    <Component Id="CreateEventSource32BitFullNet4" Guid="476EA8D2-0F31-44A0-BA9F-FB1FF9F48965" Directory="eventLogFull32">
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.clients" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll" KeyPath="yes"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.components" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.service" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.wcf" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+    </Component>
+
+    <Component Id="CreateEventSource32BitClientNet4" Guid="476EA8D2-0F31-44A0-BA9F-FB1FF9F48966" Directory="eventLogClient32">
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.clients" Log="Application" EventMessageFile="[NETFRAMEWORK40CLIENTINSTALLROOTDIR]EventLogMessages.dll" KeyPath="yes"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.components" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.service" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.wcf" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+    </Component>
+
+    <Component Id="CreateEventSource64BitFullNet4" Guid='476EA8D2-0F31-44A0-BA9F-FB1FF9F48967' Directory="eventLogFull64">
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.clients" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR64]EventLogMessages.dll" KeyPath="yes"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.components" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.service" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.wcf" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+    </Component>
+
+    <Component Id="CreateEventSource64BitClientNet4" Guid='476EA8D2-0F31-44A0-BA9F-FB1FF9F48968' Directory="eventLogClient64">
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.clients" Log="Application" EventMessageFile="[NETFRAMEWORK40CLIENTINSTALLROOTDIR64]EventLogMessages.dll" KeyPath="yes"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.components" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.service" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+      <Util:EventSource xmlns:Util="http://schemas.microsoft.com/wix/UtilExtension" Name="inSyca.foundation.communication.wcf" Log="Application" EventMessageFile="[NETFRAMEWORK40FULLINSTALLROOTDIR]EventLogMessages.dll"/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

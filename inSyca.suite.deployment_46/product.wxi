@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="product">
+
+    <Component Id='productVSIX' Guid='{E07F52CC-E4CE-4BF9-8F07-2A5A65F752F4}' Directory="vs">
+      <File Source='$(var.inSyca.fd.in.vs.extension_46.TargetDir)inSyca.integration.extension_2015.vsix' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.co.vs.extension_46.TargetDir)inSyca.communication.extension_2015.vsix' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)documentation\ReleaseNotes_Communication_Extensions.rtf' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)documentation\ReleaseNotes_Integration_Extensions.rtf' Vital='yes'/>
+    </Component>
+
+    <Component Id='productMain' Guid='{4A0383FD-3EA4-4C4F-9A2E-65DBEB24F90C}' Directory="INSTALLDIR">
+      <File Id='inSyca.fd.fr.configurator_40' Source='$(var.inSyca.fd.fr.configurator_40.TargetPath)' Vital='yes'/>
+      <File Id='inSyca.fd.fr.wsh_40' Source='$(var.inSyca.fd.fr.wsh_40.TargetPath)' Vital='yes'/>
+      <File Id='inSyca.fd.in.configurator_40' Source='$(var.inSyca.fd.in.configurator_40.TargetPath)' Vital='yes'/>
+      <File Id='inSyca.fd.in.wsh_40' Source='$(var.inSyca.fd.in.wsh_40.TargetPath)' Vital='yes'/>
+      <File Id='inSyca.fd.co.configurator_40' Source='$(var.inSyca.fd.co.configurator_40.TargetPath)' Vital='yes'/>
+      <File Id='inSyca.fd.co.wsh_40' Source='$(var.inSyca.fd.co.wsh_40.TargetPath)' Vital='yes'/>
+    </Component>
+
+    <Component Id='frameworkConfiguration' Guid='{6342FCFA-A177-44D5-820F-E0E8354D3432}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.fd.fr.app_40.ProjectDir)foundation.framework.application.config' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.fr_40.ProjectDir)foundation.framework.config' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.fr.wsh_40.ProjectDir)foundation.framework.wsh.config' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.fr.configurator_40.TargetPath).config' Vital='yes'/>
+    </Component>
+
+    <Component Id='communicationConfiguration' Guid='{5A8C6201-69D1-4608-B99B-085963BB06C0}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.fd.co.cli_40.ProjectDir)foundation.communication.clients.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.cp_40.ProjectDir)foundation.communication.components.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.svc_40.ProjectDir)foundation.communication.service.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.wcf_40.ProjectDir)foundation.communication.wcf.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.wsh_40.TargetDir)foundation.communication.wsh.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.configurator_40.TargetPath).config' Vital='yes'/>
+    </Component>
+
+    <Component Id='integrationConfiguration' Guid='{373550A1-2906-48B9-BC33-4D1415803106}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.fd.in.bt.cp_40.ProjectDir)foundation.integration.biztalk.components.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.bt.ap_40.ProjectDir)foundation.integration.biztalk.adapter.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.bt.fx_40.ProjectDir)foundation.integration.biztalk.functions.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.bt_40.ProjectDir)foundation.integration.biztalk.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.wsh_40.ProjectDir)foundation.integration.wsh.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.configurator_40.TargetPath).config' Vital='yes'/>
+    </Component>
+
+    <Component Id='productDocumentation' Guid='{37C584B8-40A9-4D9A-AF11-254D845F800E}' Directory="documentation">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)documentation\ReleaseNotes.rtf' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)documentation\WCF.rtf' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.documentation_40.ProjectDir)help\inSyca Suite Help.chm' Vital='yes'/>
+    </Component>
+
+    <Component Id='productCFG' Guid='{AB03A811-31CE-4955-AA2A-397B47761834}' Directory="cfg">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)cfg\substitute.xml'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)cfg\filesystem.xml'  Vital='yes'/>
+    </Component>
+
+    <Component Id='productEventviewer' Guid='{92AA42AB-1066-4736-8192-1B39085125DA}' Directory="eventviewer">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)eventviewer\biztalk.xml'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)eventviewer\insyca.xml'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)eventviewer\messagebroker.xml'  Vital='yes'/>
+    </Component>
+
+    <Component Id='productBizTalk' Guid='{8D831075-6C76-4252-B78E-E6ABEF778CA8}' Directory="biztalk">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\sqlJOB_Backup_BizTalk_Server.txt'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\sqlJOB_MessageBox_Message_Cleanup.txt'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\2016\configureSchemaGenerator.cmd'  Vital='yes'/>
+    </Component>
+
+    <Component Id='productXSLT' Guid='{62AE830E-86E5-47FE-A599-EF09662C96DC}' Directory="xslt">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)xslt\copy_all.xslt' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)xslt\emptyvalue_to_nil.xslt' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)xslt\key_value.xslt' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)xslt\splitstring.xslt' Vital='yes'/>
+    </Component>
+
+    <Component Id='productCMD' Guid='{E742F05C-3E39-44F5-A66D-C870189C1C20}' Directory="batch">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)batch\createService.cmd' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)batch\deleteService.cmd' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)batch\updateService.cmd' Vital='yes'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

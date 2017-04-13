@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="registry">
+
+    <?define fd.fr = "foundation.framework" ?>
+
+    <Component Id="registryEntries_x86" Guid="*" Directory="INSTALLDIR">
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr).config"/>
+        <RegistryValue Type="string" Name="eventLogLevel" Value="-1"/>
+        <RegistryValue Type="string" Name="mailLogLevel" Value="-1"/>
+      </RegistryKey>
+    </Component>
+
+    <Component Id="registryEntries_x64" Guid="469284EE-2305-4A36-9289-93B99D075E78" Win64="yes" Directory="ProgramFiles64Folder">
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr).config"/>
+        <RegistryValue Type="string" Name="eventLogLevel" Value="-1"/>
+        <RegistryValue Type="string" Name="mailLogLevel" Value="-1"/>
+      </RegistryKey>
+    </Component>
+
+  </ComponentGroup>
+</Include>

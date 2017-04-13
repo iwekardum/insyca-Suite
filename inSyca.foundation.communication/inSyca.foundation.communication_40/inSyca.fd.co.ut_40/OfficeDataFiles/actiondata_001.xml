@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<actiondata>
+  <controls>
+    <control id="ribbon_btn_001">
+      <action>ShowDialog</action>
+      <action>UpdateDialogData</action>
+      <action>ProcessDocumentData</action>
+    </control>
+    <control id="dlg_cb_001">
+      <action>UpdateDialogData</action>
+    </control>
+    <control id="ribbon_btn_003">
+      <action>GetDocument</action>
+    </control>
+  </controls>
+</actiondata>

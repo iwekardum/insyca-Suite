@@ -1,0 +1,21 @@
+<ViewerConfig>
+  <QueryConfig>
+    <QueryParams>
+      <Simple>
+        <Channel>Application</Channel>
+        <RelativeTimeInfo>0</RelativeTimeInfo>
+        <Source>inSyca.foundation.communication.clients,inSyca.foundation.communication.components,inSyca.foundation.communication.configurator,inSyca.foundation.communication.service,inSyca.foundation.communication.wcf,inSyca.foundation.communication.wsh,inSyca.foundation.framework,inSyca.foundation.framework.application,inSyca.foundation.framework.configurator,inSyca.foundation.framework.wsh,inSyca.foundation.integration.biztalk,inSyca.foundation.integration.biztalk.components,inSyca.foundation.integration.biztalk.functions,inSyca.foundation.integration.configurator,inSyca.foundation.integration.wsh</Source>
+        <Level>1,2,3,4,0,5</Level>
+        <BySource>True</BySource>
+      </Simple>
+    </QueryParams>
+    <QueryNode>
+      <Name>inSyca</Name>
+      <QueryList>
+        <Query Id="0" Path="Application">
+          <Select Path="Application">*[System[Provider[@Name='inSyca.foundation.communication.clients' or @Name='inSyca.foundation.communication.components' or @Name='inSyca.foundation.communication.configurator' or @Name='inSyca.foundation.communication.service' or @Name='inSyca.foundation.communication.wcf' or @Name='inSyca.foundation.communication.wsh' or @Name='inSyca.foundation.framework' or @Name='inSyca.foundation.framework.application' or @Name='inSyca.foundation.framework.configurator' or @Name='inSyca.foundation.framework.wsh' or @Name='inSyca.foundation.integration.biztalk' or @Name='inSyca.foundation.integration.biztalk.components' or @Name='inSyca.foundation.integration.biztalk.functions' or @Name='inSyca.foundation.integration.configurator' or @Name='inSyca.foundation.integration.wsh'] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]</Select>
+        </Query>
+      </QueryList>
+    </QueryNode>
+  </QueryConfig>
+</ViewerConfig>

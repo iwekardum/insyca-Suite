@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="product">
+
+    <Component Id='productMain' Guid='176EA8D2-0F31-44A0-BA9F-FB1FF9F48964' Directory="INSTALLDIR">
+      <File Id='configurator' Source="$(var.inSyca.fd.fr.configurator_40.TargetPath)" Vital='yes' />
+      <File Source='$(var.inSyca.fd.fr.wsh_40.TargetPath)' Vital='yes' />
+      <File Source='.\documentation\ReleaseNotes.rtf'/>
+    </Component>
+
+    <Component Id='productConfiguration' Guid='156603FC-EA3F-46A7-B5DA-C2406F813BDA' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.fd.fr_40.ProjectDir)foundation.framework.config' Vital='yes' KeyPath='yes' />
+      <File Source='$(var.inSyca.fd.fr_40.ProjectDir)foundation.framework.filesystem.xml' Vital='yes' />
+    </Component>
+
+    <Component Id='productDocumentation' Guid='*' Directory="documentation">
+      <File Source='.\documentation\inSyca Foundation Framework.pdf' KeyPath='yes'/>
+    </Component>
+
+    <Component Id='productRessource_de' Guid='6B50D73E-0221-44B9-95D2-3A2995F073A1' Directory="locale_de">
+      <File Source='$(var.inSyca.fd.fr.app_40.TargetDir)de\inSyca.fd.fr.app.resources.dll' Vital='yes' KeyPath='yes'/>
+      <File Source='$(var.inSyca.fd.fr.configurator_40.TargetDir)de\configurator.resources.dll' Vital='yes'/>
+    </Component>
+
+    <Component Id='productBatch' Guid='{B0066108-6D99-433B-A2C8-028DDB8A1F55}' Directory="batch">
+      <File Source='.\batch\createService.cmd' KeyPath='yes'/>
+      <File Source='.\batch\deleteService.cmd'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

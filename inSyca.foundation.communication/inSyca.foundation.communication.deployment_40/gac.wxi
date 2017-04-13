@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="gac">
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="inSyca.fd.co.cli_40" Source='$(var.inSyca.fd.co.cli_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+    
+    <Component Guid='*' Directory="gac_35">
+      <File Id="inSyca.fd.co.cp_40" Source='$(var.inSyca.fd.co.cp_40.TargetPath)' Vital='yes' KeyPath='yes' Checksum='yes' Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="inSyca.fd.co.itf_40" Source='$(var.inSyca.fd.co.itf_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="inSyca.fd.co.svc_40" Source='$(var.inSyca.fd.co.svc_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="inSyca.fd.co.wcf_40" Source='$(var.inSyca.fd.co.wcf_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

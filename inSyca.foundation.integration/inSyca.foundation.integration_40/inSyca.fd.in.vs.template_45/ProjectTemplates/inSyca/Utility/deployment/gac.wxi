@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="gac">
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="util" Source='$(var.inSyca.utility.root.ns.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

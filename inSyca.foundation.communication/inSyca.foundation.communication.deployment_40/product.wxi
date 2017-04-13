@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="product">
+
+    <Component Id='productMain' Guid='*' Directory="INSTALLDIR">
+      <File Id='configurator' Source="$(var.inSyca.fd.co.configurator_40.TargetPath)" Vital='yes' />
+      <File Source='.\documentation\ReleaseNotes.rtf'/>
+    </Component>
+
+    <Component Id='productConfiguration' Guid='{3320AFA2-C563-4DB2-B200-09FCFFD12A2E}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.fd.co.cli_40.ProjectDir)foundation.communication.clients.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.cp_40.ProjectDir)foundation.communication.components.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.svc_40.ProjectDir)foundation.communication.service.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.co.wcf_40.ProjectDir)foundation.communication.wcf.config' Vital='yes' />
+    </Component>
+
+    <Component Id='productDocumentation' Guid='*' Directory="documentation">
+      <File Source='.\documentation\inSyca Foundation Communication.pdf' KeyPath='yes'/>
+    </Component>
+
+    <Component Id='productRessource_de' Guid='*' Directory="locale_de">
+      <File Source='$(var.inSyca.fd.co.configurator_40.TargetDir)de\configurator.resources.dll' Vital='yes'/>
+    </Component>
+
+    <Component Id='productVS' Guid='*' Directory="vs">
+      <File Source='$(var.inSyca.fd.co.vs.template_45.TargetDir)\inSyca.communication.template_45.vsix' KeyPath='yes'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

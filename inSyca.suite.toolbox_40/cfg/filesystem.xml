@@ -1,0 +1,36 @@
+﻿<FileSystemConfig xmlns="http://inSyca.foundation.framework.data.dsFileSystemConfig_10">
+  <!-- Das Entry Tag wird verwendet um beliebig viele Vorgänge zu definieren.-->
+  <Entry>
+    <!-- Welche Aktion soll ausgeführt werden (Scan, Copy, Move, Delete)-->
+    <Action>Scan</Action>
+    <!-- Welche Files sollen in den Verzeichnissen gesucht werden. Wildcards sind erlaubt und ensprechen dem Muster in der Suche per Kommandozeile-->
+    <FileMask>*.*</FileMask>
+    <!-- Welche Verzeichnisse unterhalb dem angegebenen Root Verzeichnis sollen durchsucht werden. Wildcards sind erlaubt und ensprechen dem Muster in der Suche per Kommandozeile-->
+    <FolderMask>*</FolderMask>
+    <!-- Das Root Verzeichnis in dem die Suche gestartet werden soll-->
+    <Folder>c:\temp</Folder>
+    <!-- Sollen Unterverzeichnisse in die Suche aufgenommen werden. Erlaubte Werte: true oder false-->
+    <ScanSubFolder>true</ScanSubFolder>
+    <!-- Es werden nur Files verarbeitet, die ein 'Create' Alter < dem angegebenen Wert in Tagen haben-->
+    <FileAge>0</FileAge>
+    <!-- Zielverzeichnis für die Befehle 'Copy' und 'Move'-->
+    <DestinationFolder>d:\temp</DestinationFolder>
+  </Entry>
+
+  <Entry>
+    <!-- Welche Aktion soll ausgeführt werden (Scan, Copy, Move, Delete)-->
+    <Action>Scan</Action>
+    <!-- Welche Files sollen in den Verzeichnissen gesucht werden. Wildcards sind erlaubt und ensprechen dem Muster in der Suche per Kommandozeile-->
+    <FileMask>*.*</FileMask>
+    <!-- Welche Verzeichnisse unterhalb dem angegebenen Root Verzeichnis sollen durchsucht werden. Wildcards sind erlaubt und ensprechen dem Muster in der Suche per Kommandozeile-->
+    <FolderMask>*</FolderMask>
+    <!-- Das Root Verzeichnis in dem die Suche gestartet werden soll-->
+    <Folder>C:\windows</Folder>
+    <!-- Sollen Unterverzeichnisse in die Suche aufgenommen werden. Erlaubte Werte: true oder false-->
+    <ScanSubFolder>false</ScanSubFolder>
+    <!-- Es werden nur Files verarbeitet, die ein 'Create' Alter < dem angegebenen Wert in Tagen haben-->
+    <FileAge>30</FileAge>
+    <!-- Zielverzeichnis für die Befehle 'Copy' und 'Move'-->
+    <DestinationFolder>d:\temp</DestinationFolder>
+  </Entry>
+</FileSystemConfig>

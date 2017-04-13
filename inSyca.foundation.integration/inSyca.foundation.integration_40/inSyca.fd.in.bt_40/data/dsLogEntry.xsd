@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsLogEntry" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsLogEntry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsLogEntry" msprop:Generator_UserDSName="dsLogEntry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtLogEntry" msprop:Generator_TableClassName="dtLogEntryDataTable" msprop:Generator_TableVarName="tabledtLogEntry" msprop:Generator_TablePropName="dtLogEntry" msprop:Generator_RowDeletingName="dtLogEntryRowDeleting" msprop:Generator_RowChangingName="dtLogEntryRowChanging" msprop:Generator_RowEvHandlerName="dtLogEntryRowChangeEventHandler" msprop:Generator_RowDeletedName="dtLogEntryRowDeleted" msprop:Generator_UserTableName="dtLogEntry" msprop:Generator_RowChangedName="dtLogEntryRowChanged" msprop:Generator_RowEvArgName="dtLogEntryRowChangeEvent" msprop:Generator_RowClassName="dtLogEntryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" />
+              <xs:element name="eventtype" msprop:Generator_ColumnVarNameInTable="columneventtype" msprop:Generator_ColumnPropNameInRow="eventtype" msprop:Generator_ColumnPropNameInTable="eventtypeColumn" msprop:Generator_UserColumnName="eventtype" type="xs:string" minOccurs="0" />
+              <xs:element name="dtManagementBaseObject" msprop:Generator_TableClassName="dtManagementBaseObjectDataTable" msprop:Generator_TableVarName="tabledtManagementBaseObject" msprop:Generator_TablePropName="dtManagementBaseObject" msprop:Generator_RowDeletingName="dtManagementBaseObjectRowDeleting" msprop:Generator_RowChangingName="dtManagementBaseObjectRowChanging" msprop:Generator_RowEvHandlerName="dtManagementBaseObjectRowChangeEventHandler" msprop:Generator_RowDeletedName="dtManagementBaseObjectRowDeleted" msprop:Generator_UserTableName="dtManagementBaseObject" msprop:Generator_RowChangedName="dtManagementBaseObjectRowChanged" msprop:Generator_RowEvArgName="dtManagementBaseObjectRowChangeEvent" msprop:Generator_RowClassName="dtManagementBaseObjectRow" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <msdata:Relationship name="dtLogEntry_dtManagementBaseObject" msdata:parent="dtLogEntry" msdata:child="dtManagementBaseObject" msdata:parentkey="dtLogEntry_Id" msdata:childkey="dtLogEntry_Id" msprop:Generator_UserChildTable="dtManagementBaseObject" msprop:Generator_ChildPropName="GetdtManagementBaseObjectRows" msprop:Generator_UserRelationName="dtLogEntry_dtManagementBaseObject" msprop:Generator_RelationVarName="relationdtLogEntry_dtManagementBaseObject" msprop:Generator_UserParentTable="dtLogEntry" msprop:Generator_ParentPropName="dtLogEntryRow" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="classname" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="classname" msprop:Generator_ColumnVarNameInTable="columnclassname" msprop:Generator_ColumnPropNameInTable="classnameColumn" msprop:Generator_UserColumnName="classname" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                    <xs:element name="dtProperties" msprop:Generator_TableClassName="dtPropertiesDataTable" msprop:Generator_TableVarName="tabledtProperties" msprop:Generator_TablePropName="dtProperties" msprop:Generator_RowDeletingName="dtPropertiesRowDeleting" msprop:Generator_RowChangingName="dtPropertiesRowChanging" msprop:Generator_RowEvHandlerName="dtPropertiesRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPropertiesRowDeleted" msprop:Generator_UserTableName="dtProperties" msprop:Generator_RowChangedName="dtPropertiesRowChanged" msprop:Generator_RowEvArgName="dtPropertiesRowChangeEvent" msprop:Generator_RowClassName="dtPropertiesRow" minOccurs="0" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:appinfo>
+                          <msdata:Relationship name="dtManagementBaseObject_dtProperties" msdata:parent="dtManagementBaseObject" msdata:child="dtProperties" msdata:parentkey="dtLogEntry_Id" msdata:childkey="dtLogEntry_Id" msprop:Generator_UserChildTable="dtProperties" msprop:Generator_ChildPropName="GetdtPropertiesRows" msprop:Generator_UserRelationName="dtManagementBaseObject_dtProperties" msprop:Generator_ParentPropName="dtManagementBaseObjectRow" msprop:Generator_RelationVarName="relationdtManagementBaseObject_dtProperties" msprop:Generator_UserParentTable="dtManagementBaseObject" />
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                          <xs:element name="value" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                        </xs:sequence>
+                        <xs:attribute name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" use="prohibited" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dtQualifiers" msprop:Generator_TableClassName="dtQualifiersDataTable" msprop:Generator_TableVarName="tabledtQualifiers" msprop:Generator_TablePropName="dtQualifiers" msprop:Generator_RowDeletingName="dtQualifiersRowDeleting" msprop:Generator_RowChangingName="dtQualifiersRowChanging" msprop:Generator_RowEvHandlerName="dtQualifiersRowChangeEventHandler" msprop:Generator_RowDeletedName="dtQualifiersRowDeleted" msprop:Generator_UserTableName="dtQualifiers" msprop:Generator_RowChangedName="dtQualifiersRowChanged" msprop:Generator_RowEvArgName="dtQualifiersRowChangeEvent" msprop:Generator_RowClassName="dtQualifiersRow" minOccurs="0" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:appinfo>
+                          <msdata:Relationship name="dtManagementBaseObject_dtQualifiers" msdata:parent="dtManagementBaseObject" msdata:child="dtQualifiers" msdata:parentkey="dtLogEntry_Id" msdata:childkey="dtLogEntry_Id" msprop:Generator_UserChildTable="dtQualifiers" msprop:Generator_ChildPropName="GetdtQualifiersRows" msprop:Generator_UserRelationName="dtManagementBaseObject_dtQualifiers" msprop:Generator_ParentPropName="dtManagementBaseObjectRow" msprop:Generator_RelationVarName="relationdtManagementBaseObject_dtQualifiers" msprop:Generator_UserParentTable="dtManagementBaseObject" />
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                          <xs:element name="value" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                        </xs:sequence>
+                        <xs:attribute name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" use="prohibited" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dtSystemProperties" msprop:Generator_TableClassName="dtSystemPropertiesDataTable" msprop:Generator_TableVarName="tabledtSystemProperties" msprop:Generator_TablePropName="dtSystemProperties" msprop:Generator_RowDeletingName="dtSystemPropertiesRowDeleting" msprop:Generator_RowChangingName="dtSystemPropertiesRowChanging" msprop:Generator_RowEvHandlerName="dtSystemPropertiesRowChangeEventHandler" msprop:Generator_RowDeletedName="dtSystemPropertiesRowDeleted" msprop:Generator_UserTableName="dtSystemProperties" msprop:Generator_RowChangedName="dtSystemPropertiesRowChanged" msprop:Generator_RowEvArgName="dtSystemPropertiesRowChangeEvent" msprop:Generator_RowClassName="dtSystemPropertiesRow" minOccurs="0" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:appinfo>
+                          <msdata:Relationship name="dtManagementBaseObject_dtSystemProperties" msdata:parent="dtManagementBaseObject" msdata:child="dtSystemProperties" msdata:parentkey="dtLogEntry_Id" msdata:childkey="dtLogEntry_Id" msprop:Generator_UserChildTable="dtSystemProperties" msprop:Generator_ChildPropName="GetdtSystemPropertiesRows" msprop:Generator_UserRelationName="dtManagementBaseObject_dtSystemProperties" msprop:Generator_ParentPropName="dtManagementBaseObjectRow" msprop:Generator_RelationVarName="relationdtManagementBaseObject_dtSystemProperties" msprop:Generator_UserParentTable="dtManagementBaseObject" />
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                          <xs:element name="value" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                        </xs:sequence>
+                        <xs:attribute name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" use="prohibited" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" msdata:AllowDBNull="false" use="prohibited" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="dtSuspendedMessage" msprop:Generator_TableClassName="dtSuspendedMessageDataTable" msprop:Generator_TableVarName="tabledtSuspendedMessage" msprop:Generator_RowChangedName="dtSuspendedMessageRowChanged" msprop:Generator_TablePropName="dtSuspendedMessage" msprop:Generator_RowDeletingName="dtSuspendedMessageRowDeleting" msprop:Generator_RowChangingName="dtSuspendedMessageRowChanging" msprop:Generator_RowEvHandlerName="dtSuspendedMessageRowChangeEventHandler" msprop:Generator_RowDeletedName="dtSuspendedMessageRowDeleted" msprop:Generator_RowClassName="dtSuspendedMessageRow" msprop:Generator_UserTableName="dtSuspendedMessage" msprop:Generator_RowEvArgName="dtSuspendedMessageRowChangeEvent" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <msdata:Relationship name="dtLogEntry_dtSuspendedMessage" msdata:parent="dtLogEntry" msdata:child="dtSuspendedMessage" msdata:parentkey="dtLogEntry_Id" msdata:childkey="dtLogEntry_Id" msprop:Generator_UserChildTable="dtSuspendedMessage" msprop:Generator_ChildPropName="GetdtSuspendedMessageRows" msprop:Generator_UserRelationName="dtLogEntry_dtSuspendedMessage" msprop:Generator_RelationVarName="relationdtLogEntry_dtSuspendedMessage" msprop:Generator_UserParentTable="dtLogEntry" msprop:Generator_ParentPropName="dtLogEntryRow" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" minOccurs="0" />
+                    <xs:element name="name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
+                    <xs:element name="value" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="dtMessage" msprop:Generator_TableClassName="dtMessageDataTable" msprop:Generator_TableVarName="tabledtMessage" msprop:Generator_RowChangedName="dtMessageRowChanged" msprop:Generator_TablePropName="dtMessage" msprop:Generator_RowDeletingName="dtMessageRowDeleting" msprop:Generator_RowChangingName="dtMessageRowChanging" msprop:Generator_RowEvHandlerName="dtMessageRowChangeEventHandler" msprop:Generator_RowDeletedName="dtMessageRowDeleted" msprop:Generator_RowClassName="dtMessageRow" msprop:Generator_UserTableName="dtMessage" msprop:Generator_RowEvArgName="dtMessageRowChangeEvent" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <msdata:Relationship name="dtLogEntry_dtMessage" msdata:parent="dtLogEntry" msdata:child="dtMessage" msdata:parentkey="dtLogEntry_Id" msdata:childkey="dtLogEntry_Id" msprop:Generator_UserChildTable="dtMessage" msprop:Generator_ChildPropName="GetdtMessageRows" msprop:Generator_UserRelationName="dtLogEntry_dtMessage" msprop:Generator_RelationVarName="relationdtLogEntry_dtMessage" msprop:Generator_UserParentTable="dtLogEntry" msprop:Generator_ParentPropName="dtLogEntryRow" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="dtLogEntry_Id" msprop:Generator_ColumnVarNameInTable="columndtLogEntry_Id" msprop:Generator_ColumnPropNameInRow="dtLogEntry_Id" msprop:Generator_ColumnPropNameInTable="dtLogEntry_IdColumn" msprop:Generator_UserColumnName="dtLogEntry_Id" type="xs:string" minOccurs="0" />
+                    <xs:element name="name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
+                    <xs:element name="value" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dtLogEntry" />
+      <xs:field xpath="mstns:dtLogEntry_Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

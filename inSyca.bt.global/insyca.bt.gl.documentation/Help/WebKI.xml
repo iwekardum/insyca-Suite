@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="account Element">
+    <HelpKINode Title="account Element" Url="html/f6b09eee-4a0d-13b1-1a52-3f24ab140b3b.htm" />
+    <HelpKINode Title="account Element" Url="html/1106f6da-d953-7c4d-0db0-f8e7a0249dde.htm" />
+  </HelpKINode>
+  <HelpKINode Title="action Element" Url="html/3ac71ab5-eac8-6de4-92ae-a2f41bbbff11.htm" />
+  <HelpKINode Title="address Element" Url="html/58727777-0dea-36ab-ea83-114afeab636b.htm" />
+  <HelpKINode Title="airlinecode Element" Url="html/3dea084c-3c10-2666-680a-7205b1d67e09.htm" />
+  <HelpKINode Title="airportcode Element" Url="html/6b50c6a6-89cd-d220-0457-e95550574033.htm" />
+  <HelpKINode Title="amount Element" Url="html/ea830420-715b-7d42-7ab2-febe8738beeb.htm" />
+  <HelpKINode Title="appointment Element" Url="html/d82c178e-02ea-0fde-71b5-fb663379f201.htm" />
+  <HelpKINode Title="article Element" Url="html/10653709-cd63-6e3f-b54f-bf8e94643d0f.htm" />
+  <HelpKINode Title="articlegroup Element" Url="html/0072f984-b55f-a678-9fb4-f39109b33f78.htm" />
+  <HelpKINode Title="asn Element" Url="html/57bced89-e70c-fb25-7123-ef8b3bbda24d.htm" />
+  <HelpKINode Title="bank Element" Url="html/eee5c650-2f96-ca54-88ac-b9aa132023bc.htm" />
+  <HelpKINode Title="batch Element" Url="html/5c3b5090-ba15-924a-d818-07e5cc41f9d8.htm" />
+  <HelpKINode Title="bic Element" Url="html/5df7274b-7b15-2789-39e8-6474b4d8c087.htm" />
+  <HelpKINode Title="cargo Element" Url="html/79bda8e4-3f76-efd4-b326-93575bdbc561.htm" />
+  <HelpKINode Title="carrier Element" Url="html/b17198a6-6645-3390-909f-a475f3aa31ad.htm" />
+  <HelpKINode Title="category Element">
+    <HelpKINode Title="category Element" Url="html/0063210b-d1f1-6e4c-ef84-e448283e63f8.htm" />
+    <HelpKINode Title="category Element" Url="html/1ed92a76-04d3-dab8-681f-4676c890a099.htm" />
+    <HelpKINode Title="category Element" Url="html/1d550018-7904-3ba1-13db-1e955067d5e4.htm" />
+    <HelpKINode Title="category Element" Url="html/62815969-3d9f-99a9-efc1-7c26db07a4ca.htm" />
+    <HelpKINode Title="category Element" Url="html/f8d6844d-20a7-77a0-57c7-d86ea0c01a7e.htm" />
+    <HelpKINode Title="category Element" Url="html/385efceb-2599-b1ff-c763-96a37ffed913.htm" />
+  </HelpKINode>
+  <HelpKINode Title="city Element">
+    <HelpKINode Title="city Element" Url="html/6b079fad-cf49-d00e-2fa6-d9c4ccc9d0de.htm" />
+    <HelpKINode Title="city Element" Url="html/1d11bd74-846c-778f-f783-22813b7e61c4.htm" />
+    <HelpKINode Title="city Element" Url="html/97e67e28-4f5b-394d-70a1-1d4190817fb4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="class Element" Url="html/e54f8a6a-9bd2-3b60-137a-617db9a9ca24.htm" />
+  <HelpKINode Title="client Element" Url="html/bab83a8e-84ca-f1c2-4cb8-90bd58aa5931.htm" />
+  <HelpKINode Title="code Element">
+    <HelpKINode Title="code Element" Url="html/37cd500f-ea2d-9980-01e8-4b875a3fb1a4.htm" />
+    <HelpKINode Title="code Element" Url="html/ff3d9571-00ad-3da0-483a-ac66cc4857e5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="comment Element" Url="html/c4236cf8-b264-fd0a-d6f7-48eb902f69a0.htm" />
+  <HelpKINode Title="companycode Element" Url="html/61587d4f-4422-da1b-fd9b-0021ac9e9862.htm" />
+  <HelpKINode Title="complete Element" Url="html/6ad9457e-b7ad-f195-391c-9c20757f0fc2.htm" />
+  <HelpKINode Title="confirmationorder Element" Url="html/2128a9cc-8019-edd7-f331-1d14e9ea2109.htm" />
+  <HelpKINode Title="consignee Element" Url="html/a1140d6f-45dc-f5c7-a4ee-1004c25fe3b7.htm" />
+  <HelpKINode Title="consignor Element" Url="html/2e08b6ef-5fe7-54ba-30a6-97ff47471000.htm" />
+  <HelpKINode Title="consolidatedcargo Element" Url="html/00b4c37d-0900-7bec-643d-9c97ed800e63.htm" />
+  <HelpKINode Title="costcenter Element" Url="html/ce069656-04c4-6ed1-d803-89b5364a9aca.htm" />
+  <HelpKINode Title="costunit Element" Url="html/a1d068d6-041f-749f-148f-8fa54e5b1276.htm" />
+  <HelpKINode Title="country Element">
+    <HelpKINode Title="country Element" Url="html/b9573b87-b04a-0aef-1638-6275c3bc765e.htm" />
+    <HelpKINode Title="country Element" Url="html/a49397b4-5e4d-aa6e-4d75-550ed8a032a1.htm" />
+    <HelpKINode Title="country Element" Url="html/43461728-bd37-933c-6247-7015c22a4490.htm" />
+    <HelpKINode Title="country Element" Url="html/3c010809-02fd-d413-8696-9fd51a51982d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="countrycode Element" Url="html/7d7a4380-9ea7-b46f-6e43-6468a77c0b61.htm" />
+  <HelpKINode Title="countrydestination Element" Url="html/f9420046-dd44-e42a-bc7e-bf58691b59a8.htm" />
+  <HelpKINode Title="countryorigin Element" Url="html/95d00c93-fc3e-747f-b421-e9bf76bec069.htm" />
+  <HelpKINode Title="createdate Element">
+    <HelpKINode Title="createdate Element" Url="html/11973a7b-86fd-fffc-b47d-f892cd8fbd2e.htm" />
+    <HelpKINode Title="createdate Element" Url="html/69a04a63-74d6-9dad-508f-39c5b59431e3.htm" />
+    <HelpKINode Title="createdate Element" Url="html/a89630a7-6988-4fc1-3211-1860280bc2ba.htm" />
+  </HelpKINode>
+  <HelpKINode Title="createtime Element">
+    <HelpKINode Title="createtime Element" Url="html/ea0cffc0-1772-8161-ef55-632e5f3e8741.htm" />
+    <HelpKINode Title="createtime Element" Url="html/28a3d394-2abe-229f-d4c5-add49bf7d836.htm" />
+    <HelpKINode Title="createtime Element" Url="html/9e53f802-4ebc-ea28-9e16-7f96e220cbb5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="creditlimit Element" Url="html/3b666f67-dbaf-7bd7-5033-2a5ddfb24f6f.htm" />
+  <HelpKINode Title="creditor Element" Url="html/9a117dbd-cbc0-6d4f-5484-f2efeb73e38c.htm" />
+  <HelpKINode Title="currency Element" Url="html/50831695-de91-7cd7-0cdd-02bfba3b44ae.htm" />
+  <HelpKINode Title="custom Element" Url="html/0d05fa3f-4640-5be7-464c-54e4ded9d052.htm" />
+  <HelpKINode Title="customer Element" Url="html/6c78b478-3d07-3275-8c2e-2d895666e676.htm" />
+  <HelpKINode Title="dangerousgoods Element" Url="html/d2907e8d-ea2c-b04f-f1b0-15133b06145c.htm" />
+  <HelpKINode Title="date Element">
+    <HelpKINode Title="date Element" Url="html/0f824218-7283-38a6-c0c8-1008df07ea76.htm" />
+    <HelpKINode Title="date Element" Url="html/cf82d155-3295-6bcc-40e2-717196e2cb8a.htm" />
+    <HelpKINode Title="date Element" Url="html/0d70e348-9c3a-678f-fe41-e51f7aedcfdf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="dateofbirth Element" Url="html/1a060c27-b79b-689a-36b0-8f169478a5dd.htm" />
+  <HelpKINode Title="dateofdeath Element" Url="html/88c5f00a-bc8e-fe71-65ce-90ba32791d6c.htm" />
+  <HelpKINode Title="days Element">
+    <HelpKINode Title="days Element" Url="html/a0fcac1e-eb80-e422-d6f0-7b8cd7e5f233.htm" />
+    <HelpKINode Title="days Element" Url="html/f6f90e21-3a60-8f83-306b-1a7916e6c16e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="debitor Element" Url="html/f60b2521-383f-02f3-5699-29eaf5406bd2.htm" />
+  <HelpKINode Title="delcredere Element" Url="html/63fa1d84-98de-caea-4192-6149430ef053.htm" />
+  <HelpKINode Title="deliverycondition Element" Url="html/c5a257a5-4ef4-db74-69ac-5440038b86e1.htm" />
+  <HelpKINode Title="deliverynote Element" Url="html/522988e8-4a2a-26ba-b1a9-1d0a673c4de2.htm" />
+  <HelpKINode Title="department Element" Url="html/5fc23c79-75c7-2d39-c629-d8de990b4a25.htm" />
+  <HelpKINode Title="description Element">
+    <HelpKINode Title="description Element" Url="html/d540b8c5-382e-7be5-6e35-88ea3e7d123e.htm" />
+    <HelpKINode Title="description Element" Url="html/722a6b22-2ff2-06aa-642e-b9faac2079a3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="discountlevel Element" Url="html/7abf1859-e13c-da7f-b72c-8047c822a91a.htm" />
+  <HelpKINode Title="district Element" Url="html/10708600-a8c3-faf7-7010-1bed8f3e8a81.htm" />
+  <HelpKINode Title="documentheader Element" Url="html/b1821a06-03f9-6d70-e52e-a736259930ed.htm" />
+  <HelpKINode Title="documentlineitem Element" Url="html/ef120fe3-603c-50ec-e7bd-2f9beb540a89.htm" />
+  <HelpKINode Title="driver Element" Url="html/78c80a5a-6866-b855-d12e-8237c0556ac4.htm" />
+  <HelpKINode Title="duedate Element" Url="html/079dffed-60f9-fb60-143f-8cf145b554ae.htm" />
+  <HelpKINode Title="duration Element" Url="html/10b5b419-1d1c-bc58-d6c1-e7deee0d3170.htm" />
+  <HelpKINode Title="EAN Element" Url="html/64ce087b-524f-5bca-72c6-48e1e99c5d7c.htm" />
+  <HelpKINode Title="end Element" Url="html/a1524822-aba7-5982-0961-0eba6dd03ea7.htm" />
+  <HelpKINode Title="eorinumber Element" Url="html/e6734d78-4be5-004c-df40-b016d50cec92.htm" />
+  <HelpKINode Title="eur1date Element" Url="html/9a084a3b-db17-46f7-9111-72a8884c0b21.htm" />
+  <HelpKINode Title="eur1id Element" Url="html/d6cefa04-c993-37c2-714a-d7ba61455052.htm" />
+  <HelpKINode Title="exceed Element" Url="html/b015754b-9a95-30f1-7bcf-a34fbf06656b.htm" />
+  <HelpKINode Title="exchangerate Element" Url="html/1a541f88-de99-9f6e-98b4-1bb4136ab0c8.htm" />
+  <HelpKINode Title="exportdeclaration Element" Url="html/3f6822ff-5fb3-0ae5-cc18-2dc7bda7a1a7.htm" />
+  <HelpKINode Title="extension Element" Url="html/a42a45ae-3e89-e488-0736-7c6a1d1dca95.htm" />
+  <HelpKINode Title="factoring Element" Url="html/114da15b-3e78-cb36-721b-444874ce166e.htm" />
+  <HelpKINode Title="faulted Element" Url="html/131d04d9-5d9d-c82e-76c7-dea8d86763f6.htm" />
+  <HelpKINode Title="faultedmessage Element" Url="html/1ad144f2-1b79-45e5-d801-1ba0ab1903f3.htm" />
+  <HelpKINode Title="firstname Element" Url="html/4976a3c8-3795-16eb-b0cf-72811eaa2131.htm" />
+  <HelpKINode Title="free Element" Url="html/d7f67c57-ce4a-a98d-ef94-6fad382e04ee.htm" />
+  <HelpKINode Title="freightpayer Element" Url="html/dc6ef6bb-0d45-4def-f0cc-e2b5e494fc54.htm" />
+  <HelpKINode Title="gender Element" Url="html/a2a875b7-f510-9ece-5986-87cadc941be1.htm" />
+  <HelpKINode Title="geox Element" Url="html/4ebbc06b-444d-0ed4-6977-6629fdfc3b9f.htm" />
+  <HelpKINode Title="geoy Element" Url="html/1db1fef4-c244-5b5a-b38a-001b9ad96cb1.htm" />
+  <HelpKINode Title="geoz Element" Url="html/d04a4862-1eb1-aa76-ad82-63bdce8eba24.htm" />
+  <HelpKINode Title="grossamount Element" Url="html/af556483-8db7-a87b-fbc0-5a585157803d.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.accounting Namespace" Url="html/46457be0-3bd0-ffad-1a70-d24a978114f6.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.finance Namespace" Url="html/a2fcac4d-f2ae-d763-dfb3-5b65d6077248.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.inventory.storage_10 Namespace" Url="html/0f6a8cc9-dc34-cdf4-7aae-0f26b5ed17e3.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.logistics Namespace" Url="html/52a5a8e7-a94b-ba2d-5c5e-5322263b63ab.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.production.lot_10 Namespace" Url="html/a04de578-09f0-18e6-e93f-d916fdafa756.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.sales.invoice_10 Namespace" Url="html/4d61f4fb-4b38-b87f-a676-2bb8bc0b9fd2.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.sales.order_10 Namespace" Url="html/6514d20c-9493-c268-a4b6-9bd386066bcb.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.sales.quote_10 Namespace" Url="html/43ed8df8-9237-d5e5-4d2b-c468f65222fd.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.sales.termsdiscount_10 Namespace" Url="html/c9db30eb-49cc-8f67-5bdc-faa1cdf512da.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.business.sales.termspayment_10 Namespace" Url="html/0ffe0ec8-19fe-b38b-62b4-15bae6fdce4d.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.address_10 Namespace" Url="html/93cde35a-8f59-0015-37ee-71fe28dad516.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.country_10 Namespace" Url="html/3925f9d6-c258-ee1a-c9be-9e2f0057a422.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.department_10 Namespace" Url="html/40ef8fdf-eb0d-d87c-7caf-838a885fa96b.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.internet_10 Namespace" Url="html/f2fa4d7c-f5cb-f3eb-eced-c7d2ea774117.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.language_10 Namespace" Url="html/b2f04e4c-679b-3df1-44f4-2fdaf124c3d7.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.postbox_10 Namespace" Url="html/f43bf393-a2ab-111a-e8e6-a3a3f5d38fc4.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.contact.telecommunication_10 Namespace" Url="html/ae9472df-713c-43fb-c331-eef2d1b086ee.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.event.timeframe_10 Namespace" Url="html/74d43f77-d39a-7f89-3118-a146dca8dac1.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.articlegroup_10 Namespace" Url="html/56100ac9-99fe-0145-bbde-0cb8cbae1811.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.article_10 Namespace" Url="html/8cd2cf69-ddbe-1c04-76dd-9a20ab73c09b.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.dangerousgoods_10 Namespace" Url="html/fb52089e-cb48-8074-cb14-4ed51be1dbff.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.packing_10 Namespace" Url="html/622f8200-9941-828f-ef9a-aa83a8b2f169.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.productgroup_10 Namespace" Url="html/a7fa00b4-475f-c1b1-596b-252434415461.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.product_10 Namespace" Url="html/a8d6abd9-3c52-3c18-322b-3b6059a46a8e.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.goods.service_10 Namespace" Url="html/86afa8c8-fb2c-cc83-cadc-86090d07d87d.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.government.identifier_10 Namespace" Url="html/89c25627-04e1-f34d-fa20-e8aebd3d4b7f.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.law.legalperson_10 Namespace" Url="html/896c03e2-bccf-14f6-c58f-5dde28963db0.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.law.naturalperson_10 Namespace" Url="html/b86209a5-ea15-3220-ac5e-f61f5c78ccc7.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.monetary.amount_10 Namespace" Url="html/fb8a4d88-e5ae-d42c-1084-8fa61afce7ae.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.monetary.currency_10 Namespace" Url="html/9756e40b-fae0-0dd3-0bb5-867762b0b364.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.physical.length_10 Namespace" Url="html/12a396c7-86a2-813b-75cf-7290cbc81b0b.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.physical.mass_10 Namespace" Url="html/c6e8ccf3-cfe5-ded0-28a2-828356997296.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.physical.position_10 Namespace" Url="html/faa76dde-c2f2-2a11-5ab5-e298950361e5.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.physical.time_10 Namespace" Url="html/f2b3ded7-c23e-6633-a28e-d781f4fb356e.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.bank_10 Namespace" Url="html/0223dc32-2816-cf45-3318-7b454f47b664.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.client_10 Namespace" Url="html/ab4f2da8-dc2b-1a69-19a4-7f85ebb915d5.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.consignee_10 Namespace" Url="html/3fd66c92-b70a-956b-42ed-4a2e1670a785.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.consignor_10 Namespace" Url="html/3f2a70be-1f73-985f-e89b-4c4031aa73a7.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.creditor_10 Namespace" Url="html/56d7867c-a5fd-5939-e53d-703c97ee796f.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.customer_10 Namespace" Url="html/0a807236-ad4f-d825-612f-463b2c4ca2e6.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.debitor_10 Namespace" Url="html/797980e4-7ebf-12b9-68af-e77eab105109.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.freightpayer_10 Namespace" Url="html/9db15505-edda-5536-462f-d02a756ba8b3.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.issuer_10 Namespace" Url="html/73591942-a021-822a-c061-ce5c3312b90e.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.entities.roles.vendor_10 Namespace" Url="html/0cc3129a-b4c9-31fa-4fd3-5afc454569ec.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.generic.batch_10 Namespace" Url="html/41da6605-d8e2-8ad2-4ac4-472df9f72e8a.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.generic.processinginfo_10 Namespace" Url="html/f28ffcf3-1f4b-eb33-549c-978532192aa8.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.generic.reference_10 Namespace" Url="html/b2bcd2df-7ee8-0f85-151c-f303df7122b2.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.generic.status_10 Namespace" Url="html/0cac0364-c495-5fcd-2f7c-fe72200fbd4d.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.messages.procurement.order_10 Namespace" Url="html/f39b9451-a154-abae-f1cf-6f87358dfe80.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.messages.sales.confirmationorder_10 Namespace" Url="html/0e2feaf7-7936-9d1a-7f42-1fc0796a76f3.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.schemas.entities.roles.carrier_10 Namespace" Url="html/c08e6d35-f282-5318-c729-35614140dfa5.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.schemas.entities.roles.driver_10 Namespace" Url="html/de3a4441-0888-79fa-4040-fed1c8640ba3.htm" />
+  <HelpKINode Title="http://insyca.bt.gl.esb.schemas.schemas.entities.roles.shipper_10 Namespace" Url="html/a8675dc8-276e-4a25-e369-8acab530cd69.htm" />
+  <HelpKINode Title="iata Element" Url="html/462f99b1-bf28-9170-9847-6a5510b79e4a.htm" />
+  <HelpKINode Title="iban Element" Url="html/52684e0f-fafd-a37d-5547-741469d907b1.htm" />
+  <HelpKINode Title="id Element">
+    <HelpKINode Title="id Element" Url="html/e4809d93-fda6-8b04-afd1-dc837a6ebe41.htm" />
+    <HelpKINode Title="id Element" Url="html/bfe76b9a-2c74-95f0-26c9-bd16e00a5d40.htm" />
+    <HelpKINode Title="id Element" Url="html/bf40dcc4-0fc4-5602-0228-5d744c3ff970.htm" />
+    <HelpKINode Title="id Element" Url="html/b7362ba1-9a9e-7fd9-c3cb-877a70737112.htm" />
+    <HelpKINode Title="id Element" Url="html/36d0a814-ff52-3ae5-7829-95469e5c38c8.htm" />
+    <HelpKINode Title="id Element" Url="html/b8355681-c2e6-1f79-7f73-f579037902f5.htm" />
+    <HelpKINode Title="id Element" Url="html/0ab0d4a3-7ea9-0331-ab0a-b8a83346b6e1.htm" />
+    <HelpKINode Title="id Element" Url="html/0da885a3-a1c8-1c8a-9dba-a6af11bb4d0a.htm" />
+    <HelpKINode Title="id Element" Url="html/ee23c29b-1d7f-a1f5-7114-28806a6e1c37.htm" />
+    <HelpKINode Title="id Element" Url="html/399ec5c2-d3db-870b-6b81-fe81d135b17f.htm" />
+    <HelpKINode Title="id Element" Url="html/be6c8c58-cb3b-eba8-ca2e-e0f0a8af2434.htm" />
+    <HelpKINode Title="id Element" Url="html/b98eb40c-5ef7-880d-f1e4-88e1f02f7ba6.htm" />
+    <HelpKINode Title="id Element" Url="html/810ebea8-5aef-d463-3f13-0bb6a8c63727.htm" />
+    <HelpKINode Title="id Element" Url="html/7a9bde2b-b3d5-fd6d-ffb6-e1d62c320d07.htm" />
+    <HelpKINode Title="id Element" Url="html/2b48c48a-dd96-dff6-dcd5-de4a8e46e62a.htm" />
+    <HelpKINode Title="id Element" Url="html/dbbaecfa-5bcc-af0c-a9a5-dec81fbcfbe6.htm" />
+    <HelpKINode Title="id Element" Url="html/b98aab53-0a00-fa10-912d-1d5a5a95313b.htm" />
+    <HelpKINode Title="id Element" Url="html/ed657213-f645-032e-24b8-322c88c48918.htm" />
+    <HelpKINode Title="id Element" Url="html/a235be86-65c6-ff19-fd39-2f342eef8536.htm" />
+    <HelpKINode Title="id Element" Url="html/598cb56d-412f-cda8-b49d-da3e6dabc47c.htm" />
+    <HelpKINode Title="id Element" Url="html/c11dc16f-a828-055c-5b24-77ce09773bd7.htm" />
+    <HelpKINode Title="id Element" Url="html/0f430b5f-9beb-ac4e-7bac-e0afcd0fe2af.htm" />
+    <HelpKINode Title="id Element" Url="html/6338edf1-baca-b8dc-c3a0-82e5b593a4b3.htm" />
+    <HelpKINode Title="id Element" Url="html/49fa5f9e-71a7-8777-9751-b22ea76a12d0.htm" />
+    <HelpKINode Title="id Element" Url="html/4a0906ec-7ef6-cb71-bcaf-1d33c83b60b5.htm" />
+    <HelpKINode Title="id Element" Url="html/4d445b7f-b91e-be46-739a-2ead99bfb3cf.htm" />
+    <HelpKINode Title="id Element" Url="html/024056dc-3b3f-6707-dd70-a4cae7776822.htm" />
+    <HelpKINode Title="id Element" Url="html/f8979a07-af79-b543-c01b-10e219e2b52d.htm" />
+    <HelpKINode Title="id Element" Url="html/d44bdacc-1e88-eb77-f965-612146d52b32.htm" />
+    <HelpKINode Title="id Element" Url="html/ff99906c-1320-8491-b9f3-1f7a758baa53.htm" />
+    <HelpKINode Title="id Element" Url="html/717dff2c-24e8-8508-31ae-36b3dbcfcaa7.htm" />
+    <HelpKINode Title="id Element" Url="html/33403acf-41a3-279f-55f9-8d28630f218f.htm" />
+    <HelpKINode Title="id Element" Url="html/32d26c27-64c0-5ac4-57a8-cb1f187f9476.htm" />
+    <HelpKINode Title="id Element" Url="html/d0752527-6a9a-4e3b-6894-97b323c29cb1.htm" />
+    <HelpKINode Title="id Element" Url="html/8e16d117-814c-1a94-302b-f6445273765f.htm" />
+    <HelpKINode Title="id Element" Url="html/5f65b2ab-1995-4b47-e743-472e2dbb3d6a.htm" />
+    <HelpKINode Title="id Element" Url="html/5f34abdd-a532-42ba-8fba-ecd3f3c270b2.htm" />
+    <HelpKINode Title="id Element" Url="html/3d70da4a-1be3-c5f9-2828-f3eda30e9055.htm" />
+    <HelpKINode Title="id Element" Url="html/7e7768a6-bc8b-a0a3-aada-a19ac81a1f11.htm" />
+    <HelpKINode Title="id Element" Url="html/80b3243b-058c-96c8-4366-66e7e7069d3f.htm" />
+    <HelpKINode Title="id Element" Url="html/b29df910-bead-a778-8b1b-f196c4d1c820.htm" />
+    <HelpKINode Title="id Element" Url="html/059d306d-1092-5acb-5043-e7de3b7d8444.htm" />
+    <HelpKINode Title="id Element" Url="html/4b4ad942-180d-c243-dd8d-8d4969ddab70.htm" />
+    <HelpKINode Title="id Element" Url="html/47565b09-38b0-397a-eab0-ef641dd43f0c.htm" />
+    <HelpKINode Title="id Element" Url="html/663bc8d8-a37f-7494-d04c-425181bd5b66.htm" />
+    <HelpKINode Title="id Element" Url="html/4fc43559-8a65-5778-9266-a71018210174.htm" />
+    <HelpKINode Title="id Element" Url="html/4f02783f-a887-b698-f35d-3fbd0145a6e5.htm" />
+    <HelpKINode Title="id Element" Url="html/c9826b55-b452-564b-2d3a-e6d3c10caa63.htm" />
+    <HelpKINode Title="id Element" Url="html/7df7e202-ce3c-facd-85f6-0aa0909463e8.htm" />
+    <HelpKINode Title="id Element" Url="html/27352218-c2e9-7119-8c01-f1aae9d36727.htm" />
+    <HelpKINode Title="id Element" Url="html/fdee67f9-cc07-ae03-af2b-22442df65276.htm" />
+    <HelpKINode Title="id Element" Url="html/c1eca869-34d6-0737-a0e5-4b81d72dcd23.htm" />
+    <HelpKINode Title="id Element" Url="html/04353c95-5ce8-60f7-809b-b554514e05d1.htm" />
+    <HelpKINode Title="id Element" Url="html/457e92b0-efe4-bef2-5e95-743e30b50ec7.htm" />
+    <HelpKINode Title="id Element" Url="html/572e2331-501f-8974-809b-f676b302212a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="identifier Element" Url="html/4a173f40-8610-0182-aab2-569015b60cc3.htm" />
+  <HelpKINode Title="incotermcode Element" Url="html/e46cd14c-339e-6810-cba5-9f3bede0b7ae.htm" />
+  <HelpKINode Title="index Element" Url="html/cf4ba40c-2baa-411a-788d-7d3fa86cf170.htm" />
+  <HelpKINode Title="insurance Element" Url="html/9414f43a-eccb-365c-fee4-e1ce1c19b4f2.htm" />
+  <HelpKINode Title="internet Element" Url="html/e5b3b885-b54a-b50e-caea-f4a4a72b0a23.htm" />
+  <HelpKINode Title="invoice Element" Url="html/9e3591e3-4533-128a-39bf-f5d02ea0dc06.htm" />
+  <HelpKINode Title="iso3166-1alpha2 Element" Url="html/fb40e075-4124-ca44-e749-0e9083134008.htm" />
+  <HelpKINode Title="iso3166-1alpha3 Element" Url="html/65cff573-4699-9354-13c6-4831bfd2a0d1.htm" />
+  <HelpKINode Title="iso3166-1numeric Element" Url="html/5d00a1c9-3e1a-6496-f3d4-990150772c09.htm" />
+  <HelpKINode Title="iso4217name Element" Url="html/8b4f0f74-2121-ea13-a82c-12d922ea9cf6.htm" />
+  <HelpKINode Title="iso4217numeric Element" Url="html/2b763281-4412-dd81-c775-783cfcd5974c.htm" />
+  <HelpKINode Title="iso639-1 Element" Url="html/6a721f8c-7bfa-7a06-4eed-76c6eabf15dc.htm" />
+  <HelpKINode Title="iso639-2 Element" Url="html/5acefe30-5284-beca-2bfd-f3609df8b71b.htm" />
+  <HelpKINode Title="isstockitem Element" Url="html/c05c09fc-ce81-dd5a-1e2c-2f89121c84f3.htm" />
+  <HelpKINode Title="issuer Element" Url="html/c7a2b508-c45e-a29a-ed64-2220701ca316.htm" />
+  <HelpKINode Title="key Element" Url="html/31dfee34-395e-df24-61df-baa8b5184cf4.htm" />
+  <HelpKINode Title="label Element">
+    <HelpKINode Title="label Element" Url="html/83a086cf-0d77-3a62-f241-c0e983c25c59.htm" />
+    <HelpKINode Title="label Element" Url="html/18c2b20d-f067-f6f1-803e-9117fb6e06ff.htm" />
+    <HelpKINode Title="label Element" Url="html/6d388351-4fb1-06bf-f92e-f317c63b2599.htm" />
+    <HelpKINode Title="label Element" Url="html/3c563776-2c9f-744c-b4ce-09c3f97a7e30.htm" />
+    <HelpKINode Title="label Element" Url="html/eb70dd17-4d4e-9b71-34e5-b0137a81123c.htm" />
+    <HelpKINode Title="label Element" Url="html/13df4008-4353-a960-ee2c-6f9564fb5f9d.htm" />
+    <HelpKINode Title="label Element" Url="html/580b9968-ffba-4f7f-8cb5-7369dee6602b.htm" />
+    <HelpKINode Title="label Element" Url="html/79ec9a5f-757b-7f52-f970-9c94241d5b21.htm" />
+    <HelpKINode Title="label Element" Url="html/6ccded27-6f14-4451-dd84-0d96189b3a8c.htm" />
+    <HelpKINode Title="label Element" Url="html/21aa0cc5-02ae-52f8-97c1-a09db890a7bb.htm" />
+    <HelpKINode Title="label Element" Url="html/3fff5c26-232e-e1a7-e8df-5e7f08503ed9.htm" />
+    <HelpKINode Title="label Element" Url="html/81344419-98db-33ff-8db1-31d59c874689.htm" />
+    <HelpKINode Title="label Element" Url="html/cb3be5a2-9785-0c53-79ca-6a80cc64fa36.htm" />
+    <HelpKINode Title="label Element" Url="html/94d679f1-a049-0f9a-c127-66165f80a661.htm" />
+    <HelpKINode Title="label Element" Url="html/c8803b69-64e6-5ff2-63e6-2b3eaa06abdb.htm" />
+    <HelpKINode Title="label Element" Url="html/e5dd5777-8bb4-bbe0-4564-77c2faac371a.htm" />
+    <HelpKINode Title="label Element" Url="html/c4204516-bd9f-5cea-f0fb-86671a563cea.htm" />
+    <HelpKINode Title="label Element" Url="html/c78fbbd0-e8a7-bccc-06dd-447e0d5803c4.htm" />
+    <HelpKINode Title="label Element" Url="html/6255d2e0-d4d5-40d2-4b82-68a43da452e0.htm" />
+    <HelpKINode Title="label Element" Url="html/fb1cc3c6-9ed5-f6bf-816e-1518121be2e6.htm" />
+    <HelpKINode Title="label Element" Url="html/08149f0a-b04f-db68-021c-0892e7d3bd4a.htm" />
+    <HelpKINode Title="label Element" Url="html/fac2b72b-b0f2-bcf2-ff80-9727682dc27e.htm" />
+    <HelpKINode Title="label Element" Url="html/28c4d9f9-41e3-a86a-4852-965a36be42f3.htm" />
+    <HelpKINode Title="label Element" Url="html/4b8d8c3d-5abd-5455-aef6-e7beab691673.htm" />
+    <HelpKINode Title="label Element" Url="html/04b5caae-1b84-2578-3193-408574c0de7a.htm" />
+    <HelpKINode Title="label Element" Url="html/0d895b9e-bc7c-ece8-4487-97891e4d4453.htm" />
+    <HelpKINode Title="label Element" Url="html/ecc00f99-fc4f-a608-888e-558decd27317.htm" />
+    <HelpKINode Title="label Element" Url="html/08cb6e0e-cdda-0c98-6c1b-b783dbce4418.htm" />
+    <HelpKINode Title="label Element" Url="html/0b10bae0-c5f3-218c-e97f-ca784c28760d.htm" />
+    <HelpKINode Title="label Element" Url="html/4952a938-1ae2-e851-d8bd-cc2146d85f9c.htm" />
+    <HelpKINode Title="label Element" Url="html/2dd734e3-d496-abe8-06f4-089bed97cc04.htm" />
+    <HelpKINode Title="label Element" Url="html/c0b845f1-d450-ec97-3bbe-02f31e292c11.htm" />
+    <HelpKINode Title="label Element" Url="html/d2aa4c44-8586-78a5-4bb1-8f4de9987d9b.htm" />
+    <HelpKINode Title="label Element" Url="html/622ba229-9f89-ce76-cc58-d0c1b67f583b.htm" />
+    <HelpKINode Title="label Element" Url="html/fec908a2-4be2-d969-0861-660410584290.htm" />
+    <HelpKINode Title="label Element" Url="html/df38f769-30b9-1268-d189-99e4bab2e254.htm" />
+    <HelpKINode Title="label Element" Url="html/b08d9a35-3c37-45c1-e9b7-4601210e1efc.htm" />
+    <HelpKINode Title="label Element" Url="html/bfd911b0-018f-b46d-123d-2e1a5cfc4dec.htm" />
+    <HelpKINode Title="label Element" Url="html/293bbab5-a371-6896-a8a7-34ff8ec48064.htm" />
+    <HelpKINode Title="label Element" Url="html/dcad652e-4ce3-29f1-ccbf-ce5f0e5b90ec.htm" />
+    <HelpKINode Title="label Element" Url="html/9c137f7e-592d-7236-d794-ce6917746d25.htm" />
+    <HelpKINode Title="label Element" Url="html/19c79859-b9d7-e787-1538-5ecc4a522525.htm" />
+    <HelpKINode Title="label Element" Url="html/7e6334e2-f1f3-bbe9-6b3a-6513cb31553d.htm" />
+    <HelpKINode Title="label Element" Url="html/a50966c8-a080-79e5-b0b6-184b56d94a26.htm" />
+    <HelpKINode Title="label Element" Url="html/644716c5-c260-1b13-b05a-194f9e6f4b2a.htm" />
+    <HelpKINode Title="label Element" Url="html/75f5e774-1ee7-78b2-cbe7-152dfc35f8fa.htm" />
+    <HelpKINode Title="label Element" Url="html/9d7557b1-3d9f-e673-abcf-a8874ef168a0.htm" />
+    <HelpKINode Title="label Element" Url="html/b42947e4-cf21-5078-7c01-0ad3c0e78f6f.htm" />
+    <HelpKINode Title="label Element" Url="html/589dc365-0f87-a1a6-8806-c15316b92f4f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="language Element" Url="html/45ba53f1-1907-8418-29ae-19040e111863.htm" />
+  <HelpKINode Title="lastname Element" Url="html/fde143d8-876b-2d17-c77c-0230104687df.htm" />
+  <HelpKINode Title="latitude Element" Url="html/577ba8de-4794-5b4a-c5f9-63cf8d3f2d3e.htm" />
+  <HelpKINode Title="legalperson Element" Url="html/26d90f8e-aef9-6232-08df-0f5f5f4e0726.htm" />
+  <HelpKINode Title="length Element" Url="html/886d0f0f-5fc4-92f4-8bd5-f9bb57b03ee2.htm" />
+  <HelpKINode Title="loadingaid Element" Url="html/82e2f595-0682-0b96-4e85-b7ae30cf57d8.htm" />
+  <HelpKINode Title="loadingunit Element" Url="html/e8886083-f219-f804-25ac-a54b6aec5b58.htm" />
+  <HelpKINode Title="localnumber Element" Url="html/87aa7cd9-075a-d1cb-6847-f48d6788f2ad.htm" />
+  <HelpKINode Title="longitude Element" Url="html/f85e196d-c94a-0c09-f4f1-fa358b6f8111.htm" />
+  <HelpKINode Title="lot Element" Url="html/49c98225-aedd-a087-cf99-cd5774808db3.htm" />
+  <HelpKINode Title="mass Element" Url="html/df620447-c9ac-ff53-d921-76717a12500e.htm" />
+  <HelpKINode Title="method Element">
+    <HelpKINode Title="method Element" Url="html/8390a1ba-c44d-36fc-5f92-da1de9b4ebb0.htm" />
+    <HelpKINode Title="method Element" Url="html/14f8f1e3-d0a8-6fc9-79da-3664f097a10f.htm" />
+    <HelpKINode Title="method Element" Url="html/51d28533-d84e-db49-af59-0d802f6dc4a0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="middlename Element" Url="html/6a325ae0-4d16-1103-48a4-98dad7f0f466.htm" />
+  <HelpKINode Title="mode Element" Url="html/58ad24f0-d211-fd19-6dce-616d8a20352d.htm" />
+  <HelpKINode Title="name Element">
+    <HelpKINode Title="name Element" Url="html/9f7994a1-940a-fb6c-f256-1a3d8d49888c.htm" />
+    <HelpKINode Title="name Element" Url="html/309eb7f3-6b3f-8797-3624-ef61ab801e03.htm" />
+    <HelpKINode Title="name Element" Url="html/743f2bfa-cd16-d854-6cc6-616a363e0215.htm" />
+    <HelpKINode Title="name Element" Url="html/cf0f155f-931e-c46e-0c54-b93909afb1c9.htm" />
+    <HelpKINode Title="name Element" Url="html/02c0dd59-b8b3-7b9a-424a-05938065bac0.htm" />
+    <HelpKINode Title="name Element" Url="html/2565951c-65b2-e2b6-1f14-c07d0102f37a.htm" />
+    <HelpKINode Title="name Element" Url="html/9bf903c9-26e7-8ea3-1f17-4c23e2034db0.htm" />
+    <HelpKINode Title="name Element" Url="html/9c3c270d-67be-d15d-1f9d-2808bbf5f12d.htm" />
+    <HelpKINode Title="name Element" Url="html/0c880b6d-6502-2cd8-2617-7284c4083456.htm" />
+    <HelpKINode Title="name Element" Url="html/137b1355-e0fd-8505-0dc4-c976eef430d7.htm" />
+    <HelpKINode Title="name Element" Url="html/360583db-7992-e28e-8c39-e9c0032d9ab9.htm" />
+    <HelpKINode Title="name Element" Url="html/f084546a-3149-57ab-230d-e6b3bfa9664f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="name1 Element">
+    <HelpKINode Title="name1 Element" Url="html/1e50e3d3-ff95-98fb-aa73-b63defce4428.htm" />
+    <HelpKINode Title="name1 Element" Url="html/64a7744a-50d0-3af5-ffe1-65babeacc96e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="name2 Element">
+    <HelpKINode Title="name2 Element" Url="html/17778d2a-1b94-7d6a-f523-8d1e9c575038.htm" />
+    <HelpKINode Title="name2 Element" Url="html/77b7e62b-d058-99ae-7b6a-65108698d97c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="name3 Element">
+    <HelpKINode Title="name3 Element" Url="html/9501f3d9-72b2-3027-e526-f2078e1be453.htm" />
+    <HelpKINode Title="name3 Element" Url="html/2a2e32a1-c7fa-c40d-7914-8bd78a73e494.htm" />
+  </HelpKINode>
+  <HelpKINode Title="nameextension Element" Url="html/296e1764-42c1-2a9f-89ed-08c11a34810c.htm" />
+  <HelpKINode Title="naturalperson Element" Url="html/73167d47-7864-5e39-264b-8ba4e62e482b.htm" />
+  <HelpKINode Title="netamount Element" Url="html/0aa72d2a-0811-7c2b-9e03-92d9174989d2.htm" />
+  <HelpKINode Title="niltag Element" Url="html/343c8325-0e2f-76c0-0f0f-e4ed8c0351fb.htm" />
+  <HelpKINode Title="number Element">
+    <HelpKINode Title="number Element" Url="html/4a9e9528-4927-1a44-4ddf-2bbee0b75b26.htm" />
+    <HelpKINode Title="number Element" Url="html/b1803569-1ec8-5448-3d45-fd43715aa8e7.htm" />
+    <HelpKINode Title="number Element" Url="html/1e9f537e-77b9-0614-afa2-8d6a1d814e3c.htm" />
+    <HelpKINode Title="number Element" Url="html/8c7f5788-d961-714e-4c09-71684c6ba2aa.htm" />
+    <HelpKINode Title="number Element" Url="html/5392775a-c63d-db62-1ed9-078c6c2cca0e.htm" />
+    <HelpKINode Title="number Element" Url="html/18061483-f135-6e44-ec65-eb716dedc2ca.htm" />
+    <HelpKINode Title="number Element" Url="html/09faeca1-2a4b-0b86-7fa1-67f83d616cad.htm" />
+    <HelpKINode Title="number Element" Url="html/8b2d6784-9e80-3229-8b19-5119140288d8.htm" />
+    <HelpKINode Title="number Element" Url="html/a9a83c6f-df8b-b149-40f9-9626d6cabb62.htm" />
+    <HelpKINode Title="number Element" Url="html/79465638-3613-c26a-b0f9-9940549a4549.htm" />
+    <HelpKINode Title="number Element" Url="html/1eb0f9f0-6122-6f34-7b57-ab7c7d64aa35.htm" />
+    <HelpKINode Title="number Element" Url="html/8d781c61-6230-c672-859a-23923fa7f202.htm" />
+    <HelpKINode Title="number Element" Url="html/ef7cef93-adf9-b9b5-7bbf-e2f773f13d77.htm" />
+    <HelpKINode Title="number Element" Url="html/5a51934f-6f5d-f881-b503-20325397dde4.htm" />
+    <HelpKINode Title="number Element" Url="html/e1e868e3-3370-fec1-9ac7-a9cd74c5d53d.htm" />
+    <HelpKINode Title="number Element" Url="html/a785e9f6-c305-4040-86fa-6156172f6fb8.htm" />
+    <HelpKINode Title="number Element" Url="html/556e942b-efaf-5bb3-c79a-4f8e3edfed60.htm" />
+    <HelpKINode Title="number Element" Url="html/59f196ca-d466-1161-d53e-38a45c956622.htm" />
+    <HelpKINode Title="number Element" Url="html/d48d03f4-cf63-19c4-a732-dab89750a6f0.htm" />
+    <HelpKINode Title="number Element" Url="html/675e17cd-eeeb-2fab-2c6c-c3b746e0a4d1.htm" />
+    <HelpKINode Title="number Element" Url="html/09b7baef-1612-0ac6-e82f-db462bc0c3fd.htm" />
+    <HelpKINode Title="number Element" Url="html/92eae17f-2b7e-9d84-6ee6-805e3a34c4e0.htm" />
+    <HelpKINode Title="number Element" Url="html/8dd87c22-3425-ea6a-5c79-afd480753dad.htm" />
+    <HelpKINode Title="number Element" Url="html/8d9dd82f-318b-57a7-ae14-85d94ea7619d.htm" />
+    <HelpKINode Title="number Element" Url="html/81d16502-a63f-7e52-d0e9-11cde7b9be8b.htm" />
+    <HelpKINode Title="number Element" Url="html/2395101c-7a39-72cb-eb5c-814cca64b5ad.htm" />
+    <HelpKINode Title="number Element" Url="html/cebc602e-70e9-1743-6109-74ea5936c98a.htm" />
+    <HelpKINode Title="number Element" Url="html/6d065271-925b-6519-78a4-2859aafbe424.htm" />
+    <HelpKINode Title="number Element" Url="html/35ff11e0-f653-f7bd-6307-a3d825dce6de.htm" />
+    <HelpKINode Title="number Element" Url="html/ed99105f-9e19-16df-033b-7b3858aadda4.htm" />
+    <HelpKINode Title="number Element" Url="html/98fea0ca-100a-531d-d969-c2b44c6eac16.htm" />
+    <HelpKINode Title="number Element" Url="html/f10cbe11-083a-167c-0d91-8696dc660dc3.htm" />
+    <HelpKINode Title="number Element" Url="html/77535908-ac1b-e031-1784-0c1375c3e6d3.htm" />
+    <HelpKINode Title="number Element" Url="html/37564d98-48fa-4e3a-5745-00425a4ccc9c.htm" />
+    <HelpKINode Title="number Element" Url="html/61219ae9-edc8-a05e-c1b2-51f8fc545cef.htm" />
+    <HelpKINode Title="number Element" Url="html/cf26a10f-23cb-1d4e-3936-1dc8886c4aae.htm" />
+    <HelpKINode Title="number Element" Url="html/cf320442-8395-56d8-cb1c-195dbfcff5ac.htm" />
+    <HelpKINode Title="number Element" Url="html/88dc3e90-d128-4107-9879-7351f8b4053d.htm" />
+    <HelpKINode Title="number Element" Url="html/961d5c73-a444-284d-d139-e683fe6d9e53.htm" />
+    <HelpKINode Title="number Element" Url="html/4f451dcb-a950-89fa-0312-be4bfd97ef27.htm" />
+    <HelpKINode Title="number Element" Url="html/3810d3cd-2ee1-ee88-4cf4-0bb4deb2f758.htm" />
+    <HelpKINode Title="number Element" Url="html/03966c45-e754-1417-b3cd-d3fbd88e961b.htm" />
+    <HelpKINode Title="number Element" Url="html/ff3786c6-c58b-1d8c-989a-0de60fb42401.htm" />
+    <HelpKINode Title="number Element" Url="html/f754786b-0192-d1c2-ed2e-8387e76f7a13.htm" />
+    <HelpKINode Title="number Element" Url="html/b646f083-892b-edff-986f-7148b5822f56.htm" />
+    <HelpKINode Title="number Element" Url="html/b6d3149c-a2dc-ee9e-370b-b693cfd49f11.htm" />
+    <HelpKINode Title="number Element" Url="html/a132aee4-0d60-684a-e332-81373a575ca6.htm" />
+    <HelpKINode Title="number Element" Url="html/6c0a183f-f32a-2a91-3fc1-9df546679162.htm" />
+    <HelpKINode Title="number Element" Url="html/3afab570-def5-f06f-a909-cb8edc5615df.htm" />
+    <HelpKINode Title="number Element" Url="html/6da75045-6d9c-999b-aaad-de6ae52eb625.htm" />
+    <HelpKINode Title="number Element" Url="html/d55f0b14-c809-4662-a4c9-6ff5efe80ba1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="order Element">
+    <HelpKINode Title="order Element" Url="html/3ba5621e-d768-0c5b-892d-953ca25530b4.htm" />
+    <HelpKINode Title="order Element" Url="html/22b1fa76-0117-8947-eb6b-3917e13e2739.htm" />
+  </HelpKINode>
+  <HelpKINode Title="package Element" Url="html/3acee7cd-5597-a0c9-d04a-9fd791b45e01.htm" />
+  <HelpKINode Title="packing Element" Url="html/78efe6c9-2624-219d-c0c3-8426248b3174.htm" />
+  <HelpKINode Title="packinggroup Element" Url="html/b43560c5-ae00-bfe2-e8cb-e853b64cb51e.htm" />
+  <HelpKINode Title="payment Element" Url="html/5c3ca01c-ed61-f9b3-561f-c1434c0dfe3f.htm" />
+  <HelpKINode Title="paymenttarget Element" Url="html/6b1fa332-af38-78a4-9048-9dcfe9019897.htm" />
+  <HelpKINode Title="percent Element" Url="html/357cfeb4-6ecd-6179-8950-f5748c43b9ad.htm" />
+  <HelpKINode Title="periode Element" Url="html/bb647297-ca28-6134-e06c-4bf16cdf2e2f.htm" />
+  <HelpKINode Title="position Element" Url="html/8d23280f-67a7-b01c-5f20-1342a4f0904d.htm" />
+  <HelpKINode Title="postbox Element" Url="html/1074ab18-4818-cfbe-c3dd-d57e392541f6.htm" />
+  <HelpKINode Title="postingdate Element" Url="html/f90f694c-f8e1-7709-71e5-7de171fa3d1e.htm" />
+  <HelpKINode Title="processinginfo Element" Url="html/0a054a13-5f8e-0c35-ee9a-160753ec4bab.htm" />
+  <HelpKINode Title="product Element" Url="html/5b2306c6-de22-4fa6-301d-165459aef3b9.htm" />
+  <HelpKINode Title="productgroup Element" Url="html/30b66257-7695-d526-d071-6477cc3d876d.htm" />
+  <HelpKINode Title="profession Element" Url="html/23aa76a5-3f7b-7edf-5327-91376e644af8.htm" />
+  <HelpKINode Title="quantity Element" Url="html/39658b6d-980e-611a-5722-ee212aaba083.htm" />
+  <HelpKINode Title="quote Element" Url="html/6eeb6898-d467-d3b7-c760-a4381503c46a.htm" />
+  <HelpKINode Title="receiverid Element" Url="html/f73f47f9-0a2e-1d91-6464-5abe9b68d24e.htm" />
+  <HelpKINode Title="recordcount Element" Url="html/f0d918f3-27d1-6152-34df-ab27a521989e.htm" />
+  <HelpKINode Title="reference Element" Url="html/feb3d3b7-348a-7cbe-fed0-50ce04811080.htm" />
+  <HelpKINode Title="salutation Element" Url="html/7df82408-c162-cc9c-0db0-273d08ff5299.htm" />
+  <HelpKINode Title="senderid Element" Url="html/62b266d2-a35a-c478-1e17-84eae36fff30.htm" />
+  <HelpKINode Title="serial Element" Url="html/5d68d929-0bf8-ab96-abfb-f2d70921f509.htm" />
+  <HelpKINode Title="service Element" Url="html/5c248d7e-894a-a01b-6e3d-98d9c4b7c377.htm" />
+  <HelpKINode Title="shipment Element" Url="html/7b8c9391-9159-df60-645d-4bf890ef0497.htm" />
+  <HelpKINode Title="shipper Element" Url="html/460d86d3-a656-71f7-7c36-71ac88bb601e.htm" />
+  <HelpKINode Title="size Element" Url="html/c879d500-3c17-7170-f8d0-46630a19c3b0.htm" />
+  <HelpKINode Title="start Element" Url="html/2526f161-80cf-b4f4-a005-31483cd0b097.htm" />
+  <HelpKINode Title="state Element" Url="html/9cf305b6-2913-e736-0fee-7b8a311e4aa0.htm" />
+  <HelpKINode Title="station Element" Url="html/73a4d172-3271-b29b-8dff-4b358348a5d2.htm" />
+  <HelpKINode Title="status Element">
+    <HelpKINode Title="status Element" Url="html/7b73b93c-19de-d243-cc1d-9cf46c08d2d0.htm" />
+    <HelpKINode Title="status Element" Url="html/95d4488d-278c-ad53-7dc2-c1a605cab3cf.htm" />
+    <HelpKINode Title="status Element" Url="html/3512a5c3-5cb5-c3e2-469d-9adc5752d788.htm" />
+  </HelpKINode>
+  <HelpKINode Title="storage Element" Url="html/5bb9d6c2-45f8-ab92-0680-e2cabb822dc4.htm" />
+  <HelpKINode Title="street Element" Url="html/2faede89-fc46-35cc-7dc7-0575ba4129a1.htm" />
+  <HelpKINode Title="streetcomplete Element" Url="html/b946094c-60fe-5c3f-3dbd-5e0452a7f995.htm" />
+  <HelpKINode Title="streetnumber Element" Url="html/2b3dd14e-75c2-eb99-a5aa-c75cc2a7cc87.htm" />
+  <HelpKINode Title="streetnumberextension Element" Url="html/47615846-e642-b695-2aa3-4f300be4028f.htm" />
+  <HelpKINode Title="tax Element" Url="html/6bb989c4-238f-b155-2168-c6b5059b060f.htm" />
+  <HelpKINode Title="taxamount Element" Url="html/12c7cb68-b8b6-f648-be87-f65fb97456cc.htm" />
+  <HelpKINode Title="taxareacode Element" Url="html/ace099ad-113f-7cb3-8b65-98141e2d0dd9.htm" />
+  <HelpKINode Title="taxcode Element" Url="html/5246f559-6321-d891-cabe-f850cce082e0.htm" />
+  <HelpKINode Title="taxid Element" Url="html/a3a5b7b5-acf0-1c2d-b429-10b3ee069a7d.htm" />
+  <HelpKINode Title="telecommunication Element" Url="html/3671336a-df12-d862-3c9f-89c202994ae4.htm" />
+  <HelpKINode Title="termsdiscount Element" Url="html/860b58f8-4669-b222-16ee-478cec6d7721.htm" />
+  <HelpKINode Title="termsfreight Element" Url="html/80c65916-caed-70fc-4a44-e4c3459e1b3f.htm" />
+  <HelpKINode Title="termspayment Element" Url="html/8c09a6af-7535-cda5-df8b-e25bf396c534.htm" />
+  <HelpKINode Title="text Element">
+    <HelpKINode Title="text Element" Url="html/e5093ca4-4578-1ba2-ee88-2bebbda5499c.htm" />
+    <HelpKINode Title="text Element" Url="html/b9d1b56e-fc7d-5ded-8f0f-0a4c4671d392.htm" />
+    <HelpKINode Title="text Element" Url="html/d6c521e5-149d-0872-0617-4fea5133c86a.htm" />
+    <HelpKINode Title="text Element" Url="html/d122eff1-3f66-c220-b21c-ea5361d328e7.htm" />
+    <HelpKINode Title="text Element" Url="html/3998a2b1-90c4-53e1-8eb8-d078bb0440c9.htm" />
+    <HelpKINode Title="text Element" Url="html/9ea8c56c-9fe0-ae63-34de-cf13b3ad3426.htm" />
+    <HelpKINode Title="text Element" Url="html/85e32d64-0514-26e9-450a-ce5a51196581.htm" />
+  </HelpKINode>
+  <HelpKINode Title="time Element">
+    <HelpKINode Title="time Element" Url="html/ea3c47f5-da97-ecf6-80c2-1503a538f69b.htm" />
+    <HelpKINode Title="time Element" Url="html/85edc5b6-3c99-f735-06de-5c3bc60fadeb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="timestamp Element" Url="html/07da76b8-fff5-5a25-34a1-d3f2357e5e94.htm" />
+  <HelpKINode Title="tracking Element" Url="html/89b7cb12-52ce-5ce0-704a-5befc2978ad4.htm" />
+  <HelpKINode Title="tradingunit Element" Url="html/a715e250-5cbf-5e19-17bc-e025fd863228.htm" />
+  <HelpKINode Title="trainstationcode Element" Url="html/be680a1a-0d80-5bc6-9d33-235d3ae50de6.htm" />
+  <HelpKINode Title="type Element">
+    <HelpKINode Title="type Element" Url="html/7e76e118-2725-5ce5-245f-1970d2732f3b.htm" />
+    <HelpKINode Title="type Element" Url="html/ef06e306-671c-196b-9a6f-e55d61b34e02.htm" />
+    <HelpKINode Title="type Element" Url="html/1bbf0208-f7c7-4192-76de-bf55951ceaa3.htm" />
+    <HelpKINode Title="type Element" Url="html/15890b5f-a584-c8ed-2b01-0085466d3c6a.htm" />
+    <HelpKINode Title="type Element" Url="html/dbeac9fe-8412-00c6-5f95-96409f857e10.htm" />
+    <HelpKINode Title="type Element" Url="html/ba9556fe-f9b4-ec87-cbf4-fd306f50443b.htm" />
+    <HelpKINode Title="type Element" Url="html/491ad578-3bd2-d268-14e7-f999042ba7ff.htm" />
+    <HelpKINode Title="type Element" Url="html/e781cb53-ccf4-f2b3-0f98-c389f649df41.htm" />
+    <HelpKINode Title="type Element" Url="html/9fe71b1f-db06-b6d8-e62f-7b6328d4e5b0.htm" />
+    <HelpKINode Title="type Element" Url="html/63ce36a5-bf15-5b20-31cd-03ec5f38cc19.htm" />
+    <HelpKINode Title="type Element" Url="html/7e8928b8-4875-4d5b-7984-7f7625700571.htm" />
+    <HelpKINode Title="type Element" Url="html/8049f5a5-d6f4-cb99-09f5-783da17704c3.htm" />
+    <HelpKINode Title="type Element" Url="html/ca5056e7-b596-6811-fabb-58778447d65b.htm" />
+    <HelpKINode Title="type Element" Url="html/e470c224-f2a2-e1a6-51df-5e1b7d544db9.htm" />
+    <HelpKINode Title="type Element" Url="html/60994089-b21c-251b-69de-7107cab98629.htm" />
+    <HelpKINode Title="type Element" Url="html/60283cbc-e469-0c99-51d3-9e04e4fd38ab.htm" />
+    <HelpKINode Title="type Element" Url="html/e5086a5c-5d5a-2c2f-9254-f950a92f7ecf.htm" />
+    <HelpKINode Title="type Element" Url="html/007ec6db-185b-75a5-8d97-5e8e64a7ddd6.htm" />
+    <HelpKINode Title="type Element" Url="html/111d1204-817c-dc52-74fb-f280db572a9e.htm" />
+    <HelpKINode Title="type Element" Url="html/0cc7d3ab-00da-3c6d-1d74-a88cd915f8df.htm" />
+  </HelpKINode>
+  <HelpKINode Title="unit Element">
+    <HelpKINode Title="unit Element" Url="html/413da413-92f2-77e5-98c5-642b0d358b16.htm" />
+    <HelpKINode Title="unit Element" Url="html/34e54093-623f-d0f1-aefa-70f6ca2573a9.htm" />
+    <HelpKINode Title="unit Element" Url="html/70f338b7-953e-e6ec-7a5f-d80f75bddb59.htm" />
+    <HelpKINode Title="unit Element" Url="html/a5a1144a-c927-bedb-eb91-9698dbd799a9.htm" />
+    <HelpKINode Title="unit Element" Url="html/d108b16d-5fc3-f994-fd98-c4abb1f71915.htm" />
+    <HelpKINode Title="unit Element" Url="html/a42dcad6-113d-81db-ebe6-bb2e1c5ae062.htm" />
+    <HelpKINode Title="unit Element" Url="html/3ad2b265-02ea-f631-3e66-85b03fc13ae2.htm" />
+    <HelpKINode Title="unit Element" Url="html/36b47e7b-259a-769a-d928-83aa4eb3924e.htm" />
+    <HelpKINode Title="unit Element" Url="html/0f96e974-5fbd-0e87-f1d1-15b9810475f1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="unnumber Element" Url="html/847759ad-54a3-ab26-eba3-b2f357322557.htm" />
+  <HelpKINode Title="uri Element" Url="html/57033830-4714-505b-2632-1852cb365814.htm" />
+  <HelpKINode Title="value Element">
+    <HelpKINode Title="value Element" Url="html/6556d8f7-e8af-38cf-7fb2-5420a7b3c77d.htm" />
+    <HelpKINode Title="value Element" Url="html/db3e9375-8a4b-1fa2-652b-768bde6a9408.htm" />
+    <HelpKINode Title="value Element" Url="html/86771651-fd97-d751-93ea-7fab520f4d6f.htm" />
+    <HelpKINode Title="value Element" Url="html/18cfc37d-2ec8-d7a5-b30b-be3e7e8194d6.htm" />
+    <HelpKINode Title="value Element" Url="html/94f0e83f-1f45-ae54-6cc3-66d6f1908bdf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="vatid Element" Url="html/7053c0cc-dc15-4e3f-1f39-de114c210e64.htm" />
+  <HelpKINode Title="vehicle Element" Url="html/1fe11c64-5ea3-1661-4673-a2aa2a820eb7.htm" />
+  <HelpKINode Title="vendor Element" Url="html/eaf681ec-44ff-1e62-1d65-ab6c2ba49eba.htm" />
+  <HelpKINode Title="version">
+    <HelpKINode Title="1.0.0.0" Url="html/4323ddee-0e30-403d-a2d4-06c0bbc1af77.htm" />
+    <HelpKINode Title="history" Url="html/2d985a28-d46c-4122-8121-bc18dc8fa416.htm" />
+  </HelpKINode>
+  <HelpKINode Title="zipcode Element">
+    <HelpKINode Title="zipcode Element" Url="html/58d8683f-3ddd-657d-79b5-ba0f24d8a329.htm" />
+    <HelpKINode Title="zipcode Element" Url="html/fb407300-4dbb-b3d0-23a3-f37b4840796e.htm" />
+  </HelpKINode>
+</HelpKI>

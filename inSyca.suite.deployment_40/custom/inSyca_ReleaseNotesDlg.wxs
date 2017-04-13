@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  <copyright file="InstallDirDlg.wxs" company="Outercurve Foundation">
+    Copyright (c) 2004, Outercurve Foundation.
+    This software is released under Microsoft Reciprocal License (MS-RL).
+    The license and further copyright text can be found in the file
+    LICENSE.TXT at the root directory of the distribution.
+  </copyright>
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <UI>
+      <Dialog Id="inSyca_ReleaseNotesDlg" Width="480" Height="290" Title="!(loc.InstallDirDlg_Title)">
+        <Control Id="Next" Type="PushButton" X="346" Y="263" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)" />
+        <Control Id="Back" Type="PushButton" X="290" Y="263" Width="56" Height="17" Text="!(loc.WixUIBack)" />
+        <Control Id="Cancel" Type="PushButton" X="414" Y="263" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+
+        <Control Id="BottomLine" Type="Line" X="0" Y="254" Width="480" Height="0" />
+
+        <Control Id="LicenseText" Type="ScrollableText" X="20" Y="10" Width="440" Height="240" Sunken="yes" TabSkip="no">
+          <Text SourceFile="!(wix.WixUILicenseRtf=!(var.WixUILicenseRtf)" />
+        </Control>
+
+      </Dialog>
+    </UI>
+  </Fragment>
+</Wix>

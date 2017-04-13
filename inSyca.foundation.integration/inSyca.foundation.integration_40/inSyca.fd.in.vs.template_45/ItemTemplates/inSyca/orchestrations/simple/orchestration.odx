@@ -1,0 +1,227 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="1e6bebca-aa8e-41e4-a939-384784f2b070" LowerBound="1.1" HigherBound="46.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="inSyca.item.ns" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="7ae53c90-e1e7-4cd1-a15e-9189c5a97793" ParentLink="Module_PortType" LowerBound="8.1" HigherBound="15.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="pt_inSyca.item.fn_in" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="OperationDeclaration" OID="14555d40-bb86-4f87-b304-54d9706d1dfa" ParentLink="PortType_OperationDeclaration" LowerBound="10.1" HigherBound="14.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="op_inSyca.item.fn" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="e1e8b1c9-f4d8-4b6d-aa57-045368a42763" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="12.13" HigherBound="12.34">
+                    <om:Property Name="Ref" Value="inSyca.item.ns.mpt_inSyca.item.fn_in" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="a6212303-d665-4550-a9d1-e2ccedc78249" ParentLink="Module_PortType" LowerBound="15.1" HigherBound="22.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="pt_inSyca.item.fn_out" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="OperationDeclaration" OID="3c465449-73b6-492e-8772-6f9efe4d9ea4" ParentLink="PortType_OperationDeclaration" LowerBound="17.1" HigherBound="21.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="op_inSyca.item.fn" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="0c1d2424-0ea8-4439-8c2a-68611c0c971f" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="19.13" HigherBound="19.35">
+                    <om:Property Name="Ref" Value="inSyca.item.ns.mpt_inSyca.item.fn_out" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="MultipartMessageType" OID="6f88e555-403d-41c4-ab2f-98384f6513d5" ParentLink="Module_MessageType" LowerBound="4.1" HigherBound="6.1">
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="mpt_inSyca.item.fn_in" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="5c7c488b-95ac-448f-9521-32632cdb3b0a" ParentLink="MultipartMessageType_PartDeclaration">
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mp_inSyca.item.fn_in" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="MultipartMessageType" OID="036d2d38-3796-4d08-978e-bcb88df969e9" ParentLink="Module_MessageType" LowerBound="6.1" HigherBound="8.1">
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="mpt_inSyca.item.fn_out" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="fe9ee196-bb6f-4266-8986-a469be2045b5" ParentLink="MultipartMessageType_PartDeclaration">
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mp_inSyca.item.fn_out" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="a19f733e-4ce3-412d-a8d2-b385f4834f1b" ParentLink="Module_ServiceDeclaration" LowerBound="22.1" HigherBound="45.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="inSyca.item.fn" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="MessageDeclaration" OID="fb14f433-12da-42b9-9a02-12c060d04d87" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="29.1" HigherBound="30.1">
+                <om:Property Name="Type" Value="inSyca.item.ns.mpt_inSyca.item.fn_in" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msg_inSyca.item.fn_in" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="89c9642f-9861-479c-94ec-741e8b4bd1d1" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="30.1" HigherBound="31.1">
+                <om:Property Name="Type" Value="inSyca.item.ns.mpt_inSyca.item.fn_out" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msg_inSyca.item.fn_out" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="80ee906a-b309-434e-95e6-da0767c4da01" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="43cefa0e-5485-44fe-b359-d5efdd4a5d19" ParentLink="ServiceBody_Statement" LowerBound="33.1" HigherBound="35.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="rp_dmb_inSyca.item.fn" />
+                    <om:Property Name="MessageName" Value="msg_inSyca.item.fn_in" />
+                    <om:Property Name="OperationName" Value="op_inSyca.item.fn" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="rec_inSyca.item.fn" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="8fcb202e-2275-4e6a-b776-1d0d3eab64e9" ParentLink="ServiceBody_Statement" LowerBound="35.1" HigherBound="41.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="cst_msg_inSyca.item.fn_out" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Transform" OID="98497eba-c526-40e2-86cd-bb0239cf2876" ParentLink="ComplexStatement_Statement" LowerBound="38.1" HigherBound="40.1">
+                        <om:Property Name="ClassName" Value="inSyca.item.ns.maps.inSyca.item.fn_in_to_inSyca.item.fn_out" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="tsf_inSyca.item.fn_in_to_inSyca.item.fn_out" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="04f4de7b-ddf8-4fb1-bc6b-4eb89e2f351a" ParentLink="Transform_InputMessagePartRef">
+                            <om:Property Name="MessageRef" Value="msg_inSyca.item.fn_in" />
+                            <om:Property Name="PartRef" Value="mp_inSyca.item.fn_in" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="51480c43-22f9-4589-a5b7-6f82086af8df" ParentLink="Transform_OutputMessagePartRef">
+                            <om:Property Name="MessageRef" Value="msg_inSyca.item.fn_out" />
+                            <om:Property Name="PartRef" Value="mp_inSyca.item.fn_out" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="c23bf556-a3c6-4e1e-a6ca-ddd25c1d7456" ParentLink="Construct_MessageRef" LowerBound="36.23" HigherBound="36.45">
+                        <om:Property Name="Ref" Value="msg_inSyca.item.fn_out" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="c27a942a-c194-4adf-9739-688427a77cbf" ParentLink="ServiceBody_Statement" LowerBound="41.1" HigherBound="43.1">
+                    <om:Property Name="PortName" Value="sp_dmb_inSyca.item.fn" />
+                    <om:Property Name="MessageName" Value="msg_inSyca.item.fn_out" />
+                    <om:Property Name="OperationName" Value="op_inSyca.item.fn" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="snd_inSyca.item.fn" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="c1d495b5-d387-42e2-b92f-fbc718df5579" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="25.1" HigherBound="27.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Unbound" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="inSyca.item.ns.pt_inSyca.item.fn_in" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="rp_dmb_inSyca.item.fn" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="DirectBindingAttribute" OID="e271804f-8570-43a2-a399-fbdb374413d8" ParentLink="PortDeclaration_CLRAttribute" LowerBound="25.1" HigherBound="26.1">
+                    <om:Property Name="DirectBindingType" Value="MessageBox" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="02bd490b-6992-47ff-a82b-05b96e94370a" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="27.1" HigherBound="29.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="2" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="inSyca.item.ns.pt_inSyca.item.fn_out" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sp_dmb_inSyca.item.fn" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="DirectBindingAttribute" OID="723d46b8-e225-4030-bbc2-5a317c438585" ParentLink="PortDeclaration_CLRAttribute" LowerBound="27.1" HigherBound="28.1">
+                    <om:Property Name="DirectBindingType" Value="MessageBox" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module inSyca.item.ns
+{
+
+#error "Errors exist for one or more children."
+
+#error "Errors exist for one or more children."
+    internal porttype pt_inSyca.item.fn_in
+    {
+        oneway op_inSyca.item.fn
+        {
+            mpt_inSyca.item.fn_in
+        };
+    };
+    internal porttype pt_inSyca.item.fn_out
+    {
+        oneway op_inSyca.item.fn
+        {
+            mpt_inSyca.item.fn_out
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service inSyca.item.fn
+    {
+        [Microsoft.XLANGs.BaseTypes.DirectBinding()]
+        port implements pt_inSyca.item.fn_in rp_dmb_inSyca.item.fn;
+        [Microsoft.XLANGs.BaseTypes.DirectBinding()]
+        port uses pt_inSyca.item.fn_out sp_dmb_inSyca.item.fn;
+        message mpt_inSyca.item.fn_in msg_inSyca.item.fn_in;
+        message mpt_inSyca.item.fn_out msg_inSyca.item.fn_out;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("43cefa0e-5485-44fe-b359-d5efdd4a5d19")]
+            activate receive (rp_dmb_inSyca.item.fn.op_inSyca.item.fn, msg_inSyca.item.fn_in);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("8fcb202e-2275-4e6a-b776-1d0d3eab64e9")]
+            construct msg_inSyca.item.fn_out
+            {
+
+#error "Map Name 'inSyca.item.ns.maps.inSyca.item.fn_in_to_inSyca.item.fn_out' does not exist or is not valid."
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c27a942a-c194-4adf-9739-688427a77cbf")]
+            send (sp_dmb_inSyca.item.fn.op_inSyca.item.fn, msg_inSyca.item.fn_out);
+        }
+    }
+}
+

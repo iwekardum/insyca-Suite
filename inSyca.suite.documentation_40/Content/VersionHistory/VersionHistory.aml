@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="dbce4e90-3725-4b7d-84a4-41f59713c750" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>The topics in this section describe the various changes made to the inSyca Suite over the
+life of the project.</para>
+		</introduction>
+
+		<section>
+			<title>Version History</title>
+			<content>
+				<para>Select a version below to see a description of its changes.</para>
+
+				<list class="bullet">
+					<listItem>
+						<para><link xlink:href="2df13fd1-ac71-46f0-b17c-704ad484e869" /></para>
+					</listItem>
+
+					<!--<listItem>
+						<para>[TODO: Add links to each specific version page]</para>
+					</listItem>-->
+
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="b9e5c136-a160-4642-af71-8df2b6f8c3ef" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

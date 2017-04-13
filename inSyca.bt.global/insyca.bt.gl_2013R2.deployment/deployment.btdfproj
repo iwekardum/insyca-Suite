@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  Deployment Framework for BizTalk 5.0
+  Copyright (C) 2004-2012 Thomas F. Abraham and Scott Colestock
+-->
+<!-- 
+        P L A C E H O L D E R
+
+  inSyca                                  = Companyname
+  gl                                      = Mainprocess
+  ${SUBPROCESS}                           = Subprocess
+  Global Integration Components           = Packagedescription, ProductName, PackageComments
+  {792389BB-D9DB-4F8E-9304-42D24DF722A5}  = ProductId (Generated GUID)
+  {9E4F46F2-A161-4399-9BA0-D5C421C833FB}  = ProductUpgradeCode (Generated GUID)
+  ${ENTITY_1}                             = Receive BizTalk Entity 
+  ${ENTITY_2}                             = Send BizTalk Entity
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Installer" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <SchemaVersion>1.0</SchemaVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ProjectName>inSyca.bt.gl</ProjectName>
+    <ProjectVersion>1.0</ProjectVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludeMessagingBindings>False</IncludeMessagingBindings>
+    <IncludeSchemas>True</IncludeSchemas>
+    <IncludeTransforms>False</IncludeTransforms>
+    <IncludeOrchestrations>True</IncludeOrchestrations>
+    <IncludePipelines>False</IncludePipelines>
+    <IncludePipelineComponents>False</IncludePipelineComponents>
+    <IncludeVocabAndRules>False</IncludeVocabAndRules>
+    <IncludeComponents>False</IncludeComponents>
+    <IncludeBAM>false</IncludeBAM>
+    <IncludeEsbItineraries>false</IncludeEsbItineraries>
+    <IncludeCustomFunctoids>false</IncludeCustomFunctoids>
+    <IncludeVirtualDirectories>false</IncludeVirtualDirectories>
+    <IncludeSSO>false</IncludeSSO>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UsingMasterBindings>False</UsingMasterBindings>
+    <SkipIISReset>true</SkipIISReset>
+    <StartApplicationOnDeploy>false</StartApplicationOnDeploy>
+  </PropertyGroup>
+
+  <!-- Properties related to building an MSI for server deployments -->
+  <!-- BizTalk App Version Upgrade -->
+  <!--   For each new product release to be deployed to your BizTalk servers: -->
+  <!--     1) Increment ProductVersion -->
+  <!--     2) Generate a new GUID and update ProductId with the new GUID -->
+  <!--   This allows the new MSI to automatically uninstall (not undeploy!) the old MSI and install the new one. -->
+  <PropertyGroup>
+    <MsiName>inSyca.bt.gl_2013R2</MsiName>
+    <ProductVersion>1.0.1</ProductVersion>
+
+    <!-- BizTalk App Version Upgrade -->
+    <ProductName>inSyca Global Components for BT 2013R2</ProductName>
+    <Manufacturer>inSyca</Manufacturer>
+    <PackageDescription>Global Components for BT 2013R2</PackageDescription>
+
+    <!-- NEVER change the ProductUpgradeCode. -->
+    <PackageComments>inSyca Global Components for BT 2013R2</PackageComments>
+    <ProductId>{C19118CF-C480-48F7-92B5-96A2D39E27B7}</ProductId>
+    <ProductUpgradeCode>{E90B685C-BF4B-4D6B-8964-EF6CE31AE9AD}</ProductUpgradeCode>
+  </PropertyGroup>
+
+  <!-- Under TFS Team Build, set CustomizableOutDir property to true in TFS 2005/2008/2010 UpgradeTemplate. -->
+  <!-- With a workflow build, copy the default template then modify the MSBuild task for the solution build. Set OutDir to blank and -->
+  <!-- CommandLineArguments to String.Format("/p:SkipInvalidConfigurations=true;TeamBuildOutDir=""{0}"" {1}", BinariesDirectory, MSBuildArguments). -->
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DeploymentFrameworkTargetsPath>.\custom\</DeploymentFrameworkTargetsPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' == ''">bin\Debug\</OutputPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' != ''">$(TeamBuildOutDir)</OutputPath>
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DeploymentFrameworkTargetsPath>.\custom\</DeploymentFrameworkTargetsPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' == ''">bin\Release\</OutputPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' != ''">$(TeamBuildOutDir)</OutputPath>
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Server'">
+    <DeploymentFrameworkTargetsPath>Framework\</DeploymentFrameworkTargetsPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<BizTalkHosts Include="inSyca_bt_gl_esb" />-->
+  </ItemGroup>
+
+  <!-- Add ItemGroup elements that contain one or more Schemas, Orchestrations, Transforms, etc. elements that describe -->
+  <!-- the specific artifacts in your solution that need to be deployed. Use IntelliSense as a guide. -->
+
+  <!-- Schemas -->
+  <ItemGroup>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.bu.ac.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.bu.ac\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.bu.fi.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.bu.fi\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.bu.wh.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.bu.wh\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.co.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.co\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.ev.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.ev\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.go.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.go\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.gv.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.gv\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.la.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.la\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.mo.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.mo\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.ph.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.ph\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.en.ro.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.ro\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.bt.gl.esb.schemas.ge.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.ge\bin\$(Configuration)</LocationPath>
+    </Schemas>
+  </ItemGroup>
+
+  <!-- Services --><!--
+  <ItemGroup>
+    <Orchestrations Include="inSyca.bt.gl.mb.services.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.mb.services\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+  </ItemGroup>-->
+
+  <!-- Orchestrations -->
+  <ItemGroup>
+    <Orchestrations Include="inSyca.bt.gl.esb.orchestrations.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.orchestrations\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+    <!--<Orchestrations Include="inSyca.bt.gl.mb.orchestrations.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.mb.orchestrations\bin\$(Configuration)</LocationPath>
+    </Orchestrations>-->
+  </ItemGroup>
+
+  <Import Project="$(DeploymentFrameworkTargetsPath)BizTalkDeploymentFramework.targets" />
+  <!--
+    The Deployment Framework automatically packages most files into the server install MSI.
+    However, if there are special folders that you need to include in the MSI, you can
+    copy them to the folder $(RedistDir) in the CustomRedist target.
+    To include individual files, add an ItemGroup with AdditionalFiles elements.
+  -->
+
+  <!-- Runs at the absolute beginning of the process, before the Deployment Framework has done any initialization -->
+  <Target Name="CustomPreInitialize">
+
+    <!-- stop inSyca Foundation Monitoring  (no messages during installation) -->
+    <!--
+    <Exec Command="net stop &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+		<Exec Command="net stop &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+    -->
+
+  </Target>
+
+  <Target Name="CustomDeployTarget">
+
+    <GetBizTalkAppExists ApplicationName="inSyca.bt.gl">
+      <Output TaskParameter="appExists" PropertyName="gl_Exists" />
+    </GetBizTalkAppExists>
+
+    <!-- create applications -->
+    <Exec Command="BTSTask.exe AddApp -ApplicationName:&quot;inSyca.bt.gl&quot; -Description:&quot;inSyca Global Integration Components&quot;" Condition="'$(gl_Exists)' == 'false'" ContinueOnError="true" />
+
+    <!-- schemas -->
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.ac.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.fi.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.wh.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.co.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ev.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.go.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.gv.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.la.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.mo.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ph.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ro.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.ge.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+
+    <!-- orchestrations -->
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+
+    <!-- mb -->
+    <!--<Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.mb.services.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.mb.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />-->
+
+  </Target>
+
+  <!-- Attention! Breaks GAC Deployment in MultiServer Environment-->
+  <Target Name="CustomPostDeployTarget">
+  </Target>
+
+  <!-- Runs just after the host instances were restarted -->
+  <Target Name="CustomFinalDeploy">
+
+    <!-- start inSyca.bt.gl application -->
+    <!--<ControlBizTalkApp ApplicationName="inSyca.bt.gl" StartOption="StartAll" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>-->
+
+    <!-- start inSyca Monitoring (enable monitoring after installation) -->
+    <!-- 
+    <Exec Command="net start &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+    <Exec Command="net start &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+    -->
+
+  </Target>
+
+  <Target Name="CustomUndeployTarget">
+
+    <!-- verify existing biztalk applications -->
+    <GetBizTalkAppExists ApplicationName="inSyca.bt.gl">
+      <Output TaskParameter="appExists" PropertyName="gl_Exists" />
+    </GetBizTalkAppExists>
+
+    <!-- Indicates the flags from the ApplicationStopOption enumeration used when starting a BizTalk application -->
+    <PropertyGroup Condition="'$(ControlBizTalkAppStopOption)' == ''">
+      <ControlBizTalkAppStopOption>DisableAllReceiveLocations,UndeployAllPolicies,UnenlistAllOrchestrations,UnenlistAllSendPortGroups,UnenlistAllSendPorts</ControlBizTalkAppStopOption>
+    </PropertyGroup>
+
+    <!-- stop biztalk applications -->
+    <ControlBizTalkApp ApplicationName="inSyca.bt.gl" StopOption="$(ControlBizTalkAppStopOption)" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>
+
+    <!-- remove resources-->
+
+    <!-- mb -->
+    <!--<Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.mb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.mb.services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />-->
+    
+    <!-- orchestrations -->
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+
+    <!-- schemas -->
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.ac, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.fi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.wh, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.co, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ev, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.go, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.gv, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.la, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.mo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ph, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+
+  </Target>
+
+  <!-- Runs just after the host instances were restarted -->
+  <Target Name="CustomFinalUndeploy">
+
+    <!-- start inSyca.bt.gl application -->
+    <!--<ControlBizTalkApp ApplicationName="inSyca.bt.gl" StartOption="StartAll" Condition="'$(lo_sh_Exists)' == 'true'" ContinueOnError="true"/>-->
+
+    <!-- start inSyca Monitoring (enable monitoring after deinstallation) -->
+    <!--
+    <Exec Command="net start &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+    <Exec Command="net start &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+    -->
+  </Target>
+
+  <Target Name="CustomPostInstaller">
+    <Copy SourceFiles="..\insyca.bt.gl.esb.schemas\_documentation\ReleaseNotes.rtf" DestinationFolder="$(TargetDir)" ContinueOnError="true" />
+    <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\insyca\insyca.bt.global&quot;" ContinueOnError="true" />
+  </Target>
+
+</Project>

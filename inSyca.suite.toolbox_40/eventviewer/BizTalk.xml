@@ -1,0 +1,21 @@
+<ViewerConfig>
+  <QueryConfig>
+    <QueryParams>
+      <Simple>
+        <Channel>Application</Channel>
+        <RelativeTimeInfo>0</RelativeTimeInfo>
+        <Source>BizTalk DW Reporting,BizTalk Server,BizTalk Server Deployment,BizTalk Server EDI,ENTSSO,XLANG/s</Source>
+        <Level>1,2,3,4,0,5</Level>
+        <BySource>True</BySource>
+      </Simple>
+    </QueryParams>
+    <QueryNode>
+      <Name>BizTalk</Name>
+      <QueryList>
+        <Query Id="0" Path="Application">
+          <Select Path="Application">*[System[Provider[@Name='BizTalk DW Reporting' or @Name='BizTalk Server' or @Name='BizTalk Server Deployment' or @Name='BizTalk Server EDI' or @Name='ENTSSO' or @Name='XLANG/s'] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]</Select>
+        </Query>
+      </QueryList>
+    </QueryNode>
+  </QueryConfig>
+</ViewerConfig>

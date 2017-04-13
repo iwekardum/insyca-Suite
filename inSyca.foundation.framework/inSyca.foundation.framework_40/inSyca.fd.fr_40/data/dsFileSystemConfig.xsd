@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsFileSystemConfig" targetNamespace="http://inSyca.foundation.framework.data.dsFileSystemConfig_10" xmlns:mstns="http://inSyca.foundation.framework.data.dsFileSystemConfig_10" xmlns="http://inSyca.foundation.framework.data.dsFileSystemConfig_10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsFileSystemConfig" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsFileSystemConfig" msprop:Generator_UserDSName="dsFileSystemConfig">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Entry" msprop:Generator_TableClassName="EntryDataTable" msprop:Generator_TableVarName="tableEntry" msprop:Generator_TablePropName="Entry" msprop:Generator_RowDeletingName="EntryRowDeleting" msprop:Generator_RowChangingName="EntryRowChanging" msprop:Generator_RowEvHandlerName="EntryRowChangeEventHandler" msprop:Generator_RowDeletedName="EntryRowDeleted" msprop:Generator_UserTableName="Entry" msprop:Generator_RowChangedName="EntryRowChanged" msprop:Generator_RowEvArgName="EntryRowChangeEvent" msprop:Generator_RowClassName="EntryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Action" msdata:Caption="FileMask" msprop:Generator_ColumnVarNameInTable="columnAction" msprop:Generator_ColumnPropNameInRow="Action" msprop:Generator_ColumnPropNameInTable="ActionColumn" msprop:Generator_UserColumnName="Action" type="xs:string" minOccurs="0" />
+              <xs:element name="FileMask" msprop:Generator_ColumnVarNameInTable="columnFileMask" msprop:Generator_ColumnPropNameInRow="FileMask" msprop:Generator_ColumnPropNameInTable="FileMaskColumn" msprop:Generator_UserColumnName="FileMask" type="xs:string" minOccurs="0" />
+              <xs:element name="FolderMask" msprop:Generator_ColumnVarNameInTable="columnFolderMask" msprop:Generator_ColumnPropNameInRow="FolderMask" msprop:Generator_ColumnPropNameInTable="FolderMaskColumn" msprop:Generator_UserColumnName="FolderMask" type="xs:string" minOccurs="0" />
+              <xs:element name="Folder" msprop:Generator_ColumnVarNameInTable="columnFolder" msprop:Generator_ColumnPropNameInRow="Folder" msprop:Generator_ColumnPropNameInTable="FolderColumn" msprop:Generator_UserColumnName="Folder" type="xs:string" minOccurs="0" />
+              <xs:element name="ScanSubFolder" msprop:Generator_ColumnVarNameInTable="columnScanSubFolder" msprop:Generator_ColumnPropNameInRow="ScanSubFolder" msprop:Generator_ColumnPropNameInTable="ScanSubFolderColumn" msprop:Generator_UserColumnName="ScanSubFolder" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FileAge" msprop:Generator_ColumnVarNameInTable="columnFileAge" msprop:Generator_ColumnPropNameInRow="FileAge" msprop:Generator_ColumnPropNameInTable="FileAgeColumn" msprop:Generator_UserColumnName="FileAge" type="xs:int" minOccurs="0" />
+              <xs:element name="DestinationFolder" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DestinationFolder" msprop:Generator_ColumnVarNameInTable="columnDestinationFolder" msprop:Generator_ColumnPropNameInTable="DestinationFolderColumn" msprop:Generator_UserColumnName="DestinationFolder" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

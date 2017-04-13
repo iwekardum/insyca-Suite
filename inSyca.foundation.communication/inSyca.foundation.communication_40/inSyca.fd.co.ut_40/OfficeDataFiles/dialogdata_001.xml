@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Data>
+  <People>
+    <Person FirstName="Ringo" LastName="Starr" Age="72">
+      <FavoriteColors />
+    </Person>
+    <Person FirstName="George" LastName="Harrison" Age="52">
+      <FavoriteColors>
+        <Color Name="Orange" />
+        <Color Name="Green" />
+        <Color Name="Purple" />
+      </FavoriteColors>
+    </Person>
+    <Person FirstName="Paul" LastName="McCartney" Age="42">
+      <FavoriteColors>
+        <Color Name="White" />
+      </FavoriteColors>
+    </Person>
+    <Person FirstName="John" LastName="Lennon" Age="33">
+      <FavoriteColors>
+        <Color Name="Red" />
+        <Color Name="Green" />
+      </FavoriteColors>
+    </Person>
+  </People>
+  <Result>
+    <Selected></Selected>
+  </Result>
+</Data>

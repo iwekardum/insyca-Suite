@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsManagementConfig" targetNamespace="http://inSyca.foundation.integration.biztalk.data.dsManagementConfig_10" xmlns:mstns="http://inSyca.foundation.integration.biztalk.data.dsManagementConfig_10" xmlns="http://inSyca.foundation.integration.biztalk.data.dsManagementConfig_10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsManagementConfig" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsManagementConfig" msprop:Generator_UserDSName="dsManagementConfig">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Entry" msprop:Generator_TableClassName="EntryDataTable" msprop:Generator_TableVarName="tableEntry" msprop:Generator_TablePropName="Entry" msprop:Generator_RowDeletingName="EntryRowDeleting" msprop:Generator_RowChangingName="EntryRowChanging" msprop:Generator_RowEvHandlerName="EntryRowChangeEventHandler" msprop:Generator_RowDeletedName="EntryRowDeleted" msprop:Generator_UserTableName="Entry" msprop:Generator_RowChangedName="EntryRowChanged" msprop:Generator_RowEvArgName="EntryRowChangeEvent" msprop:Generator_RowClassName="EntryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Servername" msdata:Caption="FileMask" msprop:Generator_ColumnVarNameInTable="columnServername" msprop:Generator_ColumnPropNameInRow="Servername" msprop:Generator_ColumnPropNameInTable="ServernameColumn" msprop:Generator_UserColumnName="Servername" type="xs:string" minOccurs="0" />
+              <xs:element name="Object" msdata:Caption="FileMask" msprop:Generator_ColumnVarNameInTable="columnObject" msprop:Generator_ColumnPropNameInRow="Object" msprop:Generator_ColumnPropNameInTable="ObjectColumn" msprop:Generator_UserColumnName="Object" type="xs:string" minOccurs="0" />
+              <xs:element name="Objectname" msdata:Caption="FolderMask" msprop:Generator_ColumnVarNameInTable="columnObjectname" msprop:Generator_ColumnPropNameInRow="Objectname" msprop:Generator_ColumnPropNameInTable="ObjectnameColumn" msprop:Generator_UserColumnName="Objectname" type="xs:string" minOccurs="0" />
+              <xs:element name="Action" msdata:Caption="Folder" msprop:Generator_ColumnVarNameInTable="columnAction" msprop:Generator_ColumnPropNameInRow="Action" msprop:Generator_ColumnPropNameInTable="ActionColumn" msprop:Generator_UserColumnName="Action" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

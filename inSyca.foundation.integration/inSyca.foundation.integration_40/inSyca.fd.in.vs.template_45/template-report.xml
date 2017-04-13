@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TemplateReport>
+  <ItemTemplates>
+    <ItemTemplate Path="ItemTemplates\inSyca\orchestrations\simple\Definitions\CSharp.vstemplate" Name="Simple Transformation Orchestration" Description="Projectitem Template for Simple Transformation Orchestration" ProjectType="BizTalk" ProjectSubType="" />
+    <ItemTemplate Path="ItemTemplates\inSyca\orchestrations\simplelogging\Definitions\CSharp.vstemplate" Name="Simple Transformation Orchestration (Messagebroker)" Description="Projectitem Template for Simple Transformation Orchestration (Messagebroker)" ProjectType="BizTalk" ProjectSubType="" />
+  </ItemTemplates>
+  <ProjectTemplates>
+    <ProjectTemplate Path="ProjectTemplates\inSyca\Entity\Definitions\CSharp.vstemplate" Name="Entity BizTalk Server Project" Description="Project Template for BizTalk Entity Implementation" ProjectType="BizTalk" ProjectSubType="" />
+    <ProjectTemplate Path="ProjectTemplates\inSyca\ESB\Definitions\CSharp.vstemplate" Name="ESB BizTalk Server Project" Description="Project Template for BizTalk ESB Implementation" ProjectType="BizTalk" ProjectSubType="" />
+    <ProjectTemplate Path="ProjectTemplates\inSyca\Utility\Definitions\CSharp.vstemplate" Name="Utility Project" Description="Project Template for BizTalk Utilities" ProjectType="CSharp" ProjectSubType="" />
+  </ProjectTemplates>
+  <Snippets />
+</TemplateReport>

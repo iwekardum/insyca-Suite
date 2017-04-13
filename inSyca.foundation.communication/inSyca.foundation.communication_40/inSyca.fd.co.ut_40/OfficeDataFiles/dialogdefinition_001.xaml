@@ -1,0 +1,30 @@
+﻿<Window
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Window.Resources>
+        <XmlDataProvider x:Key="data" XPath="Data" />
+        <HierarchicalDataTemplate x:Key="rootTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding XPath=@FirstName, Mode=OneWay}" />
+                <!--<TextBlock Text=" " />
+                <TextBox Text="{Binding XPath=@LastName, Mode=TwoWay}" />
+                <TextBlock Text=" (Age: " />
+                <TextBox Text="{Binding XPath=@Age, Mode=TwoWay}" />
+                <TextBlock Text=")" />-->
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Button Uid="dlg_btn_001" x:Name="btnSetDocument" Content="SetDocument" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Tag="SetDocument"/>
+        <ComboBox Uid="dlg_cb_001" x:Name="cbTest" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Source={StaticResource data}, XPath=People/Person}" ItemTemplate="{StaticResource rootTemplate}" SelectedValuePath="@Age" SelectedValue="{Binding Source={StaticResource data}, XPath=Result/Selected, Mode=TwoWay }" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.651,-1.018"/>
+        <Button Uid="dlg_btn_002" x:Name="btnUpdateDocument" Content="UpdateDocument" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="75" Tag="UpdateDocument"/>
+        <Button Uid="dlg_btn_003" x:Name="btnGetDocument" Content="GetDocument" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="75" Tag="GetDocument"/>
+        <Button Uid="dlg_btn_004" x:Name="btnGetTemplate" Content="GetTemplate" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Tag="GetTemplate"/>
+        <TextBox Uid="dlg_tb_001" HorizontalAlignment="Left" Height="23" Margin="162,88,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource data}, XPath=Result/Selected, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

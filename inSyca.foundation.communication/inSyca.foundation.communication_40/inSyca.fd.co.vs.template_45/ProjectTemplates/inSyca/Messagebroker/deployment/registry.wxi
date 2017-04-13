@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="registry">
+
+    <Component Id="registryEntries_x86" Guid="*" Win64="no" Directory="INSTALLDIR">
+      <RegistryKey Root="HKLM" Key="Software\inSyca\inSyca.messagebroker.root.ns.svc" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="inSyca.messagebroker.root.ns.svc.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\inSyca\inSyca.messagebroker.root.ns.wsh" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="inSyca.messagebroker.root.ns.wsh.exe.config"/>
+      </RegistryKey>
+    </Component>
+
+    <Component Id="registryEntries_x64" Guid="*" Win64="yes" Directory="ProgramFiles64Folder">
+      <RegistryKey Root="HKLM" Key="Software\inSyca\inSyca.messagebroker.root.ns.svc" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="inSyca.messagebroker.root.ns.svc.config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\inSyca\inSyca.messagebroker.root.ns.wsh" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="inSyca.messagebroker.root.ns.wsh.exe.config"/>
+      </RegistryKey>
+    </Component>
+
+  </ComponentGroup>
+</Include>

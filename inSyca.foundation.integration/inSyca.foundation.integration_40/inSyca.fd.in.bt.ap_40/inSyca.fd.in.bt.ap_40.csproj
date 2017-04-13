@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CA5CA96-7461-441E-8B48-CE3E2FA161B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>inSyca.foundation.integration.biztalk.adapter</RootNamespace>
+    <AssemblyName>inSyca.fd.in.bt.ap_40</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>inSyca.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>inSyca.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Adapter.Framework">
+      <Name>Microsoft.Biztalk.Adapter.Framework</Name>
+      <HintPath>..\..\..\..\..\..\Developer Tools\Microsoft.Biztalk.Adapter.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.GlobalPropertySchemas, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Interop.TransportProxy">
+      <Name>Microsoft.BizTalk.Interop.TransportProxy</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Pipeline">
+      <Name>Microsoft.BizTalk.Pipeline</Name>
+    </Reference>
+    <Reference Include="Microsoft.XLANGs.BaseTypes">
+      <Name>Microsoft.XLANGs.BaseTypes</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="common\Adapter.cs" />
+    <Compile Include="common\AdapterExceptions.cs" />
+    <Compile Include="common\AdapterManagementBase.cs" />
+    <Compile Include="common\AsyncTransmitter.cs" />
+    <Compile Include="common\AsyncTransmitterBatch.cs" />
+    <Compile Include="common\AsyncTransmitterEndpoint.cs" />
+    <Compile Include="common\Batch.cs" />
+    <Compile Include="common\ConfigProperties.cs" />
+    <Compile Include="common\ControlledTermination.cs" />
+    <Compile Include="common\ReceiveBatch.cs" />
+    <Compile Include="common\Receiver.cs" />
+    <Compile Include="common\ReceiverEndpoint.cs" />
+    <Compile Include="common\ReceiveTxnBatch.cs" />
+    <Compile Include="common\SyncReceiveSubmitBatch.cs" />
+    <Compile Include="common\TransmitResponseBatch.cs" />
+    <Compile Include="common\TxnBatch.cs" />
+    <Compile Include="diagnostics\information.cs" />
+    <Compile Include="file\design\AdapterManagement.cs" />
+    <Compile Include="file\runtime\BatchMessage.cs" />
+    <Compile Include="file\runtime\Exceptions.cs" />
+    <Compile Include="file\runtime\Properties.cs" />
+    <Compile Include="file\runtime\Receiver.cs" />
+    <Compile Include="file\runtime\ReceiverEndpoint.cs" />
+    <Compile Include="file\runtime\Transmitter.cs" />
+    <Compile Include="file\runtime\TransmitterEndpoint.cs" />
+    <Compile Include="foundation.framework\configuration.cs" />
+    <Compile Include="foundation.framework\log.cs" />
+    <Compile Include="foundation.framework\testing.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="file\design\Resource.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="file\design\ReceiveHandler.xsd" />
+    <EmbeddedResource Include="file\design\ReceiveLocation.xsd" />
+    <EmbeddedResource Include="file\design\TransmitHandler.xsd" />
+    <EmbeddedResource Include="file\design\TransmitLocation.xsd" />
+    <EmbeddedResource Include="file\design\service1.wsdl" />
+    <None Include="foundation.integration.biztalk.adapter.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="inSyca.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="file\design\CategorySchema.xml" />
+    <EmbeddedResource Include="file\design\CategorySchema2.xml" />
+    <Content Include="inSyca.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
+      <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
+      <Name>inSyca.fd.fr_40</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

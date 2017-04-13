@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define productVersion = "1.0.0" ?>
+  <?define productNameExtension = "" ?>
+  <?define productName = "inSyca.messagebroker.root.ns" ?>
+  <?define appName = "inSyca.messagebroker.root.ns" ?>
+  <?define apprunDescription = "" ?>
+  <?define uninstallDescription = "Uninstall inSyca.messagebroker.root.ns" ?>
+  <?define manufacturer = "inSyca" ?>
+  <?define setupID = "D4E5DB5E-77C6-4C5B-9E4A-B9E708FF7426" ?>
+  <?define upgradeID = "935380BA-15C2-4A5D-B217-0F41B02035A2" ?>
+
+</Include>

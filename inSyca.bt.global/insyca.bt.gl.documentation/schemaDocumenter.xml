@@ -1,0 +1,15 @@
+﻿<doc xmlns="http://schemas.xsddoc.codeplex.com/schemaDoc/2009/3"
+     xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <namespace>
+    <name>insyca.bt.gl</name>
+  </namespace>
+  <members>
+    <member uri="http://insyca.bt.gl.esb.schemas.entities.business.accounting.account_10">
+      <!-- Documentation for childElement1 -->
+    </member>
+    <member uri="costcenter">
+      <!-- Documentation for childElement1 -->
+    </member>
+  </members>
+</doc>
+

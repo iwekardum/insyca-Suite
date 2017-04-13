@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DocumentData>
+  <Variables>
+    <Firma>huhu</Firma>
+    <Absenderadresse>a</Absenderadresse>
+    <Fax>b</Fax>
+    <Fusszeilenadresse>c</Fusszeilenadresse>
+    <Fusszeile>d</Fusszeile>
+    <Logotext>e</Logotext>
+    <Logobild>f</Logobild>
+    <Tel>g</Tel>
+    <Rechnungsnummer>Rechnungsnummer</Rechnungsnummer>
+  </Variables>
+  <Result>
+    <Selected></Selected>
+  </Result>
+</DocumentData>

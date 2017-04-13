@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+	<ribbon>
+		<tabs>
+			<tab idMso="TabAddIns" label="Hannover Leasing">
+				<group id="StandardTemplate" label="Standardvorlagen">
+					<button id="ribbon_btn_001" label="Gesellschaft auswählen" onAction="OnRibbonAction" tag="ShowDialog" imageMso="HeaderFooterNextSection" screentip="Gesellschaftsdaten für Vorlagen" supertip="Öffnet das Formular zur Auswahl der Gesellschaftsdaten für allgemeine Vorlagen"/>
+          <button id="ribbon_btn_002" label="SetDocument" onAction="OnRibbonAction" tag="SetDocument" imageMso="HeaderFooterNextSection" screentip="Gesellschaftsdaten für Vorlagen" supertip="Öffnet das Formular zur Auswahl der Gesellschaftsdaten für allgemeine Vorlagen"/>
+          <button id="ribbon_btn_003" label="GetDocument" onAction="OnRibbonAction" tag="GetDocument" imageMso="HeaderFooterNextSection" screentip="Gesellschaftsdaten für Vorlagen" supertip="Öffnet das Formular zur Auswahl der Gesellschaftsdaten für allgemeine Vorlagen"/>
+          <button id="ribbon_btn_004" label="TransformDocument" onAction="OnRibbonAction" tag="TransformDocument" imageMso="HeaderFooterNextSection" screentip="Gesellschaftsdaten für Vorlagen" supertip="Öffnet das Formular zur Auswahl der Gesellschaftsdaten für allgemeine Vorlagen"/>
+        </group>
+				<group id="VoucherTemplate" label="Rechnung / Gutschrift">
+					<button id="ribbon_btn_005" label="Rechnung / Gutschrift erzeugen" onAction="OnRibbonAction" tag="ShowDialog" imageMso="CitationInsert" screentip="Gesellschaftsdaten für Vorlagen" supertip="Öffnet das Formular zur Auswahl der Gesellschaftsdaten für Rechungen und Gutschriften"/>
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>
+

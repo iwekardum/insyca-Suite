@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>{526ee9f6-47ef-4b55-b7d3-228c9ba87873}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>inSyca.foundation.integration</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <SuppressPdbOutput>True</SuppressPdbOutput>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="inSyca\inSyca_ExitDialog.wxs" />
+    <Compile Include="inSyca\inSyca_InstallDirDlg.wxs" />
+    <Compile Include="inSyca\inSyca_ProgressDlg.wxs" />
+    <Compile Include="inSyca\inSyca_ReleaseNotesDlg.wxs" />
+    <Compile Include="inSyca\inSyca_ServiceAccountDlg.wxs" />
+    <Compile Include="inSyca\inSyca_VerifyReadyDlg.wxs" />
+    <Compile Include="inSyca\inSyca_WelcomeDlg.wxs" />
+    <Compile Include="inSyca\inSyca_WixUI_InstallDir.wxs" />
+    <Compile Include="setup.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cfg\substitute.xml" />
+    <Content Include="destinationDeployment.cmd" />
+    <Content Include="documentation\inSyca Foundation Integration.docx" />
+    <Content Include="documentation\inSyca Foundation Integration.pdf" />
+    <Content Include="eventlog.wxi" />
+    <Content Include="ressources\warning.bmp" />
+    <Content Include="shortcuts.wxi" />
+    <Content Include="xslt\copy_all.xslt" />
+    <Content Include="xslt\emptyvalue_to_nil.xslt" />
+    <Content Include="xslt\key_value.xslt" />
+    <Content Include="xslt\splitstring.xslt" />
+    <None Include="documentation\ReleaseNotes.rtf" />
+    <Content Include="product.wxi" />
+    <Content Include="gac.wxi" />
+    <Content Include="global.wxi" />
+    <Content Include="registry.wxi" />
+    <Content Include="ressources\banner_bitmap_001.bmp" />
+    <Content Include="ressources\banner_bitmap_002.bmp" />
+    <Content Include="ressources\inSyca.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="documentation" />
+    <Folder Include="inSyca\" />
+    <Folder Include="cfg" />
+    <Folder Include="xslt" />
+    <Folder Include="ressources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.bt.cp_40\inSyca.fd.in.bt.cp_40.csproj">
+      <Name>inSyca.fd.in.bt.cp_40</Name>
+      <Project>{5116cd6e-6fb8-4273-a507-b10039da3b0b}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.bt.fx_40\inSyca.fd.in.bt.fx_40.csproj">
+      <Name>inSyca.fd.in.bt.fx_40</Name>
+      <Project>{bd62b35f-89bd-4116-8c44-6c664107590f}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.bt_40\inSyca.fd.in.bt_40.csproj">
+      <Name>inSyca.fd.in.bt_40</Name>
+      <Project>{00492bd1-23d7-41d4-9dee-83f184078489}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.configurator_40\inSyca.fd.in.configurator_40.csproj">
+      <Name>inSyca.fd.in.configurator_40</Name>
+      <Project>{0ccfd175-f766-4042-a905-7970372feb05}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.vs.template_45\inSyca.fd.in.vs.template_45.csproj">
+      <Name>inSyca.fd.in.vs.template_45</Name>
+      <Project>{a2fc2433-8e6c-4774-bd3e-49668acbf3f0}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.vs.wizard_40\inSyca.fd.in.vs.wizard_40.csproj">
+      <Name>inSyca.fd.in.vs.wizard_40</Name>
+      <Project>{41d0a4d2-d0cf-4a86-b985-3323ae7a7be2}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration_40\inSyca.fd.in.wsh_40\inSyca.fd.in.wsh_40.csproj">
+      <Name>inSyca.fd.in.wsh_40</Name>
+      <Project>{7768e3ec-5b8a-4e73-bdf3-0f7662e374be}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <PropertyGroup>
+    <PreBuildEvent>copy /y $(ProjectDir)documentation\releasenotes.rtf $(ProjectDir)$(OutDir)</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>$(MSBuildProjectDirectory)\destinationDeployment.cmd $(TargetDir)%2a.%2a "c:\setup\inSyca\inSyca.foundation.integration_40"</PostBuildEvent>
+  </PropertyGroup>
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

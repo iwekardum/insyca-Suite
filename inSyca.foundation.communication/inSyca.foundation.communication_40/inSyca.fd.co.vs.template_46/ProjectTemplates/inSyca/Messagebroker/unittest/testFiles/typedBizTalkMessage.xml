@@ -1,0 +1,12 @@
+﻿<ns0:TestMessage xmlns:ns0="http://www.inSyca.com/IMessageBroker" xmlns:ns2="http://schemas.datacontract.org/2004/07/System.Xml" xmlns:ns1="http://www.inSyca.com/messagebroker">
+  <ns0:inDocument>
+    <ns1:BizTalkMessage>
+      <ns2:XmlElement>
+        <ns0:message xmlns:ns0="http://inSyca.foundation.messagebroker/testmessage">
+          <id>69</id>
+          <trackingid>223FCA9C-EB79-46F5-86F0-5AA6CA66553B</trackingid>
+        </ns0:message>
+      </ns2:XmlElement>
+    </ns1:BizTalkMessage>
+  </ns0:inDocument>
+</ns0:TestMessage>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define upgradeId = "{6408B174-DFA8-4D49-9134-0FCE941DBDE6}" ?>
+  <?define productVersion = "1.0.0" ?>
+  <?define productNameExtension = "for .NET 4" ?>
+  <?define productName = "inSyca Foundation Framework" ?>
+  <?define appName = "Configurator" ?>
+  <?define apprunDescription = "Run Foundation Framework Configurator" ?>
+  <?define uninstallDescription = "Uninstall inSyca Foundation Framework" ?>
+  <?define manufacturer = "inSyca" ?>
+</Include>

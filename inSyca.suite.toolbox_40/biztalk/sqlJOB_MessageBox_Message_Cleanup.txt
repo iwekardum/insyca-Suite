@@ -1,0 +1,9 @@
++++++++++++++ STEP 1: Purge +++++++++++++++++++++++
+
+exec dtasp_BackupAndPurgeTrackingDatabase
+0,				--@nLiveHours tinyint, --Any completed instance older than the live hours +live days
+1,				--@nLiveDays tinyint = 0, --will be deleted along with all associated data
+30,				--@nHardDeleteDays tinyint = 0, --all data older than this will be deleted.
+'C:\BT_BCKUP',	--@nvcFolder nvarchar(1024) = null, --folder for backup files
+null,			--@nvcValidatingServer sysname = null,
+0				--@fForceBackup int = 0 --

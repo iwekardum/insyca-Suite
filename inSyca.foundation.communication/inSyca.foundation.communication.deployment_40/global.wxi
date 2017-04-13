@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define upgradeId = "{2AEE3F9D-325A-4699-9284-6E5E9008BD2B}" ?>
+  <?define productVersion = "1.0.0" ?>
+  <?define productNameExtension = "for .NET 4" ?>
+  <?define productName = "inSyca Foundation Communication" ?>
+  <?define appName = "Configurator" ?>
+  <?define apprunDescription = "Run Foundation Communication Configurator" ?>
+  <?define uninstallDescription = "Uninstall inSyca Communication Framework" ?>
+  <?define manufacturer = "inSyca" ?>
+</Include>

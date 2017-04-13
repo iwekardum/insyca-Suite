@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="locationReplacer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="lineIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">xs:import schemaLocation="insyca.bt.gl.esb.schemas</Value>
+    </Setting>
+    <Setting Name="splitParameter1" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">"</Value>
+    </Setting>
+    <Setting Name="splitParameter2" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">'</Value>
+    </Setting>
+    <Setting Name="stringIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">insyca.bt.gl.esb.schemas</Value>
+    </Setting>
+    <Setting Name="replaceParameter1_A" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="replaceParameter1_B" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\</Value>
+    </Setting>
+    <Setting Name="replaceParameter2_A" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">insyca\bt\gl\esb\schemas</Value>
+    </Setting>
+    <Setting Name="extensionParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.xsd</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

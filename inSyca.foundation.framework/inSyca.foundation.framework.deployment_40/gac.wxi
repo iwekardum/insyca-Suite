@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="gac">
+
+    <!--<Component Guid='*' Directory="gac_35">
+      <File Id="inSyca.fd.fr_35" Source='$(var.inSyca.fd.fr_35.TargetPath)' Vital='yes' KeyPath='yes' Checksum='yes' Assembly='.net'/>
+    </Component>-->
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="inSyca.fd.fr_40" Source='$(var.inSyca.fd.fr_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Source='$(var.inSyca.fd.fr.app_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="log4net" Source='$(var.inSyca.fd.fr_40.TargetDir)log4net.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

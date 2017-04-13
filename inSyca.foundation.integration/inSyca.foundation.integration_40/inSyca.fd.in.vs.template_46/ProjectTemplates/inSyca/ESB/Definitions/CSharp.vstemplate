@@ -1,0 +1,39 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>ESB BizTalk Server Project</Name>
+    <Description>Project Template for BizTalk ESB Implementation</Description>
+    <DefaultName>company.bt.mp.sp</DefaultName>
+    <ProjectType>BizTalk</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>logo_64x64.png</Icon>
+    <TemplateID>$guid1$</TemplateID>
+    <!-- Indicates how many parent folders this item template should appear in -->
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder Name="esb">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.esb.schemas">schemas\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.esb.maps">maps\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.esb.orchestrations">orchestrations\mytemplate.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="_unittest">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.unittest">unittest\mytemplate.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.deployment">deployment\mytemplate.vstemplate</ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>TemplateBuilder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>TemplateBuilder.RootWizard</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <Assembly>inSyca.fd.in.vs.wizard_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615</Assembly>
+    <FullClassName>inSyca.foundation.integration.visualstudio.wizard_40.ESBWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="f5eb46ca-47b4-4004-9d32-a38b143491c5" Version="1.0" Language="en-US" Publisher="Iwe Kardum" />
+    <DisplayName>inSyca Extension for WCF Solutions</DisplayName>
+    <Description xml:space="preserve">Visual Studio Extension for inSyca WCF Solutions. (Contains empty projects for "Deployment", "Unittest", "Interface", "Service", "WindowsServiceHost")</Description>
+    <MoreInfo>http://www.insyca.com</MoreInfo>
+    <License>licence.txt</License>
+    <ReleaseNotes>ReleaseNotes_Communication_Extensions.rtf</ReleaseNotes>
+    <Icon>Resources\insyca.ico</Icon>
+    <PreviewImage>Resources\inSyca.png</PreviewImage>
+    <Tags>WCF, Services</Tags>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="Output\ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="Output\ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="TemplateBuilder.dll" AssemblyName="TemplateBuilder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="inSyca.fd.co.vs.wizard_40" d:VsixSubPath="ProjectTemplates" Path="|inSyca.fd.co.vs.wizard_40|" AssemblyName="|inSyca.fd.co.vs.wizard_40;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+</PackageManifest>

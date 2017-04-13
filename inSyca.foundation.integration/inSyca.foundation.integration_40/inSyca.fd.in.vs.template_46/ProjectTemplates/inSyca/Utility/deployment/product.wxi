@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="product">
+
+    <Component Id='productMain' Guid='*' Directory="INSTALLDIR">
+      <File Source='.\documentation\ReleaseNotes.rtf'/>
+    </Component>
+
+    <Component Id='productConfiguration' Guid='*' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Id="util.config" Source='$(var.inSyca.utility.root.ns.ProjectDir)inSyca.utility.root.ns.config' Vital='yes' KeyPath='yes' />
+    </Component>
+
+  </ComponentGroup>
+</Include>

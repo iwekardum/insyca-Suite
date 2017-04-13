@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <ComponentGroup Id="product">
+
+    <Component Id='productMain' Guid='{DEBD3086-757C-4E62-8EB8-1E7F5C53AB30}' Directory="INSTALLDIR">
+      <File Id='configurator' Source="$(var.inSyca.fd.in.configurator_40.TargetPath)" Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.wsh_40.TargetPath)' Vital='yes' />
+    </Component>
+
+    <Component Id='productConfiguration' Guid='{806FBF9D-C1FD-47D0-B472-3D423193DC90}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
+      <File Source='$(var.inSyca.fd.in.bt.cp_40.ProjectDir)foundation.integration.biztalk.components.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.bt.fx_40.ProjectDir)foundation.integration.biztalk.functions.config' Vital='yes' />
+      <File Source='$(var.inSyca.fd.in.bt_40.ProjectDir)foundation.integration.biztalk.config' Vital='yes' />
+    </Component>
+
+    <Component Id='productDocumentation' Guid='*' Directory="documentation">
+      <!--<File Source='.\documentation\inSyca Foundation Integration.pdf' KeyPath='yes'/>-->
+      <File Source='.\documentation\ReleaseNotes.rtf'/>
+    </Component>
+
+    <Component Id='productCFG' Guid='*' Directory="cfg">
+      <File Source='.\cfg\substitute.xml' KeyPath='yes'/>
+    </Component>
+
+    <Component Id='productXSLT' Guid='{CD0CACCE-8781-4021-A4DF-7CB6E99C3DA8}' Directory="xslt">
+      <File Source='.\xslt\copy_all.xslt' KeyPath='yes'/>
+      <File Source='.\xslt\emptyvalue_to_nil.xslt'/>
+    </Component>
+
+    <Component Id='productVS' Guid='*' Directory="vs">
+      <File Source='$(var.inSyca.fd.in.vs.template_45.TargetDir)\inSyca.integration.template_45.vsix' KeyPath='yes'/>
+    </Component>
+
+    <Component Id='productRessource_de' Guid='*' Directory="locale_de">
+      <File Source='$(var.inSyca.fd.in.configurator_40.TargetDir)de\configurator.resources.dll' Vital='yes'/>
+    </Component>
+
+  </ComponentGroup>
+</Include>

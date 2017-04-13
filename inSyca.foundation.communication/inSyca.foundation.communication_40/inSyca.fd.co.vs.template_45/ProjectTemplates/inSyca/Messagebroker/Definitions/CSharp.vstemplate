@@ -1,0 +1,39 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>Messagebroker Project</Name>
+    <Description>Project Template for Messagebroker WCF Implementation</Description>
+    <DefaultName>company.messagebroker</DefaultName>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>logo_64x64.png</Icon>
+    <TemplateID>$guid1$</TemplateID>
+    <!-- Indicates how many parent folders this item template should appear in -->
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.itf">interface\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.svc">service\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.wsh">wsh\mytemplate.vstemplate</ProjectTemplateLink>
+      <SolutionFolder Name="_unittest">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.cc">cc\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.csh">csh\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.unittest">unittest\mytemplate.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.deployment">deployment\mytemplate.vstemplate</ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>TemplateBuilder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>TemplateBuilder.RootWizard</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <Assembly>inSyca.fd.co.vs.wizard_40, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615</Assembly>
+    <FullClassName>inSyca.foundation.communication.visualstudio.wizard_40.MessagebrokerWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

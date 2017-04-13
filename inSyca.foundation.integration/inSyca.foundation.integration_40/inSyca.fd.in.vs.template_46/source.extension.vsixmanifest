@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="95f1a8e8-20b7-4815-a000-08f0d3183cde" Version="1.0.1" Language="en-US" Publisher="Iwe Kardum" />
+    <DisplayName>inSyca Extension for BizTalk Solutions</DisplayName>
+    <Description xml:space="preserve">Visual Studio Extension for inSyca BizTalk Solutions. 
+(Contains templates, items and menus for "Deployment", "Unittest", "Schemas", "Maps", "Orchestrations") </Description>
+    <MoreInfo>http://www.insyca.com</MoreInfo>
+    <License>licence.txt</License>
+    <ReleaseNotes>ReleaseNotes_Integration_Extensions.rtf</ReleaseNotes>
+    <Icon>Resources\insyca.ico</Icon>
+    <PreviewImage>Resources\inSyca.png</PreviewImage>
+    <Tags>BizTalk, Integration</Tags>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="Output\ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="Output\ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="TemplateBuilder.dll" AssemblyName="TemplateBuilder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="inSyca.fd.in.vs.wizard_40" d:VsixSubPath="ProjectTemplates" Path="|inSyca.fd.in.vs.wizard_40|" AssemblyName="|inSyca.fd.in.vs.wizard_40;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="inSyca.fd.in.vs.external_40" Path="|inSyca.fd.in.vs.external_40|" AssemblyName="|inSyca.fd.in.vs.external_40;AssemblyName|" />
+  </Assets>
+</PackageManifest>

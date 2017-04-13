@@ -1,0 +1,16 @@
+﻿<ManagementConfig xmlns="http://inSyca.foundation.integration.biztalk.data.dsManagementConfig_10">
+  <!-- Das Entry Tag wird verwendet um beliebig viele Vorgänge zu definieren.-->
+  <Entry>
+    <!-- Name des BizTalk Servers der gesteuert werden soll (!!! DNS Name verwenden !!! Kein localhost !!!) -->
+    <Servername>dnsname</Servername>
+    <!-- Objekt das gesteuert werden soll (Host, HostInstance, ReceiveLocation, SendPort, SendPortGroup) -->
+    <Object>HostInstance</Object>
+    <!-- Name des Objekts wie in der Administrationskonsole des BizTalk Server definiert -->
+    <Objectname>HostInstanceName</Objectname>
+    <!-- Aktion die ausgeführt werden soll. Dabei gilt für: -->
+    <!-- Sendport, SendPortGroup: Start, Stop, Enlist, Unenlist -->
+    <!-- Host, HostInstance: Start, Stop -->
+    <!-- ReceiveLocation: Enable, Disable -->
+    <Action>Stop</Action>
+</Entry>
+</ManagementConfig>

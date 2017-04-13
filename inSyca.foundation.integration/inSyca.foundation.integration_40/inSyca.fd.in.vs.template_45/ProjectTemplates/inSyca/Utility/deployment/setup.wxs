@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='Windows-1252'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+
+  <?include global.wxi ?>
+
+  <Product Name='$(var.productName)' Id='$(var.setupID)' UpgradeCode='$(var.upgradeID)' Language='1033' Version='$(var.productVersion)' Manufacturer='$(var.manufacturer)'>
+
+    <Package Id='*' InstallerVersion='200' Compressed='yes' InstallScope="perMachine" Platform='x64' />
+
+    <Property Id="ARPPRODUCTICON" Value="product.ico" />
+    <Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+    <!--<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="$(var.appName)" />-->
+    <Property Id="WIXUI_PRODUCTVERSION" Value="{\WixUI_Font_Title}Version: $(var.productVersion) $(var.productNameExtension)" />
+    <Property Id="WixShellExecTarget" Value="[#configurator]" />
+
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <Upgrade Id="$(var.upgradeID)">
+      <UpgradeVersion Minimum="0.9.0.0" Maximum="$(var.productVersion)" Property="PREVIOUSVERSIONSINSTALLED" IncludeMinimum="yes" IncludeMaximum="no" />
+    </Upgrade>
+
+    <Condition Message= "You need to be an administrator to install this product.">Privileged</Condition>
+
+    <!-- Require .NET 4.0+ -->
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_40_OR_LATER_INSTALLED"/>
+    <Condition Message="This application requires .NET Framework 4.0 or later. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_40_OR_LATER_INSTALLED]]>
+    </Condition>
+
+    <Media Id='1' Cabinet='inSyca.cab' EmbedCab='yes' />
+
+    <WixVariable Id="WixUIBannerBmp" Value=".\ressources\banner_bitmap_002.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value=".\ressources\banner_bitmap_001.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value=".\documentation\ReleaseNotes.rtf" />
+
+    <Icon Id="product.ico" SourceFile=".\ressources\product.ico" />
+    <Binary Id="WarningIcon" SourceFile=".\ressources\warning.bmp"/>
+
+    <?include product.wxi ?>
+
+    <?include eventlog.wxi ?>
+
+    <?include gac.wxi ?>
+
+    <?include registry.wxi ?>
+
+    <?include shortcuts.wxi ?>
+
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='ProgramFilesFolder'>
+        <Directory Id='INSTALLDIR' Name='$(var.productName)'>
+          <Directory Id='locale_de' Name="de"/>
+          <Directory Id='documentation' Name="documentation"/>
+          <Directory Id='configuration' Name="configuration"/>
+          <Directory Id='gac35' Name="gac">
+            <Directory Id='gac_35'/>
+          </Directory>
+          <Directory Id='gac40'>
+            <Directory Id='gac_40'/>
+          </Directory>
+        </Directory>
+        <Directory Id='eventLogFull32' Name="eventLogFull32"/>
+        <Directory Id='eventLogClient32' Name="eventLogClient32"/>
+        <Directory Id='eventLogFull64' Name="eventLogFull64"/>
+        <Directory Id='eventLogClient64' Name="eventLogClient64"/>
+        <Directory Id='ProgramFiles64Folder'/>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.productName)"/>
+      </Directory>
+    </Directory>
+
+    <Feature Id='Complete' Level="1">
+      <ComponentGroupRef Id="gac" />
+      <ComponentGroupRef Id="registry" />
+      <ComponentGroupRef Id='product' />
+      <ComponentGroupRef Id='eventlog' />
+      <ComponentRef Id='shortcuts' />
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+
+    <UI>
+      <UIRef Id="inSyca_WixUI_InstallDir" />
+    </UI>
+
+    <InstallExecuteSequence>
+      <RemoveExistingProducts Before="InstallInitialize" />
+    </InstallExecuteSequence>
+
+  </Product>
+</Wix>
