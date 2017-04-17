@@ -235,8 +235,6 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("hostInstanceEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
-            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.hostInstanceEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -246,8 +244,6 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("receiveLocationEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
-            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.receiveLocationEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -257,8 +253,6 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("sendPortEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
-            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.sendPortEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));
@@ -268,8 +262,6 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("suspendedMessageEventHandler(object sender {0}, EventArrivedEventArgs e {1})", sender, e);
 
-            //MonitorBizTalk monitorBizTalk = new MonitorBizTalk();
-            //monitorBizTalk.MonitoringEvent += new EventHandler<MonitoringEventArgs>(monitorBizTalk_MonitoringEvent);
             DataRow eventEntryRow;
             monitorBizTalk.SetEvent(e, BizTalkEventType.suspendedMessageEvent, out eventEntryRow);
             EventEntryEvent(null, new MonitoringEventArgs(eventEntryRow));

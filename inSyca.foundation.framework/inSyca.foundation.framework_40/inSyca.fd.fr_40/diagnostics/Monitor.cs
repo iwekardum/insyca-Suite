@@ -62,6 +62,7 @@ namespace inSyca.foundation.framework.diagnostics
                     break;
                 //Info
                 case 3:
+                case 4:
                     SetInformation(eventEntryDataRow);
                     break;
                 default:

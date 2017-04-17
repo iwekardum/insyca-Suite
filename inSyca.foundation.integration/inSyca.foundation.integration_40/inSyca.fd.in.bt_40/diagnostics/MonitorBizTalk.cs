@@ -16,12 +16,12 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
     /// <summary>
     /// 
     /// </summary>
-    public class BizTalkEventType : EventType
+    internal class BizTalkEventType : EventType
     {
-        public const string hostInstanceEvent = "HostInstance Event";
-        public const string suspendedMessageEvent = "SuspendedMessage Event";
-        public const string receiveLocationEvent = "ReceiveLocation Event";
-        public const string sendPortEvent = "SendPort Event";
+        internal const string hostInstanceEvent = "HostInstance Event";
+        internal const string suspendedMessageEvent = "SuspendedMessage Event";
+        internal const string receiveLocationEvent = "ReceiveLocation Event";
+        internal const string sendPortEvent = "SendPort Event";
     }
 
     /// <summary>
