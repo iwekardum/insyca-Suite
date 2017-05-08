@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using System.Messaging;
-using System.IO;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.ssis.components.diagnostics;
-using inSyca.foundation.framework;
+using System;
+using System.IO;
+using System.Messaging;
+using System.Text;
 
 namespace inSyca.foundation.integration.ssis.components
 {

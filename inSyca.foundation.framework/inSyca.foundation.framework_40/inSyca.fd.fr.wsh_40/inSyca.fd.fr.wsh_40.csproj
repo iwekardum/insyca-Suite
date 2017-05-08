@@ -93,6 +93,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -106,9 +107,6 @@
     <Compile Include="foundation.framework\log.cs" />
     <Compile Include="FrameworkService.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="FrameworkService.Designer.cs">
-      <DependentUpon>FrameworkService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="FrameworkInstaller.cs">

@@ -1,20 +1,19 @@
 ﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
 using Microsoft.BizTalk.Component.Interop;
-using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 using Microsoft.BizTalk.Message.Interop;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Xml;
 using System.Xml.Linq;
-using System.ComponentModel;
-using System.Globalization;
-using System.Collections;
-using System.Drawing;
+using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
 namespace inSyca.foundation.integration.biztalk.components
 {
@@ -29,13 +28,6 @@ namespace inSyca.foundation.integration.biztalk.components
         //Used to hold disassembled messages
         private System.Collections.Queue qOutputMsgs = new System.Collections.Queue();
         private string systemPropertiesNamespace = @"http://schemas.microsoft.com/BizTalk/2003/system-properties";
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public RemoveNil()
-        {
-        }
 
         #region IBaseComponent Members
 

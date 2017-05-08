@@ -1,6 +1,4 @@
 ﻿using inSyca.foundation.framework.diagnostics;
-using System;
-using System.Runtime.CompilerServices;
 
 namespace inSyca.foundation.integration.biztalk.diagnostics
 {

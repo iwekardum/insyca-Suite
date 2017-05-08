@@ -1,14 +1,10 @@
-﻿using System;
-using System.Management;
-using inSyca.foundation.framework;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.framework.diagnostics;
-using inSyca.foundation.framework.data;
-using Microsoft.BizTalk.Operations;
-using System.Xml;
-using System.Net;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
+using System.Management;
+using System.Net;
 
 namespace inSyca.foundation.integration.biztalk.diagnostics
 {

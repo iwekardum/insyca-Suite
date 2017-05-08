@@ -1,19 +1,17 @@
-﻿using System;
+﻿using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component.Interop;
+using Microsoft.BizTalk.Message.Interop;
+using System;
 using System.Collections;
 using System.ComponentModel;
-using inSyca.foundation.framework;
-using inSyca.foundation.integration.biztalk.components.diagnostics;
-using Microsoft.BizTalk.Component.Interop;
-using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
-using Microsoft.BizTalk.Message.Interop;
+using System.Globalization;
 using System.Reflection;
 using System.Resources;
-using System.Globalization;
-using System.Drawing;
+using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
 namespace inSyca.foundation.integration.biztalk.components
 {
-	[ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
+    [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
 	[ComponentCategory(CategoryTypes.CATID_Decoder)]
 	[System.Runtime.InteropServices.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC")]
 	public class ActiveXMessageReader : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI, IProbeMessage

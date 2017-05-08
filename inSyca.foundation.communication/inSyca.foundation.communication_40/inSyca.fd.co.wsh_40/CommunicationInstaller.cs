@@ -43,7 +43,7 @@ namespace inSyca.foundation.communication.wsh
                     {
                         controller.Stop();
 
-                        Log.Info("inSyca.foundation.communication.wsh stopped");
+                        Log.Warn("inSyca.foundation.communication.wsh stopped");
                     }
                 }
             }
@@ -70,7 +70,7 @@ namespace inSyca.foundation.communication.wsh
                     {
                         controller.Stop();
 
-                        Log.Info("inSyca.foundation.communication.wsh stopped");
+                        Log.Warn("inSyca.foundation.communication.wsh stopped");
                     }
                 }
             }

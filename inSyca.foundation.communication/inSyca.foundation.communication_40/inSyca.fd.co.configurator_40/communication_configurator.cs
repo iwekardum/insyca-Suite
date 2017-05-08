@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Data;
-using inSyca.foundation.framework.data;
-using inSyca.foundation.framework.application.windowsforms;
-using System.Drawing;
+﻿using inSyca.foundation.framework.data;
+using inSyca.foundation.framework.diagnostics;
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace inSyca.foundation.communication.configurator
 {
@@ -51,7 +50,7 @@ namespace inSyca.foundation.communication.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_client(configFiles[co_cli]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_clients(configFiles[co_cli], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new framework.diagnostics.Information() });
+                control = new uc_information_clients(configFiles[co_cli], new List<IInformation> { new Information(), new Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_clients(configFiles[co_cp]);
             else
@@ -70,7 +69,7 @@ namespace inSyca.foundation.communication.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_components(configFiles[co_cp]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_components(configFiles[co_cp], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new framework.diagnostics.Information() });
+                control = new uc_information_components(configFiles[co_cp], new List<IInformation> { new Information(), new Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_components(configFiles[co_cp]);
             else
@@ -89,7 +88,7 @@ namespace inSyca.foundation.communication.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_wcf(configFiles[co_wcf]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_wcf(configFiles[co_wcf], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new framework.diagnostics.Information() });
+                control = new uc_information_wcf(configFiles[co_wcf], new List<IInformation> { new Information(), new Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_wcf(configFiles[co_wcf]);
             else
@@ -108,7 +107,7 @@ namespace inSyca.foundation.communication.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_service(configFiles[co_svc]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_service(configFiles[co_svc], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new framework.diagnostics.Information() });
+                control = new uc_information_service(configFiles[co_svc], new List<IInformation> { new Information(), new Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_service(configFiles[co_svc]);
             else

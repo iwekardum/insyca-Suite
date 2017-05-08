@@ -3,11 +3,8 @@ using inSyca.foundation.framework.diagnostics;
 using inSyca.foundation.framework.schedules;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
 
 namespace inSyca.foundation.framework.application.service
 {
@@ -167,6 +164,11 @@ namespace inSyca.foundation.framework.application.service
 
                 logEntry.AcceptChanges();
             }
+        }
+
+        public void Start()
+        {
+            OnStart(null);
         }
     }
 }

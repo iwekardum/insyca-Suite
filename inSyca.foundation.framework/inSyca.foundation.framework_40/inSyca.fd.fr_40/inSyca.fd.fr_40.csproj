@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="diagnostics\EventArgs.cs" />
     <Compile Include="diagnostics\Information.cs" />
+    <Compile Include="diagnostics\InformationBase.cs" />
     <Compile Include="diagnostics\Log.cs" />
     <Compile Include="diagnostics\Monitor.cs" />
     <Compile Include="diagnostics\MonitorEventLog.cs" />

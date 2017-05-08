@@ -14,9 +14,9 @@ namespace inSyca.foundation.communication.unittest_40
         {
             XmlDocument childXmlDocument = new XmlDocument();
 
-            childXmlDocument.Load(new XmlTextReader(@"..\..\Testfiles\simple.xml"));
+            childXmlDocument.Load(new XmlTextReader(@"..\..\Testfiles\simple_002.xml"));
 
-            childXmlDocument = inSyca.foundation.communication.components.xml.scripting.createLogMessage(childXmlDocument);
+            childXmlDocument = components.xml.scripting.createLogMessage(childXmlDocument);
         }
 
         [TestMethod]
@@ -25,7 +25,6 @@ namespace inSyca.foundation.communication.unittest_40
             StaticAdapterManagement sam = new StaticAdapterManagement();
 
             sam.GetConfigSchema(Microsoft.BizTalk.Adapter.Framework.ConfigType.ReceiveHandler);
-
         }
 
         [TestMethod]

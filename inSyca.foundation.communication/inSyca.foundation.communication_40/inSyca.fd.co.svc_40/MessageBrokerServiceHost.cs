@@ -1,7 +1,7 @@
-﻿using System;
+﻿using inSyca.foundation.communication.wcf;
+using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
-using inSyca.foundation.communication.wcf;
 
 namespace inSyca.foundation.communication.service
 {

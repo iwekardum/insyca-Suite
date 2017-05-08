@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Management;
-using inSyca.foundation.framework.data;
+﻿using inSyca.foundation.framework.data;
+using System;
 using System.Data;
-using System.Globalization;
-using inSyca.foundation.framework.configuration;
+using System.Management;
 
 namespace inSyca.foundation.framework.diagnostics
 {
@@ -25,6 +20,8 @@ namespace inSyca.foundation.framework.diagnostics
 
         protected override void SetupLogEntry(EventArrivedEventArgs eventArrivedEventArgs, string eventType, out DataTable logEntryDataTable)
         {
+            Log.DebugFormat("SetupLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, out DataTable logEntryDataTable)", eventArrivedEventArgs, eventType);
+
             dsLogEntry logEntry = new dsLogEntry();
             logEntry.EnforceConstraints = false;
             dsLogEntry.dtLogEntryRow logEntryRow = logEntry.dtLogEntry.NewdtLogEntryRow();
@@ -39,6 +36,8 @@ namespace inSyca.foundation.framework.diagnostics
 
         protected override int SetupEventEntry(DataTable logEntryTable, out DataRow eventEntryDataRow)
         {
+            Log.DebugFormat("SetupEventEntry(DataTable logEntryTable {0}, out DataRow eventEntryDataRow))", logEntryTable);
+
             dsEventEntry eventEntry = new dsEventEntry();
             eventEntryDataRow = eventEntry.dtEventEntry.NewdtEventEntryRow();
 
@@ -183,7 +182,9 @@ namespace inSyca.foundation.framework.diagnostics
 
         protected override void SetHtmlMessage(DataRow eventEntryDataRow, out LogEntry logEntry)
         {
-            logEntry = new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { eventEntryDataRow, null });
+            Log.DebugFormat("SetHtmlMessage(DataRow eventEntryDataRow {0}, out LogEntry logEntry)", eventEntryDataRow);
+
+            logEntry = new LogEntry(true);
 
             dsEventEntry.dtEventEntryRow eventEntryRow = (dsEventEntry.dtEventEntryRow)eventEntryDataRow;
 
@@ -211,8 +212,10 @@ namespace inSyca.foundation.framework.diagnostics
                 case WindowsEventType.eventLogSecurityEvent:
                 case WindowsEventType.eventLogSystemEvent:
                     {
+                        logEntry.MailSubjectString = "Computername: {0}, Logname: {1}, Source: {2}";
+                        logEntry.MailSubjectParameters = new object[] { eventEntryRow.computername, eventEntryRow.logname, eventEntryRow.source};
                         logEntry.AdditionalString = "Computername: {0}, Logname: {1}, Source: {2}, Message: {3}";
-                        logEntry.AdditionalParameters = new object[] { eventEntryRow.computername, eventEntryRow.logname, eventEntryRow.source, eventEntryRow.message.Replace("\r\n", "\t").Replace(" \t", "\t").Replace("\t ", "\t") };
+                        logEntry.AdditionalParameters = new object[] { eventEntryRow.computername, eventEntryRow.logname, eventEntryRow.source, eventEntryRow.message.Replace("\r\n", ";").Replace("\n", ";").Replace(" ;", ";").Replace("; ", ";") };
 
                         htmlHeader = Properties.Resources.EventLog.Substring(0, Properties.Resources.EventLog.IndexOf("<body>"));
                         htmlBody = string.Format(Properties.Resources.EventLog.Substring(Properties.Resources.EventLog.IndexOf("<body>")),
@@ -222,7 +225,7 @@ namespace inSyca.foundation.framework.diagnostics
                                                         eventEntryRow.source,
                                                         eventEntryRow.eventcode,
                                                         eventEntryRow.logname,
-                                                        string.Format("{0}", System.Management.ManagementDateTimeConverter.ToDateTime(eventEntryRow.timegenerated)),
+                                                        string.Format("{0}", ManagementDateTimeConverter.ToDateTime(eventEntryRow.timegenerated)),
                                                         eventEntryRow.message.Replace("\r\n", "<br/>").Replace("\n", "<br/>"));
                     }
                     break;

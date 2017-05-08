@@ -81,6 +81,10 @@
       <Project>{6e70f7fa-5db3-4adb-bab9-ddd43cc35ab6}</Project>
       <Name>inSyca.fd.co.svc_40</Name>
     </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
+      <Project>{341E5B33-89E7-4349-9E0C-B954103AF331}</Project>
+      <Name>inSyca.fd.fr_40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.bt.ap_40\inSyca.fd.in.bt.ap_40.csproj">
       <Project>{2ca5ca96-7461-441e-8b48-ce3e2fa161b5}</Project>
       <Name>inSyca.fd.in.bt.ap_40</Name>
@@ -107,7 +111,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Testfiles\simple.xml" />
+    <Content Include="Testfiles\simple_001.xml" />
+    <Content Include="Testfiles\simple_002.xml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

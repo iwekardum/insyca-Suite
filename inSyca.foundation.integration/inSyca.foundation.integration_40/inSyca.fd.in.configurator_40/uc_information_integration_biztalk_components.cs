@@ -2,18 +2,19 @@
 using System.Windows.Forms;
 using inSyca.foundation.framework.application;
 using inSyca.foundation.framework.application.windowsforms;
+using inSyca.foundation.framework.diagnostics;
 
 namespace inSyca.foundation.integration.configurator
 {
     public partial class uc_information_integration_biztalk_components : uc_info
     {
-        internal uc_information_integration_biztalk_components(configXml _configFile, List<framework.diagnostics.Information> _information)
+        internal uc_information_integration_biztalk_components(configXml _configFile, List<IInformation> _information)
             : base(_configFile, _information)
         {
             InitializeComponent();
         }
 
-        internal uc_information_integration_biztalk_components(configXml _configFile, framework.diagnostics.Information _information)
+        internal uc_information_integration_biztalk_components(configXml _configFile, IInformation _information)
             : base(_configFile, _information)
         {
             InitializeComponent();

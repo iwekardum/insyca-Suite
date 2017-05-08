@@ -1,16 +1,8 @@
 ﻿using log4net.Appender;
-using log4net.Layout;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
 using log4net.Core;
-using log4net.Util;
-using System.Net;
 using System.ComponentModel;
-using System.Drawing;
+using System.Net;
+using System.Net.Mail;
 
 namespace inSyca.foundation.framework.diagnostics
 {
@@ -21,12 +13,22 @@ namespace inSyca.foundation.framework.diagnostics
         }
 
         private LogEntry LogEntry { get; set; }
-        private LoggingEvent LoggingEvent { get; set; }
+
+        protected override bool FilterEvent(LoggingEvent loggingEvent)
+        {
+            LoggingEventData loggingEventData = loggingEvent.GetLoggingEventData();
+            loggingEventData.Message = string.Format("{0} - {1}", LogEntry.MailSubject, LogEntry.HtmlString);
+
+            return base.FilterEvent(new LoggingEvent(loggingEventData));
+        }
 
         void IAppender.DoAppend(LoggingEvent loggingEvent)
         {
-            LogEntry = loggingEvent.MessageObject as LogEntry;
-            LoggingEvent = loggingEvent;
+            if(loggingEvent.MessageObject is LogEntry)
+            { 
+                LogEntry = loggingEvent.MessageObject as LogEntry;
+                LogEntry.LoggingEvent = loggingEvent;
+            }
 
             base.DoAppend(loggingEvent);
         }
@@ -38,25 +40,27 @@ namespace inSyca.foundation.framework.diagnostics
 
             smtpClient.Host = SmtpHost;
             smtpClient.Port = Port;
-            //            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network
             smtpClient.EnableSsl = EnableSsl;
 
             if (Authentication == SmtpAuthentication.Basic)
             {
                 // Perform basic authentication
-                smtpClient.Credentials = new System.Net.NetworkCredential(Username, Password);
+                smtpClient.Credentials = new NetworkCredential(Username, Password);
             }
             else if (Authentication == SmtpAuthentication.Ntlm)
             {
                 // Perform integrated authentication (NTLM)
-                smtpClient.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+                smtpClient.Credentials = CredentialCache.DefaultNetworkCredentials;
             }
+
+            //Log.DebugFormat("smtpClient.ClientCertificates {0}, smtpClient.Credentials {1}, smtpClient.DeliveryMethod {2}, smtpClient.EnableSsl {3}, smtpClient.Host {4}, smtpClient.PickupDirectoryLocation {5}, smtpClient.Port {6}, smtpClient.ServicePoint {7}, smtpClient.TargetName {8}, smtpClient.Timeout {9}, smtpClient.UseDefaultCredentials {10}", smtpClient.ClientCertificates, smtpClient.Credentials, smtpClient.DeliveryMethod, smtpClient.EnableSsl, smtpClient.Host, smtpClient.PickupDirectoryLocation, smtpClient.Port, smtpClient.ServicePoint, smtpClient.TargetName, smtpClient.Timeout, smtpClient.UseDefaultCredentials);
 
             MailMessage mailMessage = new MailMessage();
 
             if (LogEntry != null)
             {
-                mailMessage.Subject = string.Format("[{0}] - {1}", LoggingEvent.Level.DisplayName, LogEntry.ToString());
+                mailMessage.Subject = string.Format("[{0}] - {1}", LogEntry.LoggingEvent.Level.DisplayName, LogEntry.MailSubject);
                 mailMessage.Body = LogEntry.MessageEntry;
                 if (!string.IsNullOrEmpty(LogEntry.HtmlString))
                 {
@@ -79,16 +83,18 @@ namespace inSyca.foundation.framework.diagnostics
             foreach (string emailTo in To.Split(';'))
                 mailMessage.To.Add(emailTo);
 
-            if (!String.IsNullOrEmpty(Cc))
+            if (!string.IsNullOrEmpty(Cc))
                 foreach (string emailCc in Cc.Split(';'))
                     mailMessage.CC.Add(emailCc);
 
-            if (!String.IsNullOrEmpty(Bcc))
+            if (!string.IsNullOrEmpty(Bcc))
                 foreach (string emailBcc in Bcc.Split(';'))
                     mailMessage.Bcc.Add(emailBcc);
 
-            if (!String.IsNullOrEmpty(this.ReplyTo))
+            if (!string.IsNullOrEmpty(this.ReplyTo))
                 mailMessage.ReplyToList.Add(new MailAddress(this.ReplyTo));
+
+            //Log.DebugFormat("mailMessage.AlternateViews {0}, mailMessage.Attachments {1}, mailMessage.Bcc {2}, mailMessage.Body {3}, mailMessage.BodyEncoding {4}, mailMessage.CC {5}, mailMessage.DeliveryNotificationOptions {6}, mailMessage.From {7}, mailMessage.Headers {8}, mailMessage.HeadersEncoding {9}, mailMessage.IsBodyHtml {10}, mailMessage.Priority {11}, mailMessage.ReplyToList {12}, mailMessage.Sender {13}, mailMessage.Subject {14}, mailMessage.SubjectEncoding {15}, mailMessage.To {16}", mailMessage.AlternateViews, mailMessage.Attachments, mailMessage.Bcc, mailMessage.Body, mailMessage.BodyEncoding, mailMessage.CC, mailMessage.DeliveryNotificationOptions, mailMessage.From, mailMessage.Headers, mailMessage.HeadersEncoding, mailMessage.IsBodyHtml, mailMessage.Priority, mailMessage.ReplyToList, mailMessage.Sender, mailMessage.Subject, mailMessage.SubjectEncoding, mailMessage.To);
 
             smtpClient.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
 

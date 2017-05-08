@@ -1,8 +1,7 @@
-﻿using System;
-using System.ServiceModel;
-
+﻿using inSyca.foundation.communication.service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using inSyca.foundation.communication.service;
+using System.ServiceModel;
+using System.Windows;
 
 namespace inSyca.foundation.communication.unittest_40
 {
@@ -21,7 +20,7 @@ namespace inSyca.foundation.communication.unittest_40
 
             serviceHost.Start();
 
-            System.Windows.MessageBox.Show("The service is ready.");
+            MessageBox.Show("The service is ready.");
 
             serviceHost.Stop();
         }

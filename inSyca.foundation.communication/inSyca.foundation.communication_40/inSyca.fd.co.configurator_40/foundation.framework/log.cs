@@ -1,5 +1,4 @@
 ﻿using inSyca.foundation.framework.diagnostics;
-using System;
 
 namespace inSyca.foundation.communication.configurator.diagnostics
 {

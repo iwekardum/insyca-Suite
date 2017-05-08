@@ -1,9 +1,9 @@
-﻿using System;
+﻿using inSyca.foundation.communication.components.diagnostics;
+using inSyca.foundation.framework;
+using System;
 using System.IO;
 using System.Net;
 using System.Text;
-using inSyca.foundation.communication.components.diagnostics;
-using inSyca.foundation.framework;
 
 /// <summary>
 /// Namespace for communication components
@@ -235,7 +235,7 @@ namespace inSyca.foundation.communication.components
             {
                 Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { strFile }, wEx));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { strFile }, ex));
             }

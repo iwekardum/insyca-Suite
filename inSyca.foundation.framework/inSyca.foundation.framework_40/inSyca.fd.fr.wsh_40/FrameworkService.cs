@@ -13,7 +13,7 @@ namespace inSyca.foundation.framework.wsh
         {
             EvaluateRegistryKey(@"inSyca\foundation.framework", AppDomain.CurrentDomain.BaseDirectory, "foundation.framework.config");
 
-            InitializeComponent();
+            this.ServiceName = Program.serviceName;
 
             SystemEvents.SessionEnding += SystemEvents_SessionEnding;
         }

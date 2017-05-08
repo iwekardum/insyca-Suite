@@ -1,5 +1,4 @@
-﻿using inSyca.foundation.framework.configuration;
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
 
@@ -17,8 +16,15 @@ namespace inSyca.foundation.framework.diagnostics
 
         internal log4net.ILog InitLogger(Type T, ref bool logInitialized)
         {
-            log4net.Repository.ILoggerRepository repo = log4net.LogManager.CreateRepository(T.Module.Name);
-            log4net.Config.XmlConfigurator.ConfigureAndWatch(repo, new FileInfo(configFileName));
+            try
+            {
+                log4net.Repository.ILoggerRepository repo = log4net.LogManager.CreateRepository(T.Module.Name);
+                log4net.Config.XmlConfigurator.ConfigureAndWatch(repo, new FileInfo(configFileName));
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.EventLog.WriteEntry("inSyca.foundation.framework", string.Format("InitLogger(Type T, ref bool logInitialized)\nError: {0}", ex.Message), System.Diagnostics.EventLogEntryType.Warning);
+            }
 
             logInitialized = true;
 

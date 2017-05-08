@@ -1,13 +1,10 @@
-﻿using System;
+﻿using inSyca.foundation.framework.diagnostics;
+using inSyca.foundation.framework.security;
+using Microsoft.Win32;
+using System;
 using System.Configuration;
 using System.IO;
-using Microsoft.Win32;
-
-using inSyca.foundation.framework.security;
-using inSyca.foundation.framework.diagnostics;
 using System.Text;
-using System.Net.Configuration;
-using System.Reflection;
 
 namespace inSyca.foundation.framework.configuration
 {
@@ -317,7 +314,7 @@ namespace inSyca.foundation.framework.configuration
             }
             catch (Exception ex)
             {
-                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { KeyName }, "ExeConfigFilename -> {0}\nsValue -> {1}\n\rError\n{2}", new object[] { configuration.FilePath, sValue, ex.Message }));
+                Log.Warn(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { KeyName }, "ExeConfigFilename -> {0}\nsValue -> {1}\n\rError\n{2}", new object[] { configuration.FilePath, sValue, ex.Message }));
                 return string.Empty;
             }
         }

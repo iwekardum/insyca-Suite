@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using inSyca.foundation.framework.application;
 using inSyca.foundation.framework.application.windowsforms;
-using inSyca.foundation.framework.application;
+using inSyca.foundation.framework.diagnostics;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace inSyca.foundation.integration.configurator
 {
     public partial class uc_information_integration_biztalk : uc_info
     {
-        internal uc_information_integration_biztalk(configXml _configFile, List<framework.diagnostics.Information> _information)
+        internal uc_information_integration_biztalk(configXml _configFile, List<IInformation> _information)
             : base(_configFile, _information)
         {
             InitializeComponent();
         }
 
-        internal uc_information_integration_biztalk(configXml _configFile, framework.diagnostics.Information _information)
+        internal uc_information_integration_biztalk(configXml _configFile, IInformation _information)
             : base(_configFile, _information)
         {
             InitializeComponent();

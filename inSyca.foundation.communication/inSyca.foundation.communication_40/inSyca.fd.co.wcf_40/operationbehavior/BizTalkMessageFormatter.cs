@@ -1,5 +1,4 @@
 ﻿using inSyca.foundation.communication.wcf.diagnostics;
-using inSyca.foundation.framework;
 using System.Linq;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;

@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Xml;
-using System.ComponentModel;
-using Microsoft.BizTalk.Component.Interop;
-using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
-using Microsoft.BizTalk.Message.Interop;
-using System.Xml.Linq;
-using System.Linq;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
-using inSyca.foundation.framework;
-using System.Resources;
-using System.Reflection;
-using System.Globalization;
+using Microsoft.BizTalk.Component.Interop;
+using Microsoft.BizTalk.Message.Interop;
+using System;
 using System.Collections;
-using System.Drawing;
+using System.ComponentModel;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Resources;
+using System.Xml;
+using System.Xml.Linq;
+using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
 namespace inSyca.foundation.integration.biztalk.components
 {

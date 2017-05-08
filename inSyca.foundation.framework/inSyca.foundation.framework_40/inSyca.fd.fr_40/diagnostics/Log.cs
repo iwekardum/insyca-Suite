@@ -1,6 +1,4 @@
 ﻿using inSyca.foundation.framework.configuration;
-using System.IO;
-using System;
 
 namespace inSyca.foundation.framework.diagnostics
 {

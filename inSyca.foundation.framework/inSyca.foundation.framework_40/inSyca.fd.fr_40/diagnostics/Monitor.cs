@@ -41,6 +41,8 @@ namespace inSyca.foundation.framework.diagnostics
 
         public void SetEvent(EventArrivedEventArgs e, string eventType, out DataRow eventEntryDataRow)
         {
+            Attachments.Clear();
+
             Log.DebugFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow)", e, eventType);
 
             DataTable logEntryDataTable;
@@ -66,7 +68,7 @@ namespace inSyca.foundation.framework.diagnostics
                     SetInformation(eventEntryDataRow);
                     break;
                 default:
-                    Log.DebugFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow\nEvententry type unknown: {2})", e, eventType, eventEntryTypeCode );
+                    Log.WarnFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow\nEvententry type unknown: {2})", e, eventType, eventEntryTypeCode );
                     break;
             }
         }

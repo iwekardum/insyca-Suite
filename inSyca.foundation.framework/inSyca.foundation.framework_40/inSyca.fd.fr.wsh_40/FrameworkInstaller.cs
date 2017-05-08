@@ -42,7 +42,7 @@ namespace inSyca.foundation.framework.wsh
                     {
                         controller.Stop();
 
-                        Log.Info("inSyca.foundation.framework.wsh stopped");
+                        Log.Warn("inSyca.foundation.framework.wsh stopped");
                     }
                 }
             }
@@ -67,7 +67,7 @@ namespace inSyca.foundation.framework.wsh
                     {
                         controller.Stop();
 
-                        Log.Info("inSyca.foundation.framework.wsh stopped");
+                        Log.Warn("inSyca.foundation.framework.wsh stopped");
                     }
                 }
             }

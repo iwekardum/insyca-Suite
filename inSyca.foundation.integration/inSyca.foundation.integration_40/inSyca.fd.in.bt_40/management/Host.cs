@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Management;
-using inSyca.foundation.framework;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.diagnostics;
+using System;
+using System.Management;
 
 namespace inSyca.foundation.integration.biztalk.management
 {
@@ -55,7 +52,7 @@ namespace inSyca.foundation.integration.biztalk.management
             }
             catch (Exception e)
             {
-                biztalk.diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Error (InvokeMethod - Stop): {0}\nServername: {1}\nClassTypeWMI: {2}\nObjectNameWMI: {3}", new object[] { e.Message, serverName, classTypeWMI, objectNameWMI }));
+                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "Error (InvokeMethod - Stop): {0}\nServername: {1}\nClassTypeWMI: {2}\nObjectNameWMI: {3}", new object[] { e.Message, serverName, classTypeWMI, objectNameWMI }));
             }
         }
     }

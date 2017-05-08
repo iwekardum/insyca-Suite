@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.XLANGs.BaseTypes;
+using System;
+using System.IO;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
-using System.Runtime.Serialization;
-using System.IO;
-using Microsoft.XLANGs.BaseTypes;
 
 namespace inSyca.foundation.integration.biztalk.functions
 {

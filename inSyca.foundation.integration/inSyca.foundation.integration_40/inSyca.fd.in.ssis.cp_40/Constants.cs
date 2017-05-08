@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace inSyca.foundation.integration.ssis.components
+﻿namespace inSyca.foundation.integration.ssis.components
 {
     internal class Constants
     {

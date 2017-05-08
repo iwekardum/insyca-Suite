@@ -1,12 +1,12 @@
-﻿using System;
+﻿using log4net.Core;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
+using System.IO;
 using System.Net;
+using System.Reflection;
+using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-using System.IO;
 
 namespace inSyca.foundation.framework
 {
@@ -38,7 +38,10 @@ namespace inSyca.foundation.framework
         public object[] MethodParameters { get; set; }
         public string AdditionalString { get; set; }
         public object[] AdditionalParameters { get; set; }
+        public string MailSubjectString { get; set; }
+        public object[] MailSubjectParameters { get; set; }
         public string HtmlString { get; set; }
+        public LoggingEvent LoggingEvent { get; set; }
 
         public bool HasAdditionalInformation
         {
@@ -111,17 +114,26 @@ namespace inSyca.foundation.framework
             }
         }
 
-
-        public override string ToString()
+        public string MailSubject
         {
-            try
+            get
             {
-                return string.Format(AdditionalString, AdditionalParameters);
+                try
+                {
+                    return string.Format(MailSubjectString, MailSubjectParameters);
+                }
+                catch (Exception)
+                {
+                    return AdditionalString;
+                }
             }
-            catch (Exception)
-            {
-                return AdditionalString;
-            }
+        }
+
+        private bool MonitorEvent { get; set; }
+
+        public LogEntry(bool isMonitorEvent)
+        {
+            MonitorEvent = isMonitorEvent;
         }
 
         public LogEntry(MethodBase method, object[] methodParameters)
@@ -156,6 +168,17 @@ namespace inSyca.foundation.framework
             MethodParameters = methodParameters;
             AdditionalString = additionalString;
             AdditionalParameters = additionalParameters;
+        }
+
+        public override string ToString()
+        {
+            if(MonitorEvent && HasAdditionalInformation)
+                if (AdditionalParameters != null)
+                    return string.Format(AdditionalString, AdditionalParameters);
+                else
+                    return AdditionalString;
+            else
+                return MessageEntry;
         }
 
         private string GetEntry()

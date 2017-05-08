@@ -7,6 +7,8 @@
   <ProjectTemplates>
     <ProjectTemplate Path="ProjectTemplates\inSyca\Entity\Definitions\CSharp.vstemplate" Name="Entity BizTalk Server Project" Description="Project Template for BizTalk Entity Implementation" ProjectType="BizTalk" ProjectSubType="" />
     <ProjectTemplate Path="ProjectTemplates\inSyca\ESB\Definitions\CSharp.vstemplate" Name="ESB BizTalk Server Project" Description="Project Template for BizTalk ESB Implementation" ProjectType="BizTalk" ProjectSubType="" />
+    <ProjectTemplate Path="ProjectTemplates\inSyca\Pipelines\Definitions\CSharp.vstemplate" Name="Pipelines BizTalk Server Project" Description="Project Template for BizTalk Pipelines Implementation" ProjectType="BizTalk" ProjectSubType="" />
+    <ProjectTemplate Path="ProjectTemplates\inSyca\Services\Definitions\CSharp.vstemplate" Name="Services BizTalk Server Project" Description="Project Template for BizTalk Services Implementation" ProjectType="BizTalk" ProjectSubType="" />
     <ProjectTemplate Path="ProjectTemplates\inSyca\Utility\Definitions\CSharp.vstemplate" Name="Utility Project" Description="Project Template for BizTalk Utilities" ProjectType="CSharp" ProjectSubType="" />
   </ProjectTemplates>
   <Snippets />

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+﻿using Microsoft.SqlServer.Dts.Runtime.Wrapper;
 
 namespace inSyca.foundation.integration.ssis.components
 {

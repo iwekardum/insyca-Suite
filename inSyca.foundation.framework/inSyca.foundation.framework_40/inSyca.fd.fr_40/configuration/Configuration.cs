@@ -1,8 +1,5 @@
-﻿using System.Net.Configuration;
+﻿using inSyca.foundation.framework.diagnostics;
 using System;
-using System.Runtime.CompilerServices;
-using inSyca.foundation.framework.diagnostics;
-using System.IO;
 
 namespace inSyca.foundation.framework.configuration
 {

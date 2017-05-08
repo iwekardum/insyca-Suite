@@ -1,9 +1,7 @@
 ﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.functions.diagnostics;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace inSyca.foundation.integration.biztalk.functions

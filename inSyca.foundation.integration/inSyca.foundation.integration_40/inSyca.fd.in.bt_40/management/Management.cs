@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using inSyca.foundation.framework;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.diagnostics;
+using System.Collections.Generic;
 using System.IO;
 
 namespace inSyca.foundation.integration.biztalk.management
@@ -61,7 +58,7 @@ namespace inSyca.foundation.integration.biztalk.management
         {
             Log.DebugFormat("SendPortGroup(data.dsManagementConfig.EntryRow oEntryRow {0})\nServername: {1}\nObjectname: {2}\nAction: {3}", oEntryRow, oEntryRow.Servername, oEntryRow.Objectname, oEntryRow.Action);
 
-            management.SendPortGroup sendPortGroup = new SendPortGroup(oEntryRow.Servername, oEntryRow.Objectname);
+            SendPortGroup sendPortGroup = new SendPortGroup(oEntryRow.Servername, oEntryRow.Objectname);
 
             switch (oEntryRow.Action.ToLower())
             {
@@ -84,7 +81,7 @@ namespace inSyca.foundation.integration.biztalk.management
         {
             Log.DebugFormat("SendPort(data.dsManagementConfig.EntryRow oEntryRow {0})\nServername: {1}\nObjectname: {2}\nAction: {3}", oEntryRow, oEntryRow.Servername, oEntryRow.Objectname, oEntryRow.Action);
 
-            management.SendPort sendPort = new SendPort(oEntryRow.Servername, oEntryRow.Objectname);
+            SendPort sendPort = new SendPort(oEntryRow.Servername, oEntryRow.Objectname);
 
             switch (oEntryRow.Action.ToLower())
             {
@@ -107,7 +104,7 @@ namespace inSyca.foundation.integration.biztalk.management
         {
             Log.DebugFormat("ReceiveLocation(data.dsManagementConfig.EntryRow oEntryRow {0})\nServername: {1}\nObjectname: {2}\nAction: {3}", oEntryRow, oEntryRow.Servername, oEntryRow.Objectname, oEntryRow.Action);
 
-            management.ReceiveLocation receiveLocation = new ReceiveLocation(oEntryRow.Servername, oEntryRow.Objectname);
+            ReceiveLocation receiveLocation = new ReceiveLocation(oEntryRow.Servername, oEntryRow.Objectname);
 
             switch (oEntryRow.Action.ToLower())
             {
@@ -124,7 +121,7 @@ namespace inSyca.foundation.integration.biztalk.management
         {
             Log.DebugFormat("HostInstance(data.dsManagementConfig.EntryRow oEntryRow {0})\nServername: {1}\nObjectname: {2}\nAction: {3}", oEntryRow, oEntryRow.Servername, oEntryRow.Objectname, oEntryRow.Action);
 
-            management.HostInstance hostInstance = new HostInstance(oEntryRow.Servername, oEntryRow.Objectname);
+            HostInstance hostInstance = new HostInstance(oEntryRow.Servername, oEntryRow.Objectname);
 
             switch (oEntryRow.Action.ToLower())
             {
@@ -141,7 +138,7 @@ namespace inSyca.foundation.integration.biztalk.management
         {
             Log.DebugFormat("Host(data.dsManagementConfig.EntryRow oEntryRow {0})\nServername: {1}\nObjectname: {2}\nAction: {3}", oEntryRow, oEntryRow.Servername, oEntryRow.Objectname, oEntryRow.Action);
 
-            management.Host host = new Host(oEntryRow.Servername, oEntryRow.Objectname);
+            Host host = new Host(oEntryRow.Servername, oEntryRow.Objectname);
 
             switch (oEntryRow.Action.ToLower())
             {

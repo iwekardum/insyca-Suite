@@ -97,7 +97,7 @@ namespace inSyca.foundation.communication.service
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex ));
+                    Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), null, ex ));
                     return false;
                 }
             }

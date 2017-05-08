@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Management;
-using Microsoft.BizTalk.Operations;
-using System.IO;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.framework.diagnostics;
-using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.data;
+using Microsoft.BizTalk.Operations;
+using System;
 using System.Data;
-using inSyca.foundation.framework.configuration;
+using System.Management;
 
 namespace inSyca.foundation.integration.biztalk.diagnostics
 {
@@ -854,7 +849,7 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
         {
             Log.DebugFormat("SetHtmlMessage(DataRow eventEntryDataRow {0}, out LogEntry logEntry)", eventEntryDataRow);
 
-            logEntry = new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null);
+            logEntry = new LogEntry(true);
 
             dsEventEntry.dtEventEntryRow eventEntryRow = (dsEventEntry.dtEventEntryRow)eventEntryDataRow;
 
@@ -880,6 +875,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
             {
                 case BizTalkEventType.suspendedMessageEvent:
                     {
+                        logEntry.MailSubjectString = "Host Name: {0}, Service Name: {1}, Message Status {2}, Adapter Type: {3}, Url: {4}";
+                        logEntry.MailSubjectParameters = new object[] { eventEntryRow.hostname, eventEntryRow.servicetype, eventEntryRow.messagestatus, eventEntryRow.adaptername, eventEntryRow.url };
+
                         logEntry.AdditionalString = "Host Name: {0}, Service Name: {1}, Message Status {2}, Adapter Type: {3}, Url: {4}";
                         logEntry.AdditionalParameters = new object[] { eventEntryRow.hostname, eventEntryRow.servicetype, eventEntryRow.messagestatus, eventEntryRow.adaptername, eventEntryRow.url };
 
@@ -905,6 +903,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     break;
                 case BizTalkEventType.hostInstanceEvent:
                     {
+                        logEntry.MailSubjectString = "Server: {0}, Hostinstance Name: {1}, Hostinstance Status: {2}, Hostinstance Type: {3}";
+                        logEntry.MailSubjectParameters = new object[] { eventEntryRow.server, eventEntryRow.hostname, eventEntryRow.status, eventEntryRow.hosttype };
+
                         logEntry.AdditionalString = "Server: {0}, Hostinstance Name: {1}, Hostinstance Status: {2}, Hostinstance Type: {3}";
                         logEntry.AdditionalParameters = new object[] { eventEntryRow.server, eventEntryRow.hostname, eventEntryRow.status, eventEntryRow.hosttype };
 
@@ -925,6 +926,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     break;
                 case BizTalkEventType.receiveLocationEvent:
                     {
+                        logEntry.MailSubjectString = "Server: {0}, Receiveport Name: {1}, Receiveport Status: {2}, Receiveport Type: {3}, Receiveport Address: {4}";
+                        logEntry.MailSubjectParameters = new object[] { eventEntryRow.server, eventEntryRow.receiveportname, eventEntryRow.status, eventEntryRow.adaptername, eventEntryRow.inboundtransporturl };
+
                         logEntry.AdditionalString = "Server: {0}, Receiveport Name: {1}, Receiveport Status: {2}, Receiveport Type: {3}, Receiveport Address: {4}";
                         logEntry.AdditionalParameters = new object[] { eventEntryRow.server, eventEntryRow.receiveportname, eventEntryRow.status, eventEntryRow.adaptername, eventEntryRow.inboundtransporturl };
 
@@ -941,6 +945,9 @@ namespace inSyca.foundation.integration.biztalk.diagnostics
                     break;
                 case BizTalkEventType.sendPortEvent:
                     {
+                        logEntry.MailSubjectString = "Server: {0}, Sendport Name: {1}, Sendport Status: {2}, Sendport Type: {3}, Sendport Address: {4}";
+                        logEntry.MailSubjectParameters = new object[] { eventEntryRow.server, eventEntryRow.name, eventEntryRow.status, eventEntryRow.pttransporttype, eventEntryRow.ptaddress };
+
                         logEntry.AdditionalString = "Server: {0}, Sendport Name: {1}, Sendport Status: {2}, Sendport Type: {3}, Sendport Address: {4}";
                         logEntry.AdditionalParameters = new object[] { eventEntryRow.server, eventEntryRow.name, eventEntryRow.status, eventEntryRow.pttransporttype, eventEntryRow.ptaddress };
 

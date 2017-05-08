@@ -14,8 +14,15 @@ namespace inSyca.foundation.communication.configurator
         [STAThread]
         static void Main(string[] args)
         {
+            string logString = "Main(string[] args)\nArguments:\n";
 
-            Log.InfoFormat("Main(string[] args {0})\nApplication started", args);
+            if (args.Length < 1)
+                logString += "none";
+            else
+                foreach (var argument in args)
+                    logString += string.Format("{0}\n", argument);
+
+            Log.InfoFormat("inSyca.foundation.communication.configurator started\n{0}", logString);
 
             if (!SingleInstance.Start()) { return; } // mutex not obtained so exit
 
@@ -47,7 +54,7 @@ namespace inSyca.foundation.communication.configurator
 
             SingleInstance.Stop(); // all finished so release the mutex
 
-            Log.InfoFormat("Main(string[] args {0})\nApplication closed", args);
+            Log.InfoFormat("inSyca.foundation.communication.configurator stopped\n{0}", logString);
         }
     }
 }

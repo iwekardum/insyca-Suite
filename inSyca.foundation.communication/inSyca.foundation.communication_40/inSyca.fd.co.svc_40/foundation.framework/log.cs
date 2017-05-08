@@ -1,5 +1,4 @@
-﻿
-using inSyca.foundation.framework.diagnostics;
+﻿using inSyca.foundation.framework.diagnostics;
 
 namespace inSyca.foundation.communication.service.diagnostics
 {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using inSyca.foundation.framework.schedules;
+using System;
 using System.Configuration;
-using inSyca.foundation.framework.schedules;
 
 namespace inSyca.foundation.framework.configuration
 {

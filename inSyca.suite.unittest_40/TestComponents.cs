@@ -1,4 +1,5 @@
-﻿using inSyca.foundation.integration.biztalk.test;
+﻿using inSyca.foundation.framework.xml;
+using inSyca.foundation.integration.biztalk.test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,32 +15,12 @@ namespace inSyca.foundation.unittest_40
         [TestMethod]
         public void removeNilAndEmpty()
         {
-            XDocument xml = XDocument.Load(@"..\..\Testfiles\simple.xml");
+            XElement xmldocument = XElement.Load(@"..\..\Testfiles\simple_002.xml");
 
-            //fetch namespace and root element
-            string namespaceURI = xml.Document.Root.Name.NamespaceName;
-            string rootElement = xml.Document.Root.Name.LocalName;
+            xElement.RemoveNilElements(xmldocument);
+            xElement.RemoveEmptyElements(xmldocument);
 
-            XNamespace ns = "http://www.w3.org/2001/XMLSchema-instance";
-
-            IEnumerable<XElement> nills = from n in xml.Descendants()
-                                          where n.Attribute(ns + "nil") != null
-                                          select n;
-
-            nills.ToList().ForEach(x => x.Remove());
-
-            IEnumerable<XElement> empties;
-            do
-            {
-                empties = from n in xml.Descendants()
-                          where n.IsEmpty || string.IsNullOrEmpty(n.Value)
-                          select n;
-
-                empties.ToList().ForEach(x => x.Remove());
-            }
-            while (empties.Count() > 0);
-
-            Console.Write(xml.ToString());
+            Console.Write(xmldocument);
         }
 
         [TestMethod]

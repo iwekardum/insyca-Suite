@@ -87,7 +87,7 @@ namespace inSyca.foundation.framework.application.windowsforms
             notifyIcon = new NotifyIcon(components)
                              {
                                  ContextMenuStrip = new ContextMenuStrip(),
-                                 Icon = inSyca.foundation.framework.application.Properties.Resources.icon,
+                                 Icon = Properties.Resources.icon,
                                  Text = DefaultTooltip,
                                  Visible = true
                              };

@@ -1,28 +1,26 @@
-﻿using System;
+﻿using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component.Interop;
+using Microsoft.BizTalk.Message.Interop;
+using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Text;
-using inSyca.foundation.framework;
-using inSyca.foundation.integration.biztalk.components.diagnostics;
-using Microsoft.BizTalk.Component.Interop;
 using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
-using Microsoft.BizTalk.Message.Interop;
-using System.Globalization;
 
 namespace inSyca.foundation.integration.biztalk.components
 {
-/// <summary>
-/// Implements custom pipeline component to append and/or prepend data to a stream.
-/// </summary>
-/// <remarks>
-/// FixMag class implements pipeline component that can be used in receive and
-/// send integration pipelines. The pipeline component gets a data stream, appends
-/// and/or prepends user specified data to it and outputs modified stream.
-///</remarks>
+    /// <summary>
+    /// Implements custom pipeline component to append and/or prepend data to a stream.
+    /// </summary>
+    /// <remarks>
+    /// FixMag class implements pipeline component that can be used in receive and
+    /// send integration pipelines. The pipeline component gets a data stream, appends
+    /// and/or prepends user specified data to it and outputs modified stream.
+    ///</remarks>
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_Any)]
     [ComponentCategory(CategoryTypes.CATID_Validate)]

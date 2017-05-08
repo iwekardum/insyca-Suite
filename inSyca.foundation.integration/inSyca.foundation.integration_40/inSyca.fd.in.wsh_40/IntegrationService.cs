@@ -1,5 +1,4 @@
-﻿using inSyca.foundation.framework;
-using inSyca.foundation.framework.application.service;
+﻿using inSyca.foundation.framework.application.service;
 using inSyca.foundation.framework.diagnostics;
 using inSyca.foundation.framework.schedules;
 using inSyca.foundation.integration.biztalk.data;
@@ -12,7 +11,7 @@ namespace inSyca.foundation.integration.wsh
 {
     public partial class IntegrationService : windowsServiceHost
     {
-        override protected inSyca.foundation.framework.configuration.AppSchedules appSchedules
+        override protected framework.configuration.AppSchedules appSchedules
         {
             get
             {
@@ -26,7 +25,7 @@ namespace inSyca.foundation.integration.wsh
             EvaluateRegistryKey(@"inSyca\foundation.integration.biztalk.functions", AppDomain.CurrentDomain.BaseDirectory, "foundation.integration.biztalk.functions.config");
             EvaluateRegistryKey(@"inSyca\foundation.integration.biztalk.components", AppDomain.CurrentDomain.BaseDirectory, "foundation.integration.biztalk.components.config");
 
-            InitializeComponent();
+            this.ServiceName = Program.serviceName;
 
             SystemEvents.SessionEnding += SystemEvents_SessionEnding;
         }
@@ -108,18 +107,18 @@ namespace inSyca.foundation.integration.wsh
             eventEntry = new dsEventEntry();
             logEntry = new dsLogEntry();
 
-            integration.biztalk.diagnostics.Monitoring.MonitoringEvent += new System.EventHandler<MonitoringEventArgs>(MonitoringEvent);
-            integration.biztalk.diagnostics.Monitoring.EventEntryEvent += new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+            biztalk.diagnostics.Monitoring.MonitoringEvent += new EventHandler<MonitoringEventArgs>(MonitoringEvent);
+            biztalk.diagnostics.Monitoring.EventEntryEvent += new EventHandler<MonitoringEventArgs>(EventEntryEvent);
 
-            foundation.integration.biztalk.diagnostics.Monitoring.invokeWatcher();
+            biztalk.diagnostics.Monitoring.invokeWatcher();
         }
 
         override protected void DisposeWatcher()
         {
-            foundation.integration.biztalk.diagnostics.Monitoring.MonitoringEvent -= new System.EventHandler<MonitoringEventArgs>(MonitoringEvent);
-            foundation.integration.biztalk.diagnostics.Monitoring.EventEntryEvent -= new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+            biztalk.diagnostics.Monitoring.MonitoringEvent -= new EventHandler<MonitoringEventArgs>(MonitoringEvent);
+            biztalk.diagnostics.Monitoring.EventEntryEvent -= new EventHandler<MonitoringEventArgs>(EventEntryEvent);
 
-            foundation.integration.biztalk.diagnostics.Monitoring.disposeWatcher();
+            biztalk.diagnostics.Monitoring.disposeWatcher();
         }
 
     }

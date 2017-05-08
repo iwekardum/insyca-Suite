@@ -1,11 +1,8 @@
-﻿
+﻿using inSyca.foundation.framework.diagnostics;
+
 namespace inSyca.foundation.integration.biztalk.adapter.diagnostics
 {
-    public class Information : framework.diagnostics.Information
+    public class Information : InformationBase<Information>
     {
-        public Information()
-            : base(typeof(Information))
-        {
-        }
     }
 }

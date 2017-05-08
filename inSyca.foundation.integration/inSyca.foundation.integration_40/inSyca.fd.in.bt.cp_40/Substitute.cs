@@ -6,7 +6,6 @@ using Microsoft.BizTalk.Message.Interop;
 using Microsoft.Win32;
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Reflection;

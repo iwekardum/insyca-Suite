@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace inSyca.foundation.framework.configuration
 {

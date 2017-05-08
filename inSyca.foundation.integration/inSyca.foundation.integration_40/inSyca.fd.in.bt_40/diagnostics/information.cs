@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using inSyca.foundation.framework.diagnostics;
 
 namespace inSyca.foundation.integration.biztalk.diagnostics
 {
-    public class Information : framework.diagnostics.Information
+    public class Information : InformationBase<Information>
     {
-        public Information() : base(typeof(Information))
-        {
-        }
     }
 }

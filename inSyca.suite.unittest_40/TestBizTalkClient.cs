@@ -13,7 +13,7 @@ namespace inSyca.foundation.unittest_40
         [Description("send generic message to BizTalk")]
         public void send_generic_message()
         {
-            XmlReader xmlrdr = XElement.Parse("<ns0:message xmlns:ns0='http://inSyca.foundation.messagebroker/testmessage'><id>69</id><trackingid>223FCA9C-EB79-46F5-86F0-5AA6CA66553B</trackingid></ns0:message>").CreateReader();
+            XmlReader xmlrdr = XElement.Load(@"..\..\Testfiles\simple_001.xml").CreateReader();
             Message message = Message.CreateMessage(MessageVersion.Default, "*", xmlrdr);
 
             BizTalkClient btClient = new BizTalkClient();

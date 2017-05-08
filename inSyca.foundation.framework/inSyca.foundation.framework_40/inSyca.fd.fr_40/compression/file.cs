@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ICSharpCode.SharpZipLib.Zip;
-using System.IO;
-using System.IO.Compression;
+﻿using ICSharpCode.SharpZipLib.Zip;
 using System;
+using System.IO;
 
 namespace inSyca.foundation.framework.compression
 {

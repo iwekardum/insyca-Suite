@@ -1,7 +1,7 @@
-﻿using System;
-using System.IO;
-using inSyca.foundation.communication.components.diagnostics;
+﻿using inSyca.foundation.communication.components.diagnostics;
 using inSyca.foundation.framework;
+using System;
+using System.IO;
 
 namespace inSyca.foundation.communication.components
 {

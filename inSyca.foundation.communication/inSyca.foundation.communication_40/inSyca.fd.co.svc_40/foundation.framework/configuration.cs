@@ -1,5 +1,4 @@
-﻿
-using inSyca.foundation.framework.configuration;
+﻿using inSyca.foundation.framework.configuration;
 
 namespace inSyca.foundation.communication.service
 {

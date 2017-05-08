@@ -2,7 +2,7 @@ using inSyca.foundation.framework.configuration;
 
 namespace inSyca.foundation.framework.schedules
 {
-	public class Task
+    public class Task
 	{
 		#region Attributes
 

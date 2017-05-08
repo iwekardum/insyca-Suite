@@ -1,8 +1,5 @@
-﻿using inSyca.foundation.framework.configuration;
-using log4net.Core;
+﻿using log4net.Core;
 using System;
-using System.IO;
-using System.Reflection;
 
 namespace inSyca.foundation.framework.diagnostics
 {
@@ -26,35 +23,35 @@ namespace inSyca.foundation.framework.diagnostics
             }
         }
 
-        public static bool Debug(LogEntry logEntry)
-        {
-            inSycaLogger.Debug(logEntry.MessageEntryShort);
-            return true;
-        }
+        //public static bool Debug(LogEntry logEntry)
+        //{
+        //    inSycaLogger.Debug(logEntry);
+        //    return true;
+        //}
 
-        public static bool Info(LogEntry logEntry)
-        {
-            inSycaLogger.Info(logEntry.MessageEntryShort);
-            return true;
-        }
+        //public static bool Info(LogEntry logEntry)
+        //{
+        //    inSycaLogger.Info(logEntry);
+        //    return true;
+        //}
 
-        public static bool Warn(LogEntry logEntry)
-        {
-            inSycaLogger.Warn(logEntry.MessageEntryShort);
-            return true;
-        }
+        //public static bool Warn(LogEntry logEntry)
+        //{
+        //    inSycaLogger.Warn(logEntry);
+        //    return true;
+        //}
 
-        public static bool Error(LogEntry logEntry)
-        {
-            inSycaLogger.Error(logEntry.MessageEntryShort);
-            return true;
-        }
+        //public static bool Error(LogEntry logEntry)
+        //{
+        //    inSycaLogger.Error(logEntry);
+        //    return true;
+        //}
 
-        public static bool Fatal(LogEntry logEntry)
-        {
-            inSycaLogger.Error(logEntry.MessageEntryShort);
-            return true;
-        }
+        //public static bool Fatal(LogEntry logEntry)
+        //{
+        //    inSycaLogger.Error(logEntry);
+        //    return true;
+        //}
 
         #region ILog Implementation
         public static bool IsDebugEnabled

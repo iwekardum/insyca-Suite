@@ -1,5 +1,4 @@
-﻿
-namespace inSyca.foundation.framework.configurator
+﻿namespace inSyca.foundation.framework.configurator
 {
     public class ApplicationContext : inSyca.foundation.framework.application.windowsforms.FrameworkApplicationContext
     {
@@ -9,7 +8,6 @@ namespace inSyca.foundation.framework.configurator
             {
                 introForm = new framework_configurator();
                 introForm.Closed += mainForm_Closed; // avoid reshowing a disposed form
-//                ElementHost.EnableModelessKeyboardInterop(introForm);
                 introForm.Show();
             }
             else { introForm.Activate(); }
@@ -21,7 +19,6 @@ namespace inSyca.foundation.framework.configurator
             {
                 introForm = new framework_configurator();
                 introForm.Closed += mainForm_Closed; // avoid reshowing a disposed form
-                //                ElementHost.EnableModelessKeyboardInterop(introForm);
                 introForm.Show();
             }
             else { introForm.Activate(); }

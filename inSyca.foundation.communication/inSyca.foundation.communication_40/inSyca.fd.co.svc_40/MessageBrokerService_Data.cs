@@ -2,11 +2,8 @@
 using inSyca.foundation.framework;
 using inSyca.foundation.framework.security;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace inSyca.foundation.communication.service
 {

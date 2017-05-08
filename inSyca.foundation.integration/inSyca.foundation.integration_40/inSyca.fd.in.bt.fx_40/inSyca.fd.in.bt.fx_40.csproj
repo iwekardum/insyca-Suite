@@ -60,7 +60,7 @@
   <ItemGroup>
     <Compile Include="expressions.cs" />
     <Compile Include="foundation.framework\configuration.cs" />
-    <Compile Include="diagnostics\information.cs" />
+    <Compile Include="foundation.framework\information.cs" />
     <Compile Include="rawstring.cs" />
     <Compile Include="ressourcexmldocument.cs" />
     <Compile Include="scripting.cs" />

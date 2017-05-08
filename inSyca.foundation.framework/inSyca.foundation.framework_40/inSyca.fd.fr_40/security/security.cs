@@ -1,9 +1,8 @@
-﻿using System;
+﻿using inSyca.foundation.framework.diagnostics;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using inSyca.foundation.framework.diagnostics;
-using inSyca.foundation.framework.configuration;
 
 namespace inSyca.foundation.framework.security
 {

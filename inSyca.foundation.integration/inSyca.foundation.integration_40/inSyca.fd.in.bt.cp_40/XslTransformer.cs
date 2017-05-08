@@ -20,34 +20,33 @@
 // PURPOSE.
 //---------------------------------------------------------------------
 
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.IO;
-using System.Xml;
-using System.Xml.Xsl;
 using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
 using Microsoft.BizTalk.Component.Interop;
-using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 using Microsoft.BizTalk.Message.Interop;
 using Microsoft.Win32;
-using System.Resources;
-using System.Reflection;
+using System;
+using System.Collections;
+using System.ComponentModel;
 using System.Globalization;
-using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Resources;
+using System.Xml;
+using System.Xml.Xsl;
+using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
 namespace inSyca.foundation.integration.biztalk.components
 {
-	/// <summary>
-	/// Implements a pipeline component that applies Xsl Transformations to XML messages
-	/// </summary>
-	/// <remarks>
-	/// XslTransformer class implements pipeline components that can be used in send pipelines
-	/// to convert XML messages to HTML format for sending using SMTP transport. Component can
-	/// be placed only in Encoding stage of send pipeline
-	/// </remarks>
-	[ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
+    /// <summary>
+    /// Implements a pipeline component that applies Xsl Transformations to XML messages
+    /// </summary>
+    /// <remarks>
+    /// XslTransformer class implements pipeline components that can be used in send pipelines
+    /// to convert XML messages to HTML format for sending using SMTP transport. Component can
+    /// be placed only in Encoding stage of send pipeline
+    /// </remarks>
+    [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
 	[ComponentCategory(CategoryTypes.CATID_Encoder)]
 	[System.Runtime.InteropServices.Guid("FA7F9C55-6E8E-4855-8DAC-FA1BC8A499E2")]
 	public class XslTransformer : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI

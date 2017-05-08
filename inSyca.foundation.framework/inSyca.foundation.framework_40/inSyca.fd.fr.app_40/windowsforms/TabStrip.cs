@@ -35,7 +35,7 @@ namespace inSyca.foundation.framework.application.windowsforms
             base.RenderMode = ToolStripRenderMode.ManagerRenderMode;
             base.Renderer = myRenderer;
             myRenderer.RenderMode = this.RenderStyle;
-            insPage = new DesignerVerb(application.Properties.Resources.ts_insert, new EventHandler(OnInsertPageClicked));
+            insPage = new DesignerVerb(Properties.Resources.ts_insert, new EventHandler(OnInsertPageClicked));
         }
 
         public override ISite Site

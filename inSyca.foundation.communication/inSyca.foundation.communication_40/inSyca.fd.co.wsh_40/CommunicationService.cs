@@ -12,7 +12,7 @@ namespace inSyca.foundation.communication.wsh
 
         public CommunicationService()
         {
-            InitializeComponent();
+            this.ServiceName = Program.serviceName;
         }
 
         protected override void OnStart(string[] args)
@@ -25,7 +25,7 @@ namespace inSyca.foundation.communication.wsh
             }
 
             // Create a ServiceHost
-            messageBrokerServiceHost = new communication.service.MessageBrokerServiceHost(typeof(MessageBrokerService));
+            messageBrokerServiceHost = new MessageBrokerServiceHost(typeof(MessageBrokerService));
 
             try
             {
@@ -60,15 +60,6 @@ namespace inSyca.foundation.communication.wsh
 
                 messageBrokerServiceHost = null;
             }
-        }
-
-        private void InitializeComponent()
-        {
-            //
-            // MessageBroker
-            //
-            this.ServiceName = Program.serviceName;
-
         }
     }
 }

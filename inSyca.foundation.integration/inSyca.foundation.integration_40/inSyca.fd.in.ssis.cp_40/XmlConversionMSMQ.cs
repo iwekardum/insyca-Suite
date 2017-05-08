@@ -1,19 +1,13 @@
-﻿using System;
-using System.IO;
-using System.Xml;
-using System.Data;
-using System.Text;
-using System.Messaging;
-using System.Reflection;
-using System.Globalization;
-using System.Data.SqlClient;
-
+﻿using inSyca.foundation.framework;
+using inSyca.foundation.integration.ssis.components.diagnostics;
 using Microsoft.SqlServer.Dts.Pipeline;
 using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
 using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System;
 using System.Collections.Generic;
-using inSyca.foundation.integration.ssis.components.diagnostics;
-using inSyca.foundation.framework;
+using System.IO;
+using System.Text;
+using System.Xml;
 
 namespace inSyca.foundation.integration.ssis.components
 {

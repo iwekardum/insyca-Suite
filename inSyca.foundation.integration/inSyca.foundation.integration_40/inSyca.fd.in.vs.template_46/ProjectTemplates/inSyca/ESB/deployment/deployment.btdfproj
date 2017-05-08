@@ -118,25 +118,29 @@
     <Schemas Include="inSyca.esb.root.ns.esb.schemas.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.esb.schemas\bin\$(Configuration)</LocationPath>
     </Schemas>
-    <!--Schemas Include="inSyca.esb.root.ns.${ENTITY_1}.schemas.dll">
+<!-- Entity Schemas
+    <Schemas Include="inSyca.esb.root.ns.${ENTITY_1}.schemas.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_1}\inSyca.esb.root.ns.${ENTITY_1}.schemas\bin\$(Configuration)</LocationPath>
     </Schemas>
     <Schemas Include="inSyca.esb.root.ns.${ENTITY_2}.schemas.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_2}\inSyca.esb.root.ns.${ENTITY_2}.schemas\bin\$(Configuration)</LocationPath>
-    </Schemas-->
-    </ItemGroup>
+    </Schemas>
+-->
+  </ItemGroup>
 
   <!-- Maps -->
   <ItemGroup>
     <Transforms Include="inSyca.esb.root.ns.esb.maps.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.esb.maps\bin\$(Configuration)</LocationPath>
     </Transforms>
-    <!--Transforms Include="inSyca.esb.root.ns.${ENTITY_1}.maps.dll">
+<!-- Entity Maps
+    <Transforms Include="inSyca.esb.root.ns.${ENTITY_1}.maps.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_1}\inSyca.esb.root.ns.${ENTITY_1}.maps\bin\$(Configuration)</LocationPath>
     </Transforms>
     <Transforms Include="inSyca.esb.root.ns.${ENTITY_2}.maps.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_2}\inSyca.esb.root.ns.${ENTITY_2}.maps\bin\$(Configuration)</LocationPath>
-    </Transforms-->
+    </Transforms>
+-->
   </ItemGroup>
 
   <!-- Orchestrations -->
@@ -144,33 +148,39 @@
     <Orchestrations Include="inSyca.esb.root.ns.esb.orchestrations.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.esb.orchestrations\bin\$(Configuration)</LocationPath>
     </Orchestrations>
-    <!--Orchestrations Include="inSyca.esb.root.ns.${ENTITY_1}.orchestrations.dll">
+<!-- Entity Orchestrations
+    <Orchestrations Include="inSyca.esb.root.ns.${ENTITY_1}.orchestrations.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_1}\inSyca.esb.root.ns.${ENTITY_1}.orchestrations\bin\$(Configuration)</LocationPath>
     </Orchestrations>
     <Orchestrations Include="inSyca.esb.root.ns.${ENTITY_2}.orchestrations.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_2}\inSyca.esb.root.ns.${ENTITY_2}.orchestrations\bin\$(Configuration)</LocationPath>
-    </Orchestrations-->
+    </Orchestrations>
+-->
   </ItemGroup>
 
   <!-- Services -->
   <ItemGroup>
-    <!--Orchestrations Include="inSyca.esb.root.ns.${ENTITY_1}.services.dll">
+<!-- Entity Service Artefacts
+    <Orchestrations Include="inSyca.esb.root.ns.${ENTITY_1}.services.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_1}\inSyca.esb.root.ns.${ENTITY_1}.services\bin\$(Configuration)</LocationPath>
     </Orchestrations>
     <Orchestrations Include="inSyca.esb.root.ns.${ENTITY_2}.services.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_2}\inSyca.esb.root.ns.${ENTITY_2}.services\bin\$(Configuration)</LocationPath>
-    </Orchestrations-->
+    </Orchestrations>
+-->
   </ItemGroup>
 
   <!-- Pipelines -->
   <ItemGroup>
-    <!--Pipelines Include="inSyca.esb.root.ns.${ENTITY_1}.pipelines.dll">
+<!-- Entity Pipelines
+    <Pipelines Include="inSyca.esb.root.ns.${ENTITY_1}.pipelines.dll">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.${ENTITY_1}\inSyca.esb.root.ns.${ENTITY_1}.pipelines\bin\$(Configuration)</LocationPath>
-    </Pipelines-->
+    </Pipelines>
+-->
   </ItemGroup>
 
   <!-- Business Rules -->
-  <!--
+<!--
   <ItemGroup>
     <AdditionalFiles Include="inSyca.esb.root.ns.setSize.policy.xml">
       <LocationPath>..\inSyca.esb.root.ns\inSyca.esb.root.ns.bre</LocationPath>
@@ -190,10 +200,11 @@
   <Target Name="CustomDeployTarget" Condition="'$(Configuration)' == 'Server'">
     <Copy sourceFiles="..\inSyca.esb.root.ns.setSize.policy.xml" DestinationFolder="..\BRE\Policies"/>
   </Target>
-  -->
+-->
 
   <!-- If you wish to set up IIS application pools, specify one or more IISAppPool definitions. -->
-  <!--ItemGroup>
+<!--
+  <ItemGroup>
     <IISAppPool Include="TestProjectPool">
       <DotNetFrameworkVersion>v4.0</DotNetFrameworkVersion>
       <PipelineMode>Integrated</PipelineMode>
@@ -204,10 +215,11 @@
       <DeployAction>Create</DeployAction>
       <UndeployAction>Delete</UndeployAction>
     </IISAppPool>
-  </ItemGroup-->
-
+  </ItemGroup>
+-->
   <!-- If you wish to set up IIS applications, specify one or more IISApp definitions. -->
-  <!--ItemGroup>
+<!--
+  <ItemGroup>
     <IISApp Include="TestProject">
       <AppPoolName>TestProjectPool</AppPoolName>
       <SiteName>Default Web Site</SiteName>
@@ -216,8 +228,8 @@
       <DeployAction>Create</DeployAction>
       <UndeployAction>Delete</UndeployAction>
     </IISApp>
-  </ItemGroup-->
-  
+  </ItemGroup>
+-->  
   <!-- Additional Files -->
   <ItemGroup>
     <AdditionalFiles Include="releasenotes.rtf">
@@ -226,20 +238,21 @@
   </ItemGroup>
 
   <Import Project="$(DeploymentFrameworkTargetsPath)BizTalkDeploymentFramework.targets" />
-  <!--
+<!--
     The Deployment Framework automatically packages most files into the server install MSI.
     However, if there are special folders that you need to include in the MSI, you can
     copy them to the folder $(RedistDir) in the CustomRedist target.
     To include individual files, add an ItemGroup with AdditionalFiles elements.
-  -->
+-->
 
   <!-- Runs at the absolute beginning of the process, before the Deployment Framework has done any initialization -->
   <Target Name="CustomPreInitialize">
 
-    <!-- stop inSyca Foundation Monitoring  (no messages during installation) -->
-    <!--Exec Command="net stop &quot;Foundation Framework&quot;" ContinueOnError="true"/-->
-    <!--Exec Command="net stop &quot;Foundation Integration&quot;" ContinueOnError="true"/-->
-
+  <!-- stop inSyca Foundation Monitoring  (no messages during installation) -->
+<!--
+  <Exec Command="net stop &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+  <Exec Command="net stop &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+ -->
   </Target>
 
   <Target Name="CustomDeployTarget">

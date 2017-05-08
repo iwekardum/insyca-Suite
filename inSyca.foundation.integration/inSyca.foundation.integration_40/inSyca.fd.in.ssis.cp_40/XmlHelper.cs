@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Globalization;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.ssis.components.diagnostics;
-using inSyca.foundation.framework;
+using System;
+using System.Globalization;
 
 namespace inSyca.foundation.integration.ssis.components
 {

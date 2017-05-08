@@ -1,13 +1,10 @@
-﻿using System;
-using System.Net;
-
-using inSyca.foundation.framework.configuration;
+﻿using inSyca.foundation.framework.configuration;
 using inSyca.foundation.framework.diagnostics;
+using System;
+using System.ComponentModel;
 using System.Net.Mail;
 using System.Reflection;
 using System.Text;
-using System.ComponentModel;
-using System.Threading;
 
 namespace inSyca.foundation.framework.messaging
 {

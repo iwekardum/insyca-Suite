@@ -1,20 +1,23 @@
-﻿using inSyca.foundation.framework;
-using System.ServiceProcess;
+﻿using System.ServiceProcess;
 
 namespace inSyca.foundation.communication.wsh
 {
     class Program
     {
-        internal static string serviceName = "inSyca.messagebroker";
+        internal static string serviceName = "inSyca Communication Service";
     
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         static void Main(string[] args)
         {
-            if (args.GetLength(0) > 0)
-            {
-            }
+            string logString = "Main(string[] args)\nArguments:\n";
+
+            if (args.Length < 1)
+                logString += "none";
+            else
+                foreach (var argument in args)
+                    logString += string.Format("{0}\n", argument);
 
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
@@ -23,7 +26,7 @@ namespace inSyca.foundation.communication.wsh
 			};
             ServiceBase.Run(ServicesToRun);
 
-            Log.InfoFormat("Main(string[] args {0})\ninSyca.foundation.communication.wsh started", args);
+            Log.InfoFormat("inSyca.foundation.communication.wsh started\n{0}", logString);
         }
     }
 }

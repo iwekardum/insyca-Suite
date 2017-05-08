@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Management;
-using inSyca.foundation.framework;
+﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.diagnostics;
+using System;
+using System.Management;
 
 namespace inSyca.foundation.integration.biztalk.management
 {

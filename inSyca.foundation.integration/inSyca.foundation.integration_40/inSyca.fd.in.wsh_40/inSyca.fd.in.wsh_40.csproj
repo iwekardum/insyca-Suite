@@ -111,9 +111,6 @@
     <Compile Include="IntegrationService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IntegrationService.Designer.cs">
-      <DependentUpon>IntegrationService.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="IntegrationInstaller.cs">
       <SubType>Component</SubType>

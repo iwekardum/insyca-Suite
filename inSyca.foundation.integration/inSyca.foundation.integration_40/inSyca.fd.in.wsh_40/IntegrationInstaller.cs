@@ -35,7 +35,7 @@ namespace inSyca.foundation.integration.wsh
                     {
                         controller.Stop();
 
-                        Log.Info("inSyca.foundation.integration.wsh stopped");
+                        Log.Warn("inSyca.foundation.integration.wsh stopped");
                     }
                 }
             }
@@ -60,7 +60,7 @@ namespace inSyca.foundation.integration.wsh
                     {
                         controller.Stop();
 
-                        Log.Info("inSyca.foundation.integration.wsh stopped");
+                        Log.Warn("inSyca.foundation.integration.wsh stopped");
                     }
                 }
             }

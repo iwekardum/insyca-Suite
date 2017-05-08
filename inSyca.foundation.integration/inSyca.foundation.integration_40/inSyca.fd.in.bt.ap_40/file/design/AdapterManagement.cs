@@ -21,6 +21,8 @@
 // PURPOSE.
 //---------------------------------------------------------------------
 
+using Microsoft.BizTalk.Adapter.Framework;
+using Microsoft.BizTalk.Component.Interop;
 using System;
 using System.IO;
 using System.Reflection;
@@ -28,13 +30,10 @@ using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
-using Microsoft.Win32;
-using Microsoft.BizTalk.Component.Interop;
-using Microsoft.BizTalk.Adapter.Framework;
 
 namespace inSyca.foundation.integration.biztalk.adapter.file.design
 {
-    
+
     /// <summary>
     /// Description: 
     /// Class DynamicAdapterManagement implements

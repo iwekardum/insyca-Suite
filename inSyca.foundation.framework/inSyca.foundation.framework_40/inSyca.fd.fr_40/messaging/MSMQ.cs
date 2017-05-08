@@ -1,8 +1,7 @@
-﻿using System;
+﻿using inSyca.foundation.framework.diagnostics;
+using System;
 using System.IO;
 using System.Messaging;
-using inSyca.foundation.framework.diagnostics;
-using inSyca.foundation.framework.configuration;
 
 namespace inSyca.foundation.framework.messaging
 {

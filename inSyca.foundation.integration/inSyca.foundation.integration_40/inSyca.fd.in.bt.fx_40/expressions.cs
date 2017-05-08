@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Xml;
-using inSyca.foundation.integration.biztalk.functions.diagnostics;
-using inSyca.foundation.framework;
+﻿using System.Xml;
 
 namespace inSyca.foundation.integration.biztalk.functions
 {

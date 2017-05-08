@@ -13,16 +13,16 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
         private string templateDirectory;
 
         SolutionFolder solutionFolder;
-        SolutionFolder unittestMainFolder;
-        SolutionFolder unittestEntityFolder;
+        //SolutionFolder unittestMainFolder;
+        //SolutionFolder unittestEntityFolder;
 
         Project deploymentProject;
         Project customProject;
         Project documentationProject;
         Project environmentsettingsProject;
         Project ressourcesProject;
-        Project testfilesMainProject;
-        Project testfilesEntityProject;
+        //Project testfilesMainProject;
+        //Project testfilesEntityProject;
 
         // This method is called before opening any item that 
         // has the OpenInEditor attribute.
@@ -85,28 +85,28 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
             _dte.Documents.CloseAll();
         }
 
-        private void AddTestFileDirectories(Project project)
-        {
-            DirectoryInfo dirInfo = new DirectoryInfo(project.FileName);
-            DirectoryInfo testfilesDirectory = Directory.CreateDirectory(string.Format(@"{0}\biztalk.testfiles", dirInfo.Parent.FullName));
-            DirectoryInfo entityfilesDirectory = Directory.CreateDirectory(string.Format(@"{0}\ci", dirInfo.Parent.FullName));
+        //private void AddTestFileDirectories(Project project)
+        //{
+        //    DirectoryInfo dirInfo = new DirectoryInfo(project.FileName);
+        //    DirectoryInfo testfilesDirectory = Directory.CreateDirectory(string.Format(@"{0}\biztalk.testfiles", dirInfo.Parent.FullName));
+        //    DirectoryInfo entityfilesDirectory = Directory.CreateDirectory(string.Format(@"{0}\ci", dirInfo.Parent.FullName));
 
-            string placeholderFile = string.Format(@"{0}\testfile.txt", entityfilesDirectory.FullName);
+        //    string placeholderFile = string.Format(@"{0}\testfile.txt", entityfilesDirectory.FullName);
             
-            File.Create(placeholderFile);
+        //    File.Create(placeholderFile);
 
-            for (int i = 0; i < 10; i++)
-            {
-                try
-                {
-                    testfilesEntityProject.ProjectItems.AddFromFile(placeholderFile);
-                    break;
-                }
-                catch
-                { 
-                }
-            }
-        }
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        try
+        //        {
+        //            testfilesEntityProject.ProjectItems.AddFromFile(placeholderFile);
+        //            break;
+        //        }
+        //        catch
+        //        { 
+        //        }
+        //    }
+        //}
 
         private void RebuildDeployment(Project project)
         {

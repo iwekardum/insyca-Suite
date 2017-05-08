@@ -1,8 +1,7 @@
-﻿using System.ServiceModel.Description;
-using System.ServiceModel.Dispatcher;
-using inSyca.foundation.communication.wcf.diagnostics;
-using inSyca.foundation.framework;
+﻿using inSyca.foundation.communication.wcf.diagnostics;
 using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 
 namespace inSyca.foundation.communication.wcf
 {

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Management;
-using System.Xml;
-using System.Net;
+﻿using inSyca.foundation.framework.configuration;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using inSyca.foundation.framework.configuration;
-using inSyca.foundation.framework.data;
+using System.Management;
+using System.Net;
 
 namespace inSyca.foundation.framework.diagnostics
 {

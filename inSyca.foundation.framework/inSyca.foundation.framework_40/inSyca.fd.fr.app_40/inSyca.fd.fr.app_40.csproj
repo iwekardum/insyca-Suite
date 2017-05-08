@@ -177,9 +177,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="windowsforms\configurator.de.resx">
       <DependentUpon>configurator.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="windowsforms\configurator.resx">
       <DependentUpon>configurator.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="windowsforms\PropertyComponent.resx">
       <DependentUpon>PropertyComponent.cs</DependentUpon>
@@ -215,12 +217,7 @@
   <ItemGroup>
     <Content Include="inSyca.ico" />
     <None Include="packages.config" />
-    <None Include="resources\inSyca2.png" />
-    <None Include="resources\inSyca1.png" />
     <None Include="resources\inSyca.png" />
-    <None Include="resources\icon12.ico" />
-    <None Include="resources\icon11.ico" />
-    <None Include="resources\icon1.ico" />
     <None Include="resources\logo.png" />
     <None Include="resources\company.png" />
     <None Include="resources\icon.ico" />

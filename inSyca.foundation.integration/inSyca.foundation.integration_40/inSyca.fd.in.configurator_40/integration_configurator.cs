@@ -49,7 +49,7 @@ namespace inSyca.foundation.integration.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_integration_biztalk_functions(configFiles[in_bt_fx]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_integration_biztalk_functions(configFiles[in_bt_fx], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new inSyca.foundation.integration.biztalk.functions.diagnostics.Information() });
+                control = new uc_information_integration_biztalk_functions(configFiles[in_bt_fx], new List<IInformation> { new Information(), new biztalk.functions.diagnostics.Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_integration_biztalk_functions(configFiles[in_bt_fx]);
             else
@@ -68,7 +68,7 @@ namespace inSyca.foundation.integration.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_integration_biztalk_components(configFiles[in_bt_cp]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_integration_biztalk_components(configFiles[in_bt_cp], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new inSyca.foundation.integration.biztalk.components.diagnostics.Information() });
+                control = new uc_information_integration_biztalk_components(configFiles[in_bt_cp], new List<IInformation> { new Information(), new biztalk.components.diagnostics.Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_integration_biztalk_components(configFiles[in_bt_cp]);
             else
@@ -87,7 +87,7 @@ namespace inSyca.foundation.integration.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_integration_biztalk_adapter(configFiles[in_bt_ap]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_integration_biztalk_adapter(configFiles[in_bt_ap], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new inSyca.foundation.integration.biztalk.adapter.diagnostics.Information() });
+                control = new uc_information_integration_biztalk_adapter(configFiles[in_bt_ap], new List<IInformation> { new Information(), new biztalk.adapter.diagnostics.Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)
                 control = new uc_test_integration_biztalk_adapter(configFiles[in_bt_ap]);
             else
@@ -106,7 +106,7 @@ namespace inSyca.foundation.integration.configurator
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_smtp_name)
                 control = new uc_smtp_integration_biztalk(configFiles[in_bt]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_information_name)
-                control = new uc_information_integration_biztalk(configFiles[in_bt], new List<framework.diagnostics.Information> { new framework.diagnostics.Information(), new inSyca.foundation.integration.biztalk.diagnostics.Information() });
+                control = new uc_information_integration_biztalk(configFiles[in_bt], new List<IInformation> { new Information(), new biztalk.diagnostics.Information() });
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_monitoring_name)
                 control = new uc_monitoring_integration_biztalk(configFiles[in_bt]);
             else if (e.SelectedTab.Name == framework.application.Properties.Resources.tab_test_name)

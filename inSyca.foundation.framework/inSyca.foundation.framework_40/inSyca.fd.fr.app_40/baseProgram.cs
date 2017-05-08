@@ -1,10 +1,7 @@
-﻿using System;
+﻿using inSyca.foundation.framework.io;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-
-using inSyca.foundation.framework.io;
-using inSyca.foundation.framework.diagnostics;
-using inSyca.foundation.framework.configuration;
 
 namespace inSyca.foundation.framework.application
 {
