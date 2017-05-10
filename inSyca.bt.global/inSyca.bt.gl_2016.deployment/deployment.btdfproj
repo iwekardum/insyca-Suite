@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <ProjectName>inSyca.bt.gl</ProjectName>
+    <ProjectName>BizTalk.Global</ProjectName>
     <ProjectVersion>1.0</ProjectVersion>
   </PropertyGroup>
 
@@ -179,33 +179,33 @@
 
   <Target Name="CustomDeployTarget">
 
-    <GetBizTalkAppExists ApplicationName="inSyca.bt.gl">
+    <GetBizTalkAppExists ApplicationName="BizTalk.Global">
       <Output TaskParameter="appExists" PropertyName="gl_Exists" />
     </GetBizTalkAppExists>
 
     <!-- create applications -->
-    <Exec Command="BTSTask.exe AddApp -ApplicationName:&quot;inSyca.bt.gl&quot; -Description:&quot;inSyca Global Integration Components&quot;" Condition="'$(gl_Exists)' == 'false'" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe AddApp -ApplicationName:&quot;BizTalk.Global&quot; -Description:&quot;inSyca Global Integration Components&quot;" Condition="'$(gl_Exists)' == 'false'" ContinueOnError="true" />
 
     <!-- schemas -->
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.ac.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.fi.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.wh.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.co.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ev.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.go.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.gv.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.la.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.mo.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ph.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ro.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.ge.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.ac.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.fi.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.wh.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.co.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ev.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.go.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.gv.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.la.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.mo.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ph.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.ro.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.ge.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
 
     <!-- orchestrations -->
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.orchestrations.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
 
     <!-- mb -->
-    <!--<Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.mb.services.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.mb.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.bt.gl&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />-->
+    <!--<Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.mb.services.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.mb.orchestrations.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />-->
 
   </Target>
 
@@ -216,8 +216,8 @@
   <!-- Runs just after the host instances were restarted -->
   <Target Name="CustomFinalDeploy">
 
-    <!-- start inSyca.bt.gl application -->
-    <!--<ControlBizTalkApp ApplicationName="inSyca.bt.gl" StartOption="StartAll" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>-->
+    <!-- start BizTalk.Global application -->
+    <!--<ControlBizTalkApp ApplicationName="BizTalk.Global" StartOption="StartAll" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>-->
 
     <!-- start inSyca Monitoring (enable monitoring after installation) -->
     <!-- 
@@ -230,7 +230,7 @@
   <Target Name="CustomUndeployTarget">
 
     <!-- verify existing biztalk applications -->
-    <GetBizTalkAppExists ApplicationName="inSyca.bt.gl">
+    <GetBizTalkAppExists ApplicationName="BizTalk.Global">
       <Output TaskParameter="appExists" PropertyName="gl_Exists" />
     </GetBizTalkAppExists>
 
@@ -240,38 +240,38 @@
     </PropertyGroup>
 
     <!-- stop biztalk applications -->
-    <ControlBizTalkApp ApplicationName="inSyca.bt.gl" StopOption="$(ControlBizTalkAppStopOption)" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>
+    <ControlBizTalkApp ApplicationName="BizTalk.Global" StopOption="$(ControlBizTalkAppStopOption)" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>
 
     <!-- remove resources-->
 
     <!-- mb -->
-    <!--<Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.mb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.mb.services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />-->
+    <!--<Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.mb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.mb.services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />-->
     
     <!-- orchestrations -->
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
 
     <!-- schemas -->
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.ac, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.fi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.wh, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.co, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ev, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.go, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.gv, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.la, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.mo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ph, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.bt.gl&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.ac, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.fi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu.wh, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.co, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ev, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.go, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.gv, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.la, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.mo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ph, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.ro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
 
   </Target>
 
   <!-- Runs just after the host instances were restarted -->
   <Target Name="CustomFinalUndeploy">
 
-    <!-- start inSyca.bt.gl application -->
-    <!--<ControlBizTalkApp ApplicationName="inSyca.bt.gl" StartOption="StartAll" Condition="'$(lo_sh_Exists)' == 'true'" ContinueOnError="true"/>-->
+    <!-- start BizTalk.Global application -->
+    <!--<ControlBizTalkApp ApplicationName="BizTalk.Global" StartOption="StartAll" Condition="'$(lo_sh_Exists)' == 'true'" ContinueOnError="true"/>-->
 
     <!-- start inSyca Monitoring (enable monitoring after deinstallation) -->
     <!--
