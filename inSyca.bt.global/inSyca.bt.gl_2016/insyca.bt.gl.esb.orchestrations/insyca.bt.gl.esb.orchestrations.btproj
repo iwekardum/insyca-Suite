@@ -90,6 +90,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <XLang Include="..\..\insyca.bt.gl.esb.orchestrations\global_10.odx">
+      <Link>global_10.odx</Link>
+      <TypeName>global_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
     <Content Include="..\..\insyca.bt.gl.esb.orchestrations\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>

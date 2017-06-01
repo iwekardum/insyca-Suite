@@ -25,66 +25,38 @@ namespace insyca.bt.gl.esb.schemas.entities.goods {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id_external"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation (extern)"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" name=""number"" nillable=""true"" type=""xs:integer"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" name=""number_external"" nillable=""true"" type=""xs:integer"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation (extern)"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""short_term"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""labelshort"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Kurzbezeichnung"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text_1"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label1"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Bezeichnung_1"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text_2"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label2"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Bezeichnung_2"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text_3"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label3"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Bezeichnung_3"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""serial"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""country_of_origin"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Seriennummer"" />
+              <b:fieldInfo notes=""Herkunftsland"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>

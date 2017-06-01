@@ -7,8 +7,11 @@ namespace insyca.bt.gl.esb.schemas.generic {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
     [Schema(@"http://insyca.bt.gl.esb.schemas.generic.processinginfo_10",@"processinginfo")]
+    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.senderid), XPath = @"/*[local-name()='processinginfo' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.processinginfo_10']/*[local-name()='senderid' and namespace-uri()='']", XsdType = @"string")]
+    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.receiverid), XPath = @"/*[local-name()='processinginfo' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.processinginfo_10']/*[local-name()='receiverid' and namespace-uri()='']", XsdType = @"string")]
     [System.SerializableAttribute()]
     [SchemaRoots(new string[] {@"processinginfo"})]
+    [Microsoft.XLANGs.BaseTypes.SchemaReference(@"insyca.bt.gl.esb.schemas.generic.properties", typeof(global::insyca.bt.gl.esb.schemas.generic.properties))]
     public sealed class processinginfo_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
@@ -16,11 +19,22 @@ namespace insyca.bt.gl.esb.schemas.generic {
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.generic.processinginfo_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.generic.processinginfo_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.generic.processinginfo_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" xmlns:ns0=""https://insyca.bt.gl.esb.schemas.generic.properties"" targetNamespace=""http://insyca.bt.gl.esb.schemas.generic.processinginfo_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:annotation>
+    <xs:appinfo>
+      <b:imports>
+        <b:namespace prefix=""ns0"" uri=""https://insyca.bt.gl.esb.schemas.generic.properties"" location=""insyca.bt.gl.esb.schemas.generic.properties"" />
+      </b:imports>
+    </xs:appinfo>
+  </xs:annotation>
   <xs:element name=""processinginfo"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
         <b:recordInfo notes=""Informationen für die Verarbeitung der Message im BizTalk"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+        <b:properties>
+          <b:property name=""ns0:senderid"" xpath=""/*[local-name()='processinginfo' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.processinginfo_10']/*[local-name()='senderid' and namespace-uri()='']"" />
+          <b:property name=""ns0:receiverid"" xpath=""/*[local-name()='processinginfo' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.processinginfo_10']/*[local-name()='receiverid' and namespace-uri()='']"" />
+        </b:properties>
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>

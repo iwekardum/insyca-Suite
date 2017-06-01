@@ -23,7 +23,31 @@ namespace insyca.bt.gl.esb.schemas.entities.roles {
         <b:recordInfo notes=""Kreditor"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
       </xs:appinfo>
     </xs:annotation>
-    <xs:complexType />
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
   </xs:element>
 </xs:schema>";
         

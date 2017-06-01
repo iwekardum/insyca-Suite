@@ -7,79 +7,107 @@
 {sp_mp_sp_en2_wcf_custom_address}     {sp_mp_sp_en2_wcf_custom_action}
 Variables-->
 <BindingInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Assembly="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Version="3.5.1.0" BindingStatus="FullyBound" BoundEndpoints="1" TotalEndpoints="1">
-  <Timestamp>2016-09-25T18:41:07.8364547+02:00</Timestamp>
+  <Timestamp>2017-05-11T10:10:06.5485666+02:00</Timestamp>
   <ModuleRefCollection>
-    <ModuleRef Name="inSyca.bt.gl.mb.services" Version="1.0.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="inSyca.bt.gl.mb.services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
-      <Services>
-        <Service Name="inSyca.bt.gl.mb.services.diagnostics.MessageBrokerServiceClient" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
-          <Ports />
-          <Roles />
-          <Host />
-        </Service>
-      </Services>
+    <ModuleRef Name="[Application:BizTalk.Global]" Version="" Culture="" PublicKeyToken="" FullName="[Application:BizTalk.Global], Version=, Culture=, PublicKeyToken=">
+      <Services />
+      <TrackedSchemas>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.properties" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.properties,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.supportinfo_10" RootName="supportinfo" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.supportinfo_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.query_10" RootName="query_request" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.query_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.query_10" RootName="query_response" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.query_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.batch_10" RootName="batch" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.batch_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.processinginfo_10" RootName="processinginfo" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.processinginfo_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.reference_10" RootName="reference" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.reference_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+        <Schema FullName="insyca.bt.gl.esb.schemas.generic.status_10" RootName="status" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.status_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
+          <TrackedPropertyNames />
+        </Schema>
+      </TrackedSchemas>
+    </ModuleRef>
+    <ModuleRef Name="insyca.bt.gl.esb.schemas.ge" Version="1.0.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
+      <Services />
       <TrackedSchemas />
     </ModuleRef>
-    <ModuleRef Name="inSyca.bt.gl.mb.orchestrations" Version="1.0.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="inSyca.bt.gl.mb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
+    <ModuleRef Name="insyca.bt.gl.esb.orchestrations" Version="1.0.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.esb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
       <Services>
-        <Service Name="inSyca.bt.gl.mb.orchestrations.logMessage" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
+        <Service Name="insyca.bt.gl.esb.orchestrations.global_10" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages">
+          <Ports />
+          <Roles />
+          <Host Name="inSyca_global_host" Trusted="false" />
+        </Service>
+        <Service Name="inSyca.bt.gl.mb.orchestrations.supportinfo_10" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages">
           <Ports>
-            <Port Name="IMessageBroker" Modifier="1" BindingOption="1">
-              <SendPortRef Name="sp_gl_mb_wcf_custom" />
+            <Port Name="sp_supportinfo_10" Modifier="1" BindingOption="1">
+              <SendPortRef Name="sp_insyca_suite_bt_supportinfo_wss" />
               <DistributionListRef xsi:nil="true" />
               <ReceivePortRef xsi:nil="true" />
             </Port>
           </Ports>
           <Roles />
-          <Host />
+          <Host Name="inSyca_global_host" Trusted="false" />
         </Service>
       </Services>
       <TrackedSchemas />
     </ModuleRef>
   </ModuleRefCollection>
   <SendPortCollection>
-    <SendPort Name="sp_gl_mb_wcf_custom" IsStatic="true" IsTwoWay="true" BindingOption="1">
-      <Description>service "MessageBrokerService" port "MessageBrokerTcp"</Description>
-      <TransmitPipeline Name="Microsoft.BizTalk.DefaultPipelines.PassThruTransmit" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.PassThruTransmit, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="2" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody PipelineEvents" Description="" />
+    <SendPort Name="sp_insyca_suite_bt_supportinfo_wss" IsStatic="true" IsTwoWay="false" BindingOption="1">
+      <Description xsi:nil="true" />
+      <TransmitPipeline Name="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.XMLTransmit, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="2" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody PipelineEvents" Description="" />
       <PrimaryTransport>
-        <Address>net.tcp://localhost:8878/IMessageBroker</Address>
-        <TransportType Name="WCF-Custom" Capabilities="907" ConfigurationClsid="af081f69-38ca-4d5b-87df-f0344b12557a" />
-        <TransportTypeData>&lt;CustomProps&gt;&lt;BindingType vt="8"&gt;netTcpBinding&lt;/BindingType&gt;&lt;BindingConfiguration vt="8"&gt;&amp;lt;binding name="ServiceTcp" closeTimeout="00:20:00" openTimeout="00:20:00" receiveTimeout="00:20:00" sendTimeout="00:20:00" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"&amp;gt;&amp;lt;readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" /&amp;gt;&amp;lt;security mode="None" /&amp;gt;&amp;lt;/binding&amp;gt;&lt;/BindingConfiguration&gt;&lt;InboundBodyPathExpression vt="8" /&gt;&lt;OutboundBodyLocation vt="8"&gt;UseBodyElement&lt;/OutboundBodyLocation&gt;&lt;AffiliateApplicationName vt="8" /&gt;&lt;StaticAction vt="8"&gt;&amp;lt;BtsActionMapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&amp;gt;&amp;lt;Operation Name="getVersion" Action="http://www.inSyca.com/IMessageBroker/GetVersion" /&amp;gt;&amp;lt;Operation Name="logMessage" Action="http://www.inSyca.com/IMessageBroker/LogMessage" /&amp;gt;&amp;lt;/BtsActionMapping&amp;gt;&lt;/StaticAction&gt;&lt;ProxyAddress vt="8" /&gt;&lt;UserName vt="8" /&gt;&lt;InboundBodyLocation vt="8"&gt;UseBodyElement&lt;/InboundBodyLocation&gt;&lt;ProxyUserName vt="8" /&gt;&lt;OutboundXmlTemplate vt="8"&gt;&amp;lt;bts-msg-body xmlns="http://www.microsoft.com/schemas/bts2007" encoding="xml"/&amp;gt;&lt;/OutboundXmlTemplate&gt;&lt;PropagateFaultMessage vt="11"&gt;-1&lt;/PropagateFaultMessage&gt;&lt;IsolationLevel vt="8"&gt;Serializable&lt;/IsolationLevel&gt;&lt;InboundNodeEncoding vt="8"&gt;Xml&lt;/InboundNodeEncoding&gt;&lt;Identity vt="8" /&gt;&lt;UseSSO vt="11"&gt;0&lt;/UseSSO&gt;&lt;EnableTransaction vt="11"&gt;0&lt;/EnableTransaction&gt;&lt;/CustomProps&gt;</TransportTypeData>
+        <Address>wsss://sharepoint.inSyca.com:443/support/biztalk</Address>
+        <TransportType Name="Windows SharePoint Services" Capabilities="15371" ConfigurationClsid="ba7dad66-5fc8-4a24-a27e-d9f68fd67c3a" />
+        <TransportTypeData>&lt;CustomProps&gt;&lt;AdapterConfig vt="8"&gt;&amp;lt;SendPort xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&amp;gt;&amp;lt;SiteUrl&amp;gt;https://sharepoint.insyca.com/support/&amp;lt;/SiteUrl&amp;gt;&amp;lt;WssLocation&amp;gt;biztalk&amp;lt;/WssLocation&amp;gt;&amp;lt;Overwrite&amp;gt;no&amp;lt;/Overwrite&amp;gt;&amp;lt;NamespaceAliases&amp;gt;&amp;lt;/NamespaceAliases&amp;gt;&amp;lt;FileName&amp;gt;%MessageID%.xml&amp;lt;/FileName&amp;gt;&amp;lt;OfficeIntegration&amp;gt;optional&amp;lt;/OfficeIntegration&amp;gt;&amp;lt;TemplatesDocLib&amp;gt;&amp;lt;/TemplatesDocLib&amp;gt;&amp;lt;TemplatesNamespaceCol&amp;gt;&amp;lt;/TemplatesNamespaceCol&amp;gt;&amp;lt;CustomTemplatesDocLib&amp;gt;&amp;lt;/CustomTemplatesDocLib&amp;gt;&amp;lt;CustomTemplatesNamespaceCol&amp;gt;&amp;lt;/CustomTemplatesNamespaceCol&amp;gt;&amp;lt;PropertyName1&amp;gt;&amp;lt;/PropertyName1&amp;gt;&amp;lt;PropertySource1 /&amp;gt;&amp;lt;PropertyName2&amp;gt;&amp;lt;/PropertyName2&amp;gt;&amp;lt;PropertySource2 /&amp;gt;&amp;lt;PropertyName3&amp;gt;&amp;lt;/PropertyName3&amp;gt;&amp;lt;PropertySource3 /&amp;gt;&amp;lt;PropertyName4&amp;gt;&amp;lt;/PropertyName4&amp;gt;&amp;lt;PropertySource4 /&amp;gt;&amp;lt;PropertyName5&amp;gt;&amp;lt;/PropertyName5&amp;gt;&amp;lt;PropertySource5 /&amp;gt;&amp;lt;PropertyName6&amp;gt;&amp;lt;/PropertyName6&amp;gt;&amp;lt;PropertySource6 /&amp;gt;&amp;lt;PropertyName7&amp;gt;&amp;lt;/PropertyName7&amp;gt;&amp;lt;PropertySource7 /&amp;gt;&amp;lt;PropertyName8&amp;gt;&amp;lt;/PropertyName8&amp;gt;&amp;lt;PropertySource8 /&amp;gt;&amp;lt;PropertyName9&amp;gt;&amp;lt;/PropertyName9&amp;gt;&amp;lt;PropertySource9 /&amp;gt;&amp;lt;PropertyName10&amp;gt;&amp;lt;/PropertyName10&amp;gt;&amp;lt;PropertySource10 /&amp;gt;&amp;lt;PropertyName11&amp;gt;&amp;lt;/PropertyName11&amp;gt;&amp;lt;PropertySource11 /&amp;gt;&amp;lt;PropertyName12&amp;gt;&amp;lt;/PropertyName12&amp;gt;&amp;lt;PropertySource12 /&amp;gt;&amp;lt;PropertyName13&amp;gt;&amp;lt;/PropertyName13&amp;gt;&amp;lt;PropertySource13 /&amp;gt;&amp;lt;PropertyName14&amp;gt;&amp;lt;/PropertyName14&amp;gt;&amp;lt;PropertySource14 /&amp;gt;&amp;lt;PropertyName15&amp;gt;&amp;lt;/PropertyName15&amp;gt;&amp;lt;PropertySource15 /&amp;gt;&amp;lt;PropertyName16&amp;gt;&amp;lt;/PropertyName16&amp;gt;&amp;lt;PropertySource16 /&amp;gt;&amp;lt;Timeout&amp;gt;100000&amp;lt;/Timeout&amp;gt;&amp;lt;AdapterWSPort&amp;gt;80&amp;lt;/AdapterWSPort&amp;gt;&amp;lt;uri&amp;gt;wsss://sharepoint.insyca.com:443/support/biztalk&amp;lt;/uri&amp;gt;&amp;lt;UseClientOM&amp;gt;yes&amp;lt;/UseClientOM&amp;gt;&amp;lt;SharePointOnlineUsername&amp;gt;&amp;lt;/SharePointOnlineUsername&amp;gt;&amp;lt;SharePointOnlinePassword&amp;gt;******&amp;lt;/SharePointOnlinePassword&amp;gt;&amp;lt;/SendPort&amp;gt;&lt;/AdapterConfig&gt;&lt;/CustomProps&gt;</TransportTypeData>
         <RetryCount>3</RetryCount>
         <RetryInterval>5</RetryInterval>
         <ServiceWindowEnabled>false</ServiceWindowEnabled>
-        <FromTime>2000-01-01T00:00:00</FromTime>
-        <ToTime>2000-01-01T23:59:59</ToTime>
+        <FromTime>2000-01-01T22:00:00</FromTime>
+        <ToTime>2000-01-01T21:59:59</ToTime>
         <Primary>true</Primary>
         <OrderedDelivery>false</OrderedDelivery>
         <DeliveryNotification>1</DeliveryNotification>
+        <SendHandler Name="inSyca_global_send" HostTrusted="false">
+          <TransportType Name="Windows SharePoint Services" Capabilities="15371" ConfigurationClsid="ba7dad66-5fc8-4a24-a27e-d9f68fd67c3a" />
+        </SendHandler>
       </PrimaryTransport>
       <SecondaryTransport>
         <Address />
         <RetryCount>3</RetryCount>
         <RetryInterval>5</RetryInterval>
         <ServiceWindowEnabled>false</ServiceWindowEnabled>
-        <FromTime>2016-09-24T22:00:00</FromTime>
-        <ToTime>2016-09-25T21:59:59</ToTime>
+        <FromTime>2000-01-01T22:00:00</FromTime>
+        <ToTime>2000-01-01T21:59:59</ToTime>
         <Primary>false</Primary>
         <OrderedDelivery>false</OrderedDelivery>
         <DeliveryNotification>1</DeliveryNotification>
         <SendHandler xsi:nil="true" />
       </SecondaryTransport>
-      <ReceivePipeline Name="Microsoft.BizTalk.DefaultPipelines.XMLReceive" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.XMLReceive, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="1" TrackingOption="None" Description="" />
       <ReceivePipelineData xsi:nil="true" />
-      <Tracking>255</Tracking>
+      <Tracking>204</Tracking>
       <Filter />
       <Transforms />
-      <InboundTransforms />
       <OrderedDelivery>false</OrderedDelivery>
       <Priority>5</Priority>
       <StopSendingOnFailure>false</StopSendingOnFailure>
       <RouteFailedMessage>false</RouteFailedMessage>
-      <ApplicationName>inSyca.bt.gl</ApplicationName>
+      <ApplicationName>BizTalk.Global</ApplicationName>
     </SendPort>
   </SendPortCollection>
-  <DistributionListCollection xsi:nil="true">
-  </DistributionListCollection>
+  <DistributionListCollection  xsi:nil="true" />
   <ReceivePortCollection>
     <ReceivePort Name="rp_insyca_suite_bt_generic" IsTwoWay="false" BindingOption="0">
       <Description xsi:nil="true" />
@@ -90,32 +118,54 @@ Variables-->
           <PublicAddress />
           <Primary>true</Primary>
           <ReceiveLocationServiceWindowEnabled>false</ReceiveLocationServiceWindowEnabled>
-          <ReceiveLocationFromTime>2017-03-29T22:00:00</ReceiveLocationFromTime>
-          <ReceiveLocationToTime>2017-03-30T21:59:59</ReceiveLocationToTime>
+          <ReceiveLocationFromTime>2000-01-01T22:00:00</ReceiveLocationFromTime>
+          <ReceiveLocationToTime>2000-01-01T21:59:59</ReceiveLocationToTime>
           <ReceiveLocationStartDateEnabled>false</ReceiveLocationStartDateEnabled>
           <ReceiveLocationStartDate>2017-03-30T00:00:00</ReceiveLocationStartDate>
           <ReceiveLocationEndDateEnabled>false</ReceiveLocationEndDateEnabled>
-          <ReceiveLocationEndDate>2017-03-31T00:00:00</ReceiveLocationEndDate>
+          <ReceiveLocationEndDate>2017-03-31T23:59:59</ReceiveLocationEndDate>
           <ReceiveLocationTransportType Name="WCF-Custom" Capabilities="907" ConfigurationClsid="af081f69-38ca-4d5b-87df-f0344b12557a" />
-          <ReceiveLocationTransportTypeData>&lt;CustomProps&gt;&lt;BindingConfiguration vt="8"&gt;&amp;lt;binding name="netTcpBinding"&amp;gt;&amp;lt;security mode="None" /&amp;gt;&amp;lt;/binding&amp;gt;&lt;/BindingConfiguration&gt;&lt;InboundBodyPathExpression vt="8" /&gt;&lt;InboundBodyLocation vt="8"&gt;UseBodyElement&lt;/InboundBodyLocation&gt;&lt;AffiliateApplicationName vt="8" /&gt;&lt;BindingType vt="8"&gt;netTcpBinding&lt;/BindingType&gt;&lt;DisableLocationOnFailure vt="11"&gt;0&lt;/DisableLocationOnFailure&gt;&lt;UserName vt="8" /&gt;&lt;ServiceBehaviorConfiguration vt="8"&gt;&amp;lt;behavior name="ServiceBehavior" /&amp;gt;&lt;/ServiceBehaviorConfiguration&gt;&lt;EndpointBehaviorConfiguration vt="8"&gt;&amp;lt;behavior name="EndpointBehavior" /&amp;gt;&lt;/EndpointBehaviorConfiguration&gt;&lt;OutboundXmlTemplate vt="8"&gt;&amp;lt;bts-msg-body xmlns="http://www.microsoft.com/schemas/bts2007" encoding="xml"/&amp;gt;&lt;/OutboundXmlTemplate&gt;&lt;IncludeExceptionDetailInFaults vt="11"&gt;0&lt;/IncludeExceptionDetailInFaults&gt;&lt;InboundNodeEncoding vt="8"&gt;Xml&lt;/InboundNodeEncoding&gt;&lt;CredentialType vt="8"&gt;None&lt;/CredentialType&gt;&lt;OutboundBodyLocation vt="8"&gt;UseBodyElement&lt;/OutboundBodyLocation&gt;&lt;SuspendMessageOnFailure vt="11"&gt;0&lt;/SuspendMessageOnFailure&gt;&lt;OrderedProcessing vt="11"&gt;0&lt;/OrderedProcessing&gt;&lt;/CustomProps&gt;</ReceiveLocationTransportTypeData>
+          <ReceiveLocationTransportTypeData>&lt;CustomProps&gt;&lt;BindingConfiguration vt="8"&gt;&amp;lt;binding name="netTcpBinding" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"&amp;gt;&amp;lt;readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" /&amp;gt;&amp;lt;security mode="None" /&amp;gt;&amp;lt;/binding&amp;gt;&lt;/BindingConfiguration&gt;&lt;InboundBodyPathExpression vt="8" /&gt;&lt;InboundBodyLocation vt="8"&gt;UseBodyElement&lt;/InboundBodyLocation&gt;&lt;AffiliateApplicationName vt="8" /&gt;&lt;BindingType vt="8"&gt;netTcpBinding&lt;/BindingType&gt;&lt;DisableLocationOnFailure vt="11"&gt;0&lt;/DisableLocationOnFailure&gt;&lt;UserName vt="8" /&gt;&lt;ServiceBehaviorConfiguration vt="8"&gt;&amp;lt;behavior name="ServiceBehavior" /&amp;gt;&lt;/ServiceBehaviorConfiguration&gt;&lt;EndpointBehaviorConfiguration vt="8"&gt;&amp;lt;behavior name="EndpointBehavior" /&amp;gt;&lt;/EndpointBehaviorConfiguration&gt;&lt;OutboundXmlTemplate vt="8"&gt;&amp;lt;bts-msg-body xmlns="http://www.microsoft.com/schemas/bts2007" encoding="xml"/&amp;gt;&lt;/OutboundXmlTemplate&gt;&lt;IncludeExceptionDetailInFaults vt="11"&gt;-1&lt;/IncludeExceptionDetailInFaults&gt;&lt;InboundNodeEncoding vt="8"&gt;Xml&lt;/InboundNodeEncoding&gt;&lt;CredentialType vt="8"&gt;None&lt;/CredentialType&gt;&lt;OutboundBodyLocation vt="8"&gt;UseBodyElement&lt;/OutboundBodyLocation&gt;&lt;SuspendMessageOnFailure vt="11"&gt;-1&lt;/SuspendMessageOnFailure&gt;&lt;OrderedProcessing vt="11"&gt;0&lt;/OrderedProcessing&gt;&lt;/CustomProps&gt;</ReceiveLocationTransportTypeData>
           <ReceivePipeline Name="Microsoft.BizTalk.DefaultPipelines.XMLReceive" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.XMLReceive, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="1" TrackingOption="None" Description="" />
           <ReceivePipelineData xsi:nil="true" />
           <SendPipeline xsi:nil="true" />
           <SendPipelineData xsi:nil="true" />
           <Enable>true</Enable>
-          <ReceiveHandler Name="BizTalkServerApplication" HostTrusted="false">
+          <ReceiveHandler Name="inSyca_global_receive" HostTrusted="false">
             <TransportType Name="WCF-Custom" Capabilities="907" ConfigurationClsid="af081f69-38ca-4d5b-87df-f0344b12557a" />
+          </ReceiveHandler>
+        </ReceiveLocation>
+        <ReceiveLocation Name="rl_insyca_suite_bt_generic_file">
+          <Description xsi:nil="true" />
+          <Address>C:\BT_TEST\_REAPPLY\*.xml</Address>
+          <PublicAddress />
+          <Primary>false</Primary>
+          <ReceiveLocationServiceWindowEnabled>false</ReceiveLocationServiceWindowEnabled>
+          <ReceiveLocationFromTime>2017-04-05T22:00:00</ReceiveLocationFromTime>
+          <ReceiveLocationToTime>2017-04-06T21:59:59</ReceiveLocationToTime>
+          <ReceiveLocationStartDateEnabled>false</ReceiveLocationStartDateEnabled>
+          <ReceiveLocationStartDate>2017-04-06T00:00:00</ReceiveLocationStartDate>
+          <ReceiveLocationEndDateEnabled>false</ReceiveLocationEndDateEnabled>
+          <ReceiveLocationEndDate>2017-04-07T00:00:00</ReceiveLocationEndDate>
+          <ReceiveLocationTransportType Name="FILE" Capabilities="11" ConfigurationClsid="5e49e3a6-b4fc-4077-b44c-22f34a242fdb" />
+          <ReceiveLocationTransportTypeData>&lt;CustomProps&gt;&lt;RenameReceivedFiles vt="11"&gt;0&lt;/RenameReceivedFiles&gt;&lt;RemoveReceivedFileDelay vt="19"&gt;10&lt;/RemoveReceivedFileDelay&gt;&lt;RemoveReceivedFileMaxInterval vt="19"&gt;300000&lt;/RemoveReceivedFileMaxInterval&gt;&lt;FileMask vt="8"&gt;*.xml&lt;/FileMask&gt;&lt;FileNetFailRetryInt vt="19"&gt;5&lt;/FileNetFailRetryInt&gt;&lt;RemoveReceivedFileRetryCount vt="19"&gt;5&lt;/RemoveReceivedFileRetryCount&gt;&lt;BatchSizeInBytes vt="19"&gt;102400&lt;/BatchSizeInBytes&gt;&lt;PollingInterval vt="19"&gt;60000&lt;/PollingInterval&gt;&lt;FileNetFailRetryCount vt="19"&gt;5&lt;/FileNetFailRetryCount&gt;&lt;BatchSize vt="19"&gt;20&lt;/BatchSize&gt;&lt;/CustomProps&gt;</ReceiveLocationTransportTypeData>
+          <ReceivePipeline Name="Microsoft.BizTalk.DefaultPipelines.XMLReceive" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.XMLReceive, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="1" TrackingOption="None" Description="" />
+          <ReceivePipelineData xsi:nil="true" />
+          <SendPipeline xsi:nil="true" />
+          <SendPipelineData xsi:nil="true" />
+          <Enable>false</Enable>
+          <ReceiveHandler Name="inSyca_global_receive" HostTrusted="false">
+            <TransportType Name="FILE" Capabilities="11" ConfigurationClsid="5e49e3a6-b4fc-4077-b44c-22f34a242fdb" />
           </ReceiveHandler>
         </ReceiveLocation>
       </ReceiveLocations>
       <SendPipelineData xsi:nil="true" />
       <Authentication>0</Authentication>
-      <Tracking>0</Tracking>
+      <Tracking>51</Tracking>
       <Transforms />
       <RouteFailedMessage>false</RouteFailedMessage>
-      <ApplicationName>insyca.bt.lo.md</ApplicationName>
+      <ApplicationName>BizTalk.Global</ApplicationName>
     </ReceivePort>
   </ReceivePortCollection>
-  <PartyCollection xsi:nil="true">
-  </PartyCollection>
+  <PartyCollection xsi:nil="true" />
 </BindingInfo>

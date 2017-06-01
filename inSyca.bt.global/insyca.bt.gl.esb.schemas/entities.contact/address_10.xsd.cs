@@ -81,10 +81,24 @@ namespace insyca.bt.gl.esb.schemas.entities.contact {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""street"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""street1"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Straße"" />
+              <b:fieldInfo notes=""Straße 1"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""street2"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Straße 2"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""street3"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Straße 3"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -151,6 +165,7 @@ namespace insyca.bt.gl.esb.schemas.entities.contact {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""complete"" nillable=""true"" type=""xs:string"" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

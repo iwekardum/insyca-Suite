@@ -25,12 +25,19 @@ namespace insyca.bt.gl.esb.schemas.entities.physical {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Typ: Länge, Breite, Höhe etc."" />
             </xs:appinfo>
           </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base=""xs:string"">
+              <xs:enumeration value=""length"" />
+              <xs:enumeration value=""width"" />
+              <xs:enumeration value=""height"" />
+            </xs:restriction>
+          </xs:simpleType>
         </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""unit"" nillable=""true"">
           <xs:simpleType>

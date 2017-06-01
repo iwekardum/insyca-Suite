@@ -44,7 +44,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -116,6 +116,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business.production\quality_10.xsd">
+      <Link>quality_10.xsd</Link>
+      <TypeName>quality_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business.production</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business.production\environmental_10.xsd">
+      <Link>environmental_10.xsd</Link>
+      <TypeName>environmental_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business.production</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>

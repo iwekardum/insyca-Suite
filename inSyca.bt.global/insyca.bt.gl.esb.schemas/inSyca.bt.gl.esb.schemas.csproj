@@ -54,6 +54,8 @@
     <None Include="entities.business.finance\account_10.xsd" />
     <None Include="entities.business.finance\factoring_10.xsd" />
     <None Include="entities.business.finance\insurance_10.xsd" />
+    <None Include="entities.business.logistics\tour_10.xsd" />
+    <None Include="entities.business.logistics\commissioning_10.xsd" />
     <None Include="entities.business.logistics\asn_10.xsd" />
     <None Include="entities.business.logistics\cargo_10.xsd" />
     <None Include="entities.business.logistics\consolidatedcargo_10.xsd" />
@@ -71,6 +73,8 @@
     <None Include="entities.business.logistics\tradingunit_10.xsd" />
     <None Include="entities.business.logistics\vehicle_10.xsd" />
     <None Include="entities.business.procurement\order_10.xsd" />
+    <None Include="entities.business.production\environmental_10.xsd" />
+    <None Include="entities.business.production\quality_10.xsd" />
     <None Include="entities.business.production\lot_10.xsd" />
     <None Include="entities.business.sales\confirmationorder_10.xsd" />
     <None Include="entities.business.sales\invoice_10.xsd" />
@@ -90,6 +94,7 @@
     <None Include="entities.contact\telecommunication_10.xsd" />
     <None Include="entities.event\appointment_10.xsd" />
     <None Include="entities.goods\itemgroup_10.xsd" />
+    <None Include="entities.goods\food_10.xsd" />
     <None Include="entities.goods\item_10.xsd" />
     <None Include="entities.goods\dangerousgoods_10.xsd" />
     <None Include="entities.goods\packing_10.xsd" />
@@ -121,9 +126,13 @@
     <None Include="entities.roles\shipper_10.xsd" />
     <None Include="entities.roles\vendor_10.xsd" />
     <None Include="generic\batch_10.xsd" />
+    <Schema Include="generic\properties.xsd">
+      <SubType>Task</SubType>
+    </Schema>
+    <None Include="generic\query_10.xsd" />
     <None Include="generic\supportinfo_10.xsd" />
     <None Include="generic\processinginfo_10.xsd" />
-    <None Include="generic\reference_10.xsd" />
+    <None Include="generic\identification_10.xsd" />
     <None Include="generic\status_10.xsd" />
     <None Include="insyca.snk" />
     <None Include="_documentation\License.rtf" />

@@ -25,24 +25,24 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""delivery_week"" nillable=""true"" type=""xs:integer"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
+              <b:fieldInfo notes=""Lieferwoche"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""delivery_date"" nillable=""true"" type=""xs:date"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
+              <b:fieldInfo notes=""Lieferdatum"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""delivery_time"" nillable=""true"" type=""xs:time"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
+              <b:fieldInfo notes=""Lieferzeit"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -58,13 +58,35 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
               <xs:enumeration value=""epost"" />
               <xs:enumeration value=""post"" />
               <xs:enumeration value=""fax"" />
+              <xs:maxLength value=""1"" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element minOccurs=""0"" name=""tracking"" nillable=""true"" type=""xs:boolean"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""tracking"" nillable=""true"" type=""xs:boolean"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Tracking Kennzeichen"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text1"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Hinweistext1"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text2"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Hinweistext2"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text3"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Hinweistext3"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>

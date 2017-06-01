@@ -18,7 +18,31 @@ namespace insyca.bt.gl.esb.schemas.entities.roles {
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
 <xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.schemas.entities.roles.driver_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.schemas.entities.roles.driver_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
   <xs:element name=""driver"">
-    <xs:complexType />
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
   </xs:element>
 </xs:schema>";
         

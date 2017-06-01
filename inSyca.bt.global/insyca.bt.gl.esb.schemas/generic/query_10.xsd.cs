@@ -6,8 +6,12 @@ namespace insyca.bt.gl.esb.schemas.generic {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
+    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.process), XPath = @"/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='process' and namespace-uri()='']", XsdType = @"string")]
+    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.type), XPath = @"/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='type' and namespace-uri()='']", XsdType = @"string")]
+    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.action), XPath = @"/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='action' and namespace-uri()='']", XsdType = @"string")]
     [System.SerializableAttribute()]
     [SchemaRoots(new string[] {@"query_request", @"query_response"})]
+    [Microsoft.XLANGs.BaseTypes.SchemaReference(@"insyca.bt.gl.esb.schemas.generic.properties", typeof(global::insyca.bt.gl.esb.schemas.generic.properties))]
     public sealed class query_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
@@ -15,19 +19,41 @@ namespace insyca.bt.gl.esb.schemas.generic {
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.generic.query_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.generic.query_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""query_request"">
+<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.generic.query_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" xmlns:ns0=""https://insyca.bt.gl.esb.schemas.generic.properties"" targetNamespace=""http://insyca.bt.gl.esb.schemas.generic.query_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:annotation>
+    <xs:appinfo>
+      <b:imports>
+        <b:namespace prefix=""ns0"" uri=""https://insyca.bt.gl.esb.schemas.generic.properties"" location=""insyca.bt.gl.esb.schemas.generic.properties"" />
+      </b:imports>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name=""query_request"" nillable=""true"">
+    <xs:annotation>
+      <xs:appinfo>
+        <b:properties>
+          <b:property name=""ns0:process"" xpath=""/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='process' and namespace-uri()='']"" />
+          <b:property name=""ns0:type"" xpath=""/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='type' and namespace-uri()='']"" />
+          <b:property name=""ns0:action"" xpath=""/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='action' and namespace-uri()='']"" />
+        </b:properties>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""target"" nillable=""true"">
+      <xs:sequence minOccurs=""1"" maxOccurs=""1"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""instruction"" nillable=""true"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:recordInfo notes=""Zusatzinformationen für den Empfänger der Nachricht"" />
+            </xs:appinfo>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs=""1"" maxOccurs=""1"">
               <xs:element minOccurs=""0"" maxOccurs=""1"" name=""process"" nillable=""true"" type=""xs:string"" />
               <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"" />
+              <xs:element minOccurs=""0"" maxOccurs=""1"" name=""action"" nillable=""true"" type=""xs:string"" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs=""1"" maxOccurs=""1"" name=""sender"" nillable=""true"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""sender"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>
               <b:recordInfo notes=""Informationen über den Sender der Information"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
@@ -59,7 +85,7 @@ namespace insyca.bt.gl.esb.schemas.generic {
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs=""1"" maxOccurs=""1"" name=""receiver"" nillable=""true"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""receiver"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>
               <b:recordInfo notes=""Informationen über den Empfänger der Information"" />
@@ -91,16 +117,16 @@ namespace insyca.bt.gl.esb.schemas.generic {
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs=""1"" maxOccurs=""1"" name=""message"" nillable=""true"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""message"" nillable=""true"">
           <xs:complexType>
             <xs:sequence minOccurs=""1"" maxOccurs=""1"">
-              <xs:any minOccurs=""0"" maxOccurs=""1"" />
+              <xs:any minOccurs=""0"" maxOccurs=""1"" processContents=""skip"" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""unbounded"" name=""parameters"" nillable=""true"">
           <xs:complexType>
-            <xs:sequence>
+            <xs:sequence minOccurs=""1"" maxOccurs=""1"">
               <xs:element minOccurs=""0"" maxOccurs=""1"" name=""parameter"">
                 <xs:complexType>
                   <xs:sequence>
@@ -123,18 +149,24 @@ namespace insyca.bt.gl.esb.schemas.generic {
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name=""query_response"">
+  <xs:element name=""query_response"" nillable=""true"">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs=""0"" name=""target"" nillable=""true"">
+      <xs:sequence minOccurs=""1"" maxOccurs=""1"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""instruction"" nillable=""true"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:recordInfo notes=""Zusatzinformationen für den Empfänger der Nachricht"" />
+            </xs:appinfo>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs=""0"" name=""process"" nillable=""true"" type=""xs:string"" />
               <xs:element minOccurs=""0"" name=""type"" nillable=""true"" type=""xs:string"" />
+              <xs:element minOccurs=""0"" maxOccurs=""1"" name=""action"" nillable=""true"" type=""xs:string"" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name=""sender"" nillable=""true"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""sender"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>
               <b:recordInfo notes=""Informationen über den Sender der Information"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
@@ -166,7 +198,7 @@ namespace insyca.bt.gl.esb.schemas.generic {
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name=""receiver"" nillable=""true"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""receiver"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>
               <b:recordInfo notes=""Informationen über den Empfänger der Information"" />
@@ -198,10 +230,10 @@ namespace insyca.bt.gl.esb.schemas.generic {
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name=""message"" nillable=""true"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""message"" nillable=""true"">
           <xs:complexType>
             <xs:sequence>
-              <xs:any minOccurs=""0"" />
+              <xs:any minOccurs=""0"" processContents=""skip"" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -260,6 +292,9 @@ namespace insyca.bt.gl.esb.schemas.generic {
         }
         
         [Schema(@"http://insyca.bt.gl.esb.schemas.generic.query_10",@"query_request")]
+        [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.process), XPath = @"/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='process' and namespace-uri()='']", XsdType = @"string")]
+        [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.type), XPath = @"/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='type' and namespace-uri()='']", XsdType = @"string")]
+        [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::insyca.bt.gl.esb.schemas.generic.action), XPath = @"/*[local-name()='query_request' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.query_10']/*[local-name()='instruction' and namespace-uri()='']/*[local-name()='action' and namespace-uri()='']", XsdType = @"string")]
         [System.SerializableAttribute()]
         [SchemaRoots(new string[] {@"query_request"})]
         public sealed class query_request : Microsoft.XLANGs.BaseTypes.SchemaBase {

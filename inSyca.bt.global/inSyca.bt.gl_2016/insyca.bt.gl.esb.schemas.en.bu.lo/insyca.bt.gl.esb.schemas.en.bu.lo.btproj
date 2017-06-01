@@ -44,7 +44,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -209,6 +209,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business.logistics\commissioning_10.xsd">
+      <Link>commissioning_10.xsd</Link>
+      <TypeName>commissioning_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business.logistics</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business.logistics\tour_10.xsd">
+      <Link>tour_10.xsd</Link>
+      <TypeName>tour_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business.logistics</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>

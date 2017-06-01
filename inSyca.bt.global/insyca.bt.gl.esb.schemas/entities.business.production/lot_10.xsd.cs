@@ -25,17 +25,10 @@ namespace insyca.bt.gl.esb.schemas.entities.business.production {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+        <xs:element name=""batch_identification_flag"" type=""xs:boolean"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
+              <b:fieldInfo notes=""Kennzeichen Charge"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -43,6 +36,13 @@ namespace insyca.bt.gl.esb.schemas.entities.business.production {
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""packing_date"" nillable=""true"" type=""xs:date"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Abpackdatum"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>

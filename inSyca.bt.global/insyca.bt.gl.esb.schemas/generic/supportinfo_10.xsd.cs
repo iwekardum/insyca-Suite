@@ -102,7 +102,7 @@ namespace insyca.bt.gl.esb.schemas.generic {
                       </xs:annotation>
                       <xs:complexType>
                         <xs:sequence minOccurs=""1"" maxOccurs=""1"">
-                          <xs:any minOccurs=""0"" maxOccurs=""1"" />
+                          <xs:any minOccurs=""0"" maxOccurs=""1"" processContents=""skip"" />
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>

@@ -1,4 +1,4 @@
-namespace insyca.bt.gl.esb.schemas.generic {
+namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
     using Microsoft.XLANGs.BaseTypes;
     
     
@@ -6,43 +6,43 @@ namespace insyca.bt.gl.esb.schemas.generic {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
-    [Schema(@"http://insyca.bt.gl.esb.schemas.generic.reference_10",@"reference")]
+    [Schema(@"http://insyca.bt.gl.esb.schemas.entities.business.logistics.commissioning_10",@"commissioning")]
     [System.SerializableAttribute()]
-    [SchemaRoots(new string[] {@"reference"})]
-    public sealed class reference_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
+    [SchemaRoots(new string[] {@"commissioning"})]
+    public sealed class commissioning_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
         private static object _rawSchema;
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.generic.reference_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.generic.reference_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""reference"" nillable=""true"">
+<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.commissioning_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.commissioning_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:element name=""commissioning"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
-        <b:recordInfo notes=""Referenz"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+        <b:recordInfo notes=""Kommissionierung"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text1"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Typ"" />
+              <b:fieldInfo notes=""Hinweistext1"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text2"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+              <b:fieldInfo notes=""Hinweistext2"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""name"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text3"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Referenzname"" />
+              <b:fieldInfo notes=""Hinweistext3"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -51,7 +51,7 @@ namespace insyca.bt.gl.esb.schemas.generic {
   </xs:element>
 </xs:schema>";
         
-        public reference_10() {
+        public commissioning_10() {
         }
         
         public override string XmlContent {
@@ -63,7 +63,7 @@ namespace insyca.bt.gl.esb.schemas.generic {
         public override string[] RootNodes {
             get {
                 string[] _RootElements = new string [1];
-                _RootElements[0] = "reference";
+                _RootElements[0] = "commissioning";
                 return _RootElements;
             }
         }

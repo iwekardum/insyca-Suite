@@ -6,9 +6,9 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
-    [Schema(@"http://insyca.bt.gl.esb.schemas.entities.business.logistics.cargo_10",@"cargo")]
+    [Schema(@"http://insyca.bt.gl.esb.schemas.entities.business.logistics.tour_10",@"tour")]
     [System.SerializableAttribute()]
-    [SchemaRoots(new string[] {@"cargo"})]
+    [SchemaRoots(new string[] {@"tour"})]
     public sealed class cargo_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
@@ -16,8 +16,8 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.cargo_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.cargo_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""cargo"" nillable=""true"">
+<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.tour_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.tour_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:element name=""tour"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
         <b:recordInfo notes=""Fracht"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
@@ -77,7 +77,7 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
         public override string[] RootNodes {
             get {
                 string[] _RootElements = new string [1];
-                _RootElements[0] = "cargo";
+                _RootElements[0] = "tour";
                 return _RootElements;
             }
         }

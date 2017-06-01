@@ -25,28 +25,34 @@ namespace insyca.bt.gl.esb.schemas.entities.goods {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""labelshort"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+              <b:fieldInfo notes=""Kurzbezeichnung"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" name=""number"" nillable=""true"" type=""xs:integer"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label1"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
+              <b:fieldInfo notes=""Bezeichnung_1"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label2"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
+              <b:fieldInfo notes=""Bezeichnung_2"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""short_term"" nillable=""true"" type=""xs:string"" />
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label3"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Bezeichnung_3"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

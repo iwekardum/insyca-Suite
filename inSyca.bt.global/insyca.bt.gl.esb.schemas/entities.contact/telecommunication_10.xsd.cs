@@ -17,13 +17,13 @@ namespace insyca.bt.gl.esb.schemas.entities.contact {
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
 <xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.entities.contact.telecommunication_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.entities.contact.telecommunication_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""telecommunication"">
+  <xs:element name=""telecommunication"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
         <b:recordInfo notes=""Telekommunikation"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
       </xs:appinfo>
     </xs:annotation>
-    <xs:complexType mixed=""true"">
+    <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""category"" nillable=""true"">
           <xs:annotation>

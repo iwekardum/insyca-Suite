@@ -1,4 +1,7 @@
-﻿using System.Xml;
+﻿using Microsoft.BizTalk.Component.Interop;
+using System;
+using System.IO;
+using System.Xml;
 
 namespace inSyca.foundation.integration.biztalk.functions
 {
@@ -69,6 +72,58 @@ namespace inSyca.foundation.integration.biztalk.functions
             }
 
             return excelXmlDocument;
+        }
+
+        public static XmlDocument ConstructEmptyMessage(Type objType)
+        {
+            Type MessageSchemaType = objType;
+
+            try
+            {
+                DocumentSpec DocumentSpecification = new DocumentSpec(
+                  MessageSchemaType.FullName,
+                  MessageSchemaType.Assembly.FullName
+                  );
+
+                XmlDocument SchemaInstance = new XmlDocument();
+                using (StreamReader InstanceStreamReader = new StreamReader(DocumentSpecification.GetDocSchema().CreateXmlInstance()))
+                {
+                    SchemaInstance.Load(InstanceStreamReader);
+                }
+
+                return SchemaInstance;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static XmlDocument ConstructMessageWithData(Type objType)
+        {
+            Type MessageSchemaType = objType;
+
+            try
+            {
+                DocumentSpec DocumentSpecification = new DocumentSpec(
+                  MessageSchemaType.FullName,
+                  MessageSchemaType.Assembly.FullName
+                  );
+
+                XmlDocument SchemaInstance = new XmlDocument();
+                using (StreamReader InstanceStreamReader = new StreamReader(DocumentSpecification.GetDocSchema().CreateXmlInstanceWithData()))
+                {
+                    SchemaInstance.Load(InstanceStreamReader);
+                }
+
+                return SchemaInstance;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
