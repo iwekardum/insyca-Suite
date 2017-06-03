@@ -1,4 +1,4 @@
-namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
+namespace insyca.bt.gl.esb.schemas.entities.physical {
     using Microsoft.XLANGs.BaseTypes;
     
     
@@ -6,50 +6,49 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
-    [Schema(@"http://insyca.bt.gl.esb.schemas.entities.business.logistics.loadingaid_10",@"loadingaid")]
+    [Schema(@"http://insyca.bt.gl.esb.schemas.entities.physical.quantity_10",@"quantity")]
     [System.SerializableAttribute()]
-    [SchemaRoots(new string[] {@"loadingaid"})]
-    public sealed class loadingaid_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
+    [SchemaRoots(new string[] {@"quantity"})]
+    public sealed class quantity_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
         private static object _rawSchema;
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.loadingaid_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.entities.business.logistics.loadingaid_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""loadingaid"" nillable=""true"">
+<xs:schema xmlns=""http://insyca.bt.gl.esb.schemas.entities.physical.quantity_10"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://insyca.bt.gl.esb.schemas.entities.physical.quantity_10"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:element name=""quantity"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
-        <b:recordInfo notes=""Ladehilfsmittel"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+        <b:recordInfo notes=""Masse"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
+              <b:fieldInfo notes=""Typ: Soll/Ist etc."" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base=""xs:string"">
+              <xs:enumeration value=""actual"" />
+              <xs:enumeration value=""target"" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""unit"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Einheit; Stück, Pallette, Kolli, etc."" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""value"" nillable=""true"" type=""xs:decimal"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Typ"" />
+              <b:fieldInfo notes=""Wert"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -58,7 +57,7 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
   </xs:element>
 </xs:schema>";
         
-        public loadingaid_10() {
+        public quantity_10() {
         }
         
         public override string XmlContent {
@@ -70,7 +69,7 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
         public override string[] RootNodes {
             get {
                 string[] _RootElements = new string [1];
-                _RootElements[0] = "loadingaid";
+                _RootElements[0] = "quantity";
                 return _RootElements;
             }
         }

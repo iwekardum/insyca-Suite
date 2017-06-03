@@ -134,6 +134,12 @@
       <Namespace>insyca.bt.gl.esb.schemas.entities.business.warehouse</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business.warehouse\rfid_10.xsd">
+      <Link>rfid_10.xsd</Link>
+      <TypeName>rfid_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business.warehouse</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>

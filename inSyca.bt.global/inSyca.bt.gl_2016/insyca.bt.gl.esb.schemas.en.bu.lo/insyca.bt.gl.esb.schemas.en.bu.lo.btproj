@@ -221,6 +221,12 @@
       <Namespace>insyca.bt.gl.esb.schemas.entities.business.logistics</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business.logistics\handling_10.xsd">
+      <Link>handling_10.xsd</Link>
+      <TypeName>handling_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business.logistics</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
