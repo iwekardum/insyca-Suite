@@ -25,13 +25,6 @@ namespace insyca.bt.gl.esb.schemas.entities.business.production {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element name=""batch_identification_flag"" type=""xs:boolean"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Kennzeichen Charge"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
           <xs:annotation>
             <xs:appinfo>

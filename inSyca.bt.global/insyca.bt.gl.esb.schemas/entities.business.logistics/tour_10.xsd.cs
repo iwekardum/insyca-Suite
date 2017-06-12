@@ -25,27 +25,6 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text1"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>

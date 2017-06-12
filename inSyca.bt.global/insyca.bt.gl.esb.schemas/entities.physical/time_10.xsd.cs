@@ -25,6 +25,7 @@ namespace insyca.bt.gl.esb.schemas.entities.physical {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs=""0"" name=""category"" nillable=""true"" type=""xs:string"" />
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
@@ -58,6 +59,9 @@ namespace insyca.bt.gl.esb.schemas.entities.physical {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
+        <xs:element name=""datepart"" type=""xs:date"" />
+        <xs:element name=""timepart"" type=""xs:time"" />
+        <xs:element name=""timestamp"" type=""xs:dateTime"" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

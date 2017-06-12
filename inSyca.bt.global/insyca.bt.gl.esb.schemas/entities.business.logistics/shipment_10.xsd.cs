@@ -46,6 +46,20 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""delivery_timestamp"" nillable=""true"" type=""xs:dateTime"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Zeitinformation Lieferung"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""create_timestamp"" nillable=""true"" type=""xs:dateTime"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Zeitinformation: erstellt"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""mode"" nillable=""true"">
           <xs:annotation>
             <xs:appinfo>

@@ -25,38 +25,24 @@ namespace insyca.bt.gl.esb.schemas.entities.business.sales {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""label"" nillable=""true"" type=""xs:string"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutiger Bezeichner für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Eindeutige Nummer für die Identifikation"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""createdate"" nillable=""true"" type=""xs:date"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""create_date"" nillable=""true"" type=""xs:date"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Datum erstellt"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""createtime"" nillable=""true"" type=""xs:time"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""create_time"" nillable=""true"" type=""xs:time"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Uhrzeit erstellt"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""create_timestamp"" nillable=""true"" type=""xs:dateTime"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Zeitinformation erstellt"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>

@@ -11,6 +11,20 @@ namespace inSyca.foundation.integration.biztalk.functions
     /// </summary>
     public class scripting
     {
+        static public object GetIdentityValue(object id, object label, object number)
+        {
+            Log.DebugFormat("GetIdentityValue(object id {0}, object label {1}, object number {2})", id, label, number);
+
+            if (!String.IsNullOrEmpty(id.ToString()))
+                return id;
+            else if (!String.IsNullOrEmpty(number.ToString()))
+                return number;
+            else if (!String.IsNullOrEmpty(label.ToString()))
+                return label;
+            else
+                return string.Empty;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -448,7 +462,7 @@ namespace inSyca.foundation.integration.biztalk.functions
             }
             catch (Exception ex)
             {
-                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { inputValue, defaultOutputValue, inputCultureInfoName, outputCultureInfoName, outputNumberFormat }, ex ));
+                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { inputValue, defaultOutputValue, inputCultureInfoName, outputCultureInfoName, outputNumberFormat }, ex));
             }
 
             CultureInfo inputCultureInfo;

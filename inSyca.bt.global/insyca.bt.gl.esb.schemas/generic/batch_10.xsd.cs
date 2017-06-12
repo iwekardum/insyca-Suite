@@ -7,6 +7,9 @@ namespace insyca.bt.gl.esb.schemas.generic {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
     [Schema(@"http://insyca.bt.gl.esb.schemas.generic.batch_10",@"batch")]
+    [Microsoft.XLANGs.BaseTypes.DistinguishedFieldAttribute(typeof(System.Double), "recordcount", XPath = @"/*[local-name()='batch' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.batch_10']/*[local-name()='recordcount' and namespace-uri()='']", XsdType = @"double")]
+    [Microsoft.XLANGs.BaseTypes.DistinguishedFieldAttribute(typeof(System.Double), "size", XPath = @"/*[local-name()='batch' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.batch_10']/*[local-name()='size' and namespace-uri()='']", XsdType = @"double")]
+    [Microsoft.XLANGs.BaseTypes.DistinguishedFieldAttribute(typeof(System.Double), "index", XPath = @"/*[local-name()='batch' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.batch_10']/*[local-name()='index' and namespace-uri()='']", XsdType = @"double")]
     [System.SerializableAttribute()]
     [SchemaRoots(new string[] {@"batch"})]
     public sealed class batch_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
@@ -21,6 +24,11 @@ namespace insyca.bt.gl.esb.schemas.generic {
     <xs:annotation>
       <xs:appinfo>
         <b:recordInfo notes=""Informationen für 'debatching' bzw. 'splitten=' von Messages"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
+        <b:properties>
+          <b:property distinguished=""true"" xpath=""/*[local-name()='batch' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.batch_10']/*[local-name()='recordcount' and namespace-uri()='']"" />
+          <b:property distinguished=""true"" xpath=""/*[local-name()='batch' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.batch_10']/*[local-name()='size' and namespace-uri()='']"" />
+          <b:property distinguished=""true"" xpath=""/*[local-name()='batch' and namespace-uri()='http://insyca.bt.gl.esb.schemas.generic.batch_10']/*[local-name()='index' and namespace-uri()='']"" />
+        </b:properties>
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>

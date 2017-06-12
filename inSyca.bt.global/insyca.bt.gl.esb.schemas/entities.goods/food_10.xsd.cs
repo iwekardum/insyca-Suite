@@ -25,17 +25,10 @@ namespace insyca.bt.gl.esb.schemas.entities.goods {
     </xs:annotation>
     <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
-        <xs:element name=""minimum_durability_flag"" type=""xs:boolean"">
-          <xs:annotation>
-            <xs:appinfo>
-              <b:fieldInfo notes=""Kennzeichen Mindesthaltbarkeit"" />
-            </xs:appinfo>
-          </xs:annotation>
-        </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""date_minimum_durability"" nillable=""true"" type=""xs:date"">
           <xs:annotation>
             <xs:appinfo>
-              <b:fieldInfo notes=""Mindesthaltbarkeit"" />
+              <b:fieldInfo notes=""Mindesthaltbarkeitsdatum"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>

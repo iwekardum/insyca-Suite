@@ -60,10 +60,31 @@ namespace insyca.bt.gl.esb.schemas.entities.goods {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""EAN"" nillable=""true"" type=""xs:string"">
+        <xs:element minOccurs=""0"" name=""EAN"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""European Article Number, Globale Artikelidentifikationsnummer"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""batch_identification_flag"" nillable=""true"" type=""xs:boolean"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kennzeichen Charge"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""quality_assurance_flag"" nillable=""true"" type=""xs:boolean"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kennzeichen Qualitätssicherung"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""minimum_durability_flag"" nillable=""true"" type=""xs:boolean"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kennzeichen Mindesthaltbarkeit"" />
             </xs:appinfo>
           </xs:annotation>
         </xs:element>

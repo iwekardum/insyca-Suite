@@ -99,7 +99,7 @@
     <None Include="entities.goods\food_10.xsd" />
     <None Include="entities.goods\item_10.xsd" />
     <None Include="entities.goods\dangerousgoods_10.xsd" />
-    <None Include="entities.goods\packing_10.xsd" />
+    <None Include="entities.goods\package_10.xsd" />
     <None Include="entities.business.warehouse\position_10.xsd" />
     <None Include="entities.goods\productgroup_10.xsd" />
     <None Include="entities.goods\product_10.xsd" />

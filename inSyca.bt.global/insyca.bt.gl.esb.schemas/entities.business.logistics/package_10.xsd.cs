@@ -24,7 +24,7 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
+      <xs:sequence minOccurs=""0"" maxOccurs=""1"">
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>

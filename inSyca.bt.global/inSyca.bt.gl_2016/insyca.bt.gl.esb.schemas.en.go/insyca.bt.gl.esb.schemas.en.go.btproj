@@ -109,12 +109,6 @@
       <Namespace>insyca.bt.gl.esb.schemas.entities.goods</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.goods\packing_10.xsd">
-      <Link>packing_10.xsd</Link>
-      <TypeName>packing_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.goods</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
     <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.goods\productgroup_10.xsd">
       <Link>productgroup_10.xsd</Link>
       <TypeName>productgroup_10</TypeName>
@@ -155,6 +149,12 @@
     <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.goods\food_10.xsd">
       <Link>food_10.xsd</Link>
       <TypeName>food_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.goods</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.goods\package_10.xsd">
+      <Link>package_10.xsd</Link>
+      <TypeName>package_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.goods</Namespace>
       <SubType>Task</SubType>
     </Schema>

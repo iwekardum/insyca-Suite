@@ -46,6 +46,14 @@ namespace insyca.bt.gl.esb.schemas.entities.business.logistics {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""loading_sequence"" nillable=""true"" type=""xs:integer"" />
+        <xs:element name=""blocked_flag"" type=""xs:boolean"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kennzeichen gesperrt"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
