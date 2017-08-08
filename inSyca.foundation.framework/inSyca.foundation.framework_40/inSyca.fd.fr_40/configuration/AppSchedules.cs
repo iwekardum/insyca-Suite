@@ -14,13 +14,25 @@ namespace inSyca.foundation.framework.configuration
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class AppSchedulesInstanceCollection : ConfigurationElementCollection
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override ConfigurationElement CreateNewElement()
         {
             return new AppSchedulesInstanceElement();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         protected override object GetElementKey(ConfigurationElement element)
         {
             //set to whatever Element Property you want to use for a key

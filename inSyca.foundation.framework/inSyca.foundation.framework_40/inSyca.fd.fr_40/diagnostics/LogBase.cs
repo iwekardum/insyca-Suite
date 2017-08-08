@@ -78,6 +78,9 @@ namespace inSyca.foundation.framework.diagnostics
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool IsInfoEnabled
         {
             get
@@ -94,6 +97,9 @@ namespace inSyca.foundation.framework.diagnostics
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static ILogger Logger
         {
             get
@@ -102,6 +108,10 @@ namespace inSyca.foundation.framework.diagnostics
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
         public static void Debug(object message)
         {
             inSycaLogger.Debug(message);

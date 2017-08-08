@@ -96,10 +96,22 @@ namespace inSyca.foundation.framework.configuration
         #endregion Methods
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public struct Parameter
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Search;
+        /// <summary>
+        /// 
+        /// </summary>
         public string ReplaceTo;
+        /// <summary>
+        /// 
+        /// </summary>
         public void Trace()
         {
             Log.DebugFormat("Trace() - Search=[{0}] ReplaceTo=[{1}]", (this.Search != null ? Search : "null"), (this.ReplaceTo != null ? ReplaceTo : "null") );

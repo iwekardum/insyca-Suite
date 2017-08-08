@@ -256,6 +256,11 @@ namespace inSyca.foundation.framework.configuration
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="KeyName"></param>
+        /// <returns></returns>
         public static object GetAppSettingsValue(string KeyName)
         {
             Log.DebugFormat("GetAppSettingsValue(string KeyName {0})", KeyName );
@@ -277,6 +282,11 @@ namespace inSyca.foundation.framework.configuration
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="KeyName"></param>
+        /// <returns></returns>
         public static decimal GetNumericAppSettingsValue(string KeyName)
         {
             Log.DebugFormat("GetNumericAppSettingsValue(string KeyName {0})", KeyName);

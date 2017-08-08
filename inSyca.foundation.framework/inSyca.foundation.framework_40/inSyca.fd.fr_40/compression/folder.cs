@@ -4,6 +4,14 @@ namespace inSyca.foundation.framework.compression
 {
     public class folder
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="strSourceDirectory"></param>
+        /// <param name="strSourceSearchPattern"></param>
+        /// <param name="oSearchOption"></param>
+        /// <param name="strTargetFile"></param>
+        /// <param name="password"></param>
         public static void ZipFiles(string strSourceDirectory, string strSourceSearchPattern, SearchOption oSearchOption, string strTargetFile, string password)
         {
             // Zip up the files
@@ -21,6 +29,13 @@ namespace inSyca.foundation.framework.compression
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="strSourceDirectory"></param>
+        /// <param name="strSourceSearchPattern"></param>
+        /// <param name="oSearchOption"></param>
+        /// <param name="oTargetStream"></param>
         public static void ZipFiles(string strSourceDirectory, string strSourceSearchPattern, SearchOption oSearchOption, out MemoryStream oTargetStream)
         {
             oTargetStream = new MemoryStream();

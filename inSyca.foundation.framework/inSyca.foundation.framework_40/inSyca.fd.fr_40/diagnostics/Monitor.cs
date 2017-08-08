@@ -12,10 +12,22 @@ namespace inSyca.foundation.framework.diagnostics
 
     public class EntryType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly string Information = System.Diagnostics.EventLogEntryType.Information.ToString();
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly string Warning = System.Diagnostics.EventLogEntryType.Warning.ToString();
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly string Error = System.Diagnostics.EventLogEntryType.Error.ToString();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const string InformationColor = "#CCCCCC";
         public const string WarningColor = "#FFCC00";
         public const string ErrorColor = "#FF0000";

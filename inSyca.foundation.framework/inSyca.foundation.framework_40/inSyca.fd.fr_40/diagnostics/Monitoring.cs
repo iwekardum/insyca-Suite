@@ -9,7 +9,13 @@ namespace inSyca.foundation.framework.diagnostics
 {
     public static class Monitoring
     {
+        /// <summary>
+        /// 
+        /// </summary>
         static public event EventHandler<MonitoringEventArgs> MonitoringEvent;
+        /// <summary>
+        /// 
+        /// </summary>
         static public event EventHandler<MonitoringEventArgs> EventEntryEvent;
 
         static private List<ManagementEventWatcher> eventLogApplicationWatcherList;
@@ -18,6 +24,9 @@ namespace inSyca.foundation.framework.diagnostics
 
         static private MonitorEventLog monitorEventLog;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static void disposeWatcher()
         {
             Log.Debug("disposeWatcher()");

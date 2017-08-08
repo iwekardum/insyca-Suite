@@ -81,6 +81,9 @@ namespace inSyca.foundation.framework
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string MessageEntry
         {
             get

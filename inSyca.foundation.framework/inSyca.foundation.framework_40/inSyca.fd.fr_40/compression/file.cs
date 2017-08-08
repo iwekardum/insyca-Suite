@@ -4,6 +4,7 @@ using System.IO;
 
 namespace inSyca.foundation.framework.compression
 {
+    
     public class file
     {
         #region helpers
