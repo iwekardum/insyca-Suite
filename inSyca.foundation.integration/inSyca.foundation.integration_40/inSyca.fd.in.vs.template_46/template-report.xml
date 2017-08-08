@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TemplateReport>
   <ItemTemplates>
+    <ItemTemplate Path="ItemTemplates\inSyca\orchestrations\query\Definitions\CSharp.vstemplate" Name="ESB Query Orchestration" Description="Projectitem Template for ESB Query Orchestration" ProjectType="BizTalk" ProjectSubType="" />
     <ItemTemplate Path="ItemTemplates\inSyca\orchestrations\simple\Definitions\CSharp.vstemplate" Name="Simple Transformation Orchestration" Description="Projectitem Template for Simple Transformation Orchestration" ProjectType="BizTalk" ProjectSubType="" />
     <ItemTemplate Path="ItemTemplates\inSyca\orchestrations\simplelogging\Definitions\CSharp.vstemplate" Name="Simple Transformation Orchestration (Messagebroker)" Description="Projectitem Template for Simple Transformation Orchestration (Messagebroker)" ProjectType="BizTalk" ProjectSubType="" />
   </ItemTemplates>

@@ -1,0 +1,21 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <Name>ESB Query Orchestration</Name>
+    <Description>Projectitem Template for ESB Query Orchestration</Description>
+    <DefaultName>OrchestrationName</DefaultName>
+    <ProjectType>BizTalk</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>logo_64x64.png</Icon>
+    <TemplateID>$guid1$</TemplateID>
+    <!-- Indicates how many parent folders this item template should appear in -->
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem TargetFileName="$fileinputname$.odx"  ReplaceParameters="true">orchestration.odx</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

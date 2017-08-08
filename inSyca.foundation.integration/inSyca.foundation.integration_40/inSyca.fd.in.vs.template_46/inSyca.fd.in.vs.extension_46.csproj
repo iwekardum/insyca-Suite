@@ -115,13 +115,23 @@
     <Content Include="..\inSyca.fd.in.vs.common_40\Resources\logo_64x64.png">
       <Link>Resources\logo_64x64.png</Link>
     </Content>
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\Definitions\CSharp.vstemplate" />
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\logo_64x64.png" />
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\orchestration.odx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\_preprocess.xml" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\Definitions\CSharp.vstemplate" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\logo_64x64.png" />
-    <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\orchestration.odx" />
+    <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\orchestration.odx">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\_preprocess.xml" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simple\Definitions\CSharp.vstemplate" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simple\logo_64x64.png" />
-    <Content Include="ItemTemplates\inSyca\orchestrations\simple\orchestration.odx" />
+    <Content Include="ItemTemplates\inSyca\orchestrations\simple\orchestration.odx">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ItemTemplates\inSyca\orchestrations\simple\_preprocess.xml" />
     <Content Include="..\..\..\inSyca.suite.toolbox_40\documentation\ReleaseNotes_Integration_Extensions.rtf">
       <Link>ReleaseNotes_Integration_Extensions.rtf</Link>
