@@ -61,9 +61,12 @@
     </Component>
 
     <Component Id='productBizTalk' Guid='{8D831075-6C76-4252-B78E-E6ABEF778CA8}' Directory="biztalk">
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\CreateLocalUsersAndGroupsForBiztalk.ps1'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\btsadminconfiguration.xml'  Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\sqlJOB_Backup_BizTalk_Server.txt'  Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\sqlJOB_MessageBox_Message_Cleanup.txt'  Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\2016\configureSchemaGenerator.cmd'  Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)biztalk\2016\inSycaBizTalkConfiguration.xml'  Vital='yes'/>
     </Component>
 
     <Component Id='productXSLT' Guid='{62AE830E-86E5-47FE-A599-EF09662C96DC}' Directory="xslt">
