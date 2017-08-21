@@ -73,3 +73,20 @@ $Group = $ADSI.Create('Group', 'grp_biz_b2b.ops')
 $Group.SetInfo()
 $Group.Description  = 'The BizTalk Server B2B Operators Group has the least privileges necessary to perform tasks required for operating the BizTalk Server B2B environment after installation.'
 $Group.SetInfo()
+
+$User = $ADSI.Create("User", "svc_monitoring")
+$User.SetPassword("qQmF8eJTGxhvhhlgJ3Qb")
+$User.SetInfo()
+$User.FullName = "inSyca Monitoring Service"
+$User.SetInfo()
+$User.UserFlags.Value = 64 + 65536 # ADS_UF_PASSWD_CANT_CHANGE + ADS_UF_DONT_EXPIRE_PASSWD
+$User.SetInfo()
+
+$Group = $ADSI.Children.Find('Administrators', 'group')
+$Group.Add(("WinNT://$Computer/" + $User.Name))
+
+$Group = $ADSI.Children.Find('grp_biz.admins', 'group')
+$Group.Add(("WinNT://$Computer/" + $User.Name))
+
+$Group = $ADSI.Children.Find('grp_biz_sso.admins', 'group')
+$Group.Add(("WinNT://$Computer/" + $User.Name))

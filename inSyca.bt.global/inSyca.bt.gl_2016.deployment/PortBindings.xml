@@ -47,7 +47,7 @@ Variables-->
         <Service Name="insyca.bt.gl.esb.orchestrations.global_10" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages">
           <Ports />
           <Roles />
-          <Host Name="inSyca_global_host" Trusted="false" />
+          <Host Name="inSyca_global" Trusted="false" />
         </Service>
         <Service Name="inSyca.bt.gl.mb.orchestrations.supportinfo_10" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages">
           <Ports>
@@ -58,7 +58,7 @@ Variables-->
             </Port>
           </Ports>
           <Roles />
-          <Host Name="inSyca_global_host" Trusted="false" />
+          <Host Name="inSyca_global" Trusted="false" />
         </Service>
       </Services>
       <TrackedSchemas />

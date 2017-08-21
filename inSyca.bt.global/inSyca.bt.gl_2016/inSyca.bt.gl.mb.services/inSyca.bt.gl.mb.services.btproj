@@ -56,7 +56,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>insyca.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.esb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -115,6 +115,9 @@
       <TypeName>MessageBrokerService_www_insyca_com_messagebroker</TypeName>
       <SubType>Task</SubType>
     </Schema>
+    <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
+      <Link>insyca.snk</Link>
+    </None>
     <None Include="diagnostics\MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsc">
       <DependentUpon>MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsd</DependentUpon>
     </None>
@@ -128,9 +131,11 @@
     <None Include="diagnostics\MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xss">
       <DependentUpon>MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsd</DependentUpon>
     </None>
-    <None Include="insyca.snk" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">
+      <Link>inSyca.ico</Link>
+    </Content>
     <Content Include="diagnostics\MessageBrokerService.BindingInfo.xml" />
     <XLang Include="diagnostics\MessageBrokerService.odx">
       <TypeName>MessageBrokerService</TypeName>

@@ -62,7 +62,7 @@ namespace insyca.bt.gl.esb.schemas.generic {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:integer"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
               <b:fieldInfo notes=""Eindeutige Nummer für die Identification"" />
