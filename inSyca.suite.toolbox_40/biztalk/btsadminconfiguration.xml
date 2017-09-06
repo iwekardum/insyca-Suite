@@ -8,11 +8,11 @@
     <Host hostname='inSyca_global_receive' ntgroupname='grp_biz_host.users' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='False'/>
   </Hosts>
   <HostInstances>
-		<HostInstance servername='.' hostname='tracking' username='svc_biz.host' password='qQmF8eJTGxhvhhlgJ3Qb' startinstance='true'/>
-		<HostInstance servername='.' hostname='isolated' username='svc_biz.isohost' password='qQmF8eJTGxhvhhlgJ3Qb' startinstance='true'/>
-		<HostInstance servername='.' hostname='inSyca_global' username='svc_biz.host' password='qQmF8eJTGxhvhhlgJ3Qb' startinstance='true'/>
-		<HostInstance servername='.' hostname='inSyca_global_send' username='svc_biz.host' password='qQmF8eJTGxhvhhlgJ3Qb' startinstance='true'/>
-    <HostInstance servername='.' hostname='inSyca_global_receive' username='svc_biz.host' password='qQmF8eJTGxhvhhlgJ3Qb' startinstance='true'/>
+		<HostInstance servername='.' hostname='tracking' username='svc_biz.host' password='*******' startinstance='true'/>
+		<HostInstance servername='.' hostname='isolated' username='svc_biz.isohost' password='*******' startinstance='true'/>
+		<HostInstance servername='.' hostname='inSyca_global' username='svc_biz.host' password='*******' startinstance='true'/>
+		<HostInstance servername='.' hostname='inSyca_global_send' username='svc_biz.host' password='*******' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_receive' username='svc_biz.host' password='*******' startinstance='true'/>
   </HostInstances>
 	<Adapters>
 		<Adapter name='WCF-Custom' type='WCF-Custom' comment='WCF-Custom adapter'>
