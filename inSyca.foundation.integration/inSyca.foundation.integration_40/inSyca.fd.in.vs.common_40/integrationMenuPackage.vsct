@@ -87,6 +87,16 @@
           <ToolTipText>Set ports and messages to public visibility</ToolTipText>
         </Strings>
       </Button>
+      <Button guid="guidItemContextMenuPackageCmdSet" id="BindingMenuItemId" priority="0x0100" type="Button">
+        <Parent guid="guidItemContextMenuPackageCmdSet" id="itemContextMenuGroup" />
+        <Icon guid="guidImages" id="inSyca" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Set to public</ButtonText>
+          <ToolTipText>Set ports and messages to public visibility</ToolTipText>
+        </Strings>
+      </Button>
       <Button guid="guidProjectContextMenuPackageCmdSet" id="GACMenuItemId" priority="0x0100" type="Button">
         <Parent guid="guidProjectContextMenuPackageCmdSet" id="projectContextMenuGroup" />
         <Icon guid="guidImages" id="inSyca" />
@@ -143,6 +153,7 @@
     <GuidSymbol name="guidItemContextMenuPackageCmdSet" value="{6DC8CB70-8B6F-4C36-B751-420717624321}">
       <IDSymbol name="itemContextMenuGroup" value="0x1020" />
       <IDSymbol name="ODXMenuItemId" value="0x0102" />
+      <IDSymbol name="BindingMenuItemId" value="0x0105" />
       <IDSymbol name="ExplorerMenuItemId" value="0x0104" />
     </GuidSymbol>
     <GuidSymbol name="guidReferenceContextMenuPackageCmdSet" value="{494E9F57-14A7-43B9-8921-0E6B39B94969}">

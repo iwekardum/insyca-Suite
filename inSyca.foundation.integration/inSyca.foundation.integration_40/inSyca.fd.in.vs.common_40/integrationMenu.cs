@@ -30,6 +30,7 @@ namespace inSyca.foundation.integration.visualstudio.template
         public const int ODXCommandId = 0x0102;
         public const int fixODXCommandId = 0x0103;
         public const int ExplorerCommandId = 0x0104;
+        public const int BindingCommandId = 0x0102;
 
         /// <summary>
         /// Command menu group (command set GUID).
@@ -38,6 +39,7 @@ namespace inSyca.foundation.integration.visualstudio.template
         public static readonly Guid gacProjectContextMenuCommandSet = new Guid("D08CBFD1-246A-477E-80CA-D7500F49953A");
         public static readonly Guid publicODXContextMenuCommandSet = new Guid("6DC8CB70-8B6F-4C36-B751-420717624321");
         public static readonly Guid gacReferenceContextMenuCommandSet = new Guid("494E9F57-14A7-43B9-8921-0E6B39B94969");
+        public static readonly Guid publicBindingContextMenuCommandSet = new Guid("D8AE7560-0452-4627-9D65-95199C7C6606");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -45,6 +47,7 @@ namespace inSyca.foundation.integration.visualstudio.template
         private readonly Package package;
         private const string orchestrationExtension = ".odx";
         private const string bizTalkProjectExtension = ".btproj";
+        private const string bindingFileName = "PortBindingsMaster.xml";
 
         public btdf BizTalkDeploymentFrameworkHelper { get; set; }
         public gac GACHelper { get; set; }
@@ -85,6 +88,11 @@ namespace inSyca.foundation.integration.visualstudio.template
                 odxContextMenuItem.BeforeQueryStatus += ItemContextMenuItem_BeforeQueryStatus;
                 commandService.AddCommand(odxContextMenuItem);
 
+                var bindingContextMenuCommandID = new CommandID(publicBindingContextMenuCommandSet, BindingCommandId);
+                var bindingContextMenuItem = new OleMenuCommand(this.ContextMenuItemCallback, bindingContextMenuCommandID);
+                bindingContextMenuItem.BeforeQueryStatus += ItemContextMenuItem_BeforeQueryStatus;
+                commandService.AddCommand(bindingContextMenuItem);
+
                 var explorerContextMenuCommandID = new CommandID(publicODXContextMenuCommandSet, ExplorerCommandId);
                 var explorerContextMenuItem = new OleMenuCommand(this.ContextMenuItemCallback,explorerContextMenuCommandID);
                 commandService.AddCommand(explorerContextMenuItem);
@@ -117,6 +125,12 @@ namespace inSyca.foundation.integration.visualstudio.template
 
             if (menuCommand != null && menuCommand.CommandID.ID == ODXCommandId)
                 if(selectedFile.Extension == orchestrationExtension)
+                    menuCommand.Visible = true;
+                else
+                    menuCommand.Visible = false;
+
+            if (menuCommand != null && menuCommand.CommandID.ID == BindingCommandId)
+                if (selectedFile.Name == bindingFileName)
                     menuCommand.Visible = true;
                 else
                     menuCommand.Visible = false;
@@ -210,6 +224,10 @@ namespace inSyca.foundation.integration.visualstudio.template
                 string selectedAssembly;
                 GACHelper.ShowDialog(out selectedAssembly);
                 AddReference(selectedAssembly);
+            }
+            else if (menuCommand != null && menuCommand.CommandID.ID == BindingCommandId && selectedFile.Name == bindingFileName)
+            {
+                ;
             }
             else if (menuCommand != null && menuCommand.CommandID.ID == ODXCommandId && selectedFile.Extension == orchestrationExtension)
             {
