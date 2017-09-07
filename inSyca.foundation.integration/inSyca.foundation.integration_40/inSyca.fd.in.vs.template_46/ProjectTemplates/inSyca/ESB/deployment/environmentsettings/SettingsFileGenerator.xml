@@ -19,8 +19,8 @@
   <RelyOnVML/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12060</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>7305</WindowHeight>
+  <WindowWidth>7650</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>151</TabRatio>
@@ -211,7 +211,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Settings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="98" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="107" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="98.25" ss:DefaultRowHeight="12">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="432"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="726.75"/>
@@ -667,7 +667,79 @@
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">AX Services</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">SB-Messaging</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6">
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s84">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">sb_sessionIdleTimeout</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">00:20:00</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s84">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">sb_batchFlushInterval</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">00:20:00</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s84">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">sb_openTimeout</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">00:20:00</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s84">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">sb_closeTimeout</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">00:20:00</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">sb_sendTimeout</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">00:20:00</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">sb_maxReceivedMessageSize</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="Number">256</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6">
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Services</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
@@ -683,7 +755,7 @@
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_service_identity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">service_identity</Data></Cell>
     <Cell ss:StyleID="s81" ss:HRef="mailto:munich@sunato.de"><Data ss:Type="String">munich@sunato.de</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -691,7 +763,7 @@
     <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_credential_domain</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">credential_domain</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">muc.sunato.de</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -699,7 +771,7 @@
     <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_credential_username</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">credential_username</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">user</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -707,7 +779,7 @@
     <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_credential_password</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">credential_password</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">password</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -1026,7 +1098,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>5</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1043,7 +1115,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
+     <ActiveRow>84</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
