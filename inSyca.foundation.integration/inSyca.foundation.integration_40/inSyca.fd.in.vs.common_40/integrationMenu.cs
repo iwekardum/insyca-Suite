@@ -14,6 +14,11 @@ using Microsoft.VisualStudio;
 using System.Runtime.InteropServices;
 using inSyca.foundation.integration.visualstudio.external;
 using System.IO;
+using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace inSyca.foundation.integration.visualstudio.template
 {
@@ -227,7 +232,7 @@ namespace inSyca.foundation.integration.visualstudio.template
             }
             else if (menuCommand != null && menuCommand.CommandID.ID == BindingCommandId && selectedFile.Name == bindingFileName)
             {
-                ;
+                ProcessBinding(selectedFile);
             }
             else if (menuCommand != null && menuCommand.CommandID.ID == ODXCommandId && selectedFile.Extension == orchestrationExtension)
             {
@@ -323,5 +328,288 @@ namespace inSyca.foundation.integration.visualstudio.template
                 vsproject.References.Add(referenceStrIdentity);
             }
         }
+
+        private void ProcessBinding(FileInfo selectedFile)
+        {
+            XDocument xBinding = XDocument.Load(selectedFile.FullName);
+
+            Dictionary<string, XElement> list = new Dictionary<string, XElement>();
+
+            var schemas = xBinding.Descendants("Schema");
+
+            foreach (var schema in schemas)
+            {
+                schema.Attribute("AlwaysTrackAllProperties").Value = "${bt_schema_AlwaysTrackAllProperties}";
+            }
+
+            var services = xBinding.Descendants("Service");
+
+            foreach (var service in services)
+            {
+                service.Attribute("State").Value = "${bt_orchestration_State}";
+                service.Attribute("TrackingOption").Value = "${bt_orchestration_TrackingOption}";
+            }
+
+            var hosts = xBinding.Descendants("Host");
+
+            foreach (var host in hosts)
+            {
+                XAttribute ntGroupName = host.Attribute("NTGroupName");
+
+                if (ntGroupName != null)
+                    ntGroupName.Remove();
+            }
+
+            var sendPorts = xBinding.Descendants("SendPort").OrderBy(e => e.Attribute("Name").Value); ;
+
+            foreach (var sendPort in sendPorts)
+            {
+                sendPort.SetElementValue("Tracking", "${bt_sp_Tracking}");
+
+                XElement Filter = sendPort.Descendants("Filter").FirstOrDefault();
+
+                if (Filter != null && !string.IsNullOrEmpty(Filter.Value))
+                    Filter.Value = Filter.Value.Replace("\n", string.Empty).Trim();
+
+                XElement primaryTransport = sendPort.Descendants("PrimaryTransport").FirstOrDefault();
+                XElement address = primaryTransport.Element("Address");
+
+                XElement transportType = primaryTransport.Descendants("TransportType").FirstOrDefault();
+                XElement transportTypeData = primaryTransport.Descendants("TransportTypeData").FirstOrDefault();
+
+                XElement customProps = XElement.Parse(transportTypeData.Value);
+
+                string transportTypeName = transportType.Attribute("Name").Value;
+                string sendPortName = sendPort.Attribute("Name").Value;
+
+                list.Add(string.Format("--- {0} ---", sendPortName.ToUpper()), new XElement("new_sendport"));
+                list.Add(string.Format("{0}_address", sendPortName), new XElement(address));
+
+                switch (transportTypeName)
+                {
+                    case "FILE":
+                        {
+                            address.Value = string.Format("${{{0}_address}}${{{0}_fileName}}", sendPortName);
+
+                            XElement fileName = customProps.Element("FileName");
+
+                            list[string.Format("{0}_address", sendPortName)].Value = list[string.Format("{0}_address", sendPortName)].Value.Replace(fileName.Value, "");
+
+                            list.Add(string.Format("{0}_fileName", sendPortName), new XElement(fileName));
+
+                            fileName.Value = string.Format("${{{0}_fileName}}", sendPortName);
+
+                            transportTypeData.Value = customProps.ToString();
+                        }
+                        break;
+                    case "FTP":
+                        {
+                            address.Value = string.Format("ftp://${{{0}_serveraddress}}:${{{0}_serverport}}/${{{0}_targetfolder}}/${{{0}_targetFileName}}", sendPortName);
+
+                            XElement adapterConfig = customProps.Descendants("AdapterConfig").FirstOrDefault();
+                            XElement config = XElement.Parse(adapterConfig.Value);
+                            XElement uri = config.Element("uri");
+                            XElement serverAddress = config.Element("serverAddress");
+                            XElement serverPort = config.Element("serverPort");
+                            XElement targetFileName = config.Element("targetFileName");
+                            XElement targetFolder = config.Element("targetFolder");
+
+                            list.Add(string.Format("{0}_serveraddress", sendPortName), new XElement(serverAddress));
+                            list.Add(string.Format("{0}_serverport", sendPortName), new XElement(serverPort));
+                            list.Add(string.Format("{0}_targetfilename", sendPortName), new XElement(targetFileName));
+                            list.Add(string.Format("{0}_targetfolder", sendPortName), new XElement(targetFolder));
+
+                            list[string.Format("{0}_address", sendPortName)].Value = list[string.Format("{0}_address", sendPortName)].Value.Replace(targetFileName.Value, "");
+
+                            uri.Value = string.Format("ftp://${{{0}_serveraddress}}:${{{0}_serverPort}}/${{{0}_targetFolder}}/${{{0}_targetfilename}}", sendPortName);
+                            serverAddress.Value = string.Format("${{{0}_serveraddress}}", sendPortName);
+                            serverPort.Value = string.Format("${{{0}_serverport}}", sendPortName);
+                            targetFileName.Value = string.Format("${{{0}_targetfilename}}", sendPortName);
+                            targetFolder.Value = string.Format("${{{0}_targetfolder}}", sendPortName);
+
+                            adapterConfig.Value = config.ToString();
+                            transportTypeData.Value = customProps.ToString();
+                        }
+                        break;
+                    case "Windows SharePoint Services":
+                        {
+                            address.Value = string.Format("${{{0}_uri}}", sendPortName);
+
+                            XElement adapterConfig = customProps.Descendants("AdapterConfig").FirstOrDefault();
+                            XElement config = XElement.Parse(adapterConfig.Value);
+                            XElement SiteUrl = config.Element("SiteUrl");
+                            XElement WssLocation = config.Element("WssLocation");
+                            XElement FileName = config.Element("FileName");
+                            XElement uri = config.Element("uri");
+
+                            list.Add(string.Format("{0}_siteurl", sendPortName), new XElement(SiteUrl));
+                            list.Add(string.Format("{0}_wssLocation", sendPortName), new XElement(WssLocation));
+                            list.Add(string.Format("{0}_filename", sendPortName), new XElement(FileName));
+                            list.Add(string.Format("{0}_uri", sendPortName), new XElement(uri));
+
+                            SiteUrl.Value = string.Format("${{{0}_siteurl}}", sendPortName);
+                            WssLocation.Value = string.Format("${{{0}_wssLocation}}", sendPortName);
+                            FileName.Value = string.Format("${{{0}_filename}}", sendPortName);
+                            uri.Value = string.Format("${{{0}_uri}}", sendPortName);
+
+                            adapterConfig.Value = config.ToString();
+                            transportTypeData.Value = customProps.ToString();
+                        }
+                        break;
+                    case "WCF-Custom":
+                    case "WCF-CustomIsolated":
+                        {
+                            address.Value = string.Format("${{{0}_address}}", sendPortName);
+
+                            XElement bindingConfiguration = customProps.Descendants("BindingConfiguration").FirstOrDefault();
+                            XElement binding = XElement.Parse(bindingConfiguration.Value);
+
+                            binding.SetAttributeValue("maxReceivedMessageSize", "${wcf_maxReceivedMessageSize}");
+                            binding.SetAttributeValue("maxBufferPoolSize", "${wcf_maxBufferPoolSize}");
+                            binding.SetAttributeValue("maxBufferSize", "${wcf_maxBufferSize}");
+                            binding.SetAttributeValue("closeTimeout", "${wcf_closeTimeout}");
+                            binding.SetAttributeValue("openTimeout", "${wcf_openTimeout}");
+                            binding.SetAttributeValue("receiveTimeout", "${wcf_receiveTimeout}");
+                            binding.SetAttributeValue("sendTimeout", "${wcf_sendTimeout}");
+
+                            bindingConfiguration.Value = binding.ToString();
+                            transportTypeData.Value = customProps.ToString();
+                        }
+                        break;
+                    default:
+                        address.Value = string.Format("${{{0}_address}}", sendPortName);
+                        break;
+                }
+            }
+
+            var receivePorts = xBinding.Descendants("ReceivePort").OrderBy(e => e.Descendants("ReceiveLocation").FirstOrDefault().Attribute("Name").Value);
+
+            foreach (var receivePort in receivePorts)
+            {
+                receivePort.SetElementValue("Tracking", "${bt_rp_Tracking}");
+
+                var receiveLocations = receivePort.Descendants("ReceiveLocation");
+
+                foreach (var receiveLocation in receiveLocations)
+                {
+                    XElement receiveLocationTransportType = receiveLocation.Descendants("ReceiveLocationTransportType").FirstOrDefault();
+                    XElement address = receiveLocation.Element("Address");
+
+                    XElement receiveLocationTransportTypeData = receiveLocation.Descendants("ReceiveLocationTransportTypeData").FirstOrDefault();
+                    XElement customProps = XElement.Parse(receiveLocationTransportTypeData.Value);
+
+                    string receiveLocationTransportTypeName = receiveLocationTransportType.Attribute("Name").Value;
+                    string receiveLocationName = receiveLocation.Attribute("Name").Value;
+
+                    list.Add(string.Format("--- {0} ---", receiveLocationName.ToUpper()), new XElement("new_sendport"));
+                    list.Add(string.Format("{0}_address", receiveLocationName), new XElement(address));
+
+                    switch (receiveLocationTransportTypeName)
+                    {
+                        case "FILE":
+                            {
+                                address.Value = string.Format("${{{0}_address}}${{{0}_filemask}}", receiveLocationName);
+
+                                XElement FileMask = customProps.Element("FileMask");
+
+                                list[string.Format("{0}_address", receiveLocationName)].Value = list[string.Format("{0}_address", receiveLocationName)].Value.Replace(FileMask.Value, "");
+
+                                list.Add(string.Format("{0}_filemask", receiveLocationName), new XElement(FileMask));
+
+                                FileMask.Value = string.Format("${{{0}_filemask}}", receiveLocationName);
+
+                                receiveLocationTransportTypeData.Value = customProps.ToString();
+                            }
+                            break;
+                        case "FTP":
+                            {
+                                address.Value = string.Format("ftp://${{{0}_serveraddress}}:${{{0}_serverport}}/${{{0}_targetfolder}}/${{{0}_filemask}}", receiveLocationName);
+
+                                XElement adapterConfig = customProps.Descendants("AdapterConfig").FirstOrDefault();
+                                XElement config = XElement.Parse(adapterConfig.Value);
+                                XElement serverAddress = config.Element("serverAddress");
+                                XElement serverPort = config.Element("serverPort");
+                                XElement fileMask = config.Element("fileMask");
+                                XElement targetFolder = config.Element("targetFolder");
+
+                                list[string.Format("{0}_address", receiveLocationName)].Value = list[string.Format("{0}_address", receiveLocationName)].Value.Replace(fileMask.Value, "");
+
+                                list.Add(string.Format("{0}_serveraddress", receiveLocationName), new XElement(serverAddress));
+                                list.Add(string.Format("{0}_serverport", receiveLocationName), new XElement(serverPort));
+                                list.Add(string.Format("{0}_filemask", receiveLocationName), new XElement(fileMask));
+                                list.Add(string.Format("{0}_targetfolder", receiveLocationName), new XElement(targetFolder));
+
+                                config.SetElementValue("uri", string.Format("ftp://${{{0}_serveraddress}}:${{{0}_serverPort}}/${{{0}_targetFolder}}/${{{0}_filemask}}", receiveLocationName));
+                                config.SetElementValue("serverAddress", string.Format("${{{0}_serveraddress}}", receiveLocationName));
+                                config.SetElementValue("serverPort", string.Format("${{{0}_serverport}}", receiveLocationName));
+                                config.SetElementValue("fileMask", string.Format("${{{0}_filemask}}", receiveLocationName));
+                                config.SetElementValue("targetFolder", string.Format("${{{0}_targetfolder}}", receiveLocationName));
+
+                                adapterConfig.Value = config.ToString();
+                                receiveLocationTransportTypeData.Value = customProps.ToString();
+                            }
+                            break;
+
+                        case "Windows SharePoint Services":
+                            {
+                                address.Value = string.Format("${{{0}_uri}}", receiveLocationName);
+
+                                XElement adapterConfig = customProps.Descendants("AdapterConfig").FirstOrDefault();
+                                XElement config = XElement.Parse(adapterConfig.Value);
+                                XElement SiteUrl = config.Element("SiteUrl");
+                                XElement WssLocation = config.Element("WssLocation");
+                                XElement ViewName = config.Element("ViewName");
+                                XElement uri = config.Element("uri");
+
+                                list.Add(string.Format("{0}_siteurl", receiveLocationName), new XElement(SiteUrl));
+                                list.Add(string.Format("{0}_wssLocation", receiveLocationName), new XElement(WssLocation));
+                                list.Add(string.Format("{0}_viewname", receiveLocationName), new XElement(ViewName));
+                                list.Add(string.Format("{0}_uri", receiveLocationName), new XElement(uri));
+
+                                SiteUrl.Value = string.Format("${{{0}_siteurl}}", receiveLocationName);
+                                WssLocation.Value = string.Format("${{{0}_wssLocation}}", receiveLocationName);
+                                ViewName.Value = string.Format("${{{0}_viewname}}", receiveLocationName);
+                                uri.Value = string.Format("${{{0}_uri}}", receiveLocationName);
+
+                                adapterConfig.Value = config.ToString();
+                                receiveLocationTransportTypeData.Value = customProps.ToString();
+                            }
+                            break;
+
+                        case "WCF-Custom":
+                        case "WCF-CustomIsolated":
+                            {
+                                receiveLocation.SetElementValue("Address", string.Format("${{{0}_address}}", receiveLocationName));
+
+                                XElement bindingConfiguration = customProps.Descendants("BindingConfiguration").FirstOrDefault();
+                                XElement binding = XElement.Parse(bindingConfiguration.Value);
+
+                                binding.SetAttributeValue("maxReceivedMessageSize", "${wcf_maxReceivedMessageSize}");
+                                binding.SetAttributeValue("maxBufferPoolSize", "${wcf_maxBufferPoolSize}");
+                                binding.SetAttributeValue("maxBufferSize", "${wcf_maxBufferSize}");
+                                binding.SetAttributeValue("closeTimeout", "${wcf_closeTimeout}");
+                                binding.SetAttributeValue("openTimeout", "${wcf_openTimeout}");
+                                binding.SetAttributeValue("receiveTimeout", "${wcf_receiveTimeout}");
+                                binding.SetAttributeValue("sendTimeout", "${wcf_sendTimeout}");
+
+                                bindingConfiguration.Value = binding.ToString();
+                                receiveLocationTransportTypeData.Value = customProps.ToString();
+                            }
+                            break;
+                        default:
+                            {
+                                address.Value = string.Format("${{{0}_address}}", receiveLocationName);
+                            }
+                            break;
+                    }
+                }
+
+            }
+
+            xBinding.Save(selectedFile.FullName);
+
+            File.WriteAllLines(Path.Combine(selectedFile.DirectoryName, "settings.csv"), list.Select(s => String.Format(@"{0};=""{1}""", s.Key, s.Value.Value)));
+        }
+
     }
 }

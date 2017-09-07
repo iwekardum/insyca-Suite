@@ -1,72 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
 <BtsAdminConfiguration>
   <Hosts>
-    <Host hostname='papp_lo_wh_esb' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_nav' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_nav_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_al' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_al_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_eg' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_eg_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_eg_send_x86' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='true'/>
-    <Host hostname='papp_lo_wh_eg_receive' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_eg_receive_x86' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='true'/>
-    <Host hostname='papp_lo_wh_mb' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_mb_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_sp' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_sp_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_sp_receive' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_ze' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_ze_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='true'/>
-    <Host hostname='papp_lo_wh_ze_receive' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='true'/>
-    <Host hostname='papp_lo_wh_sc' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='papp_lo_wh_sc_send' ntgroupname='PAPP-LOGISTIK\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='tracking_host' ntgroupname='DOMAIN\GROUPNAME' isdefault='true' hosttracking='true' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='isolated_host' ntgroupname='DOMAIN\GROUPNAME' isdefault='false' hosttracking='false' authtrusted='false' hosttype='2' ishost32bitonly='true'/>
+    <Host hostname='inSyca_global_host' ntgroupname='DOMAIN\GROUPNAME' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_send' ntgroupname='DOMAIN\GROUPNAME' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_receive' ntgroupname='DOMAIN\GROUPNAME' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
   </Hosts>
   <HostInstances>
-    <HostInstance servername='.' hostname='papp_lo_wh_esb' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_nav' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_nav_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_al' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_al_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_eg' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_eg_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_eg_send_x86' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_eg_receive' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_eg_receive_x86' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_mb' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_mb_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_sp' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_sp_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_sp_receive' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_ze' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_ze_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_ze_receive' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_sc' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
-    <HostInstance servername='.' hostname='papp_lo_wh_sc_send' username='PAPP-LOGISTIK\DEV-svcBIZhost' password='PAPPBiztlk_2016__' startinstance='true'/>
+    <HostInstance servername='.' hostname='tracking_host' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
+    <HostInstance servername='.' hostname='isolated_host' username='PAPP-LOGISTIK\DEV-svcBIZisolatedho' password='***PASSWORD***' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_host' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_send' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_receive' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
   </HostInstances>
   <Adapters>
     <Adapter name='FILE' type='FILE' comment='FILE adapter'>
-      <ReceiveHandler hostname='papp_lo_wh_eg_receive'/>
-      <SendHandler hostname='papp_lo_wh_eg_send'/>
-      <SendHandler hostname='papp_lo_wh_sc_send'/>
-    </Adapter>
-    <Adapter name='FTP' type='FTP' comment='FTP adapter'>
-      <ReceiveHandler hostname='papp_lo_wh_eg_receive_x86'/>
-      <SendHandler hostname='papp_lo_wh_eg_send_x86'/>
+      <ReceiveHandler hostname='inSyca_global_receive'/>
+      <SendHandler hostname='inSyca_global_send'/>
     </Adapter>
     <Adapter name='WCF-Custom' type='WCF-Custom' comment='WCF-Custom adapter'>
       <ReceiveHandler hostname='inSyca_global_receive'/>
-      <SendHandler hostname='papp_lo_wh_mb_send'/>
-      <SendHandler hostname='papp_lo_wh_nav_send'/>
-      <SendHandler hostname='papp_lo_wh_al_send'/>
+      <SendHandler hostname='inSyca_global_send'/>
     </Adapter>
     <Adapter name='Windows SharePoint Services' type='Windows SharePoint Services' comment='Windows SharePoint Services adapter'>
-      <ReceiveHandler hostname='papp_lo_wh_sp_receive'/>
-      <SendHandler hostname='papp_lo_wh_sp_send'/>
-    </Adapter>
-    <Adapter name='SB-Messaging' type='SB-Messaging' comment='Adapter for communicating with service bus queues and topics.'>
-      <ReceiveHandler hostname='papp_lo_wh_ze_receive'/>
-      <SendHandler hostname='papp_lo_wh_ze_send'/>
+      <SendHandler hostname='inSyca_global_send'/>
     </Adapter>
   </Adapters>
 </BtsAdminConfiguration>

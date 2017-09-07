@@ -19,6 +19,10 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
         Project deploymentProject;
         Project customProject;
         Project documentationProject;
+        Project hostsProject;
+        Project hostsDevProject;
+        Project hostsPrdProject;
+        Project hostsTstProject;
         Project environmentsettingsProject;
         Project ressourcesProject;
         //Project testfilesMainProject;
@@ -51,6 +55,10 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
 
             customProject = solutionFolder.AddSolutionFolder("custom");
             documentationProject = solutionFolder.AddSolutionFolder("documentation");
+            hostsProject = solutionFolder.AddSolutionFolder("hosts");
+            hostsDevProject = ((SolutionFolder)hostsProject.Object).AddSolutionFolder("dev");
+            hostsPrdProject = ((SolutionFolder)hostsProject.Object).AddSolutionFolder("prd");
+            hostsTstProject = ((SolutionFolder)hostsProject.Object).AddSolutionFolder("tst");
             environmentsettingsProject = solutionFolder.AddSolutionFolder("environmentsettings");
             ressourcesProject = solutionFolder.AddSolutionFolder("ressources");
 
@@ -140,6 +148,24 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
             {
                 foreach (var file in dirCustom.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
                     documentationProject.ProjectItems.AddFromFile(file.FullName);
+            }
+
+            foreach (var dirCustom in dirInfoTarget.EnumerateDirectories("hosts", SearchOption.TopDirectoryOnly))
+            {
+                foreach (var file in dirCustom.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                    hostsProject.ProjectItems.AddFromFile(file.FullName);
+
+                foreach (var dirDev in dirCustom.EnumerateDirectories("dev", SearchOption.TopDirectoryOnly))
+                    foreach (var file in dirDev.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                        hostsDevProject.ProjectItems.AddFromFile(file.FullName);
+
+                foreach (var dirPrd in dirCustom.EnumerateDirectories("prd", SearchOption.TopDirectoryOnly))
+                    foreach (var file in dirPrd.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                        hostsPrdProject.ProjectItems.AddFromFile(file.FullName);
+
+                foreach (var dirTst in dirCustom.EnumerateDirectories("tst", SearchOption.TopDirectoryOnly))
+                    foreach (var file in dirTst.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                        hostsTstProject.ProjectItems.AddFromFile(file.FullName);
             }
 
             foreach (var dirCustom in dirInfoTarget.EnumerateDirectories("environmentsettings", SearchOption.TopDirectoryOnly))

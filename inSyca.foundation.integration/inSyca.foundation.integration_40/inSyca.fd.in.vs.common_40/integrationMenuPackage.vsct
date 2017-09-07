@@ -93,8 +93,8 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>Set to public</ButtonText>
-          <ToolTipText>Set ports and messages to public visibility</ToolTipText>
+          <ButtonText>Process placeholder</ButtonText>
+          <ToolTipText>Process portbindings to settings placeholder</ToolTipText>
         </Strings>
       </Button>
       <Button guid="guidProjectContextMenuPackageCmdSet" id="GACMenuItemId" priority="0x0100" type="Button">
