@@ -9,7 +9,7 @@
   </Hosts>
   <HostInstances>
     <HostInstance servername='.' hostname='tracking_host' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
-    <HostInstance servername='.' hostname='isolated_host' username='PAPP-LOGISTIK\DEV-svcBIZisolatedho' password='***PASSWORD***' startinstance='true'/>
+    <HostInstance servername='.' hostname='isolated_host' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_host' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_send' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_receive' username='DOMAIN\USERNAME' password='***PASSWORD***' startinstance='true'/>

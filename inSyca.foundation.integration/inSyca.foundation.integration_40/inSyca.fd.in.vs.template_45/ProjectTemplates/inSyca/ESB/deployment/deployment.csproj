@@ -52,8 +52,8 @@
     <Content Include="ressources\product.ico" />
     <Content Include="hosts\BiztalkConfigLoader.exe" />
     <Content Include="hosts\dev\btsadminconfiguration.xml" />
-    <Content Include="hosts\prod\btsadminconfiguration.xml" />
-    <Content Include="hosts\test\btsadminconfiguration.xml" />
+    <Content Include="hosts\prd\btsadminconfiguration.xml" />
+    <Content Include="hosts\tst\btsadminconfiguration.xml" />
     <Content Include="BuildDebugMsi.bat" />
     <Content Include="BuildReleaseMsi.bat" />
     <Content Include="custom\BizTalkDeploymentFramework.ServerExecute.targets" />
