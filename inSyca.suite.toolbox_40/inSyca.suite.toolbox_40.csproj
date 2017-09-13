@@ -77,6 +77,7 @@
     <None Include="batch\deleteService.cmd" />
     <None Include="batch\updateService.cmd" />
     <Content Include="biztalk\2013R2\configureSchemaGenerator.cmd" />
+    <Content Include="biztalk\2013R2\inSycaBizTalkConfiguration.xml" />
     <Content Include="biztalk\2016\inSycaBizTalkConfiguration.xml" />
     <Content Include="biztalk\2016\configureSchemaGenerator.cmd" />
     <None Include="biztalk\CreateLocalUsersAndGroupsForBiztalk.ps1" />
@@ -88,9 +89,10 @@
     <None Include="documentation\WCF.rtf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="biztalk\sqlJOB_Backup_BizTalk_Server.txt" />
-    <Content Include="biztalk\sqlJOB_MessageBox_Message_Cleanup.txt" />
-    <Content Include="biztalk\btsadminconfiguration.xml" />
+    <None Include="biztalk\BiztalkConfigLoader.exe" />
+    <None Include="biztalk\sqlJOB_Backup_BizTalk_Server.txt" />
+    <None Include="biztalk\sqlJOB_MessageBox_Message_Cleanup.txt" />
+    <None Include="biztalk\btsadminconfiguration.xml" />
     <Content Include="cfg\filesystem.xml" />
     <Content Include="cfg\substitute.xml" />
     <Content Include="documentation\licence.txt">
