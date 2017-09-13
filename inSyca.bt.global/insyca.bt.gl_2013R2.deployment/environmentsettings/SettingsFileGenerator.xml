@@ -356,8 +356,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s78"><Data ss:Type="String">bt_app_name</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">inSyca.bt.gl</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">inSyca.bt.gl</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">BizTalk.Global</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">BizTalk.Global</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
