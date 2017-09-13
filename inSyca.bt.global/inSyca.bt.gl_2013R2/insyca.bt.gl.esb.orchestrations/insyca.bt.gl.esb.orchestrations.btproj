@@ -110,6 +110,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <XLang Include="..\..\insyca.bt.gl.esb.orchestrations\global_10.odx">
+      <Link>global_10.odx</Link>
+      <TypeName>global_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
     <Content Include="..\..\insyca.bt.gl.esb.orchestrations\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
@@ -118,23 +124,6 @@
     <None Include="..\..\insyca.bt.gl.esb.orchestrations\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />

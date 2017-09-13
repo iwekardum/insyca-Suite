@@ -12,6 +12,26 @@
     <AssemblyName>inSyca.bt.gl.mb.orchestrations</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <BpelCompliance>True</BpelCompliance>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,17 +92,35 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\inSyca.bt.gl.mb.services\inSyca.bt.gl.mb.services.btproj">
+      <Project>{d5c81594-bc89-4c34-8943-db9e32bf31f3}</Project>
+      <Name>inSyca.bt.gl.mb.services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <XLang Include="diagnostics\logMessage.odx">
       <TypeName>logMessage</TypeName>
       <Namespace>inSyca.bt.gl.mb.orchestrations.diagnostics</Namespace>
       <SubType>Task</SubType>
     </XLang>
   </ItemGroup>
-  <ItemGroup>
+<ItemGroup>
     <ProjectReference Include="..\inSyca.bt.gl.mb.services\inSyca.bt.gl.mb.services.btproj">
       <Project>{d5c81594-bc89-4c34-8943-db9e32bf31f3}</Project>
       <Name>inSyca.bt.gl.mb.services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">

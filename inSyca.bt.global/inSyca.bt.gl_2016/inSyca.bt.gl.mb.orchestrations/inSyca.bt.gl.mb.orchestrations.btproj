@@ -58,6 +58,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.esb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>..\..\insyca.bt.gl.esb.schemas\inSyca.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="inSyca.fd.co.cp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
     <Reference Include="System">
@@ -100,6 +103,12 @@
       <Namespace>inSyca.bt.gl.mb.orchestrations.diagnostics</Namespace>
       <SubType>Task</SubType>
     </XLang>
+  </ItemGroup>
+<ItemGroup>
+    <ProjectReference Include="..\inSyca.bt.gl.mb.services\inSyca.bt.gl.mb.services.btproj">
+      <Project>{d5c81594-bc89-4c34-8943-db9e32bf31f3}</Project>
+      <Name>inSyca.bt.gl.mb.services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
