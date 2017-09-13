@@ -106,7 +106,6 @@
                     <om:Property Name="Name" Value="cst_msg_inSyca.item.fn_out" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="98497eba-c526-40e2-86cd-bb0239cf2876" ParentLink="ComplexStatement_Statement" LowerBound="38.1" HigherBound="40.1">
-                        <om:Property Name="ClassName" Value="inSyca.item.ns.maps.inSyca.item.fn_in_to_inSyca.item.fn_out" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="tsf_inSyca.item.fn_in_to_inSyca.item.fn_out" />
                         <om:Property Name="Signal" Value="True" />
