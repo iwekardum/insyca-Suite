@@ -12,15 +12,15 @@
   <LastAuthor>Iwe Kardum</LastAuthor>
   <LastPrinted>2003-10-20T13:03:55Z</LastPrinted>
   <Created>2003-10-18T03:55:53Z</Created>
-  <LastSaved>2016-04-08T10:15:46Z</LastSaved>
+  <LastSaved>2017-09-13T12:31:01Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <RelyOnVML/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7080</WindowHeight>
-  <WindowWidth>20490</WindowWidth>
+  <WindowHeight>7305</WindowHeight>
+  <WindowWidth>7650</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>151</TabRatio>
@@ -211,7 +211,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Settings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="98" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="83" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="98.25" ss:DefaultRowHeight="12">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="432"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="726.75"/>
@@ -404,7 +404,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s78"><Data ss:Type="String">bt_sp_Tracking</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="Number">255</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">204</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -412,7 +412,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s78"><Data ss:Type="String">bt_rp_Tracking</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="Number">255</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">51</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -667,7 +667,7 @@
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">AX Services</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Services</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
@@ -683,7 +683,7 @@
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_service_identity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">service_identity</Data></Cell>
     <Cell ss:StyleID="s81" ss:HRef="mailto:munich@sunato.de"><Data ss:Type="String">munich@sunato.de</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -691,7 +691,7 @@
     <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_credential_domain</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">credential_domain</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">muc.sunato.de</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -699,7 +699,7 @@
     <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_credential_username</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">credential_username</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">user</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -707,7 +707,7 @@
     <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ax_credential_password</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">credential_password</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">password</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -747,22 +747,46 @@
     <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s63">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">rl_mp_sp_en1_status_in_file_address</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">d:\biztalk_exchange\en1\receive\</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">&#45;&#45;- RL_INSYCA_SUITE_BT_GENERIC_WCF_CUSTOM &#45;&#45;-</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String"></Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s63">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">rl_mp_sp_en1_status_in_file_fileMask</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">status_*.xml</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">rl_insyca_suite_bt_generic_wcf_custom_address</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">net.tcp://localhost/insyca.suite/SendToMsgBox.svc</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s63">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">&#45;&#45;- RL_INSYCA_SUITE_BT_GENERIC_FILE &#45;&#45;-</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s63">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">rl_insyca_suite_bt_generic_file_address</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">C:\BT_TEST\_REAPPLY\</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">rl_insyca_suite_bt_generic_file_filemask</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">*.xml</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:Height="12.75">
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -770,23 +794,7 @@
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">rl_mm_msmq_address</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">FORMATNAME:DIRECT=OS:.\PRIVATE$\FROM_EN1</Data></Cell>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="6.75">
+   <Row ss:Height="15">
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s75"/>
@@ -802,7 +810,7 @@
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="6">
+   <Row ss:Height="15">
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
@@ -811,72 +819,6 @@
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_gl_mb_wcf_custom_address</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">net.tcp://localhost:8878/IMessageBroker</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_gl_mb_wcf_custom_action</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">BtsActionMapping xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&amp;amp;gt;&#10;  &amp;amp;lt;Operation Name=&quot;getVersion&quot; Action=&quot;http://www.inSyca.com/IMessageBroker/GetVersion&quot; /&amp;amp;gt;&#10;  &amp;amp;lt;Operation Name=&quot;logMessage&quot; Action=&quot;http://www.inSyca.com/IMessageBroker/LogMessage&quot; /&amp;amp;gt;&#10;&amp;amp;lt;/BtsActionMapping</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s63">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_mp_sp_en3_wcf_custom_address</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="https://etl-ws-test.sunato.de/ws/webservice.php"><Data
-      ss:Type="String">https://etl-ws-test.sunato.de/ws/webservice.php</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625" ss:StyleID="s63">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_mp_sp_en3_wcf_custom_operation_host</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="https://etl-ws-test.sunato.de/ws/webservice.php"><Data
-      ss:Type="String">https://etl-ws-test.sunato.de/ws/webservice.php</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_mp_sp_en3_request_file_archive_address</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">d:\biztalk_exchange\en2\archive\</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_mp_sp_en3_request_file_archive_fileName</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">request_%datetime_bts2000%_%MessageID%.xml</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s81"/>
@@ -884,9 +826,49 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s81"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">&#45;&#45;- SP_INSYCA_SUITE_BT_SUPPORTINFO_WSS &#45;&#45;-</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_insyca_suite_bt_supportinfo_wss_address</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">wsss://sharepoint.inSyca.com:443/support/biztalk</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_insyca_suite_bt_supportinfo_wss_siteurl</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">https://sharepoint.insyca.com/support/</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_insyca_suite_bt_supportinfo_wss_wssLocation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">biztalk</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_insyca_suite_bt_supportinfo_wss_filename</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">%MessageID%.xml</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:Height="12.75">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">sp_insyca_suite_bt_supportinfo_wss_uri</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">wsss://sharepoint.insyca.com:443/support/biztalk</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="Default"/>
@@ -895,110 +877,6 @@
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -1043,9 +921,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>23</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R15:R18</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
