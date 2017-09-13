@@ -17,7 +17,7 @@
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>
-        <ProjectTemplateLink ProjectName="$safeprojectname$.services">pipelines\mytemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.pipelines">pipelines\mytemplate.vstemplate</ProjectTemplateLink>
     </ProjectCollection>
   </TemplateContent>
   <WizardExtension>

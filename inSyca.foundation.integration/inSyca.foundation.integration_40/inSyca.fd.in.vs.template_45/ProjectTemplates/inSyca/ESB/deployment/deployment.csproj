@@ -63,7 +63,7 @@
     <Content Include="documentation\ReleaseNotes.rtf" />
     <Content Include="License.rtf">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
