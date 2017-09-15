@@ -158,11 +158,11 @@
     <Content Include="..\inSyca.fd.in.vs.common_40\Resources\logo_64x64.png">
       <Link>Resources\logo_64x64.png</Link>
     </Content>
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\Definitions\CSharp.vstemplate" />
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\logo_64x64.png" />
+    <Content Include="ItemTemplates\inSyca\orchestrations\query\_preprocess.xml" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\Definitions\CSharp.vstemplate" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\logo_64x64.png" />
-    <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\orchestration.odx">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="ItemTemplates\inSyca\orchestrations\simplelogging\_preprocess.xml" />
     <Content Include="..\..\..\inSyca.suite.toolbox_40\documentation\ReleaseNotes_Integration_Extensions.rtf">
       <Link>ReleaseNotes_Integration_Extensions.rtf</Link>
@@ -173,9 +173,6 @@
     <None Include="inSyca.snk" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simple\Definitions\CSharp.vstemplate" />
     <Content Include="ItemTemplates\inSyca\orchestrations\simple\logo_64x64.png" />
-    <Content Include="ItemTemplates\inSyca\orchestrations\simple\orchestration.odx">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="ItemTemplates\inSyca\orchestrations\simple\_preprocess.xml" />
     <Content Include="ProjectTemplates\inSyca\Entity\Definitions\CSharp.vstemplate">
       <SubType>Designer</SubType>
@@ -201,6 +198,16 @@
     <Content Include="ProjectTemplates\inSyca\ESB\schemas\_preprocess.xml" />
     <Content Include="ProjectTemplates\inSyca\ESB\unittest\mytemplate.vstemplate" />
     <Content Include="ProjectTemplates\inSyca\ESB\unittest\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\Pipelines\Definitions\CSharp.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\Pipelines\logo_64x64.png" />
+    <Content Include="ProjectTemplates\inSyca\Pipelines\pipelines\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\Pipelines\pipelines\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\Pipelines\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\Services\Definitions\CSharp.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\Services\logo_64x64.png" />
+    <Content Include="ProjectTemplates\inSyca\Services\services\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\Services\services\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\Services\_preprocess.xml" />
     <Content Include="ProjectTemplates\inSyca\Utility\Definitions\CSharp.vstemplate" />
     <Content Include="ProjectTemplates\inSyca\Utility\deployment\mytemplate.vstemplate" />
     <Content Include="ProjectTemplates\inSyca\Utility\deployment\_preprocess.xml" />

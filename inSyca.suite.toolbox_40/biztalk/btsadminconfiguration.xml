@@ -9,7 +9,7 @@
   </Hosts>
   <HostInstances>
 		<HostInstance servername='.' hostname='tracking' username='svc_biz.host' password='*******' startinstance='true'/>
-		<HostInstance servername='.' hostname='isolated' username='svc_biz.isohost' password='*******' startinstance='true'/>
+		<HostInstance servername='.' hostname='isolated' username='svc_biz.isohost' password='*******' startinstance='false'/>
 		<HostInstance servername='.' hostname='inSyca_global' username='svc_biz.host' password='*******' startinstance='true'/>
 		<HostInstance servername='.' hostname='inSyca_global_send' username='svc_biz.host' password='*******' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_receive' username='svc_biz.host' password='*******' startinstance='true'/>
@@ -20,7 +20,6 @@
       <ReceiveHandler hostname='inSyca_global_receive'/>
     </Adapter>
     <Adapter name='File' type='File' comment='FILE adapter'>
-      <SendHandler hostname='inSyca_global_send'/>
       <ReceiveHandler hostname='inSyca_global_receive'/>
     </Adapter>
     <Adapter name='Windows SharePoint Services' type='Windows SharePoint Services' comment='Windows SharePoint Services adapter'>
