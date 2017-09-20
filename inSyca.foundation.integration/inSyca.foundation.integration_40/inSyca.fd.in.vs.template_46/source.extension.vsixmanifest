@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="95f1a8e8-20b7-4815-a000-08f0d3183cde" Version="1.0.1" Language="en-US" Publisher="Iwe Kardum" />
+    <Identity Id="95f1a8e8-20b7-4815-a000-08f0d3183cde" Version="1.0.3" Language="en-US" Publisher="Iwe Kardum" />
     <DisplayName>inSyca Extension for BizTalk Solutions</DisplayName>
     <Description xml:space="preserve">Visual Studio Extension for inSyca BizTalk Solutions. 
 (Contains templates, items and menus for "Deployment", "Unittest", "Schemas", "Maps", "Orchestrations") </Description>
