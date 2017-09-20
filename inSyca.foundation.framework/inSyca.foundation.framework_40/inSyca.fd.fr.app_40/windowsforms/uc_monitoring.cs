@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Linq;
 using System.Resources;
 using System.Reflection;
 using System.Configuration.Install;
@@ -44,6 +45,17 @@ namespace inSyca.foundation.framework.application.windowsforms
                         break;
                 }
             }
+
+            XElement xSmtpMonitoringAppender = (from SmtpMonitoringAppender in xDocument.Descendants("appender")
+                                                where SmtpMonitoringAppender.Attribute("name").Value == "SmtpMonitoringAppender"
+                                                select SmtpMonitoringAppender).FirstOrDefault();
+
+            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("smtpHost").FirstOrDefault()));
+            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("port").FirstOrDefault()));
+            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("authentication").FirstOrDefault()));
+            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("username").FirstOrDefault()));
+            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("password").FirstOrDefault()));
+            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("EnableSsl").FirstOrDefault()));
 
             timeout = TimeSpan.FromMilliseconds(20000);
             service = new ServiceController(ServiceName);

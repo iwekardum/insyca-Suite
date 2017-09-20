@@ -442,6 +442,24 @@ namespace inSyca.foundation.framework.application.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SMTP Settings.
+        /// </summary>
+        public static string setting_SmtpMonitoring {
+            get {
+                return ResourceManager.GetString("setting_SmtpMonitoring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP Settings.
+        /// </summary>
+        public static string setting_SmtpMonitoring_Caption {
+            get {
+                return ResourceManager.GetString("setting_SmtpMonitoring_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SystemSource of WMI Events~Separate multiple sources with semicolon.
         /// </summary>
         public static string systemsource {
