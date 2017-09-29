@@ -85,6 +85,28 @@ namespace inSyca.foundation.framework.application.windowsforms
             return foundationProperty;
         }
 
+        protected FoundationProperty transformSMTPSettingsXnode(XElement xNode)
+        {
+            FoundationProperty foundationProperty = new FoundationProperty();
+
+            foundationProperty.xElement = xNode;
+            foundationProperty.propValueName = xNode.Name.ToString();
+            foundationProperty.propName = xNode.Attribute("value").Name.ToString();
+            foundationProperty.propValue = xNode.Attribute("value").Value;
+            foundationProperty.propCat = Properties.Resources.setting_SmtpMonitoring_Caption;
+            foundationProperty.propType = PropertyComponent.GetValueType(xNode.Attribute("value").Value);
+            foundationProperty.isExpandable = false;
+            foundationProperty.isReadOnly = false;
+
+            try
+            {
+                foundationProperty.propDesc = application.Properties.Resources.ResourceManager.GetString(xNode.Name.ToString().ToLower()).Replace('~', '\n');
+            }
+            catch { }
+
+            return foundationProperty;
+        }
+
         protected FoundationProperty transformMailMessageFromXnode(XElement xNode)
         {
             FoundationProperty foundationProperty = new FoundationProperty();
