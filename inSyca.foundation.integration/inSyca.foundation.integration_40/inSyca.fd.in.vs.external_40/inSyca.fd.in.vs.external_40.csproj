@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bindings.cs" />
     <Compile Include="btdf.cs" />
     <Compile Include="dialog\gacDialog.cs">
       <SubType>Form</SubType>
