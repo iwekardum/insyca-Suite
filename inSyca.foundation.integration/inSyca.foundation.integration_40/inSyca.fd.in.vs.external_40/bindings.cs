@@ -191,18 +191,20 @@ namespace inSyca.foundation.integration.visualstudio.external
             customProps.SetElementValue("MaxReceivedMessageSize", "${sb_maxReceivedMessageSize}");
 
             XElement SharedAccessKeyName = customProps.Element("SharedAccessKeyName");
-            XElement SharedAccessKey = customProps.Element("SharedAccessKey");
+            // Doesn't work, breaks import of binding. Think it's because of the characters used for SAS
+            //XElement SharedAccessKey = customProps.Element("SharedAccessKey");
 
-            if (SharedAccessKey == null)
-                SharedAccessKey = new XElement("SharedAccessKey");
+            //if (SharedAccessKey != null)
+            //    customProps.
+            //    SharedAccessKey = new XElement("SharedAccessKey");
 
             list.Add(string.Format("{0}_sharedAccessKeyName", sendPortName), new XElement(SharedAccessKeyName));
-            list.Add(string.Format("{0}_sharedAccessKey", sendPortName), new XElement(SharedAccessKey));
+            //list.Add(string.Format("{0}_sharedAccessKey", sendPortName), new XElement(SharedAccessKey));
 
             customProps.SetElementValue("SharedAccessKeyName", string.Format("${{{0}_sharedAccessKeyName}}", sendPortName));
-            customProps.SetElementValue("SharedAccessKey", string.Format("${{{0}_sharedAccessKey}}", sendPortName));
+            //customProps.SetElementValue("SharedAccessKey", string.Format("${{{0}_sharedAccessKey}}", sendPortName));
 
-            transportTypeData.Value = customProps.ToString();
+            transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void ReceiveLocation_SB(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
@@ -217,18 +219,18 @@ namespace inSyca.foundation.integration.visualstudio.external
             customProps.SetElementValue("MaxReceivedMessageSize", "${sb_maxReceivedMessageSize}");
 
             XElement SharedAccessKeyName = customProps.Element("SharedAccessKeyName");
-            XElement SharedAccessKey = customProps.Element("SharedAccessKey");
+            //XElement SharedAccessKey = customProps.Element("SharedAccessKey");
 
-            if (SharedAccessKey == null)
-                SharedAccessKey = new XElement("SharedAccessKey");
+            //if (SharedAccessKey == null)
+            //    SharedAccessKey = new XElement("SharedAccessKey");
 
             list.Add(string.Format("{0}_sharedAccessKeyName", receiveLocationName), new XElement(SharedAccessKeyName));
-            list.Add(string.Format("{0}_sharedAccessKey", receiveLocationName), new XElement(SharedAccessKey));
+            //list.Add(string.Format("{0}_sharedAccessKey", receiveLocationName), new XElement(SharedAccessKey));
 
             customProps.SetElementValue("SharedAccessKeyName", string.Format("${{{0}_sharedAccessKeyName}}", receiveLocationName));
-            customProps.SetElementValue("SharedAccessKey", string.Format("${{{0}_sharedAccessKey}}", receiveLocationName));
+            //customProps.SetElementValue("SharedAccessKey", string.Format("${{{0}_sharedAccessKey}}", receiveLocationName));
 
-            receiveLocationTransportTypeData.Value = customProps.ToString();
+            receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void ReceiveLocation_WCF_Custom(XElement receiveLocation, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
@@ -247,7 +249,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             binding.SetAttributeValue("sendTimeout", "${wcf_sendTimeout}");
 
             bindingConfiguration.Value = binding.ToString();
-            receiveLocationTransportTypeData.Value = customProps.ToString();
+            receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void ReceiveLocation_Sharepoint(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
@@ -272,7 +274,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             uri.Value = string.Format("${{{0}_uri}}", receiveLocationName);
 
             adapterConfig.Value = config.ToString();
-            receiveLocationTransportTypeData.Value = customProps.ToString();
+            receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void ReceiveLocation_FTP(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
@@ -303,7 +305,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             config.SetElementValue("ssoAffiliateApplication", string.Format("${{{0}_ssoaffiliateapplication}}", receiveLocationName));
 
             adapterConfig.Value = config.ToString();
-            receiveLocationTransportTypeData.Value = customProps.ToString();
+            receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void SendPort_WCF_Custom(XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
@@ -322,7 +324,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             binding.SetAttributeValue("sendTimeout", "${wcf_sendTimeout}");
 
             bindingConfiguration.Value = binding.ToString();
-            transportTypeData.Value = customProps.ToString();
+            transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void SendPort_Sharepoint(Dictionary<string, XElement> list, XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
@@ -347,7 +349,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             uri.Value = string.Format("${{{0}_uri}}", sendPortName);
 
             adapterConfig.Value = config.ToString();
-            transportTypeData.Value = customProps.ToString();
+            transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void SendPort_FTP(Dictionary<string, XElement> list, XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
@@ -379,7 +381,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             ssoAffiliateApplication.Value = string.Format("${{{0}_ssoaffiliateapplication}}", sendPortName);
 
             adapterConfig.Value = config.ToString();
-            transportTypeData.Value = customProps.ToString();
+            transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void ReceiveLocation_File(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
@@ -394,7 +396,7 @@ namespace inSyca.foundation.integration.visualstudio.external
 
             FileMask.Value = string.Format("${{{0}_filemask}}", receiveLocationName);
 
-            receiveLocationTransportTypeData.Value = customProps.ToString();
+            receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
         private static void SendPort_File(Dictionary<string, XElement> list, XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
@@ -409,7 +411,7 @@ namespace inSyca.foundation.integration.visualstudio.external
 
             fileName.Value = string.Format("${{{0}_fileName}}", sendPortName);
 
-            transportTypeData.Value = customProps.ToString();
+            transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
     }
