@@ -192,10 +192,10 @@ namespace inSyca.foundation.integration.visualstudio.external
 
             XElement SharedAccessKeyName = customProps.Element("SharedAccessKeyName");
             // Doesn't work, breaks import of binding. Think it's because of the characters used for SAS
-            //XElement SharedAccessKey = customProps.Element("SharedAccessKey");
+            XElement SharedAccessKey = customProps.Element("SharedAccessKey");
 
-            //if (SharedAccessKey != null)
-            //    customProps.
+            if (SharedAccessKey != null)
+                SharedAccessKey.Remove();
             //    SharedAccessKey = new XElement("SharedAccessKey");
 
             list.Add(string.Format("{0}_sharedAccessKeyName", sendPortName), new XElement(SharedAccessKeyName));
@@ -212,17 +212,16 @@ namespace inSyca.foundation.integration.visualstudio.external
             address.Value = string.Format("${{{0}_address}}", receiveLocationName);
 
             customProps.SetElementValue("SessionIdleTimeout", "${sb_sessionIdleTimeout}");
-            customProps.SetElementValue("BatchFlushInterval", "${sb_batchFlushInterval}");
             customProps.SetElementValue("OpenTimeout", "${sb_openTimeout}");
             customProps.SetElementValue("CloseTimeout", "${sb_closeTimeout}");
             customProps.SetElementValue("SendTimeout", "${sb_sendTimeout}");
             customProps.SetElementValue("MaxReceivedMessageSize", "${sb_maxReceivedMessageSize}");
 
             XElement SharedAccessKeyName = customProps.Element("SharedAccessKeyName");
-            //XElement SharedAccessKey = customProps.Element("SharedAccessKey");
+            XElement SharedAccessKey = customProps.Element("SharedAccessKey");
 
-            //if (SharedAccessKey == null)
-            //    SharedAccessKey = new XElement("SharedAccessKey");
+            if (SharedAccessKey != null)
+                SharedAccessKey.Remove();
 
             list.Add(string.Format("{0}_sharedAccessKeyName", receiveLocationName), new XElement(SharedAccessKeyName));
             //list.Add(string.Format("{0}_sharedAccessKey", receiveLocationName), new XElement(SharedAccessKey));
