@@ -210,3 +210,5 @@ ModelManifest.xml
 /inSyca.bt.global/insyca.bt.gl.documentation/Help/styles
 /inSyca.bt.global/insyca.bt.gl.documentation/Help/scripts
 /.vs/config
+/bfg.jar
+/inSyca.suite.unittest_40/Testfiles/settings.csv

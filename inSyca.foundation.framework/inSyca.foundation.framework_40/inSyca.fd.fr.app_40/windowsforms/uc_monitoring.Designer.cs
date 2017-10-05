@@ -44,6 +44,8 @@
             // propertySetting
             // 
             this.propertySetting.Size = new System.Drawing.Size(586, 420);
+            this.propertySetting.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            this.propertySetting.ToolbarVisible = false;
             // 
             // sc_monitoring
             // 
