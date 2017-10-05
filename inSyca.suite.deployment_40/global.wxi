@@ -2,7 +2,7 @@
 <Include>
   <?define upgradeId = "{E21C7181-41BA-4671-A22C-04823489D7D0}" ?>
   <?define setupId = "{2F67BB43-685B-4121-860B-054EE2FECCB9}" ?>
-  <?define productVersion = "1.0.1" ?>
+  <?define productVersion = "1.0.2" ?>
   <?define productNameExtension = "for VS 2013" ?>
   <?define productName = "inSyca Suite" ?>
   <?define appName = "NONE" ?>

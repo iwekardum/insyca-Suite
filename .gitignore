@@ -212,3 +212,4 @@ ModelManifest.xml
 /.vs/config
 /bfg.jar
 /inSyca.suite.unittest_40/Testfiles/settings.csv
+*.bak
