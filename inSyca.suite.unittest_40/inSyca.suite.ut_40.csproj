@@ -116,6 +116,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Testfiles\simple_001.csv" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Testfiles\binding_001.xml" />
