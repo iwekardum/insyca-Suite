@@ -27,7 +27,7 @@ namespace inSyca.bt.gl.pipelines
 "stageId=\"9d0e4108-4cce-4536-83fa-4a5040674ad6\" />      <Components />    </Stage>  </Stages></Docume"+
 "nt>";
         
-        private const string _versionDependentGuid = "bc8f8802-480b-4704-9fdf-8331af2eaaed";
+        private const string _versionDependentGuid = "00b95602-928c-41df-a732-25d4852c5dfd";
         
         public remove_nil_and_empty_nodes()
         {

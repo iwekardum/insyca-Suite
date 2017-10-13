@@ -18,6 +18,7 @@
     public class FFAttachmentsExtractor : FFDasmComp, IBaseComponent, IComponentUI, IDisassemblerComponent, IPersistPropertyBag
     {
         private string regExReplacement = "\".*?\"";
+        private bool removeEmptyLines = true;
 
         [Browsable(true)]
         public string RegExReplacement
@@ -25,6 +26,14 @@
             get { return regExReplacement; }
             set { regExReplacement = value; }
         }
+
+        [Browsable(true)]
+        public bool RemoveEmptyLines
+        {
+            get { return removeEmptyLines; }
+            set { removeEmptyLines = value; }
+        }
+
 
         #region IBaseComponent Members
         /// <summary>
@@ -93,14 +102,18 @@
             using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
             {
                 object val = null;
+
                 val = PropertyHelper.ReadPropertyBag(propertyBag, "RegExReplacement");
                 if (val != null)
-                {
                     regExReplacement = (string)val;
-                }
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, "RemoveEmptyLines");
+                if (val != null)
+                    removeEmptyLines = (bool)val;
             }
 
             Log.DebugFormat("Load RegExReplacement {0}", regExReplacement);
+            Log.DebugFormat("Load RemoveEmptyLines {0}", removeEmptyLines);
         }
 
         public new void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
@@ -112,11 +125,16 @@
             using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
             {
                 object val = null;
+
                 val = regExReplacement;
                 propertyBag.Write("RegExReplacement", ref val);
+
+                val = removeEmptyLines;
+                propertyBag.Write("RemoveEmptyLines", ref val);
             }
 
             Log.DebugFormat("Save RegExReplacement {0}", regExReplacement);
+            Log.DebugFormat("Save RemoveEmptyLines {0}", removeEmptyLines);
         }
 
         #endregion
@@ -201,38 +219,37 @@
                 }
 
                 Stream ms;
+                StreamReader sr = new StreamReader(currentPartStream);
+                string messageString = sr.ReadToEnd();
+                Log.DebugFormat("messageString before processing{0}", messageString);
 
-                Log.DebugFormat("regExReplacement {0}", regExReplacement);
-
-                if (string.IsNullOrEmpty(regExReplacement))
+                if (removeEmptyLines)
                 {
-                    Log.DebugFormat("No RegExReplacement");
-
-                    ms = new MemoryStream();
-                    currentPartStream.CopyTo(ms);
-                }
-                else
-                {
-                    StreamReader sr = new StreamReader(currentPartStream);
-
-                    string messageString = sr.ReadToEnd();
-
-                    Log.DebugFormat("messageString before processing{0}", messageString);
+                    Log.DebugFormat("removeEmptyLines {0}", removeEmptyLines);
 
                     messageString = messageString.TrimEnd('\r', '\n');
                     messageString = messageString + Environment.NewLine;
-
-                    //                    Regex rgx = new Regex("\".*?\"");
-                    Regex rgx = new Regex(RegExReplacement);
-
-                    messageString = rgx.Replace(messageString, "");
-
-                    Log.DebugFormat("messageString after processing{0}", messageString);
-
-                    byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
-
-                    ms = new MemoryStream(byteArray);
                 }
+
+                if (!string.IsNullOrEmpty(regExReplacement))
+                {
+                    Log.DebugFormat("regExReplacement {0}", regExReplacement);
+                    //                    Regex rgx = new Regex("\".*?\"");
+
+                    try
+                    {
+                        Regex rgx = new Regex(RegExReplacement);
+                        messageString = rgx.Replace(messageString, "");
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("RegExReplacement Error {0}", ex);
+                    }
+                }
+
+                Log.DebugFormat("messageString after processing{0}", messageString);
+                byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
+                ms = new MemoryStream(byteArray);
 
                 ms.Seek(0, SeekOrigin.Begin);
                 outMsg.AddPart("Body", pipelineContext.GetMessageFactory().CreateMessagePart(), true);

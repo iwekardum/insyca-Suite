@@ -331,7 +331,7 @@
 
   <Target Name="CustomPostInstaller">
     <Copy SourceFiles="..\insyca.bt.gl.esb.schemas\_documentation\ReleaseNotes.rtf" DestinationFolder="$(TargetDir)" ContinueOnError="true" />
-    <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\insyca\insyca.bt.global&quot;" ContinueOnError="true" />
+    <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\insyca\insyca.bt.global&quot; &quot;$(MSBuildProjectDirectory)\hosts\*.*&quot;" ContinueOnError="true" />
   </Target>
 
 </Project>
