@@ -89,10 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\insyca.bt.gl.esb.schemas\generic\identification_10.cs">
-      <Link>identification_10.cs</Link>
-      <DependentUpon>identification_10.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,55 +104,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\batch_10.xsd">
-      <Link>batch_10.xsd</Link>
-      <TypeName>batch_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\processinginfo_10.xsd">
-      <Link>processinginfo_10.xsd</Link>
-      <TypeName>processinginfo_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\status_10.xsd">
-      <Link>status_10.xsd</Link>
-      <TypeName>status_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\supportinfo_10.xsd">
-      <Link>supportinfo_10.xsd</Link>
-      <TypeName>supportinfo_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\query_10.xsd">
-      <Link>query_10.xsd</Link>
-      <TypeName>query_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\properties.xsd">
-      <Link>properties.xsd</Link>
-      <TypeName>properties</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\identification_10.xsd">
-      <Link>identification_10.xsd</Link>
-      <TypeName>identification_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
     <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>

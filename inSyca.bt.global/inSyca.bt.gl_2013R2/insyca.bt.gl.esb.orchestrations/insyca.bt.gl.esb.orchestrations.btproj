@@ -104,9 +104,9 @@
     </XLang>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\insyca.bt.gl.esb.schemas.ge\insyca.bt.gl.esb.schemas.ge.btproj">
+    <ProjectReference Include="..\insyca.bt.gl.esb.schemas.ge\insyca.bt.gl.esb.schemas.btproj">
       <Project>{9d813f25-b8e6-4ccf-a0d1-a27bb221c29d}</Project>
-      <Name>insyca.bt.gl.esb.schemas.ge</Name>
+      <Name>insyca.bt.gl.esb.schemas</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
