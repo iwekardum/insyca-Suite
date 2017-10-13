@@ -12,3 +12,4 @@ set Sec=%dt:~12,2%
 set stamp=%YYYY%-%MM%-%DD%
 
 xcopy /S /E /I /Y %1 %2\%stamp%
+xcopy /S /E /I /Y %3 %2\%stamp%\hosts

@@ -56,6 +56,12 @@
       <SubType>Task</SubType>
     </XLang>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\insyca.bt.gl.esb.schemas\inSyca.bt.gl.esb.schemas.csproj">
+      <Project>{9302ad9e-4feb-427d-8d3e-b7e17a65dbac}</Project>
+      <Name>inSyca.bt.gl.esb.schemas</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

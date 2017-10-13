@@ -145,12 +145,6 @@
       <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\properties.xsd">
-      <Link>properties.xsd</Link>
-      <TypeName>properties</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.generic</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
     <Schema Include="..\..\insyca.bt.gl.esb.schemas\generic\identification_10.xsd">
       <Link>identification_10.xsd</Link>
       <TypeName>identification_10</TypeName>

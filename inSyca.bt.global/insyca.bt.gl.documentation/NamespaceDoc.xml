@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns="http://schemas.xsddoc.codeplex.com/schemaDoc/2009/3"
+     xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <namespace>
+    <name>http://insyca.bt.gl.esb.schemas.generic_10</name>
+  </namespace>
+  <members>
+    <member uri="##Namespace">
+      <ddue:summary>
+        <ddue:para>
+          Description of the namespace (external).
+        </ddue:para>
+      </ddue:summary>
+    </member>
+  </members>
+</doc>

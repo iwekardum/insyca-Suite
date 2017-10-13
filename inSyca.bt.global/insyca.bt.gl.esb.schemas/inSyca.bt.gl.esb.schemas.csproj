@@ -44,6 +44,21 @@
     <AssemblyOriginatorKeyFile>insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="entities.business\accounting_10.xsd" />
+    <None Include="entities.business\finance_10.xsd" />
+    <None Include="entities.business\logistics_10.xsd" />
+    <None Include="entities.business\procurement_10.xsd" />
+    <None Include="entities.business\production_10.xsd" />
+    <None Include="entities.business\sales_10.xsd" />
+    <None Include="entities.business\warehouse_10.xsd" />
+    <None Include="entities\goods_10.xsd" />
+    <None Include="entities\government_10.xsd" />
+    <None Include="entities\monetary_10.xsd" />
+    <None Include="entities\physical.xsd" />
+    <None Include="entities\roles_10.xsd" />
+    <None Include="entities.business\template_10.xsd" />
+    <None Include="entities\event_10.xsd" />
+    <None Include="entities\contact_10.xsd" />
     <None Include="entities.business.accounting\account_10.xsd" />
     <None Include="entities.business.accounting\costcenter_10.xsd" />
     <None Include="entities.business.accounting\costunit_10.xsd" />
@@ -137,7 +152,11 @@
     <None Include="generic\processinginfo_10.xsd" />
     <None Include="generic\identification_10.xsd" />
     <None Include="generic\status_10.xsd" />
+    <None Include="generic_10.xsd" />
     <None Include="insyca.snk" />
+    <Schema Include="properties.xsd">
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="_documentation\License.rtf" />
     <None Include="_documentation\ReleaseNotes.rtf" />
   </ItemGroup>
