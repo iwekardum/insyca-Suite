@@ -104,7 +104,7 @@
       <SubType>Task</SubType>
     </XLang>
   </ItemGroup>
-<ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\inSyca.bt.gl.mb.services\inSyca.bt.gl.mb.services.btproj">
       <Project>{d5c81594-bc89-4c34-8943-db9e32bf31f3}</Project>
       <Name>inSyca.bt.gl.mb.services</Name>

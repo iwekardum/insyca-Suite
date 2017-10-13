@@ -256,3 +256,12 @@ ModelManifest.xml
 /inSyca.bt.global/inSyca.bt.gl_2016/insyca.bt.gl.esb.schemas.en.bu/warehouse_10.xsd.cs
 /inSyca.bt.global/insyca.bt.gl.esb.schemas/properties.xsd.cs
 /inSyca.bt.global/insyca.bt.gl.pipelines/remove_nil_and_empty_nodes.btp.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/accounting_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/finance_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/logistics_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/procurement_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/production_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/sales_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/template_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/entities.business/warehouse_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.esb.schemas/generic_10.xsd.cs

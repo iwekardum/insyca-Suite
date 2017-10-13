@@ -40,12 +40,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.mb.orchestrati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.mb.services", "inSyca.bt.gl_2013R2\inSyca.bt.gl.mb.services\inSyca.bt.gl.mb.services.btproj", "{D5C81594-BC89-4C34-8943-DB9E32BF31F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.ge\insyca.bt.gl.esb.schemas.btproj", "{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en.bu", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.en.bu.wh\insyca.bt.gl.esb.schemas.en.bu.btproj", "{937E93A3-34AC-436D-89FB-CC8991CD8076}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.en.ro\insyca.bt.gl.esb.schemas.en.btproj", "{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_common", "_common", "{308002AE-5FB8-41D0-BE1E-BF05DE245DA0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.esb.schemas", "insyca.bt.gl.esb.schemas\inSyca.bt.gl.esb.schemas.csproj", "{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}"
@@ -59,6 +53,32 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.pipelines", "insyca.bt.gl.pipelines\insyca.bt.gl.pipelines.csproj", "{05AD4D30-AC63-42F4-9B7F-9781127AADD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.pipelines", "inSyca.bt.gl_2013R2\inSyca.bt.gl.pipelines\inSyca.bt.gl.pipelines.btproj", "{C182F238-0FB5-456A-B07E-F094360B2907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas\insyca.bt.gl.esb.schemas.btproj", "{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.en\insyca.bt.gl.esb.schemas.en.btproj", "{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en.bu", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.en.bu\insyca.bt.gl.esb.schemas.en.bu.btproj", "{937E93A3-34AC-436D-89FB-CC8991CD8076}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hosts", "hosts", "{81B5359F-D65F-482A-AD64-082ACBA1B061}"
+	ProjectSection(SolutionItems) = preProject
+		insyca.bt.gl_2013R2.deployment\hosts\BiztalkConfigLoader.exe = insyca.bt.gl_2013R2.deployment\hosts\BiztalkConfigLoader.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dev", "dev", "{D2651F60-C475-42A4-BF79-3574468A8350}"
+	ProjectSection(SolutionItems) = preProject
+		insyca.bt.gl_2013R2.deployment\hosts\dev\btsadminconfiguration.xml = insyca.bt.gl_2013R2.deployment\hosts\dev\btsadminconfiguration.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{43BD4D45-B8FD-41B5-B05F-1E2E6AA11E05}"
+	ProjectSection(SolutionItems) = preProject
+		insyca.bt.gl_2013R2.deployment\hosts\test\btsadminconfiguration.xml = insyca.bt.gl_2013R2.deployment\hosts\test\btsadminconfiguration.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "prod", "prod", "{150D6D08-CFF3-47AB-88C5-0954813824BD}"
+	ProjectSection(SolutionItems) = preProject
+		insyca.bt.gl_2013R2.deployment\hosts\prod\btsadminconfiguration.xml = insyca.bt.gl_2013R2.deployment\hosts\prod\btsadminconfiguration.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,24 +98,6 @@ Global
 		{D5C81594-BC89-4C34-8943-DB9E32BF31F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C81594-BC89-4C34-8943-DB9E32BF31F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5C81594-BC89-4C34-8943-DB9E32BF31F3}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Release|Any CPU.Build.0 = Release|Any CPU
-		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -122,6 +124,24 @@ Global
 		{C182F238-0FB5-456A-B07E-F094360B2907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C182F238-0FB5-456A-B07E-F094360B2907}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C182F238-0FB5-456A-B07E-F094360B2907}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937E93A3-34AC-436D-89FB-CC8991CD8076}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -134,5 +154,9 @@ Global
 		{2AD15402-7B6F-4202-B068-8C4B8E604548} = {02CCA967-F175-4E8D-8119-7EB30BECB2E6}
 		{31B014EF-F310-4262-B69D-F91FF37AA0E6} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
 		{05AD4D30-AC63-42F4-9B7F-9781127AADD9} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
+		{81B5359F-D65F-482A-AD64-082ACBA1B061} = {A02C7809-D14A-4503-A0ED-4828BF8C17FC}
+		{D2651F60-C475-42A4-BF79-3574468A8350} = {81B5359F-D65F-482A-AD64-082ACBA1B061}
+		{43BD4D45-B8FD-41B5-B05F-1E2E6AA11E05} = {81B5359F-D65F-482A-AD64-082ACBA1B061}
+		{150D6D08-CFF3-47AB-88C5-0954813824BD} = {81B5359F-D65F-482A-AD64-082ACBA1B061}
 	EndGlobalSection
 EndGlobal
