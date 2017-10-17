@@ -67,8 +67,8 @@
 
     <!-- NEVER change the ProductUpgradeCode. -->
     <PackageComments>inSyca Global Components for BT 2016</PackageComments>
-    <ProductId>{7920CA7C-860C-49BF-9111-8A5ACB2ABD60}</ProductId>
-    <ProductUpgradeCode>{18E4DF34-CE2A-4468-B8FE-3704646E6391}</ProductUpgradeCode>
+    <ProductId>{68A1D201-4AA7-4444-B449-37FD9FCBB721}</ProductId>
+    <ProductUpgradeCode>{8C2A00F0-6378-43D5-8A87-8393C37E9078}</ProductUpgradeCode>
   </PropertyGroup>
 
   <!-- Under TFS Team Build, set CustomizableOutDir property to true in TFS 2005/2008/2010 UpgradeTemplate. -->
@@ -96,7 +96,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <BizTalkHosts Include="inSyca_global_host" />
+    <BizTalkHosts Include="inSyca_global" />
     <BizTalkHosts Include="inSyca_global_receive" />
     <BizTalkHosts Include="inSyca_global_send" />
   </ItemGroup>
