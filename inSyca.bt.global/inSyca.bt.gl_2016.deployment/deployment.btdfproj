@@ -179,6 +179,9 @@
       <Output TaskParameter="appExists" PropertyName="gl_Exists" />
     </GetBizTalkAppExists>
 
+    <!-- stop biztalk applications -->
+    <ControlBizTalkApp ApplicationName="BizTalk.Global" StopOption="$(ControlBizTalkAppStopOption)" Condition="'$(gl_Exists)' == 'true'" ContinueOnError="true"/>
+
     <!-- create applications -->
     <Exec Command="BTSTask.exe AddApp -ApplicationName:&quot;BizTalk.Global&quot; -Description:&quot;inSyca Global Integration Components&quot;" Condition="'$(gl_Exists)' == 'false'" ContinueOnError="true" />
 
