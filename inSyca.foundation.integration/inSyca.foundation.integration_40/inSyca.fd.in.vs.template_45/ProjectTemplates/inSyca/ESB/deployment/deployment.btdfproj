@@ -8,6 +8,9 @@
 <!-- 
         P L A C E H O L D E R
 
+  ${COMPANY}            = Customer Companyname
+  ${MAINPROCESS}        = Name (Abbreviation) of Mainprocess
+  ${SUBPROCESS}         = Name (Abbreviation) of Subprocess
   ${PRODUCTNAME}        = ProductName
   ${PACKAGEDESCRIPTION} = Packagedescription
   ${PACKAGECOMMENTS}    = PackageComments
@@ -297,7 +300,7 @@
     <!-- start inSyca.esb.root.ns application -->
     <ControlBizTalkApp ApplicationName="inSyca.esb.root.ns" StartOption="StartAll" Condition="'$(main_App_Exists)' == 'true'" ContinueOnError="true"/>
 
-    <!-- start Crevolution Foundation Monitoring (enable monitoring after installation) -->
+    <!-- start inSyca Foundation Monitoring (enable monitoring after installation) -->
     <!-- 
     <Exec Command="net start &quot;Foundation Framework&quot;" ContinueOnError="true"/>
     <Exec Command="net start &quot;Foundation Integration&quot;" ContinueOnError="true"/>
@@ -353,7 +356,7 @@
     <!-- start inSyca.esb.root.ns application -->
     <ControlBizTalkApp ApplicationName="inSyca.esb.root.ns" StartOption="StartAll" Condition="'$(main_App_Exists)' == 'true'" ContinueOnError="true"/>
 
-    <!-- start Crevolution Foundation Monitoring (enable monitoring after deinstallation) -->
+    <!-- start inSyca Foundation Monitoring (enable monitoring after deinstallation) -->
     <!--
     <Exec Command="net start &quot;Foundation Framework&quot;" ContinueOnError="true"/>
     <Exec Command="net start &quot;Foundation Integration&quot;" ContinueOnError="true"/>
