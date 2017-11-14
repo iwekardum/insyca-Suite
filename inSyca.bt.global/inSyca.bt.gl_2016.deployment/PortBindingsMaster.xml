@@ -1,55 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Variables set $-Sign before use of variable
-{bt_schema_AlwaysTrackAllProperties}  {bt_orchestration_TrackingOption} {bt_sp_Tracking}          {bt_rp_Tracking}          {bt_pipeline_TrackingOption}  {bt_orchestration_State}
-{wcf_closeTimeout}                    {wcf_openTimeout}                 {wcf_receiveTimeout}      {wcf_sendTimeout}         {wcf_maxBufferSize}           {wcf_maxBufferPoolSize}   {wcf_maxReceivedMessageSize}  {wcf_maxDepth}  {wcf_maxStringContentLength}  {wcf_maxArrayLength}  {wcf_maxBytesPerRead} {wcf_maxNameTableCharCount}
-{ax_service_identity}                 {ax_credential_domain}            {ax_credential_username}  {ax_credential_password}
-{rl_mp_sp_en1_status_in_file_address} {rl_mp_sp_en1_status_in_file_fileMask}
-{sp_mp_sp_en2_wcf_custom_address}     {sp_mp_sp_en2_wcf_custom_action}
-Variables-->
 <BindingInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Assembly="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Version="3.5.1.0" BindingStatus="FullyBound" BoundEndpoints="1" TotalEndpoints="1">
-  <Timestamp>2017-05-11T10:10:06.5485666+02:00</Timestamp>
+  <Timestamp>2017-11-14T11:31:56.8624046+01:00</Timestamp>
   <ModuleRefCollection>
-    <ModuleRef Name="[Application:BizTalk.Global]" Version="" Culture="" PublicKeyToken="" FullName="[Application:BizTalk.Global], Version=, Culture=, PublicKeyToken=">
-      <Services />
-      <TrackedSchemas>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.properties" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.properties,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.supportinfo_10" RootName="supportinfo" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.supportinfo_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.query_10" RootName="query_request" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.query_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.query_10" RootName="query_response" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.query_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.batch_10" RootName="batch" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.batch_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.processinginfo_10" RootName="processinginfo" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.processinginfo_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.reference_10" RootName="reference" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.reference_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-        <Schema FullName="insyca.bt.gl.esb.schemas.generic.status_10" RootName="status" AssemblyQualifiedName="insyca.bt.gl.esb.schemas.generic.status_10,insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615" AlwaysTrackAllProperties="false">
-          <TrackedPropertyNames />
-        </Schema>
-      </TrackedSchemas>
-    </ModuleRef>
-    <ModuleRef Name="insyca.bt.gl.esb.schemas.ge" Version="1.0.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.esb.schemas.ge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
-      <Services />
-      <TrackedSchemas />
-    </ModuleRef>
-    <ModuleRef Name="insyca.bt.gl.esb.orchestrations" Version="1.0.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.esb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
+    <ModuleRef Name="insyca.bt.gl.esb.orchestrations" Version="1.1.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.esb.orchestrations, Version=1.1.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
       <Services>
-        <Service Name="insyca.bt.gl.esb.orchestrations.global_10" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages">
-          <Ports />
-          <Roles />
-          <Host Name="inSyca_global" Trusted="false" />
-        </Service>
-        <Service Name="inSyca.bt.gl.mb.orchestrations.supportinfo_10" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages">
+        <Service Name="inSyca.bt.gl.mb.orchestrations.supportinfo_11" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
           <Ports>
             <Port Name="sp_supportinfo_10" Modifier="1" BindingOption="1">
               <SendPortRef Name="sp_insyca_suite_bt_supportinfo_wss" />
@@ -58,7 +13,12 @@ Variables-->
             </Port>
           </Ports>
           <Roles />
-          <Host Name="inSyca_global" Trusted="false" />
+          <Host Name="inSyca_global" Type="1" Trusted="false" />
+        </Service>
+        <Service Name="insyca.bt.gl.esb.orchestrations.global_11" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
+          <Ports />
+          <Roles />
+          <Host Name="inSyca_global" Type="1" Trusted="false" />
         </Service>
       </Services>
       <TrackedSchemas />
@@ -107,7 +67,7 @@ Variables-->
       <ApplicationName>BizTalk.Global</ApplicationName>
     </SendPort>
   </SendPortCollection>
-  <DistributionListCollection  xsi:nil="true" />
+  <DistributionListCollection />
   <ReceivePortCollection>
     <ReceivePort Name="rp_insyca_suite_bt_generic" IsTwoWay="false" BindingOption="0">
       <Description xsi:nil="true" />
@@ -141,12 +101,12 @@ Variables-->
           <PublicAddress />
           <Primary>false</Primary>
           <ReceiveLocationServiceWindowEnabled>false</ReceiveLocationServiceWindowEnabled>
-          <ReceiveLocationFromTime>2017-04-05T22:00:00</ReceiveLocationFromTime>
-          <ReceiveLocationToTime>2017-04-06T21:59:59</ReceiveLocationToTime>
+          <ReceiveLocationFromTime>2000-01-01T22:00:00</ReceiveLocationFromTime>
+          <ReceiveLocationToTime>2000-01-01T21:59:59</ReceiveLocationToTime>
           <ReceiveLocationStartDateEnabled>false</ReceiveLocationStartDateEnabled>
           <ReceiveLocationStartDate>2017-04-06T00:00:00</ReceiveLocationStartDate>
           <ReceiveLocationEndDateEnabled>false</ReceiveLocationEndDateEnabled>
-          <ReceiveLocationEndDate>2017-04-07T00:00:00</ReceiveLocationEndDate>
+          <ReceiveLocationEndDate>2017-04-07T23:59:59</ReceiveLocationEndDate>
           <ReceiveLocationTransportType Name="FILE" Capabilities="11" ConfigurationClsid="5e49e3a6-b4fc-4077-b44c-22f34a242fdb" />
           <ReceiveLocationTransportTypeData>&lt;CustomProps&gt;&lt;RenameReceivedFiles vt="11"&gt;0&lt;/RenameReceivedFiles&gt;&lt;RemoveReceivedFileDelay vt="19"&gt;10&lt;/RemoveReceivedFileDelay&gt;&lt;RemoveReceivedFileMaxInterval vt="19"&gt;300000&lt;/RemoveReceivedFileMaxInterval&gt;&lt;FileMask vt="8"&gt;*.xml&lt;/FileMask&gt;&lt;FileNetFailRetryInt vt="19"&gt;5&lt;/FileNetFailRetryInt&gt;&lt;RemoveReceivedFileRetryCount vt="19"&gt;5&lt;/RemoveReceivedFileRetryCount&gt;&lt;BatchSizeInBytes vt="19"&gt;102400&lt;/BatchSizeInBytes&gt;&lt;PollingInterval vt="19"&gt;60000&lt;/PollingInterval&gt;&lt;FileNetFailRetryCount vt="19"&gt;5&lt;/FileNetFailRetryCount&gt;&lt;BatchSize vt="19"&gt;20&lt;/BatchSize&gt;&lt;/CustomProps&gt;</ReceiveLocationTransportTypeData>
           <ReceivePipeline Name="Microsoft.BizTalk.DefaultPipelines.XMLReceive" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.XMLReceive, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="1" TrackingOption="None" Description="" />

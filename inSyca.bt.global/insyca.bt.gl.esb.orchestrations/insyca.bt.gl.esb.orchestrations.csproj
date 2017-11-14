@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="insyca.snk" />
-    <None Include="supportinfo_10.odx">
+    <None Include="supportinfo_11.odx">
       <SubType>Task</SubType>
     </None>
   </ItemGroup>
@@ -52,7 +52,7 @@
     <None Include="inSyca.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="global_10.odx">
+    <None Include="global_11.odx">
       <SubType>Task</SubType>
     </None>
   </ItemGroup>

@@ -365,7 +365,7 @@
 
   <Target Name="CustomPostInstaller">
     <Copy SourceFiles="$(MSBuildProjectDirectory)\documentation\ReleaseNotes.rtf" DestinationFolder="$(TargetDir)" ContinueOnError="true" />
-    <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\${COMPANY}\inSyca.esb.root.ns&quot;" ContinueOnError="true" />
+    <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\${COMPANY}\inSyca.esb.root.ns&quot; &quot;$(MSBuildProjectDirectory)\hosts\*.*&quot;" ContinueOnError="true" />
   </Target>
 
 </Project>

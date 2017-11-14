@@ -11,7 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_deployment", "_deployment"
 		inSyca.bt.gl_2016.deployment\destinationDeployment.cmd = inSyca.bt.gl_2016.deployment\destinationDeployment.cmd
 		inSyca.bt.gl_2016.deployment\InstallWizard.xml = inSyca.bt.gl_2016.deployment\InstallWizard.xml
 		inSyca.bt.gl_2016.deployment\PortBindings.xml = inSyca.bt.gl_2016.deployment\PortBindings.xml
-		inSyca.bt.gl_2016.deployment\PortBindingsMaster.xml = inSyca.bt.gl_2016.deployment\PortBindingsMaster.xml
 		inSyca.bt.gl_2016.deployment\UnInstallWizard.xml = inSyca.bt.gl_2016.deployment\UnInstallWizard.xml
 	EndProjectSection
 EndProject
@@ -87,6 +86,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en.bu", "inSyca.bt.gl_2016\insyca.bt.gl.esb.schemas.en.bu\insyca.bt.gl.esb.schemas.en.bu.btproj", "{199336B6-234D-4F98-A55E-14D37197396C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.mb.orchestrations", "insyca.bt.gl.mb.orchestrations\insyca.bt.gl.mb.orchestrations.csproj", "{49F761CB-F0AE-4959-B878-35E11D107EF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.mb.services", "insyca.bt.gl.mb.services\insyca.bt.gl.mb.services.csproj", "{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +152,14 @@ Global
 		{199336B6-234D-4F98-A55E-14D37197396C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{199336B6-234D-4F98-A55E-14D37197396C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{199336B6-234D-4F98-A55E-14D37197396C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{49F761CB-F0AE-4959-B878-35E11D107EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F761CB-F0AE-4959-B878-35E11D107EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F761CB-F0AE-4959-B878-35E11D107EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F761CB-F0AE-4959-B878-35E11D107EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,5 +176,7 @@ Global
 		{2D864A32-9D77-431C-AD42-3FB586A097E5} = {B306D8A7-5883-4B03-8F5F-9CB0719067ED}
 		{BAB39A3B-7095-4335-AE0E-89BA00E5D31A} = {B306D8A7-5883-4B03-8F5F-9CB0719067ED}
 		{1245262C-3D74-41F4-9123-9D97F440EA74} = {B306D8A7-5883-4B03-8F5F-9CB0719067ED}
+		{49F761CB-F0AE-4959-B878-35E11D107EF5} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
+		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
 	EndGlobalSection
 EndGlobal

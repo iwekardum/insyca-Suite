@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="service_response" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="service_response" Namespace="http://schemas.datacontract.org/2004/07/inSyca.foundation.communication.itf" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          </ActualType>
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any namespace="http://www.inSyca.com/messagebroker/service_response_10" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

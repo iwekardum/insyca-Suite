@@ -367,8 +367,10 @@ namespace inSyca.foundation.integration.visualstudio.external
             list.Add(string.Format("{0}_serveraddress", sendPortName), new XElement(serverAddress));
             list.Add(string.Format("{0}_serverport", sendPortName), new XElement(serverPort));
             list.Add(string.Format("{0}_targetfilename", sendPortName), new XElement(targetFileName));
-            list.Add(string.Format("{0}_targetfolder", sendPortName), new XElement(targetFolder));
-            list.Add(string.Format("{0}_ssoaffiliateapplication", sendPortName), new XElement(ssoAffiliateApplication));
+            if(targetFolder != null)
+                list.Add(string.Format("{0}_targetfolder", sendPortName), new XElement(targetFolder));
+            if (ssoAffiliateApplication != null)
+                list.Add(string.Format("{0}_ssoaffiliateapplication", sendPortName), new XElement(ssoAffiliateApplication));
 
             list[string.Format("{0}_address", sendPortName)].Value = list[string.Format("{0}_address", sendPortName)].Value.Replace(targetFileName.Value, "");
 
@@ -376,8 +378,10 @@ namespace inSyca.foundation.integration.visualstudio.external
             serverAddress.Value = string.Format("${{{0}_serveraddress}}", sendPortName);
             serverPort.Value = string.Format("${{{0}_serverport}}", sendPortName);
             targetFileName.Value = string.Format("${{{0}_targetfilename}}", sendPortName);
-            targetFolder.Value = string.Format("${{{0}_targetfolder}}", sendPortName);
-            ssoAffiliateApplication.Value = string.Format("${{{0}_ssoaffiliateapplication}}", sendPortName);
+            if (targetFolder != null)
+                targetFolder.Value = string.Format("${{{0}_targetfolder}}", sendPortName);
+            if (ssoAffiliateApplication != null)
+                ssoAffiliateApplication.Value = string.Format("${{{0}_ssoaffiliateapplication}}", sendPortName);
 
             adapterConfig.Value = config.ToString();
             transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);

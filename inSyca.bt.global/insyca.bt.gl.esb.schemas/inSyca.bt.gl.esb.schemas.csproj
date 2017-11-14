@@ -51,10 +51,11 @@
     <None Include="entities.business\production_10.xsd" />
     <None Include="entities.business\sales_10.xsd" />
     <None Include="entities.business\warehouse_10.xsd" />
+    <None Include="entities\tracing_10.xsd" />
     <None Include="entities\goods_10.xsd" />
     <None Include="entities\government_10.xsd" />
     <None Include="entities\monetary_10.xsd" />
-    <None Include="entities\physical.xsd" />
+    <None Include="entities\physical_10.xsd" />
     <None Include="entities\roles_10.xsd" />
     <None Include="entities.business\template_10.xsd" />
     <None Include="entities\event_10.xsd" />

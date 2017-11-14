@@ -96,23 +96,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <XLang Include="..\..\insyca.bt.gl.esb.orchestrations\supportinfo_10.odx">
-      <Link>supportinfo_10.odx</Link>
-      <TypeName>supportinfo_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.orchestrations</Namespace>
-      <SubType>Task</SubType>
-    </XLang>
-  </ItemGroup>
-  <ItemGroup>
-    <XLang Include="..\..\insyca.bt.gl.esb.orchestrations\global_10.odx">
-      <Link>global_10.odx</Link>
-      <TypeName>global_10</TypeName>
+    <XLang Include="..\..\insyca.bt.gl.esb.orchestrations\global_11.odx">
+      <Link>global_11.odx</Link>
+      <TypeName>global_11</TypeName>
       <Namespace>insyca.bt.gl.esb.orchestrations</Namespace>
       <SubType>Task</SubType>
     </XLang>
     <Content Include="..\..\insyca.bt.gl.esb.orchestrations\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
+    <XLang Include="..\..\insyca.bt.gl.esb.orchestrations\supportinfo_11.odx">
+      <Link>supportinfo_11.odx</Link>
+      <TypeName>supportinfo_11</TypeName>
+      <Namespace>insyca.bt.gl.esb.orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\insyca.bt.gl.esb.orchestrations\insyca.snk">

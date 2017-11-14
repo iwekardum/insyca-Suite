@@ -98,13 +98,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <XLang Include="diagnostics\logMessage.odx">
-      <TypeName>logMessage</TypeName>
-      <Namespace>inSyca.bt.gl.mb.orchestrations.diagnostics</Namespace>
-      <SubType>Task</SubType>
-    </XLang>
-  </ItemGroup>
-<ItemGroup>
     <ProjectReference Include="..\inSyca.bt.gl.mb.services\inSyca.bt.gl.mb.services.btproj">
       <Project>{d5c81594-bc89-4c34-8943-db9e32bf31f3}</Project>
       <Name>inSyca.bt.gl.mb.services</Name>
@@ -122,13 +115,20 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">
+    <XLang Include="..\..\insyca.bt.gl.mb.orchestrations\diagnostics\logMessage_11.odx">
+      <Link>diagnostics\logMessage_11.odx</Link>
+      <TypeName>logMessage_11</TypeName>
+      <Namespace>inSyca.bt.gl.mb.orchestrations.diagnostics</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
+    <Content Include="..\..\insyca.bt.gl.mb.orchestrations\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
+    <None Include="..\..\insyca.bt.gl.mb.orchestrations\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
   </ItemGroup>
