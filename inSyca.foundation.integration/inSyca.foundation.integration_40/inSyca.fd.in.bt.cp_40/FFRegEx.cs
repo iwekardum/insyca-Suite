@@ -14,8 +14,8 @@
 
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_DisassemblingParser)]
-    [Guid("16D92957-2034-4853-840B-BD424C596247")]
-    public class FFAttachmentsExtractor : FFDasmComp, IBaseComponent, IComponentUI, IDisassemblerComponent, IPersistPropertyBag
+    [Guid("A2EC54AB-C269-44F1-891C-97C32B93F041")]
+    public class FFRegEx : FFDasmComp, IBaseComponent, IComponentUI, IDisassemblerComponent, IPersistPropertyBag
     {
         private string regExReplacement = "\".*?\"";
         private bool removeEmptyLines = true;
@@ -44,7 +44,7 @@
         {
             get
             {
-                return "FlatFile Email Attachments Extractor";
+                return "FlatFile RegEx";
             }
         }
 
@@ -56,7 +56,7 @@
         {
             get
             {
-                return "FFEmailAttachmentsExtractor";
+                return "FFRegEx";
             }
         }
 
@@ -83,7 +83,7 @@
         {
             Log.DebugFormat("GetClassID(out Guid classid)");
 
-            classid = new System.Guid("16D92957-2034-4853-840B-BD424C596247");
+            classid = new System.Guid("A2EC54AB-C269-44F1-891C-97C32B93F041");
         }
 
         /// <summary>
@@ -185,11 +185,6 @@
             }
         }
 
-        public new void Probe(IPipelineContext pc, IBaseMessage inMsg)
-        {
-            base.Probe(pc, inMsg);
-
-        }
         /// <summary>
         /// called by the messaging engine when a new message arrives
         /// </summary>
@@ -199,100 +194,62 @@
         {
             Log.DebugFormat("Execute(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})", pipelineContext, inMsg);
 
-            var partName = string.Empty;
-            // we start from index 1 because index zero contains the body of the message
-            // which we are not interested
-            for (int i = 1; i < inMsg.PartCount; i++)
+            IBaseMessagePart bodyPart = inMsg.BodyPart;
+
+            if (bodyPart != null)
             {
-                Log.DebugFormat("PartCounter {0}", i);
+                Stream originalStream = bodyPart.GetOriginalDataStream();
 
-                IBaseMessagePart currentPart = inMsg.GetPartByIndex(i, out partName);
-
-                Stream currentPartStream = currentPart.GetOriginalDataStream();
-
-                IBaseMessage outMsg;
-                outMsg = pipelineContext.GetMessageFactory().CreateMessage();
-
-                for (int j = 0; j < inMsg.Context.CountProperties; j++)
+                if (originalStream != null)
                 {
+                    StreamReader sr = new StreamReader(originalStream);
+                    string messageString = sr.ReadToEnd();
+                    Log.DebugFormat("messageString before processing{0}", messageString);
 
-                    string currentName;
-                    string currentNamespace;
-                    object obj = inMsg.Context.ReadAt(j, out currentName, out currentNamespace);
-                    outMsg.Context.Write(currentName, currentNamespace, obj);
-
-                    if (inMsg.Context.IsPromoted(currentName, currentNamespace))
+                    if (removeEmptyLines)
                     {
-                        outMsg.Context.Promote(currentName, currentNamespace, obj);
+                        Log.DebugFormat("removeEmptyLines {0}", removeEmptyLines);
+
+                        messageString = messageString.TrimEnd('\r', '\n');
+                        messageString = messageString + Environment.NewLine;
                     }
-                }
 
-                if (IsValidImage(currentPartStream))
-                {
-                    continue;
-                }
-
-                Stream ms;
-                StreamReader sr = new StreamReader(currentPartStream);
-                string messageString = sr.ReadToEnd();
-                Log.DebugFormat("messageString before processing{0}", messageString);
-
-                if (removeEmptyLines)
-                {
-                    Log.DebugFormat("removeEmptyLines {0}", removeEmptyLines);
-
-                    messageString = messageString.TrimEnd('\r', '\n');
-                    messageString = messageString + Environment.NewLine;
-                }
-
-                if (!string.IsNullOrEmpty(regExReplacement))
-                {
-                    Log.DebugFormat("regExReplacement {0}", regExReplacement);
-                    //                    Regex rgx = new Regex("\".*?\"");
-
-                    try
+                    if (!string.IsNullOrEmpty(regExReplacement))
                     {
-                        Regex rgx = new Regex(RegExReplacement);
-                        messageString = rgx.Replace(messageString, "");
+                        Log.DebugFormat("regExReplacement {0}", regExReplacement);
+
+                        try
+                        {
+                            Regex rgx = new Regex(RegExReplacement);
+                            messageString = rgx.Replace(messageString, "");
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error("RegExReplacement Error {0}", ex);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        Log.Error("RegExReplacement Error {0}", ex);
-                    }
+
+                    Log.DebugFormat("messageString after processing{0}", messageString);
+                    byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
+                    Stream ms = new MemoryStream(byteArray);
+
+                    ms.Seek(0, SeekOrigin.Begin);
+
+                    IBaseMessage outMsg;
+                    outMsg = pipelineContext.GetMessageFactory().CreateMessage();
+                    outMsg.AddPart("Body", pipelineContext.GetMessageFactory().CreateMessagePart(), true);
+                    outMsg.BodyPart.Data = ms;
+
+                    //Promote attachment file name
+                    outMsg.Context = PipelineUtil.CloneMessageContext(inMsg.Context);
+
+                    base.Disassemble(pipelineContext, outMsg);
+
+                    _msgs.Enqueue(base.GetNext(pipelineContext));
+
+                    Log.DebugFormat("Flatfile Dissasembler(IPipelineContext pContext {0}, IBaseMessage outMsg {1})", pipelineContext, outMsg);
                 }
-
-                Log.DebugFormat("messageString after processing{0}", messageString);
-                byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
-                ms = new MemoryStream(byteArray);
-
-                ms.Seek(0, SeekOrigin.Begin);
-                outMsg.AddPart("Body", pipelineContext.GetMessageFactory().CreateMessagePart(), true);
-                outMsg.BodyPart.Data = ms;
-
-
-                //Promote attachment file name
-                outMsg.Context.Write("ReceivedFileName", "http://schemas.microsoft.com/BizTalk/2003/file-properties", currentPart.PartProperties.Read("FileName", "http://schemas.microsoft.com/BizTalk/2003/mime-properties"));
-
-                base.Disassemble(pipelineContext, outMsg);
-
-                _msgs.Enqueue(base.GetNext(pipelineContext));
-
-                Log.DebugFormat("Flatfile Dissasembler(IPipelineContext pContext {0}, IBaseMessage outMsg {1})", pipelineContext, outMsg);
-
-                //_msgs.Enqueue(outMsg);
             }
-        }
-        private bool IsValidImage(Stream ms)
-        {
-            try
-            {
-                Image.FromStream(ms);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
         }
         #endregion
     }

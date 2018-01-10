@@ -121,6 +121,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="inSyca.ico" />
+    <Content Include="XSLT\Application.xslt" />
+    <Content Include="XSLT\Assembly.xslt" />
+    <Content Include="XSLT\Config.xslt" />
+    <Content Include="XSLT\Host.xslt" />
+    <Content Include="XSLT\Map.xslt" />
+    <Content Include="XSLT\Map2.xslt" />
+    <Content Include="XSLT\Orchestration.xslt" />
+    <Content Include="XSLT\OrchestrationCode.xslt" />
+    <Content Include="XSLT\OrchestrationCorrelationTypes.xslt" />
+    <Content Include="XSLT\OrchestrationImage.xslt" />
+    <Content Include="XSLT\Party.xslt" />
+    <Content Include="XSLT\Pipeline.xslt" />
+    <Content Include="XSLT\PipelineDisplay.xslt" />
+    <Content Include="XSLT\Policy.xslt" />
+    <Content Include="XSLT\Protocol.xslt" />
+    <Content Include="XSLT\ReceivePort.xslt" />
+    <Content Include="XSLT\Role.xslt" />
+    <Content Include="XSLT\Schema.xslt" />
+    <Content Include="XSLT\SendPort.xslt" />
+    <Content Include="XSLT\SendPortGroup.xslt" />
+    <Content Include="XSLT\SSO.xslt" />
+    <Content Include="XSLT\Vocabulary.xslt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="inSyca.snk" />

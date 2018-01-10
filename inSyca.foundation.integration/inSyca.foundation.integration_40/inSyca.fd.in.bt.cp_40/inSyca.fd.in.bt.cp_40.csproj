@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveXReader.cs" />
+    <Compile Include="FFRegEx.cs" />
     <Compile Include="FFAttachmentsExtractor.cs" />
     <Compile Include="foundation.framework\information.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

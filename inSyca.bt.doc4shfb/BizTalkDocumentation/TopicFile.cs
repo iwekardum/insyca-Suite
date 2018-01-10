@@ -1,5 +1,6 @@
 using shfb.helper;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -36,6 +37,10 @@ namespace BizTalkDocumentation
         /// The application name.
         /// </summary>
         protected string appName;
+        /// <summary>
+        /// The application name.
+        /// </summary>
+        protected string assemblyName;
         /// <summary>
         /// The path to the document.
         /// </summary>
@@ -90,6 +95,65 @@ namespace BizTalkDocumentation
             //                 new XAttribute("revision", "1")));
 
             watch = new Stopwatch();
+        }
+
+        /// <summary>
+        /// Cleanup a qualified name, removing non-alphanumeric characters.
+        /// </summary>
+        /// <param name="qualifiedName">The qualified name to clean.</param>
+        /// <returns>A string with only alphanumeric characters.</returns>
+        public static string CleanAndPrep(string qualifiedName)
+        {
+            if (string.IsNullOrEmpty(qualifiedName))
+            {
+                Trace.WriteLine("CleanAndPrep got a null/empty string!");
+                return string.Empty;
+            }
+            var s = qualifiedName.Replace(",", ".");
+            s = s.Replace("=", "-");
+            s = s.Replace("#", "-");
+            return s.Replace(" ", "");
+        }
+
+        /// <summary>
+        /// Transform a dictionary object to a table.
+        /// </summary>
+        /// <param name="dict">The dictionary</param>
+        /// <param name="leftColumnTitle">The column name for the key.</param>
+        /// <param name="rightColumnTitle">The column name for the value.</param>
+        /// <returns>An element containing the table.</returns>
+        protected static XElement DictionaryToTable(IDictionary dict, string leftColumnTitle, string rightColumnTitle)
+        {
+            var el = new XElement(xmlns + "table",
+                                  new XElement(xmlns + "tableHeader",
+                                               new XElement(xmlns + "row",
+                                                            new XElement(xmlns + "entry", new XText(leftColumnTitle)),
+                                                            new XElement(xmlns + "entry", new XText(rightColumnTitle)))));
+            foreach (DictionaryEntry entry in dict)
+            {
+                var ex = new XElement(xmlns + "row",
+                                      new XElement(xmlns + "entry",
+                                                   new XText(entry.Key as string ?? "(N/A)")),
+                                      new XElement(xmlns + "entry",
+                                                   new XText(entry.Value as string ?? "(N/A)")));
+                el.Add(ex);
+            }
+            return el;
+        }
+
+        /// <summary>
+        /// Transform an <see cref="ICollection"/> into a list element.
+        /// </summary>
+        /// <param name="coll">The collection.</param>
+        /// <returns>The list element.</returns>
+        protected static XElement CollectionToList(ICollection coll)
+        {
+            var list = new XElement(xmlns + "list");
+            foreach (string name in coll)
+            {
+                list.Add(new XElement(xmlns + "listItem", new XText(name)));
+            }
+            return list;
         }
 
         protected abstract void SaveTopic(MamlWriter writer);
