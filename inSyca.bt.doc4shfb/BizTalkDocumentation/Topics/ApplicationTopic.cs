@@ -25,6 +25,8 @@ namespace BizTalkDocumentation
             LinkTitle = application.Name;
             LinkUri = "#" + application.Name;
             TopicType = TopicType.Application;
+            tokenId = CleanAndPrep(application.Name);
+            TokenFile.GetTokenFile().AddTopicToken(tokenId, Id);
         }
         
         protected override void SaveTopic(MamlWriter writer)

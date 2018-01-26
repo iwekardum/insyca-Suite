@@ -33,6 +33,8 @@ namespace BizTalkDocumentation
             LinkTitle = string.Format("{0}#{1}", schema.FullName, schema.RootName);
             LinkUri = "#" + string.Format("{0}#{1}", schema.FullName, schema.RootName);
             TopicType = TopicType.Schema;
+            tokenId = CleanAndPrep(schema.Application.Name + ".Schemas." + schema.FullName + "___" + schema.RootName);
+            TokenFile.GetTokenFile().AddTopicToken(tokenId, Id);
 
             appName = schema.Application.Name;
             assemblyName = schema.BtsAssembly.DisplayName;
@@ -51,7 +53,7 @@ namespace BizTalkDocumentation
                                                                                 new XElement(xmlns + "entry", new XText("Value")))),
                                                                         new XElement(xmlns + "row",
                                                                             new XElement(xmlns + "entry", new XText("Application")),
-                                                                            new XElement(xmlns + "entry", new XText(appName))),
+                                                                            new XElement(xmlns + "entry", new XElement(xmlns + "token", new XText(CleanAndPrep(appName))))),
                                                                         new XElement(xmlns + "row",
                                                                             new XElement(xmlns + "entry", new XText("Always Track All Properties")),
                                                                             new XElement(xmlns + "entry", new XText(schema.Type == SchemaType.Property ? "does not apply to property schemas." : schema.AlwaysTrackAllProperties.ToString()))),
@@ -77,7 +79,11 @@ namespace BizTalkDocumentation
             var content = new XElement(xmlns + "codeExample",
                 new XElement(xmlns + "code", new XAttribute("language", "xml"), new XText(schema.XmlContent)));
 
-
+            var test = new XDocument(
+                new XElement("topic",
+                             new XAttribute("id", Id),
+                             new XAttribute("revision", "1")));
+            writer.WriteRaw(test.ToString());
             //writer.StartIntroduction();
             //writer.StartParagraph();
             writer.WriteRaw(intro.ToString());

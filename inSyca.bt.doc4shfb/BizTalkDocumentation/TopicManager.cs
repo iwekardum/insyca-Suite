@@ -25,7 +25,7 @@ namespace BizTalkDocumentation
             bizTalkTopicBuilder.Parse();
             Topics = bizTalkTopicBuilder.GetRootTopics();
 
-            SetTopicIds();
+            //SetTopicIds();
             SetKeywords(Topics);
             GenerateTopicUriIndex(Topics);
         }
@@ -43,14 +43,14 @@ namespace BizTalkDocumentation
         {
             foreach (var topic in topics)
             {
-                var input = Encoding.UTF8.GetBytes(topic.LinkUri);
-                var output = algorithm.ComputeHash(input);
-                var guid = new Guid(output);
-                while (!guidsInUse.Add(guid))
-                    guid = Guid.NewGuid();
-                topic.Id = guid.ToString();
+                    var input = Encoding.UTF8.GetBytes(topic.LinkUri);
+                    var output = algorithm.ComputeHash(input);
+                    var guid = new Guid(output);
+                    while (!guidsInUse.Add(guid))
+                        guid = Guid.NewGuid();
+                    topic.Id = guid.ToString();
 
-                SetTopicIds(topic.Children, algorithm, guidsInUse);
+                    SetTopicIds(topic.Children, algorithm, guidsInUse);
             }
         }
 

@@ -22,6 +22,7 @@ namespace BizTalkDocumentation
         public string ContentFile { get; private set; }
         public string IndexFile { get; private set; }
         public string TopicsFolder { get; private set; }
+        public string tokenFile { get; private set; }
         public string MediaFolder { get; private set; }
         public List<string> TopicFiles { get; private set; }
         public List<MediaItem> MediaItems { get; private set; }
@@ -31,11 +32,13 @@ namespace BizTalkDocumentation
             TopicsFolder = Path.Combine(_context.Configuration.OutputFolderPath, "btDocTopics");
             ContentFile = Path.Combine(TopicsFolder, "btDoc.content");
             IndexFile = Path.Combine(TopicsFolder, "btDoc.index");
+            tokenFile = Path.Combine(_context.Configuration.OutputFolderPath, "btDoc.tokens");
             MediaFolder = Path.Combine(_context.Configuration.OutputFolderPath, "btDocMedia");
             GenerateIndex();
             GenerateContentFile();
             GenerateTopicFiles();
             GenerateMediaFiles();
+            TokenFile.GetTokenFile().Save(tokenFile);
         }
 
         private void GenerateIndex()

@@ -95,14 +95,26 @@ namespace BizTalkDocumentation
 
         private void ParseSchemas(Application bizTalkApplication, ApplicationTopic appTopic)
         {
-            var schemasTopic = new SchemasTopic();
+            
+
+            List<SchemaTopic> schemaTopicList = new List<SchemaTopic>();
+            List<String> schemaNames = new List<String>();
 
             foreach (Schema schema in bizTalkApplication.Schemas)
             {
                 Context.ReportProgress("parsing schema {0}...", schema.FullName);
 
                 var schemaTopic = new SchemaTopic(schema);
-                schemasTopic.Children.Add(schemaTopic);
+                //schemasTopic.Children.Add(schemaTopic);
+                schemaTopicList.Add(schemaTopic);
+                schemaNames.Add(schema.FullName + "___" + schema.RootName);
+            }
+
+            var schemasTopic = new SchemasTopic(schemaNames, bizTalkApplication.Name);
+
+            foreach (SchemaTopic st in schemaTopicList)
+            {
+                schemasTopic.Children.Add(st);
             }
 
             appTopic.Children.Add(schemasTopic);
