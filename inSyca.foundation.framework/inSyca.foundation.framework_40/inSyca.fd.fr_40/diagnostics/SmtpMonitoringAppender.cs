@@ -54,7 +54,7 @@ namespace inSyca.foundation.framework.diagnostics
                 smtpClient.Credentials = CredentialCache.DefaultNetworkCredentials;
             }
 
-            //Log.DebugFormat("smtpClient.ClientCertificates {0}, smtpClient.Credentials {1}, smtpClient.DeliveryMethod {2}, smtpClient.EnableSsl {3}, smtpClient.Host {4}, smtpClient.PickupDirectoryLocation {5}, smtpClient.Port {6}, smtpClient.ServicePoint {7}, smtpClient.TargetName {8}, smtpClient.Timeout {9}, smtpClient.UseDefaultCredentials {10}", smtpClient.ClientCertificates, smtpClient.Credentials, smtpClient.DeliveryMethod, smtpClient.EnableSsl, smtpClient.Host, smtpClient.PickupDirectoryLocation, smtpClient.Port, smtpClient.ServicePoint, smtpClient.TargetName, smtpClient.Timeout, smtpClient.UseDefaultCredentials);
+            Log.DebugFormat("smtpClient.ClientCertificates {0}, smtpClient.Credentials {1}, smtpClient.DeliveryMethod {2}, smtpClient.EnableSsl {3}, smtpClient.Host {4}, smtpClient.PickupDirectoryLocation {5}, smtpClient.Port {6}, smtpClient.ServicePoint {7}, smtpClient.TargetName {8}, smtpClient.Timeout {9}, smtpClient.UseDefaultCredentials {10}", smtpClient.ClientCertificates, smtpClient.Credentials, smtpClient.DeliveryMethod, smtpClient.EnableSsl, smtpClient.Host, smtpClient.PickupDirectoryLocation, smtpClient.Port, smtpClient.ServicePoint, smtpClient.TargetName, smtpClient.Timeout, smtpClient.UseDefaultCredentials);
 
             MailMessage mailMessage = new MailMessage();
 
@@ -94,7 +94,7 @@ namespace inSyca.foundation.framework.diagnostics
             if (!string.IsNullOrEmpty(this.ReplyTo))
                 mailMessage.ReplyToList.Add(new MailAddress(this.ReplyTo));
 
-            //Log.DebugFormat("mailMessage.AlternateViews {0}, mailMessage.Attachments {1}, mailMessage.Bcc {2}, mailMessage.Body {3}, mailMessage.BodyEncoding {4}, mailMessage.CC {5}, mailMessage.DeliveryNotificationOptions {6}, mailMessage.From {7}, mailMessage.Headers {8}, mailMessage.HeadersEncoding {9}, mailMessage.IsBodyHtml {10}, mailMessage.Priority {11}, mailMessage.ReplyToList {12}, mailMessage.Sender {13}, mailMessage.Subject {14}, mailMessage.SubjectEncoding {15}, mailMessage.To {16}", mailMessage.AlternateViews, mailMessage.Attachments, mailMessage.Bcc, mailMessage.Body, mailMessage.BodyEncoding, mailMessage.CC, mailMessage.DeliveryNotificationOptions, mailMessage.From, mailMessage.Headers, mailMessage.HeadersEncoding, mailMessage.IsBodyHtml, mailMessage.Priority, mailMessage.ReplyToList, mailMessage.Sender, mailMessage.Subject, mailMessage.SubjectEncoding, mailMessage.To);
+            Log.DebugFormat("mailMessage.AlternateViews {0}, mailMessage.Attachments {1}, mailMessage.Bcc {2}, mailMessage.Body {3}, mailMessage.BodyEncoding {4}, mailMessage.CC {5}, mailMessage.DeliveryNotificationOptions {6}, mailMessage.From {7}, mailMessage.Headers {8}, mailMessage.HeadersEncoding {9}, mailMessage.IsBodyHtml {10}, mailMessage.Priority {11}, mailMessage.ReplyToList {12}, mailMessage.Sender {13}, mailMessage.Subject {14}, mailMessage.SubjectEncoding {15}, mailMessage.To {16}", mailMessage.AlternateViews, mailMessage.Attachments, mailMessage.Bcc, mailMessage.Body, mailMessage.BodyEncoding, mailMessage.CC, mailMessage.DeliveryNotificationOptions, mailMessage.From, mailMessage.Headers, mailMessage.HeadersEncoding, mailMessage.IsBodyHtml, mailMessage.Priority, mailMessage.ReplyToList, mailMessage.Sender, mailMessage.Subject, mailMessage.SubjectEncoding, mailMessage.To);
 
             smtpClient.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
 
@@ -103,8 +103,6 @@ namespace inSyca.foundation.framework.diagnostics
 
         private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
         {
-            LogEntry logEventEntrySettings = (LogEntry)e.UserState;
-
             if (e.Cancelled)
                 Log.WarnFormat("SendCompletedCallback(object sender {0}, AsyncCompletedEventArgs e {1})\nSend canceled!!!", sender, e);
             if (e.Error != null)
