@@ -95,14 +95,30 @@ namespace BizTalkDocumentation
 
         private void ParseSchemas(Application bizTalkApplication, ApplicationTopic appTopic)
         {
-            var schemasTopic = new SchemasTopic();
+            if (bizTalkApplication.Schemas.Count == 0)
+            {
+                Context.ReportProgress("no schemas found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
+            List<SchemaTopic> schemaTopicList = new List<SchemaTopic>();
+            List<String> schemaNames = new List<String>();
 
             foreach (Schema schema in bizTalkApplication.Schemas)
             {
                 Context.ReportProgress("parsing schema {0}...", schema.FullName);
 
                 var schemaTopic = new SchemaTopic(schema);
-                schemasTopic.Children.Add(schemaTopic);
+                //schemasTopic.Children.Add(schemaTopic);
+                schemaTopicList.Add(schemaTopic);
+                schemaNames.Add(schema.FullName + "___" + schema.RootName);
+            }
+
+            var schemasTopic = new SchemasTopic(schemaNames, bizTalkApplication.Name);
+
+            foreach (SchemaTopic st in schemaTopicList)
+            {
+                schemasTopic.Children.Add(st);
             }
 
             appTopic.Children.Add(schemasTopic);
@@ -110,6 +126,12 @@ namespace BizTalkDocumentation
 
         private void ParseMaps(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.Transforms.Count == 0)
+            {
+                Context.ReportProgress("no maps found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var mapsTopic = new MapsTopic();
 
             foreach (Transform map in bizTalkApplication.Transforms)
@@ -125,6 +147,12 @@ namespace BizTalkDocumentation
 
         private void ParseOrchestrations(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.Orchestrations.Count == 0)
+            {
+                Context.ReportProgress("no orchestrations found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var orchestrationsTopic = new OrchestrationsTopic();
 
             foreach (BtsOrchestration orchestration in bizTalkApplication.Orchestrations)
@@ -140,6 +168,12 @@ namespace BizTalkDocumentation
 
         private void ParsePipelines(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.Pipelines.Count == 0)
+            {
+                Context.ReportProgress("no pipelines found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var pipelinesTopic = new PipelinesTopic();
 
             foreach (Pipeline pipeline in bizTalkApplication.Pipelines)
@@ -155,6 +189,12 @@ namespace BizTalkDocumentation
 
         private void ParseReceivePorts(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.ReceivePorts.Count == 0)
+            {
+                Context.ReportProgress("no receive ports found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var receivePortsTopic = new ReceivePortsTopic();
 
             foreach (ReceivePort receivePort in bizTalkApplication.ReceivePorts)
@@ -170,6 +210,12 @@ namespace BizTalkDocumentation
 
         private void ParseSendPorts(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.SendPorts.Count == 0)
+            {
+                Context.ReportProgress("no send ports found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var sendPortsTopic = new SendPortsTopic();
 
             foreach (SendPort sendPort in bizTalkApplication.SendPorts)
@@ -185,6 +231,12 @@ namespace BizTalkDocumentation
 
         private void ParseSendPortGroups(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.SendPortGroups.Count == 0)
+            {
+                Context.ReportProgress("no send port groups found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var sendPortGroupsTopic = new SendPortGroupsTopic();
 
             foreach (SendPortGroup sendPortGroup in bizTalkApplication.SendPortGroups)
@@ -200,6 +252,12 @@ namespace BizTalkDocumentation
 
         private void ParseBusinessRules(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.Policies.Count == 0)
+            {
+                Context.ReportProgress("no business rules found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var businessRulesTopic = new BusinessRulesTopic();
 
             foreach (Policy businessRule in bizTalkApplication.Policies)
@@ -215,6 +273,12 @@ namespace BizTalkDocumentation
 
         private void ParseRoles(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.Roles.Count == 0)
+            {
+                Context.ReportProgress("no roles found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             var rolesTopic = new RolesTopic();
 
             foreach (Role role in bizTalkApplication.Roles)
@@ -230,6 +294,12 @@ namespace BizTalkDocumentation
 
         private void ParseAssemblies(Application bizTalkApplication, ApplicationTopic appTopic)
         {
+            if (bizTalkApplication.Assemblies.Count == 0)
+            {
+                Context.ReportProgress("no assemblies found in {0}, skipping...", bizTalkApplication.Name);
+                return;
+            }
+
             Context.ReportProgress("parsing bizTalkApplication {0}...", bizTalkApplication.Name);
 
             var assembliesTopic = new AssembliesTopic();

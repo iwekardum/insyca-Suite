@@ -57,6 +57,10 @@ namespace BizTalkDocumentation
         /// The topic's token ID.
         /// </summary>
         protected string tokenId;
+        /// <summary>
+        /// The document.
+        /// </summary>
+        public XDocument doc;
 
         private readonly Stopwatch watch;
 
@@ -85,14 +89,14 @@ namespace BizTalkDocumentation
             KeywordsK = new List<string>();
             KeywordsF = new List<string>();
 
-            //Id = Guid.NewGuid().ToString();
-            //var topic = new XElement("topic");
-            //topic.SetAttributeValue("Id", Id);
-            //topic.SetAttributeValue("revision", "1");
-            //doc = new XDocument(
-            //    new XElement("topic",
-            //                 new XAttribute("Id", Id),
-            //                 new XAttribute("revision", "1")));
+            Id = Guid.NewGuid().ToString();
+            var topic = new XElement("topic");
+            topic.SetAttributeValue("id", Id);
+            topic.SetAttributeValue("revision", "1");
+            doc = new XDocument(
+                new XElement("topic",
+                             new XAttribute("id", Id),
+                             new XAttribute("revision", "1")));
 
             watch = new Stopwatch();
         }
