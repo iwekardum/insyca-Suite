@@ -139,15 +139,21 @@
       <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities\physical.xsd">
-      <Link>physical.xsd</Link>
-      <TypeName>physical</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
     <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities\roles_10.xsd">
       <Link>roles_10.xsd</Link>
       <TypeName>roles_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities\information_10.xsd">
+      <Link>information_10.xsd</Link>
+      <TypeName>information_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities\physical_10.xsd">
+      <Link>physical_10.xsd</Link>
+      <TypeName>physical_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
       <SubType>Task</SubType>
     </Schema>

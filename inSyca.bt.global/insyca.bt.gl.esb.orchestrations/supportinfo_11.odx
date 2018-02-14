@@ -55,7 +55,7 @@
             <om:Property Name="Name" Value="mpt_supportinfo_10" />
             <om:Property Name="Signal" Value="True" />
             <om:Element Type="PartDeclaration" OID="00c22f92-6c8c-47c8-9b70-e8b0dd4e0a48" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="6.1" HigherBound="7.1">
-                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic_10.supportinfo" />
+                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic.generic_10.supportinfo" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="mp_supportinfo_10" />
@@ -89,7 +89,7 @@ module inSyca.bt.gl.mb.orchestrations
 {
     public messagetype mpt_supportinfo_10
     {
-        body insyca.bt.gl.esb.schemas.generic_10.supportinfo mp_supportinfo_10;
+        body insyca.bt.gl.esb.schemas.generic.generic_10.supportinfo mp_supportinfo_10;
     };
     public porttype pt_supportinfo_10
     {
