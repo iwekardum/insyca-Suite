@@ -44,6 +44,11 @@ namespace insyca.bt.gl.esb.schemas.entities {
           </xs:simpleType>
         </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""unit"" nillable=""true"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Einheit"" />
+            </xs:appinfo>
+          </xs:annotation>
           <xs:simpleType>
             <xs:restriction base=""xs:string"">
               <xs:enumeration value=""millimeter"" />
@@ -96,13 +101,13 @@ namespace insyca.bt.gl.esb.schemas.entities {
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name=""position"">
+  <xs:element name=""position"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
         <b:recordInfo notes=""Geographische Position"" />
       </xs:appinfo>
     </xs:annotation>
-    <xs:complexType mixed=""true"">
+    <xs:complexType>
       <xs:sequence minOccurs=""0"" maxOccurs=""1"">
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""longitude"" type=""xs:string"">
           <xs:annotation>
@@ -180,15 +185,21 @@ namespace insyca.bt.gl.esb.schemas.entities {
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name=""time"">
+  <xs:element name=""time"" nillable=""true"">
     <xs:annotation>
       <xs:appinfo>
         <b:recordInfo notes=""Zeit"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" />
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs=""0"" name=""category"" nillable=""true"" type=""xs:string"" />
+      <xs:sequence minOccurs=""0"" maxOccurs=""1"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""category"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kategorie"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
         <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
           <xs:annotation>
             <xs:appinfo>
@@ -222,9 +233,27 @@ namespace insyca.bt.gl.esb.schemas.entities {
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element name=""datepart"" type=""xs:date"" />
-        <xs:element name=""timepart"" type=""xs:time"" />
-        <xs:element name=""timestamp"" type=""xs:dateTime"" />
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""datepart"" nillable=""true"" type=""xs:date"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Datumsanteil"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""timepart"" nillable=""true"" type=""xs:time"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Zeitanteil"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""timestamp"" nillable=""true"" type=""xs:dateTime"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Komplettes Datum UTC (Zeitstempel)"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
