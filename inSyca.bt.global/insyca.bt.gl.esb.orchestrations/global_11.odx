@@ -23,7 +23,7 @@
             <om:Property Name="Name" Value="mpt_query_10_request" />
             <om:Property Name="Signal" Value="True" />
             <om:Element Type="PartDeclaration" OID="15b252d4-d3d0-41dd-a32c-775a24403d88" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="6.1" HigherBound="7.1">
-                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic.generic_10.query_request" />
+                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic_10.query_request" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="mp_query_10_request" />
@@ -36,7 +36,7 @@
             <om:Property Name="Name" Value="mpt_query_10_response" />
             <om:Property Name="Signal" Value="True" />
             <om:Element Type="PartDeclaration" OID="7b519909-a8b0-4cf7-840c-69aef558fc39" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="10.1" HigherBound="11.1">
-                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic.generic_10.query_response" />
+                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic_10.query_response" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="mp_query_10_response" />
@@ -49,7 +49,7 @@
             <om:Property Name="Name" Value="mpt_batch_10" />
             <om:Property Name="Signal" Value="True" />
             <om:Element Type="PartDeclaration" OID="3b62e88f-2220-4f77-8a87-0e51fa12e1e3" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="14.1" HigherBound="15.1">
-                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic.generic_10.batch" />
+                <om:Property Name="ClassName" Value="insyca.bt.gl.esb.schemas.generic_10.batch" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="mp_batch_10" />
@@ -89,15 +89,15 @@ module insyca.bt.gl.esb.orchestrations
 {
     public messagetype mpt_query_10_request
     {
-        body insyca.bt.gl.esb.schemas.generic.generic_10.query_request mp_query_10_request;
+        body insyca.bt.gl.esb.schemas.generic_10.query_request mp_query_10_request;
     };
     public messagetype mpt_query_10_response
     {
-        body insyca.bt.gl.esb.schemas.generic.generic_10.query_response mp_query_10_response;
+        body insyca.bt.gl.esb.schemas.generic_10.query_response mp_query_10_response;
     };
     public messagetype mpt_batch_10
     {
-        body insyca.bt.gl.esb.schemas.generic.generic_10.batch mp_batch_10;
+        body insyca.bt.gl.esb.schemas.generic_10.batch mp_batch_10;
     };
     public porttype pt_query_10
     {
