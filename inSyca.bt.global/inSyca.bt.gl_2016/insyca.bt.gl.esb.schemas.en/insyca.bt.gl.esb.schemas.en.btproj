@@ -157,6 +157,12 @@
       <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities\contract_10.xsd">
+      <Link>contract_10.xsd</Link>
+      <TypeName>contract_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
