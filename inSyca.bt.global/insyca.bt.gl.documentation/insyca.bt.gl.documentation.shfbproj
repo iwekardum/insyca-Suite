@@ -32,34 +32,8 @@
       <PlugInConfig id="Additional Content Only" enabled="True">
         <configuration />
       </PlugInConfig>
-      <PlugInConfig id="BizTalk Documenter" enabled="True">
-        <configuration>
-          <biztalk dbInstance="localhost\BT_2016" mgmtDatabaseName="BizTalkMgmtDb" rulesServer="localhost\BT_2016" rulesDatabase="BizTalkRuleEngineDb" />
-          <schemaFiles />
-          <dependencyFiles />
-          <docFiles />
-        </configuration>
-      </PlugInConfig>
-      <PlugInConfig id="XML Schema Documenter" enabled="True">
-        <configuration>
-          <document rootSchemas="false" rootElements="false" constraints="true" schemas="true" syntax="true" />
-          <useTypeDocumentation forUndocumentedAttributes="true" forUndocumentedElements="true" />
-          <schemaSet container="true" title="SchemaDocumentation" />
-          <namespace container="true" />
-          <sortOrder>1</sortOrder>
-          <includeLinkUriInKeywordK>false</includeLinkUriInKeywordK>
-          <annotationTransformFile path="AnnotationTranform.xslt" />
-          <schemaFiles>
-            <schemaFile path="..\insyca.bt.gl.esb.schemas\entities.business.accounting\account_10.xsd" />
-          </schemaFiles>
-          <dependencyFiles />
-          <docFiles>
-            <docFile path="NamespaceDoc.xml" />
-            <docFile path="SchemaSetDoc.xml" />
-          </docFiles>
-        </configuration>
-      </PlugInConfig>
-    </PlugInConfigurations>
+<PlugInConfig id="BizTalk Documenter" enabled="True"><configuration><biztalk dbInstance="localhost\BT_2016" mgmtDatabaseName="BizTalkMgmtDb" rulesServer="localhost\BT_2016" rulesDatabase="BizTalkRuleEngineDb" /><schemaFiles /><dependencyFiles /><docFiles /></configuration></PlugInConfig>
+<PlugInConfig id="XML Schema Documenter" enabled="True"><configuration><document rootSchemas="false" rootElements="false" constraints="true" schemas="true" syntax="true" /><useTypeDocumentation forUndocumentedAttributes="true" forUndocumentedElements="true" /><schemaSet container="true" title="SchemaDocumentation" /><namespace container="true" /><sortOrder>1</sortOrder><includeLinkUriInKeywordK>false</includeLinkUriInKeywordK><annotationTransformFile path="AnnotationTranform.xslt" /><schemaFiles><schemaFile path="..\insyca.bt.gl.esb.schemas\generic_10.xsd" /></schemaFiles><dependencyFiles /><docFiles><docFile path="NamespaceDoc.xml" /><docFile path="SchemaSetDoc.xml" /></docFiles></configuration></PlugInConfig></PlugInConfigurations>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
