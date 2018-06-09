@@ -1,7 +1,10 @@
-﻿using Microsoft.BizTalk.Component.Interop;
+﻿using inSyca.foundation.integration.biztalk.functions.diagnostics;
+using Microsoft.BizTalk.Component.Interop;
 using System;
 using System.IO;
+using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace inSyca.foundation.integration.biztalk.functions
 {
@@ -124,6 +127,20 @@ namespace inSyca.foundation.integration.biztalk.functions
             {
                 throw ex;
             }
+        }
+
+        public static void ProcessBatchMessage(ref XmlDocument xmlBatch, int increment)
+        {
+            Log.DebugFormat("ProcessBatchMessage (ref XmlDocument xmlBatch {0} , int increment)", xmlBatch, increment);
+
+            XElement xBatch = XElement.Parse(xmlBatch.OuterXml);
+            XElement xIndex = xBatch.Elements("index").FirstOrDefault();
+
+            int index = int.Parse(xIndex.Value);
+
+            xIndex.Value = Convert.ToString(index + increment);
+
+            xmlBatch.LoadXml(xBatch.ToString());
         }
     }
 }
