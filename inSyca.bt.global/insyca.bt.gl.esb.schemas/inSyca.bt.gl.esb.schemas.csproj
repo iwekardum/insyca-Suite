@@ -44,100 +44,33 @@
     <AssemblyOriginatorKeyFile>insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="entities.business.accounting\account_10.xsd" />
-    <None Include="entities.business.accounting\costcenter_10.xsd" />
-    <None Include="entities.business.accounting\costunit_10.xsd" />
-    <None Include="entities.business.accounting\creditlimit_10.xsd" />
-    <None Include="entities.business.accounting\documentheader_10.xsd" />
-    <None Include="entities.business.accounting\documentlineitem_10.xsd" />
-    <None Include="entities.business.accounting\payment_10.xsd" />
-    <None Include="entities.business.finance\account_10.xsd" />
-    <None Include="entities.business.finance\factoring_10.xsd" />
-    <None Include="entities.business.finance\insurance_10.xsd" />
-    <None Include="entities.business.logistics\handling_10.xsd" />
-    <None Include="entities.business.logistics\tour_10.xsd" />
-    <None Include="entities.business.logistics\commissioning_10.xsd" />
-    <None Include="entities.business.logistics\asn_10.xsd" />
-    <None Include="entities.business.logistics\cargo_10.xsd" />
-    <None Include="entities.business.logistics\consolidatedcargo_10.xsd" />
-    <None Include="entities.business.logistics\deliverycondition_10.xsd" />
-    <None Include="entities.business.logistics\deliverynote_10.xsd" />
-    <None Include="entities.business.logistics\exportdeclaration_10.xsd" />
-    <None Include="entities.business.logistics\iata_10.xsd" />
-    <None Include="entities.business.logistics\loadingaid_10.xsd" />
-    <None Include="entities.business.logistics\loadingunit_10.xsd" />
-    <None Include="entities.business.logistics\package_10.xsd" />
-    <None Include="entities.business.logistics\shipment_10.xsd" />
-    <None Include="entities.business.logistics\station_10.xsd" />
-    <None Include="entities.business.logistics\status_10.xsd" />
-    <None Include="entities.business.logistics\termsfreight_10.xsd" />
-    <None Include="entities.business.logistics\tradingunit_10.xsd" />
-    <None Include="entities.business.logistics\vehicle_10.xsd" />
-    <None Include="entities.business.procurement\order_10.xsd" />
-    <None Include="entities.business.production\environmental_10.xsd" />
-    <None Include="entities.business.production\quality_10.xsd" />
-    <None Include="entities.business.production\lot_10.xsd" />
-    <None Include="entities.business.sales\confirmationorder_10.xsd" />
-    <None Include="entities.business.sales\invoice_10.xsd" />
-    <None Include="entities.business.sales\order_10.xsd" />
-    <None Include="entities.business.sales\quote_10.xsd" />
-    <None Include="entities.business.sales\termsdiscount_10.xsd" />
-    <None Include="entities.business.sales\termspayment_10.xsd" />
-    <None Include="entities.business.warehouse\rfid_10.xsd" />
-    <None Include="entities.business.warehouse\incoming_goods_10.xsd" />
-    <None Include="entities.business.warehouse\outgoing_goods_10.xsd" />
-    <None Include="entities.business.warehouse\storage_10.xsd" />
-    <None Include="entities.contact\address_10.xsd" />
-    <None Include="entities.contact\country_10.xsd" />
-    <None Include="entities.contact\department_10.xsd" />
-    <None Include="entities.contact\internet_10.xsd" />
-    <None Include="entities.contact\language_10.xsd" />
-    <None Include="entities.contact\postbox_10.xsd" />
-    <None Include="entities.contact\telecommunication_10.xsd" />
-    <None Include="entities.event\appointment_10.xsd" />
-    <None Include="entities.goods\itemgroup_10.xsd" />
-    <None Include="entities.goods\food_10.xsd" />
-    <None Include="entities.goods\item_10.xsd" />
-    <None Include="entities.goods\dangerousgoods_10.xsd" />
-    <None Include="entities.goods\package_10.xsd" />
-    <None Include="entities.business.warehouse\position_10.xsd" />
-    <None Include="entities.goods\productgroup_10.xsd" />
-    <None Include="entities.goods\product_10.xsd" />
-    <None Include="entities.goods\service_10.xsd" />
-    <None Include="entities.goods\unitgroup.xsd" />
-    <None Include="entities.government\identifier_10.xsd" />
-    <None Include="entities.law\legalperson_10.xsd" />
-    <None Include="entities.law\naturalperson_10.xsd" />
-    <None Include="entities.monetary\amount_10.xsd" />
-    <None Include="entities.monetary\currency_10.xsd" />
-    <None Include="entities.physical\length_10.xsd" />
-    <None Include="entities.physical\quantity_10.xsd" />
-    <None Include="entities.physical\mass_10.xsd" />
-    <None Include="entities.physical\position_10.xsd" />
-    <None Include="entities.physical\time_10.xsd" />
-    <None Include="entities.roles\bank_10.xsd" />
-    <None Include="entities.roles\carrier_10.xsd" />
-    <None Include="entities.roles\client_10.xsd" />
-    <None Include="entities.roles\consignee_10.xsd" />
-    <None Include="entities.roles\consignor_10.xsd" />
-    <None Include="entities.roles\creditor_10.xsd" />
-    <None Include="entities.roles\customer_10.xsd" />
-    <None Include="entities.roles\debitor_10.xsd" />
-    <None Include="entities.roles\driver_10.xsd" />
-    <None Include="entities.roles\freightpayer_10.xsd" />
-    <None Include="entities.roles\issuer_10.xsd" />
-    <None Include="entities.roles\shipper_10.xsd" />
-    <None Include="entities.roles\vendor_10.xsd" />
-    <None Include="generic\batch_10.xsd" />
-    <Schema Include="generic\properties.xsd">
+    <None Include="entities.business\accounting_10.xsd" />
+    <None Include="entities.business\finance_10.xsd" />
+    <None Include="entities.business\logistics_10.xsd" />
+    <None Include="entities.business\procurement_10.xsd" />
+    <None Include="entities.business\production_10.xsd" />
+    <None Include="entities.business\sales_10.xsd" />
+    <None Include="entities.business\warehouse_10.xsd" />
+    <Schema Include="entities\information_10.xsd">
       <SubType>Task</SubType>
     </Schema>
-    <None Include="generic\query_10.xsd" />
-    <None Include="generic\supportinfo_10.xsd" />
-    <None Include="generic\processinginfo_10.xsd" />
-    <None Include="generic\identification_10.xsd" />
-    <None Include="generic\status_10.xsd" />
+    <Schema Include="entities\contract_10.xsd">
+      <SubType>Task</SubType>
+    </Schema>
+    <None Include="entities\tracing_10.xsd" />
+    <None Include="entities\goods_10.xsd" />
+    <None Include="entities\government_10.xsd" />
+    <None Include="entities\monetary_10.xsd" />
+    <None Include="entities\physical_10.xsd" />
+    <None Include="entities\roles_10.xsd" />
+    <None Include="entities.business\template_10.xsd" />
+    <None Include="entities\event_10.xsd" />
+    <None Include="entities\contact_10.xsd" />
+    <None Include="generic_10.xsd" />
     <None Include="insyca.snk" />
+    <Schema Include="properties.xsd">
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="_documentation\License.rtf" />
     <None Include="_documentation\ReleaseNotes.rtf" />
   </ItemGroup>
@@ -150,15 +83,6 @@
     <Content Include="_ressources\banner_bitmap_001.bmp" />
     <Content Include="_ressources\banner_bitmap_002.bmp" />
     <Content Include="_ressources\product.ico" />
-    <None Include="entities.business.accounting\transform.xslt">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="entities.business.finance\transform.xslt">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="entities.business.logistics\transform.xslt">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="inSyca.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

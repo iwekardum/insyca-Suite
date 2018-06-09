@@ -53,7 +53,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -61,6 +63,7 @@
     <Compile Include="ServiceHost.cs" />
     <Compile Include="TestBizTalkClient.cs" />
     <Compile Include="TestComponents.cs" />
+    <Compile Include="TestExtensions.cs" />
     <Compile Include="TestScriptingFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +104,10 @@
       <Project>{00492bd1-23d7-41d4-9dee-83f184078489}</Project>
       <Name>inSyca.fd.in.bt_40</Name>
     </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.vs.external_40\inSyca.fd.in.vs.external_40.csproj">
+      <Project>{6C036F7F-5A8F-4FA5-9091-EF9B5EB9CE40}</Project>
+      <Name>inSyca.fd.in.vs.external_40</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\inSyca.suite.toolbox_40\cfg\suite.reg">
@@ -109,8 +116,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Testfiles\simple_001.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Testfiles\binding_001.xml" />
     <Content Include="Testfiles\simple_001.xml" />
     <Content Include="Testfiles\simple_002.xml" />
   </ItemGroup>

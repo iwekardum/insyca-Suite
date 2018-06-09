@@ -80,9 +80,9 @@
     <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
-    <Pipeline Include="..\..\insyca.bt.gl.pipelines\remove_nil_and_empty_nodes.btp">
-      <Link>remove_nil_and_empty_nodes.btp</Link>
-      <TypeName>remove_nil_and_empty_nodes</TypeName>
+    <Pipeline Include="..\..\insyca.bt.gl.pipelines\remove_nil_and_empty_nodes_11.btp">
+      <Link>remove_nil_and_empty_nodes_11.btp</Link>
+      <TypeName>remove_nil_and_empty_nodes_11</TypeName>
       <Namespace>inSyca.bt.gl.pipelines</Namespace>
       <SubType>Task</SubType>
     </Pipeline>

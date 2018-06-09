@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BtsAdminConfiguration>
+  <Hosts>
+    <Host hostname='inSyca_global' ntgroupname='DOMAIN\PROD-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_send' ntgroupname='DOMAIN\PROD-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_receive' ntgroupname='DOMAIN\PROD-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+  </Hosts>
+  <HostInstances>
+    <HostInstance servername='.' hostname='inSyca_global' username='DOMAIN\PROD-svcBIZhost' password='*****' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_send' username='DOMAIN\PROD-svcBIZhost' password='*****' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_receive' username='DOMAIN\PROD-svcBIZhost' password='*****' startinstance='true'/>
+  </HostInstances>
+  <Adapters>
+    <Adapter name='FILE' type='FILE' comment='FILE adapter'>
+      <ReceiveHandler hostname='inSyca_global_receive'/>
+    </Adapter>
+    <Adapter name='WCF-Custom' type='WCF-Custom' comment='WCF-Custom adapter'>
+      <ReceiveHandler hostname='inSyca_global_receive'/>
+    </Adapter>
+    <Adapter name='Windows SharePoint Services' type='Windows SharePoint Services' comment='Windows SharePoint Services adapter'>
+      <SendHandler hostname='inSyca_global_send'/>
+    </Adapter>
+  </Adapters>
+</BtsAdminConfiguration>

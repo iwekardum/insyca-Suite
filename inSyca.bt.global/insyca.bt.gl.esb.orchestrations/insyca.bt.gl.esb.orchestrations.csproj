@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="insyca.snk" />
-    <None Include="supportinfo_10.odx">
+    <None Include="supportinfo_11.odx">
       <SubType>Task</SubType>
     </None>
   </ItemGroup>
@@ -52,9 +52,15 @@
     <None Include="inSyca.ico" />
   </ItemGroup>
   <ItemGroup>
-    <XLang Include="global_10.odx">
+    <None Include="global_11.odx">
       <SubType>Task</SubType>
-    </XLang>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\insyca.bt.gl.esb.schemas\inSyca.bt.gl.esb.schemas.csproj">
+      <Project>{9302ad9e-4feb-427d-8d3e-b7e17a65dbac}</Project>
+      <Name>inSyca.bt.gl.esb.schemas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
