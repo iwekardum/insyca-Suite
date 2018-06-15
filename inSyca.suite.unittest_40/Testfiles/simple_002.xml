@@ -1,42 +1,33 @@
-<article_in xmlns="http://papp.bt.lo.md.egd.schemas.article_ff_10">
-	<article>
-		<code>100007346</code>
-		<description>MANGUE OSTEEN 6 x 0.667 RANGE 6 PC. 6 CARTON 40x30x12</description>
-		<family>FRUITS EXOTIQUES</family>
-		<confection>RANGE</confection>
-		<box_type>CARTON 40x30x12</box_type>
-		<box_height>012</box_height>
-		<box_length>030</box_length>
-		<box_width>040</box_width>
-		<layer_per_palet>0021</layer_per_palet>
-		<boxes_per_layer>0009</boxes_per_layer>
-		<box_gross_weight>000004.659</box_gross_weight>
-		<box_net_weight>4.002</box_net_weight>
-		<article_gtin_13/>
-		<box_gtin_14>08436557138248</box_gtin_14>
-		<layer_gtin_14>00000000000000</layer_gtin_14>
-		<palet_gtin_14>00000000000000</palet_gtin_14>
-		<boxes_per_palet>0189</boxes_per_palet>
-		<bio/>
-	</article>
-	<article>
-		<code>100007347</code>
-		<description>MANGUE OSTEEN 6 x 0.667 RANGE 6 PC. 6 CARTON 40x30x12</description>
-		<family>FRUITS EXOTIQUES</family>
-		<confection>RANGE</confection>
-		<box_type>CARTON 40x30x12</box_type>
-		<box_height>012</box_height>
-		<box_length>030</box_length>
-		<box_width>040</box_width>
-		<layer_per_palet>0021</layer_per_palet>
-		<boxes_per_layer>0009</boxes_per_layer>
-		<box_gross_weight>000004.659</box_gross_weight>
-		<box_net_weight>4.002</box_net_weight>
-		<article_gtin_13/>
-		<box_gtin_14>08436557138248</box_gtin_14>
-		<layer_gtin_14>00000000000000</layer_gtin_14>
-		<palet_gtin_14>00000000000000</palet_gtin_14>
-		<boxes_per_palet>0189</boxes_per_palet>
-		<bio/>
-	</article>
-</article_in>
+<?xml version="1.0" encoding="UTF-8"?>
+<breakfast_menu>
+  <food>
+    <name>Belgian Waffles</name>
+    <price>$5.95</price>
+    <description>Two of our famous Belgian Waffles with plenty of real maple syrup</description>
+    <calories>650</calories>
+  </food>
+  <food>
+    <name>Strawberry Belgian Waffles</name>
+    <price>$7.95</price>
+    <description>Light Belgian waffles covered with strawberries and whipped cream</description>
+    <calories>900</calories>
+  </food>
+  <food>
+    <name>Berry-Berry Belgian Waffles</name>
+    <price>$8.95</price>
+    <description>Light Belgian waffles covered with an assortment of fresh berries and whipped cream</description>
+    <calories>900</calories>
+  </food>
+  <food>
+    <name>French Toast</name>
+    <price>$4.50</price>
+    <description>Thick slices made from our homemade sourdough bread</description>
+    <calories>600</calories>
+  </food>
+  <food>
+    <name>Homestyle Breakfast</name>
+    <price/>
+    <description nil="true"/>
+    <calories/>
+  </food>
+</breakfast_menu>

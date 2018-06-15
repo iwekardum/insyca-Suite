@@ -215,6 +215,33 @@ namespace inSyca.foundation.integration.biztalk.components.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to inSyca - FF Xml Message Split Component for BizTalk Piepelines.
+        /// </summary>
+        internal static string ffXmlSplitter_description {
+            get {
+                return ResourceManager.GetString("ffXmlSplitter_description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FF Xml Message Split.
+        /// </summary>
+        internal static string ffXmlSplitter_name {
+            get {
+                return ResourceManager.GetString("ffXmlSplitter_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.0.0.0.
+        /// </summary>
+        internal static string ffXmlSplitter_version {
+            get {
+                return ResourceManager.GetString("ffXmlSplitter_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FixMsg pipeline component.
         /// </summary>
         internal static string FixMsgDescription {

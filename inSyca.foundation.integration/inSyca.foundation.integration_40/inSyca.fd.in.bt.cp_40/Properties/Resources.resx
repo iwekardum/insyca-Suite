@@ -265,4 +265,13 @@
   <data name="cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cog.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ffXmlSplitter_description" xml:space="preserve">
+    <value>inSyca - FF Xml Message Split Component for BizTalk Piepelines</value>
+  </data>
+  <data name="ffXmlSplitter_name" xml:space="preserve">
+    <value>FF Xml Message Split</value>
+  </data>
+  <data name="ffXmlSplitter_version" xml:space="preserve">
+    <value>1.0.0.0</value>
+  </data>
 </root>

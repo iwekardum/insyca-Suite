@@ -55,8 +55,8 @@ namespace inSyca.foundation.unittest_40
 
             XmlSplitter xmlSplitter = new XmlSplitter();
 
-            xmlSplitter.ChildNodeName = "article";
-            xmlSplitter.GroupByNodeName = "code";
+            xmlSplitter.ChildNodeName = "food";
+            xmlSplitter.GroupByNodeName = "name";
 
             xmlSplitter.ExtractChildNodes(xml, out namespaceURI, out rootElement, out childNodes);
 

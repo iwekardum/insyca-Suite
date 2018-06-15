@@ -216,13 +216,13 @@ namespace inSyca.foundation.integration.biztalk.components
 
                 ExtractChildNodes(xml, out namespaceURI, out rootElement, out childNodes);
 
-                //Log.DebugFormat("Disassemble(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})\nnamespaceURI: {2}, rootElement: {3}, ChildNodeName: {4}, GroupByNodeName: {5}", pContext, pInMsg, namespaceURI, rootElement, ChildNodeName, GroupByNodeName);
+                Log.DebugFormat("Disassemble(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})\nnamespaceURI: {2}, rootElement: {3}, ChildNodeName: {4}, GroupByNodeName: {5}", pContext, pInMsg, namespaceURI, rootElement, ChildNodeName, GroupByNodeName);
 
                 XElement xmlTemp = new XElement(xml);
 
                 foreach (var childNodeGroup in childNodes)
                 {
-                    //  Log.DebugFormat("Disassemble(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})\nKey: {2}", pContext, pInMsg, childNodeGroup.Key);
+                    Log.DebugFormat("Disassemble(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})\nKey: {2}", pContext, pInMsg, childNodeGroup.Key);
 
                     xmlTemp.RemoveNodes();
 
@@ -252,8 +252,22 @@ namespace inSyca.foundation.integration.biztalk.components
             rootElement = xml.Name.LocalName;
 
             XNamespace xmlns = xml.GetDefaultNamespace();
-            childNodes = from s in xml.Descendants(xmlns  + ChildNodeName)
-                         group s by (string)s.Element(xmlns + GroupByNodeName);
+
+            XName childNodeName;
+            XName groupByNodeName;
+
+            if (string.IsNullOrEmpty(xmlns.NamespaceName))
+            {
+                childNodeName = ChildNodeName;
+                groupByNodeName = GroupByNodeName;
+            }
+            else
+            {
+                childNodeName = xmlns + ChildNodeName;
+                groupByNodeName = xmlns + GroupByNodeName;
+            }
+            childNodes = from s in xml.Descendants(childNodeName)
+                         group s by (string)s.Element(groupByNodeName);
         }
 
         /// <summary>
