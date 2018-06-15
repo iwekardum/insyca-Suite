@@ -1,4 +1,5 @@
 ﻿using inSyca.foundation.framework.xml;
+using inSyca.foundation.integration.biztalk.components;
 using inSyca.foundation.integration.biztalk.test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -42,6 +43,23 @@ namespace inSyca.foundation.unittest_40
             byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
 
             File.WriteAllBytes(@"..\..\Testfiles\output.csv", byteArray);
+        }
+
+        [TestMethod]
+        public void test_XmlSplitter()
+        {
+            XElement xml = XElement.Load(@"..\..\Testfiles\simple_002.xml");
+
+            string namespaceURI, rootElement;
+            System.Collections.Generic.IEnumerable<IGrouping<string, XElement>> childNodes;
+
+            XmlSplitter xmlSplitter = new XmlSplitter();
+
+            xmlSplitter.ChildNodeName = "article";
+            xmlSplitter.GroupByNodeName = "code";
+
+            xmlSplitter.ExtractChildNodes(xml, out namespaceURI, out rootElement, out childNodes);
+
         }
     }
 }
