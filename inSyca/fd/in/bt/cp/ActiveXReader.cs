@@ -1,4 +1,18 @@
-﻿using inSyca.foundation.integration.biztalk.components.diagnostics;
+﻿/// Pipeline component Built by Dipesh Avlani (http://integrationexperts.wordpress.com). Free to use in your projects.
+///
+/// <summary>
+/// The purpose of this custom pipeline is to decode the xlsx files and convert it to xml. This component also adds a namespace.
+/// A regular expressions are used to ensure blank cells are handled in the excel 2007 format.     
+/// NamespaceBase:      -   The new namespace to be inserted. 
+/// NamespacePrefix:    -   The namespace prefix to use.
+/// RootNodeName:       -   Name of the root node.
+/// IsFirstRowHeader:   -   Flag to indicate if the first row represents column names.
+/// 
+/// Note:   
+/// This solution is based on the VirtualStream supported in BizTalk Server 2006 and up. The caching is set to to disk. The default location is for this file is 'C:\Documents and Settings\<BTSHostInstanceName>\Local Settings\Temp'. For performance reasons this location should be moved to a non OS-Drive. Make sure that BizTalk Host Instance account has full control of this folder. 
+/// </summary>
+
+using inSyca.foundation.integration.biztalk.components.diagnostics;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -86,17 +100,29 @@ namespace inSyca.foundation.integration.biztalk.components
 
         #region IPersistPropertyBag Members
 
-        public void GetClassID(out Guid classId)
+        /// <summary>
+        /// Gets class ID of component for usage from unmanaged code.
+        /// </summary>
+        /// <param name="classid">
+        /// Class ID of the component
+        /// </param>
+		public void GetClassID(out Guid classId)
         {
             classId = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC");
         }
 
-
+        /// <summary>
+        /// not implemented
+        /// </summary>
         public void InitNew()
         {
         }
 
-
+        /// <summary>
+        /// Loads configuration properties for the component
+        /// </summary>
+        /// <param name="pb">Configuration property bag</param>
+        /// <param name="errlog">Error status</param>
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
             try
@@ -110,12 +136,24 @@ namespace inSyca.foundation.integration.biztalk.components
         }
 
 
-        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
+        /// <summary>
+        /// Saves the current component configuration into the property bag
+        /// </summary>
+        /// <param name="pb">Configuration property bag</param>
+        /// <param name="fClearDirty">not used</param>
+        /// <param name="fSaveAllProperties">not used</param>
+        public virtual void Save(IPropertyBag pb, bool fClearDirty, bool fSaveAllProperties)
         {
-            WritePropertyBag(propertyBag, "IncomingEncoding", this.IncomingEncoding);
+            WritePropertyBag(pb, "IncomingEncoding", this.IncomingEncoding);
         }
 
 
+        /// <summary>
+        /// Reads property value from property bag
+        /// </summary>
+        /// <param name="pb">Property bag</param>
+        /// <param name="propName">Name of property</param>
+        /// <returns>Value of the property</returns>
         private static object ReadPropertyBag(IPropertyBag propertyBag, string propName)
         {
             object val = null;

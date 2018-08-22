@@ -26,14 +26,14 @@ using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Xml;
+using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
 namespace inSyca.foundation.integration.biztalk.components
 {
-
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
-    [ComponentCategory(CategoryTypes.CATID_Decoder)]
+	[ComponentCategory(CategoryTypes.CATID_Decoder)]
     [System.Runtime.InteropServices.Guid("dd0af82f-01dc-4aa1-9d0f-c613aa323c69")]
-    public class Excel2007Decoder : IBaseComponent, Microsoft.BizTalk.Component.Interop.IComponent, IPersistPropertyBag, IComponentUI
+    public class Excel2007Decoder : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI
     {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
@@ -100,9 +100,9 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <param name="classid">
         /// Class ID of the component
         /// </param>
-        public void GetClassID(out Guid classid)
+		public void GetClassID(out Guid classId)
         {
-            classid = new Guid("dd0af82f-08dc-4aa1-9d0f-c613aa323c69");
+            classId = new Guid("dd0af82f-08dc-4aa1-9d0f-c613aa323c69");
         }
 
         /// <summary>

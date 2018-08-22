@@ -245,6 +245,34 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
+        /// <summary>
+        /// Used to pass output messages`to next stage
+        /// </summary>
+        public IBaseMessage GetNext(IPipelineContext pContext)
+        {
+            if (qOutputMsgs.Count > 0)
+                return (IBaseMessage)qOutputMsgs.Dequeue();
+            else
+                return null;
+        }
+
+        #endregion
+
+        #region IComponent
+        public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Helper
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <param name="namespaceURI"></param>
+        /// <param name="rootElement"></param>
+        /// <param name="childNodes"></param>
         public void ExtractChildNodes(XElement xml, out string namespaceURI, out string rootElement, out System.Collections.Generic.IEnumerable<IGrouping<string, XElement>> childNodes)
         {
             //fetch namespace and root element
@@ -270,27 +298,6 @@ namespace inSyca.foundation.integration.biztalk.components
                          group s by (string)s.Element(groupByNodeName);
         }
 
-        /// <summary>
-        /// Used to pass output messages`to next stage
-        /// </summary>
-        public IBaseMessage GetNext(IPipelineContext pContext)
-        {
-            if (qOutputMsgs.Count > 0)
-                return (IBaseMessage)qOutputMsgs.Dequeue();
-            else
-                return null;
-        }
-
-        #endregion
-
-        #region IComponent
-        public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
-        #region Helper
         /// <summary>
         /// Queue outgoing messages
         /// </summary>

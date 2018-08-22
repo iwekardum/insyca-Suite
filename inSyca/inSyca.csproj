@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>inSyca</RootNamespace>
+    <AssemblyName>inSyca</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fd\in\bt\cp\ActiveXReader.cs" />
+    <Compile Include="fd\in\bt\cp\encoding\UTFDescription.cs" />
+    <Compile Include="fd\in\bt\cp\encoding\UTFStream.cs" />
+    <Compile Include="fd\in\bt\cp\ExcelDecoder.cs" />
+    <Compile Include="fd\in\bt\cp\FFAttachmentsExtractor.cs" />
+    <Compile Include="fd\in\bt\cp\FFRegEx.cs" />
+    <Compile Include="fd\in\bt\cp\FFXmlSplitter.cs" />
+    <Compile Include="fd\in\bt\cp\RemoveNil.cs" />
+    <Compile Include="fd\in\bt\cp\StripMessageBrokerBody.cs" />
+    <Compile Include="fd\in\bt\cp\Substitute.cs" />
+    <Compile Include="fd\in\bt\cp\UTF-16.cs" />
+    <Compile Include="fd\in\bt\cp\UTF-8.cs" />
+    <Compile Include="fd\in\bt\cp\UTF-8_wo_BOM.cs" />
+    <Compile Include="fd\in\bt\cp\XmlMultiPartAssembler.cs" />
+    <Compile Include="fd\in\bt\cp\XmlSplitter.cs" />
+    <Compile Include="fd\in\bt\cp\XslTransformer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="inSyca.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ressources\cog.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="inSyca.ico" />
+    <Content Include="ressources\inSyca.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
