@@ -268,7 +268,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Reads property value from property bag
         /// </summary>
-        /// <param name="pb">Property bag</param>
+        /// <param name="propertyBag">Property bag</param>
         /// <param name="propName">Name of property</param>
         /// <returns>Value of the property</returns>
         private object ReadPropertyBag(IPropertyBag pb, string propName)
@@ -295,7 +295,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Writes property values into a property bag.
         /// </summary>
-        /// <param name="pb">Property bag.</param>
+        /// <param name="propertyBag">Property bag.</param>
         /// <param name="propName">Name of property.</param>
         /// <param name="val">Value of property.</param>
         private void WritePropertyBag(IPropertyBag pb, string propName, object val)

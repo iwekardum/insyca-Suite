@@ -132,9 +132,9 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Saves the current component configuration into the property bag.
         /// </summary>
-        /// <param name="pb">Configuration property bag.</param>
-        /// <param name="fClearDirty">Not used.</param>
-        /// <param name="fSaveAllProperties">Not used.</param>
+        /// <param name="propertyBag">Configuration property bag.</param>
+        /// <param name="clearDirty">Not used.</param>
+        /// <param name="saveAllProperties">Not used.</param>
         public void Save(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, Boolean fClearDirty, Boolean fSaveAllProperties)
         {
             object val = (object)xsltPath;
@@ -144,7 +144,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Reads property value from property bag.
         /// </summary>
-        /// <param name="pb">Property bag.</param>
+        /// <param name="propertyBag">Property bag.</param>
         /// <param name="propName">Name of property.</param>
         /// <returns>Value of the property.</returns>
         private static object ReadPropertyBag(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, string propName)

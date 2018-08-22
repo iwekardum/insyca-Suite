@@ -1,18 +1,19 @@
-﻿/// Pipeline component Built by Dipesh Avlani (http://integrationexperts.wordpress.com). Free to use in your projects.
+﻿///
 ///
-/// <summary>
-/// The purpose of this custom pipeline is to decode the xlsx files and convert it to xml. This component also adds a namespace.
-/// A regular expressions are used to ensure blank cells are handled in the excel 2007 format.     
-/// NamespaceBase:      -   The new namespace to be inserted. 
-/// NamespacePrefix:    -   The namespace prefix to use.
-/// RootNodeName:       -   Name of the root node.
-/// IsFirstRowHeader:   -   Flag to indicate if the first row represents column names.
-/// 
-/// Note:   
-/// This solution is based on the VirtualStream supported in BizTalk Server 2006 and up. The caching is set to to disk. The default location is for this file is 'C:\Documents and Settings\<BTSHostInstanceName>\Local Settings\Temp'. For performance reasons this location should be moved to a non OS-Drive. Make sure that BizTalk Host Instance account has full control of this folder. 
-/// </summary>
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
 
 using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -26,40 +27,36 @@ using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 namespace inSyca.foundation.integration.biztalk.components
 {
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
-	[ComponentCategory(CategoryTypes.CATID_Decoder)]
-	[System.Runtime.InteropServices.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC")]
-	public class ActiveXMessageReader : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI, IProbeMessage
-	{
+    [ComponentCategory(CategoryTypes.CATID_Decoder)]
+    [System.Runtime.InteropServices.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC")]
+    public class ActiveXMessageReader : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI, IProbeMessage
+    {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
-		private string incomingEncoding;
-
-		public ActiveXMessageReader()
-		{
-			this.incomingEncoding = "utf-16";
-		}
+        static string IncomingEncodingLabel = "IncomingEncoding";
 
         #region Properties
 
-        [Description("Encoding name")]
-		[DisplayName("Encoding name")]
-		[DefaultValue("utf-16")]
-		public string IncomingEncoding
-		{
-			get
-			{
-				return this.incomingEncoding;
-			}
+        [Description("IncomingEncoding")]
+        [DisplayName("IncomingEncoding")]
+        [DefaultValue("utf-16")]
+        public string IncomingEncoding { get; set; }
 
-			set
-			{
-				this.incomingEncoding = value;
-			}
-		}
-
-		#endregion public members
+        #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("activeXMessageReader_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -85,17 +82,6 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("activeXMessageReader_description", CultureInfo.InvariantCulture);
-            }
-        }
         #endregion
 
         #region IPersistPropertyBag Members
@@ -103,12 +89,14 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Gets class ID of component for usage from unmanaged code.
         /// </summary>
-        /// <param name="classid">
+        /// <param name="classID">
         /// Class ID of the component
         /// </param>
-		public void GetClassID(out Guid classId)
+        public void GetClassID(out Guid classID)
         {
-            classId = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC");
+            classID = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
         /// <summary>
@@ -116,119 +104,120 @@ namespace inSyca.foundation.integration.biztalk.components
         /// </summary>
         public void InitNew()
         {
+            Log.Debug("InitNew()");
         }
 
         /// <summary>
         /// Loads configuration properties for the component
         /// </summary>
-        /// <param name="pb">Configuration property bag</param>
-        /// <param name="errlog">Error status</param>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            try
-            {
-                this.IncomingEncoding = (string)ReadPropertyBag(propertyBag, "IncomingEncoding");
-            }
-            catch
-            {
-                this.IncomingEncoding = "utf-16";
-            }
-        }
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
 
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, IncomingEncodingLabel);
+
+                if (val != null)
+                    IncomingEncoding = ((string)(val));
+                else
+                    this.IncomingEncoding = "utf-16";
+
+            }
+
+            Log.DebugFormat("Load IncomingEncoding {0}", IncomingEncoding);
+        }
 
         /// <summary>
         /// Saves the current component configuration into the property bag
         /// </summary>
-        /// <param name="pb">Configuration property bag</param>
-        /// <param name="fClearDirty">not used</param>
-        /// <param name="fSaveAllProperties">not used</param>
-        public virtual void Save(IPropertyBag pb, bool fClearDirty, bool fSaveAllProperties)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            WritePropertyBag(pb, "IncomingEncoding", this.IncomingEncoding);
-        }
+            Log.DebugFormat("Save(IPropertyBag propertyBag {0}, bool clearDirty {1}, bool saveAllProperties {2})", propertyBag, clearDirty, saveAllProperties);
 
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
 
-        /// <summary>
-        /// Reads property value from property bag
-        /// </summary>
-        /// <param name="pb">Property bag</param>
-        /// <param name="propName">Name of property</param>
-        /// <returns>Value of the property</returns>
-        private static object ReadPropertyBag(IPropertyBag propertyBag, string propName)
-        {
-            object val = null;
-
-            try
-            {
-                propertyBag.Read(propName, out val, 0);
-            }
-            catch (ArgumentException)
-            {
-                return val;
-            }
-            catch (Exception)
-            {
-                throw;
+                val = IncomingEncoding;
+                propertyBag.Write(IncomingEncodingLabel, val);
             }
 
-            return val;
-        }
-
-
-        private static void WritePropertyBag(IPropertyBag propertyBag, string propName, object val)
-        {
-            try
-            {
-                propertyBag.Write(propName, ref val);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Log.DebugFormat("Save IncomingEncodingLabel {0}", IncomingEncodingLabel);
         }
 
         #endregion
 
-		#region IComponentUI Members
-
-		[Browsable(false)]
-		public IntPtr Icon
-		{
-			get
-			{
+        #region IComponentUI members
+        /// <summary>
+        /// Component icon to use in BizTalk Editor
+        /// </summary>
+        public IntPtr Icon
+        {
+            get
+            {
                 return Properties.Resources.cog.Handle;
             }
-		}
+        }
 
+        /// <summary>
+        /// The Validate method is called by the BizTalk Editor during the build 
+        /// of a BizTalk project.
+        /// </summary>
+        /// <param name="obj">An Object containing the configuration properties.</param>
+        /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
+        public IEnumerator Validate(object obj)
+        {
+            // example implementation:
+            // ArrayList errorList = new ArrayList();
+            // errorList.Add("This is a compiler error");
+            // return errorList.GetEnumerator();
+            return null;
+        }
+        #endregion
 
-		public IEnumerator Validate(object projectSystem)
-		{
-			return null;
-		}
+        #region IComponent Members
 
-		#endregion
-
-		#region IProbeMessage Members
-
-		public bool Probe(IPipelineContext pipelineContext, IBaseMessage inMsg)
-		{
-			return null != inMsg;
-		}
-
-		#endregion
-
-		#region IComponent Members
-
-		public IBaseMessage Execute(IPipelineContext pipelineContext, IBaseMessage inMsg)
-		{
+        /// <summary>
+        /// Implements IComponent.Execute method.
+        /// </summary>
+        /// <param name="pipelineContext">Pipeline context</param>
+        /// <param name="inMsg">Input message</param>
+        /// <returns>Original input message</returns>
+        /// <remarks>
+        /// IComponent.Execute method is used to initiate
+        /// the processing of the message in this pipeline component.
+        /// </remarks>
+        public IBaseMessage Execute(IPipelineContext pipelineContext, IBaseMessage inMsg)
+        {
             Log.DebugFormat("Execute(IPipelineContext pipelineContext {0}, IBaseMessage inMsg {1})", pipelineContext, inMsg);
 
-			inMsg.BodyPart.Charset = this.incomingEncoding;
-			return inMsg;
-		}
+            inMsg.BodyPart.Charset = IncomingEncoding;
+            return inMsg;
+        }
 
-		#endregion
+        #endregion
 
+        #region IProbeMessage Members
 
-	}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pipelineContext"></param>
+        /// <param name="inMsg"></param>
+        /// <returns></returns>
+        public bool Probe(IPipelineContext pipelineContext, IBaseMessage inMsg)
+        {
+            return null != inMsg;
+        }
+
+        #endregion
+    }
 }
