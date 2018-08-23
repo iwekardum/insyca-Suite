@@ -210,7 +210,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Disassembles (breaks) message into small messages as per batch size
         /// </summary>
-        new public void Disassemble(IPipelineContext pContext, IBaseMessage pInMsg)
+        public new void Disassemble(IPipelineContext pContext, IBaseMessage pInMsg)
         {
             Log.DebugFormat("Disassemble(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})", pContext, pInMsg);
 
@@ -221,7 +221,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Used to pass output messages`to next stage
         /// </summary>
-        public IBaseMessage GetNext(IPipelineContext pContext)
+        public new IBaseMessage GetNext(IPipelineContext pContext)
         {
             if(qOutputMsgs == null)
             {

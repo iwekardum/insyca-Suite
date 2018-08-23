@@ -61,11 +61,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="inSyca.foundation.framework.security.cs" />
     <Compile Include="ServiceHost.cs" />
-    <Compile Include="TestBizTalkClient.cs" />
-    <Compile Include="TestComponents.cs" />
-    <Compile Include="TestExtensions.cs" />
-    <Compile Include="TestScriptingFunctions.cs" />
+    <Compile Include="inSyca.foundation.communication.clients.cs" />
+    <Compile Include="inSyca.foundation.integration.biztalk.components.cs" />
+    <Compile Include="inSyca.foundation.integration.visualstudio.external.cs" />
+    <Compile Include="inSyca.foundation.integration.biztalk.functions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +118,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="symboliclinks.cmd" />
     <None Include="Testfiles\simple_001.csv" />
   </ItemGroup>
   <ItemGroup>

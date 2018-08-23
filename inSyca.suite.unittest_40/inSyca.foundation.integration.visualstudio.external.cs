@@ -11,10 +11,10 @@ namespace inSyca.foundation.unittest_40
     /// Summary description for TestExtensions
     /// </summary>
     [TestClass]
-    public class TestExtensions
+    public class testExtensions
     {
         [TestMethod]
-        public void Test_processBindings()
+        public void testProcessBindings()
         {
             FileInfo selectedFile = new FileInfo(@"..\..\Testfiles\binding_001.xml");
 

@@ -1,4 +1,19 @@
-﻿using inSyca.foundation.integration.biztalk.components.diagnostics;
+﻿///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+
+using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -8,6 +23,7 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Text;
 using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
@@ -24,14 +40,9 @@ namespace inSyca.foundation.integration.biztalk.components
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_Any)]
     [ComponentCategory(CategoryTypes.CATID_Validate)]
-    [System.Runtime.InteropServices.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC")]
+    [Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC")]
     public class UTF_8 : BaseCustomTypeDescriptor, IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI
     {
-        static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
-
-        private string prependData = null;
-        private string appendData = null;
-
         /// <summary>
         /// Constructor initializes base class to allow custom names and description for component properies
         /// </summary>
@@ -40,34 +51,42 @@ namespace inSyca.foundation.integration.biztalk.components
         {
         }
 
+        static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
+
+        static string PrependDataLabel = "PrependData";
+        static string AppendDataLabel = "AppendData";
+
         #region Properties
         /// <summary>
         /// Data to prepend at the beginning of a stream.
         /// </summary>	
-        [
-        FixMsgPropertyName("PropPrependData"),
-        FixMsgDescription("DescrPrependData")
-        ]
-        public string PrependData
-        {
-            get { return prependData; }
-            set { prependData = value; }
-        }
+        [Description("PrependData")]
+        [DisplayName("PrependData")]
+        [DefaultValue("")]
+        public string PrependData { get; set; }
+
         /// <summary>
         /// Data to append at the end of stream.
         /// </summary>
-        [
-        FixMsgPropertyName("PropAppendData"),
-        FixMsgDescription("DescrAppendData")
-        ]
-        public string AppendData
-        {
-            get { return appendData; }
-            set { appendData = value; }
-        }
+        [Description("AppendData")]
+        [DisplayName("AppendData")]
+        [DefaultValue("")]
+        public string AppendData { get; set; }
         #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("UTF_8_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -92,29 +111,21 @@ namespace inSyca.foundation.integration.biztalk.components
                 return _resourceManager.GetString("UTF_8_version", CultureInfo.InvariantCulture);
             }
         }
-
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("UTF_8_description", CultureInfo.InvariantCulture);
-            }
-        }
         #endregion
 
-        #region IPersistPropertyBag
+        #region IPersistPropertyBag Members
 
         /// <summary>
         /// Gets class ID of component for usage from unmanaged code.
         /// </summary>
-        /// <param name="classid">Class ID of the component.</param>
-        public void GetClassID(out Guid classid)
+        /// <param name="classID">
+        /// Class ID of the component
+        /// </param>
+        public void GetClassID(out Guid classID)
         {
-            classid = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC");
+            classID = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBC");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
         /// <summary>
@@ -122,83 +133,61 @@ namespace inSyca.foundation.integration.biztalk.components
         /// </summary>
         public void InitNew()
         {
+            Log.Debug("InitNew()");
         }
 
         /// <summary>
-        /// Loads configuration property for component.
+        /// Loads configuration properties for the component
         /// </summary>
-        /// <param name="propertyBag">Configuration property bag.</param>
-        /// <param name="errorLog">Error status (not used in this code).</param>
-        public void Load(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, Int32 errlog)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
+		public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            string val = (string)ReadPropertyBag(pb, "AppendData");
-            if (val != null) appendData = val;
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
 
-            val = (string)ReadPropertyBag(pb, "PrependData");
-            if (val != null) prependData = val;
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, AppendDataLabel);
+
+                if (val != null)
+                    AppendData = (string)val;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, PrependDataLabel);
+
+                if (val != null)
+                    PrependData = (string)val;
+            }
+
+            Log.DebugFormat("Load AppendData {0}", AppendData);
+            Log.DebugFormat("Load PrependData {0}", PrependData);
         }
 
         /// <summary>
-        /// Saves the current component configuration into the property bag.
+        /// Saves the current component configuration into the property bag
         /// </summary>
-        /// <param name="propertyBag">Configuration property bag.</param>
-        /// <param name="clearDirty">Not used.</param>
-        /// <param name="saveAllProperties">Not used.</param>
-        public void Save(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, Boolean fClearDirty, Boolean fSaveAllProperties)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            object val = (object)appendData;
-            WritePropertyBag(pb, "AppendData", val);
+            Log.DebugFormat("Save(IPropertyBag propertyBag {0}, bool clearDirty {1}, bool saveAllProperties {2})", propertyBag, clearDirty, saveAllProperties);
 
-            val = (object)prependData;
-            WritePropertyBag(pb, "PrependData", val);
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = AppendData;
+                propertyBag.Write(AppendDataLabel, ref val);
+
+                val = PrependData;
+                propertyBag.Write(PrependDataLabel, ref val);
+            }
+
+            Log.DebugFormat("Save AppendData {0}", AppendData);
+            Log.DebugFormat("Save PrependData {0}", PrependData);
         }
-
-        /// <summary>
-        /// Reads property value from property bag.
-        /// </summary>
-        /// <param name="propertyBag">Property bag.</param>
-        /// <param name="propName">Name of property.</param>
-        /// <returns>Value of the property.</returns>
-        private static object ReadPropertyBag(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, string propName)
-        {
-            object val = null;
-            try
-            {
-                pb.Read(propName, out val, 0);
-            }
-
-            catch (ArgumentException)
-            {
-                return val;
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(ex.Message);
-            }
-            return val;
-        }
-
-        /// <summary>
-        /// Writes property values into a property bag.
-        /// </summary>
-        /// <param name="propertyBag">Property bag.</param>
-        /// <param name="propName">Name of property.</param>
-        /// <param name="val">Value of property.</param>
-        private static void WritePropertyBag(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, string propName, object val)
-        {
-            try
-            {
-                pb.Write(propName, ref val);
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(ex.Message);
-            }
-        }
-
-
-
-
         #endregion
 
         #region IComponentUI
@@ -206,7 +195,6 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Component icon to use in integration Editor.
         /// </summary>
-        [Browsable(false)]
         public IntPtr Icon
         {
             get
@@ -227,19 +215,24 @@ namespace inSyca.foundation.integration.biztalk.components
         /// </returns>
         public IEnumerator Validate(object obj)
         {
+            // example implementation:
+            // ArrayList errorList = new ArrayList();
+            // errorList.Add("This is a compiler error");
+            // return errorList.GetEnumerator();
+
             IEnumerator enumerator = null;
             ArrayList strList = new ArrayList();
 
             // Validate prepend data property
-            if ((prependData != null) &&
-            (prependData.Length >= 64))
+            if ((PrependData != null) &&
+            (PrependData.Length >= 64))
             {
                 strList.Add(_resourceManager.GetString("ErrorPrependDataTooLong"));
             }
 
             // validate append data property
-            if ((appendData != null) &&
-            (appendData.Length >= 64))
+            if ((AppendData != null) &&
+            (AppendData.Length >= 64))
             {
                 strList.Add(_resourceManager.GetString("ErrorAppendDataTooLong"));
             }
@@ -274,8 +267,7 @@ namespace inSyca.foundation.integration.biztalk.components
             if (bodyPart != null)
             {
                 byte[] prependByteData = new byte[] { 239, 187, 191 }; //UTF8 Byte Order Mark 
-
-                byte[] appendByteData = ConvertToBytes(appendData);
+                byte[] appendByteData = ConvertToBytes(AppendData);
                 Stream originalStrm = bodyPart.GetOriginalDataStream();
                 Stream strm = null;
 

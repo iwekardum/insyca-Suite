@@ -191,7 +191,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// </summary>
         /// <param name="obj">An Object containing the configuration properties.</param>
         /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
-        public IEnumerator Validate(object obj)
+        public new IEnumerator Validate(object obj)
         {
             // example implementation:
             // ArrayList errorList = new ArrayList();

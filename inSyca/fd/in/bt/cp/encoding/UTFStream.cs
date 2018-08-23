@@ -28,7 +28,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// FixMsgStream constructor.
         /// </summary>
         /// <param name="stm">Stream object.</param>
-        /// <param name="prependData">Bytes to prepend at the beginning of stream.</param>
+        /// <param name="PrependDataLabel">Bytes to prepend at the beginning of stream.</param>
         /// <param name="appendData">Bytes to append at the end of stream.</param>
         public FixMsgStream(Stream stm, byte[] prependData, byte[] appendData, ResourceManager _resourceManager)
         {
@@ -180,7 +180,7 @@ namespace inSyca.foundation.integration.biztalk.components
                 Array.Copy(prependData, prependDataOffset, buffer, offset, bytesRead);
 
                 if (bytesRead == prependData.Length)
-                    prependData = null;	// prependData consumed
+                    prependData = null;	// PrependDataLabel consumed
 
                 prependDataOffset += bytesRead;
                 offset += bytesRead;

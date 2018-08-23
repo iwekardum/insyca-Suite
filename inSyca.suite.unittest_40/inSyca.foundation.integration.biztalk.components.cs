@@ -13,11 +13,11 @@ using System.Xml.Linq;
 namespace inSyca.foundation.unittest_40
 {
     [TestClass]
-    public class TestComponents
+    public class testComponents
     {
 
         [TestMethod]
-        public void removeNilAndEmpty()
+        public void testRemoveNilAndEmpty()
         {
             XElement xmldocument = XElement.Load(@"..\..\Testfiles\simple_002.xml");
 
@@ -28,25 +28,7 @@ namespace inSyca.foundation.unittest_40
         }
 
         [TestMethod]
-        public void bizTalkTestEnvironment()
-        {
-            StreamReader sr = new StreamReader(@"..\..\Testfiles\simple_001.csv");
-            string messageString = sr.ReadToEnd();
-
-            //messageString = messageString.TrimEnd('\r', '\n');
-            //messageString = messageString + Environment.NewLine;
-
-            messageString = Regex.Replace(messageString, @"\r\n+", "\r\n");
-
-            messageString = Regex.Replace(messageString, "\".*?\"", "");
-
-            byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
-
-            File.WriteAllBytes(@"..\..\Testfiles\output.csv", byteArray);
-        }
-
-        [TestMethod]
-        public void test_XmlSplitter()
+        public void testXmlSplitter()
         {
             XElement xml = XElement.Load(@"..\..\Testfiles\simple_002.xml");
 
@@ -61,5 +43,23 @@ namespace inSyca.foundation.unittest_40
             xmlSplitter.ExtractChildNodes(xml, out namespaceURI, out rootElement, out childNodes);
 
         }
+
+        //[TestMethod]
+        //public void bizTalkTestEnvironment()
+        //{
+        //    StreamReader sr = new StreamReader(@"..\..\Testfiles\simple_001.csv");
+        //    string messageString = sr.ReadToEnd();
+
+        //    //messageString = messageString.TrimEnd('\r', '\n');
+        //    //messageString = messageString + Environment.NewLine;
+
+        //    messageString = Regex.Replace(messageString, @"\r\n+", "\r\n");
+
+        //    messageString = Regex.Replace(messageString, "\".*?\"", "");
+
+        //    byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
+
+        //    File.WriteAllBytes(@"..\..\Testfiles\output.csv", byteArray);
+        //}
     }
 }
