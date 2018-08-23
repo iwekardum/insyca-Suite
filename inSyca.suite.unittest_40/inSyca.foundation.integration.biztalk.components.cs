@@ -1,6 +1,9 @@
 ﻿using inSyca.foundation.framework.xml;
 using inSyca.foundation.integration.biztalk.components;
 using inSyca.foundation.integration.biztalk.test;
+using Microsoft.BizTalk.Component.Interop;
+using Microsoft.BizTalk.Message.Interop;
+using Microsoft.BizTalk.PipelineResources;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -44,22 +47,153 @@ namespace inSyca.foundation.unittest_40
 
         }
 
-        //[TestMethod]
-        //public void bizTalkTestEnvironment()
-        //{
-        //    StreamReader sr = new StreamReader(@"..\..\Testfiles\simple_001.csv");
-        //    string messageString = sr.ReadToEnd();
+        [TestMethod]
+        public void testActiveXReader()
+        {
+            XElement xml = XElement.Load(@"..\..\Testfiles\simple_002.xml");
 
-        //    //messageString = messageString.TrimEnd('\r', '\n');
-        //    //messageString = messageString + Environment.NewLine;
+            ActiveXMessageReader amr = new ActiveXMessageReader();
 
-        //    messageString = Regex.Replace(messageString, @"\r\n+", "\r\n");
+            amr.IncomingEncoding = "utf-16";
 
-        //    messageString = Regex.Replace(messageString, "\".*?\"", "");
+            IPipelineContext pipelineContext = new PipelineContext();
+            IBaseMessage inMsg = new BaseMessage();
 
-        //    byte[] byteArray = Encoding.UTF8.GetBytes(messageString);
+            IBaseMessage resultMessage = amr.Execute(pipelineContext, inMsg);
+        }
+    }
 
-        //    File.WriteAllBytes(@"..\..\Testfiles\output.csv", byteArray);
-        //}
+    public class PipelineContext : IPipelineContext
+    {
+
+        public int ComponentIndex
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public IDocumentSpec GetDocumentSpecByName(string DocSpecName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDocumentSpec GetDocumentSpecByType(string DocType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Microsoft.BizTalk.Bam.EventObservation.EventStream GetEventStream()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetGroupSigningCertificate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBaseMessageFactory GetMessageFactory()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid PipelineID
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string PipelineName
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public IResourceTracker ResourceTracker
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Guid StageID
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public int StageIndex
+        {
+            get { throw new NotImplementedException(); }
+        }
+    }
+
+    public class BaseMessage : IBaseMessage
+    {
+        public void AddPart(string partName, IBaseMessagePart part, bool bBody)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBaseMessagePart BodyPart
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string BodyPartName
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public IBaseMessageContext Context
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Exception GetErrorInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBaseMessagePart GetPart(string partName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBaseMessagePart GetPartByIndex(int index, out string partName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetSize(out ulong lSize, out bool fImplemented)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsMutable
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Guid MessageID
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public int PartCount
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void RemovePart(string partName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetErrorInfo(Exception errInfo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
