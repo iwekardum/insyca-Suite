@@ -1,4 +1,18 @@
-﻿using inSyca.foundation.framework;
+﻿///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+
+using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
@@ -11,6 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Xml;
 using System.Xml.Linq;
 using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
@@ -20,7 +35,7 @@ namespace inSyca.foundation.integration.biztalk.components
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_DisassemblingParser)]
     [ComponentCategory(CategoryTypes.CATID_AssemblingSerializer)]
-    [System.Runtime.InteropServices.Guid("6178B9F0-8684-4ba2-87B4-8336D70BD4F7")]
+    [Guid("6178B9F0-8684-4ba2-87B4-8336D70BD4F7")]
     public class RemoveNil : IBaseComponent, IComponent, IDisassemblerComponent, IAssemblerComponent, IComponentUI, IPersistPropertyBag
     {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
@@ -30,6 +45,18 @@ namespace inSyca.foundation.integration.biztalk.components
         private string systemPropertiesNamespace = @"http://schemas.microsoft.com/BizTalk/2003/system-properties";
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("removeNil_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -54,54 +81,56 @@ namespace inSyca.foundation.integration.biztalk.components
                 return _resourceManager.GetString("removeNil_version", CultureInfo.InvariantCulture);
             }
         }
-
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("removeNil_description", CultureInfo.InvariantCulture);
-            }
-        }
-        #endregion        /// <summary>
+        #endregion
 
         #region IPersistPropertyBag Members
+
         /// <summary>
-        /// Class GUID
+        /// Gets class ID of component for usage from unmanaged code.
         /// </summary>
+        /// <param name="classID">
+        /// Class ID of the component
+        /// </param>
         public void GetClassID(out Guid classID)
         {
             classID = new Guid("ACC3F15A-C389-4a9d-8F8E-2AB51CDC4C19");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
         /// <summary>
-        /// InitNew
+        /// not implemented
         /// </summary>
         public void InitNew()
         {
+            Log.Debug("InitNew()");
         }
 
         /// <summary>
-        /// Load property from property bag
+        /// Loads configuration properties for the component
         /// </summary>
-        public void Load(IPropertyBag propertyBag, int errorLog)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
+		public void Load(IPropertyBag propertyBag, int errorLog)
         {
         }
 
         /// <summary>
-        /// Write property to property bag
+        /// Saves the current component configuration into the property bag
         /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
         public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
         }
+
         #endregion
 
-        #region IComponentUI Members
-
-        [Browsable(false)]
+        #region IComponentUI members
+        /// <summary>
+        /// Component icon to use in BizTalk Editor
+        /// </summary>
         public IntPtr Icon
         {
             get
@@ -110,9 +139,18 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
-
-        public IEnumerator Validate(object projectSystem)
+        /// <summary>
+        /// The Validate method is called by the BizTalk Editor during the build 
+        /// of a BizTalk project.
+        /// </summary>
+        /// <param name="obj">An Object containing the configuration properties.</param>
+        /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
+        public IEnumerator Validate(object obj)
         {
+            // example implementation:
+            // ArrayList errorList = new ArrayList();
+            // errorList.Add("This is a compiler error");
+            // return errorList.GetEnumerator();
             return null;
         }
 

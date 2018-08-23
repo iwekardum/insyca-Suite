@@ -39,8 +39,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>inSyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
@@ -142,12 +141,10 @@
     <Content Include="..\..\..\inSyca\ressources\inSyca.ico">
       <Link>Resources\inSyca.ico</Link>
     </Content>
-    <None Include="..\..\..\inSyca\inSyca.snk">
-      <Link>inSyca.snk</Link>
-    </None>
     <None Include="foundation.integration.biztalk.components.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="inSyca.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

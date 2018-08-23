@@ -1,5 +1,20 @@
-﻿using inSyca.foundation.framework;
+﻿///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+
+using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -10,6 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Xml;
 using System.Xml.Linq;
 using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
@@ -18,45 +34,44 @@ namespace inSyca.foundation.integration.biztalk.components
 {
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_DisassemblingParser)]
-    [System.Runtime.InteropServices.Guid("6118B9F0-8684-4ba2-87B4-8336D70BD4F7")]
+    [Guid("6118B9F0-8684-4ba2-87B4-8336D70BD4F7")]
     public class XmlSplitter : IBaseComponent, IComponent, IDisassemblerComponent, IComponentUI, IPersistPropertyBag
     {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
+        static string ChildNodeNameLabel = "ChildNodeName";
+        static string GroupByNodeNameLabel = "GroupByNodeName";
+
         //Used to hold disassembled messages
-        private System.Collections.Queue qOutputMsgs = new System.Collections.Queue();
+        private System.Collections.Queue qOutputMsgs = null;
         private string systemPropertiesNamespace = @"http://schemas.microsoft.com/BizTalk/2003/system-properties";
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public XmlSplitter()
-        {
-        }
-
         #region Properties
-        /// <summary>
-        /// Name of nodes to split
-        /// </summary>
-        private string _ChildNodeName;
-        public string ChildNodeName
-        {
-            get { return _ChildNodeName; }
-            set { _ChildNodeName = value; }
-        }
+        [Description("Name of nodes to split")]
+        [DisplayName("ChildNodeName")]
+        [DefaultValue("")]
+        public string ChildNodeName { get; set; }
 
-        /// <summary>
-        /// Name of nodes to split
-        /// </summary>
-        private string _GroupByNodeName;
-        public string GroupByNodeName
-        {
-            get { return _GroupByNodeName; }
-            set { _GroupByNodeName = value; }
-        }
-        #endregion Properties
+        [Description("Name of nodes to groupby")]
+        [DisplayName("GroupByNodeName")]
+        [DefaultValue("")]
+        public string GroupByNodeName { get; set; }
+
+        #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("xmlSplitter_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -81,44 +96,102 @@ namespace inSyca.foundation.integration.biztalk.components
                 return _resourceManager.GetString("xmlSplitter_version", CultureInfo.InvariantCulture);
             }
         }
-
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("xmlSplitter_description", CultureInfo.InvariantCulture);
-            }
-        }
         #endregion
 
-        #region IComponentUI
+        #region IPersistPropertyBag Members
 
         /// <summary>
-        /// Component icon to use in integration Editor.
+        /// Gets class ID of component for usage from unmanaged code.
         /// </summary>
-        [Browsable(false)]
+        /// <param name="classID">
+        /// Class ID of the component
+        /// </param>
+        public void GetClassID(out Guid classID)
+        {
+            classID = new Guid("ACC3F15A-C389-4a9d-8F8E-2A951CDC4C19");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
+        }
+
+        /// <summary>
+        /// not implemented
+        /// </summary>
+        public void InitNew()
+        {
+            Log.Debug("InitNew()");
+        }
+
+        /// <summary>
+        /// Loads configuration properties for the component
+        /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
+		public void Load(IPropertyBag propertyBag, int errorLog)
+        {
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
+
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, ChildNodeNameLabel);
+
+                if (val != null)
+                    ChildNodeName = (string)val;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, GroupByNodeNameLabel);
+
+                if (val != null)
+                    GroupByNodeName = (string)val;
+            }
+
+            Log.DebugFormat("Load ChildNodeName {0}", ChildNodeName);
+            Log.DebugFormat("Load GroupByNodeName {0}", GroupByNodeName);
+        }
+
+        /// <summary>
+        /// Saves the current component configuration into the property bag
+        /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
+        {
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = ChildNodeName;
+                propertyBag.Write(ChildNodeNameLabel, ref val);
+
+                val = GroupByNodeName;
+                propertyBag.Write(GroupByNodeNameLabel, ref val);
+            }
+
+            Log.DebugFormat("Save ChildNodeName {0}", ChildNodeName);
+            Log.DebugFormat("Save GroupByNodeName {0}", GroupByNodeName);
+        }
+
+        #endregion
+
+        #region IComponentUI members
+        /// <summary>
+        /// Component icon to use in BizTalk Editor
+        /// </summary>
         public IntPtr Icon
         {
             get
             {
                 return Properties.Resources.cog.Handle;
             }
-
         }
 
         /// <summary>
-        /// The Validate method is called by the integration Editor during the build 
-        /// of a integration project.
+        /// The Validate method is called by the BizTalk Editor during the build 
+        /// of a BizTalk project.
         /// </summary>
-        /// <param name="obj">Project system.</param>
-        /// <returns>
-        /// A list of error and/or warning messages encounter during validation
-        /// of this component.
-        /// </returns>
+        /// <param name="obj">An Object containing the configuration properties.</param>
+        /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
         public IEnumerator Validate(object obj)
         {
             // example implementation:
@@ -127,66 +200,8 @@ namespace inSyca.foundation.integration.biztalk.components
             // return errorList.GetEnumerator();
             return null;
         }
-
         #endregion
 
-        #region IPersistPropertyBag
-        /// <summary>
-        /// Class GUID
-        /// </summary>
-        public void GetClassID(out Guid classID)
-        {
-            classID = new Guid("ACC3F15A-C389-4a9d-8F8E-2A951CDC4C19");
-        }
-
-        /// <summary>
-        /// InitNew
-        /// </summary>
-        public void InitNew()
-        {
-        }
-
-        /// <summary>
-        /// Load property from property bag
-        /// </summary>
-        public void Load(IPropertyBag propertyBag, int errorLog)
-        {
-            object _cnn = null;
-            object _gbnn = null;
-
-            try
-            {
-                propertyBag.Read("ChildNodeName", out _cnn, 0);
-                propertyBag.Read("GroupByNodeName", out _gbnn, 0);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { propertyBag, errorLog }, ex));
-            }
-
-            if (_cnn != null)
-                _ChildNodeName = (string)_cnn;
-            else
-                _ChildNodeName = string.Empty;
-
-            if (_gbnn != null)
-                _GroupByNodeName = (string)_gbnn;
-            else
-                _GroupByNodeName = string.Empty;
-        }
-
-        /// <summary>
-        /// Write property to property bag
-        /// </summary>
-        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
-        {
-            object _cnn = (object)ChildNodeName;
-            propertyBag.Write("ChildNodeName", ref _cnn);
-            object _gbnn = (object)GroupByNodeName;
-            propertyBag.Write("GroupByNodeName", ref _gbnn);
-        }
-
-        #endregion
 
         #region IDisassemblerComponent
         /// <summary>
@@ -275,6 +290,8 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <param name="childNodes"></param>
         public void ExtractChildNodes(XElement xml, out string namespaceURI, out string rootElement, out System.Collections.Generic.IEnumerable<IGrouping<string, XElement>> childNodes)
         {
+            Log.DebugFormat("ExtractChildNodes(XElement xml {0}, out string namespaceURI, out string rootElement, out System.Collections.Generic.IEnumerable<IGrouping<string, XElement>> childNodes)", xml);
+
             //fetch namespace and root element
             namespaceURI = xml.Name.NamespaceName;
             rootElement = xml.Name.LocalName;

@@ -7,10 +7,10 @@ using System.Xml;
 namespace inSyca.foundation.communication.unittest_40
 {
     [TestClass]
-    public class TestScriptingFunctions
+    public class testFunctions
     {
         [TestMethod]
-        public void Test_createLogMessage()
+        public void testCreateLogMessage()
         {
             XmlDocument childXmlDocument = new XmlDocument();
 
@@ -20,7 +20,7 @@ namespace inSyca.foundation.communication.unittest_40
         }
 
         [TestMethod]
-        public void Test_Adapter()
+        public void testAdapter()
         {
             StaticAdapterManagement sam = new StaticAdapterManagement();
 
@@ -28,7 +28,7 @@ namespace inSyca.foundation.communication.unittest_40
         }
 
         [TestMethod]
-        public void FormatNumber()
+        public void testFormatNumber()
         {
             string input;
             string output;

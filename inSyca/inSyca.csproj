@@ -41,21 +41,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="fd\in\bt\cp\ActiveXReader.cs" />
-    <Compile Include="fd\in\bt\cp\encoding\UTFDescription.cs" />
-    <Compile Include="fd\in\bt\cp\encoding\UTFStream.cs" />
-    <Compile Include="fd\in\bt\cp\ExcelDecoder.cs" />
-    <Compile Include="fd\in\bt\cp\FFAttachmentsExtractor.cs" />
-    <Compile Include="fd\in\bt\cp\FFRegEx.cs" />
-    <Compile Include="fd\in\bt\cp\FFXmlSplitter.cs" />
-    <Compile Include="fd\in\bt\cp\RemoveNil.cs" />
-    <Compile Include="fd\in\bt\cp\StripMessageBrokerBody.cs" />
-    <Compile Include="fd\in\bt\cp\Substitute.cs" />
-    <Compile Include="fd\in\bt\cp\UTF-16.cs" />
-    <Compile Include="fd\in\bt\cp\UTF-8.cs" />
-    <Compile Include="fd\in\bt\cp\UTF-8_wo_BOM.cs" />
-    <Compile Include="fd\in\bt\cp\XmlMultiPartAssembler.cs" />
-    <Compile Include="fd\in\bt\cp\XmlSplitter.cs" />
-    <Compile Include="fd\in\bt\cp\XslTransformer.cs" />
+    <None Include="fd\in\bt\cp\encoding\UTFDescription.cs" />
+    <None Include="fd\in\bt\cp\encoding\UTFStream.cs" />
+    <None Include="fd\in\bt\cp\ExcelDecoder.cs" />
+    <None Include="fd\in\bt\cp\FFAttachmentsExtractor.cs" />
+    <None Include="fd\in\bt\cp\FFRegEx.cs" />
+    <None Include="fd\in\bt\cp\FFXmlSplitter.cs" />
+    <None Include="fd\in\bt\cp\RemoveNil.cs" />
+    <None Include="fd\in\bt\cp\StripMessageBrokerBody.cs" />
+    <None Include="fd\in\bt\cp\Substitute.cs" />
+    <None Include="fd\in\bt\cp\UTF-16.cs" />
+    <None Include="fd\in\bt\cp\UTF-8.cs" />
+    <None Include="fd\in\bt\cp\UTF-8_wo_BOM.cs" />
+    <None Include="fd\in\bt\cp\XmlMultiPartAssembler.cs" />
+    <None Include="fd\in\bt\cp\XmlSplitter.cs" />
+    <None Include="fd\in\bt\cp\XslTransformer.cs" />
+    <None Include="fd\in\bt\fx\expressions.cs" />
+    <None Include="fd\in\bt\fx\rawstring.cs" />
+    <None Include="fd\in\bt\fx\ressourcexmldocument.cs" />
+    <None Include="fd\in\bt\fx\scripting.cs" />
+    <None Include="fd\in\bt\fx\soapxmldocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="inSyca.snk" />
   </ItemGroup>

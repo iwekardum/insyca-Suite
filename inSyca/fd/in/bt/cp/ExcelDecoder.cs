@@ -14,6 +14,7 @@
 
 using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -22,6 +23,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Resources;
@@ -31,29 +33,60 @@ using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 namespace inSyca.foundation.integration.biztalk.components
 {
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
-	[ComponentCategory(CategoryTypes.CATID_Decoder)]
+    [ComponentCategory(CategoryTypes.CATID_Decoder)]
     [System.Runtime.InteropServices.Guid("dd0af82f-01dc-4aa1-9d0f-c613aa323c69")]
     public class Excel2007Decoder : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI
     {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
-        static string namespaceBaseName = "NamespaceBase";
-        static string rootNodeNameName = "RootNodeName";
-        static string namespacePrefixName = "NamespacePrefix";
-        static string isFirstRowHeaderName = "IsFirstRowHeader";
-        static string tempFolderName = "TempFolder";
+        static string NamespaceBaseNameLabel = "NamespaceBase";
+        static string RootNodeNameLabel = "RootNodeName";
+        static string NamespacePrefixNameLabel = "NamespacePrefix";
+        static string IsFirstRowHeaderNameLabel = "IsFirstRowHeader";
+        static string TempFolderNameLabel = "TempFolder";
 
         #region Properties
 
+        [Description("NamespaceBase")]
+        [DisplayName("NamespaceBase")]
+        [DefaultValue("")]
         public string NamespaceBase { get; set; }
+
+        [Description("NamespacePrefix")]
+        [DisplayName("NamespacePrefix")]
+        [DefaultValue("")]
         public string NamespacePrefix { get; set; }
+
+        [Description("RootNodeName")]
+        [DisplayName("RootNodeName")]
+        [DefaultValue("")]
         public string RootNodeName { get; set; }
+
+        [Description("IsFirstRowHeader")]
+        [DisplayName("IsFirstRowHeader")]
+        [DefaultValue(true)]
         public bool IsFirstRowHeader { get; set; }
+
+        [Description("TempFolder")]
+        [DisplayName("TempFolder")]
+        [DefaultValue("")]
         public string TempFolder { get; set; }
 
         #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("excelDecoder_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -63,7 +96,7 @@ namespace inSyca.foundation.integration.biztalk.components
         {
             get
             {
-                return _resourceManager.GetString("excelDecoder_name");
+                return _resourceManager.GetString("excelDecoder_name", CultureInfo.InvariantCulture);
             }
         }
 
@@ -75,21 +108,10 @@ namespace inSyca.foundation.integration.biztalk.components
         {
             get
             {
-                return _resourceManager.GetString("excelDecoder_version");
+                return _resourceManager.GetString("excelDecoder_version", CultureInfo.InvariantCulture);
             }
         }
 
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("excelDecoder_description");
-            }
-        }
         #endregion
 
         #region IPersistPropertyBag Members
@@ -97,12 +119,14 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Gets class ID of component for usage from unmanaged code.
         /// </summary>
-        /// <param name="classid">
+        /// <param name="classID">
         /// Class ID of the component
         /// </param>
-		public void GetClassID(out Guid classId)
+        public void GetClassID(out Guid classID)
         {
-            classId = new Guid("dd0af82f-08dc-4aa1-9d0f-c613aa323c69");
+            classID = new Guid("dd0af82f-08dc-4aa1-9d0f-c613aa323c69");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
         /// <summary>
@@ -110,108 +134,85 @@ namespace inSyca.foundation.integration.biztalk.components
         /// </summary>
         public void InitNew()
         {
+            Log.Debug("InitNew()");
         }
 
         /// <summary>
         /// Loads configuration properties for the component
         /// </summary>
-        /// <param name="pb">Configuration property bag</param>
-        /// <param name="errlog">Error status</param>
-        public virtual void Load(IPropertyBag pb, int errlog)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
+        public virtual void Load(IPropertyBag propertyBag, int errorLog)
         {
-            object val = null;
-            val = ReadPropertyBag(pb, namespaceBaseName);
-            if ((val != null))
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
+
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
             {
-                NamespaceBase = ((string)(val));
-            }
-            val = ReadPropertyBag(pb, rootNodeNameName);
-            if ((val != null))
-            {
-                RootNodeName = ((string)(val));
-            }
-            val = ReadPropertyBag(pb, namespacePrefixName);
-            if ((val != null))
-            {
-                NamespacePrefix = ((string)(val));
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, NamespaceBaseNameLabel);
+                if (val != null)
+                    NamespaceBase = ((string)(val));
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, RootNodeNameLabel);
+                if (val != null)
+                    RootNodeName = ((string)(val));
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, NamespacePrefixNameLabel);
+                if (val != null)
+                    NamespacePrefix = ((string)(val));
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, IsFirstRowHeaderNameLabel);
+                if (val != null)
+                    IsFirstRowHeader = ((bool)(val));
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, TempFolderNameLabel);
+                if (val != null)
+                    TempFolder = ((string)(val));
             }
 
-            val = ReadPropertyBag(pb, isFirstRowHeaderName);
-            if ((val != null))
-            {
-                IsFirstRowHeader = ((bool)(val));
-            }
-
-            val = ReadPropertyBag(pb, tempFolderName);
-            if ((val != null))
-            {
-                TempFolder = ((string)(val));
-            }
-
+            Log.DebugFormat("Load NamespaceBase {0}", NamespaceBase);
+            Log.DebugFormat("Load RootNodeName {0}", RootNodeName);
+            Log.DebugFormat("Load NamespacePrefix {0}", NamespacePrefix);
+            Log.DebugFormat("Load IsFirstRowHeader {0}", IsFirstRowHeader);
+            Log.DebugFormat("Load TempFolder {0}", TempFolder);
         }
 
         /// <summary>
         /// Saves the current component configuration into the property bag
         /// </summary>
-        /// <param name="pb">Configuration property bag</param>
-        /// <param name="fClearDirty">not used</param>
-        /// <param name="fSaveAllProperties">not used</param>
-        public virtual void Save(IPropertyBag pb, bool fClearDirty, bool fSaveAllProperties)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            WritePropertyBag(pb, namespaceBaseName, NamespaceBase);
-            WritePropertyBag(pb, namespacePrefixName, NamespacePrefix);
-            WritePropertyBag(pb, rootNodeNameName, RootNodeName);
-            WritePropertyBag(pb, isFirstRowHeaderName, IsFirstRowHeader);
-            WritePropertyBag(pb, tempFolderName, TempFolder);
-        }
+            Log.DebugFormat("Save(IPropertyBag propertyBag {0}, bool clearDirty {1}, bool saveAllProperties {2})", propertyBag, clearDirty, saveAllProperties);
 
-        #endregion
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
 
-        #region Utility functionality
+                val = NamespaceBase;
+                propertyBag.Write(NamespaceBaseNameLabel, val);
 
-        /// <summary>
-        /// Reads property value from property bag
-        /// </summary>
-        /// <param name="pb">Property bag</param>
-        /// <param name="propName">Name of property</param>
-        /// <returns>Value of the property</returns>
-        private object ReadPropertyBag(IPropertyBag pb, string propName)
-        {
-            object val = null;
-            try
-            {
-                pb.Read(propName, out val, 0);
-            }
-            catch (ArgumentException argEx)
-            {
-                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, argEx));
-                return val;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
-                throw new ApplicationException(ex.Message);
-            }
-            return val;
-        }
+                val = NamespacePrefix;
+                propertyBag.Write(NamespacePrefixNameLabel, val);
 
-        /// <summary>
-        /// Writes property values into a property bag.
-        /// </summary>
-        /// <param name="pb">Property bag.</param>
-        /// <param name="propName">Name of property.</param>
-        /// <param name="val">Value of property.</param>
-        private void WritePropertyBag(IPropertyBag pb, string propName, object val)
-        {
-            try
-            {
-                pb.Write(propName, ref val);
+                val = RootNodeName;
+                propertyBag.Write(RootNodeNameLabel, val);
+
+                val = IsFirstRowHeader;
+                propertyBag.Write(IsFirstRowHeaderNameLabel, val);
+
+                val = TempFolder;
+                propertyBag.Write(TempFolderNameLabel, val);
             }
-            catch (Exception ex)
-            {
-                Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), null, ex));
-                throw new ApplicationException(ex.Message);
-            }
+
+            Log.DebugFormat("Save NamespaceBase {0}", NamespaceBase);
+            Log.DebugFormat("Save RootNodeName {0}", RootNodeName);
+            Log.DebugFormat("Save NamespacePrefix {0}", NamespacePrefix);
+            Log.DebugFormat("Save IsFirstRowHeader {0}", IsFirstRowHeader);
+            Log.DebugFormat("Save TempFolder {0}", TempFolder);
         }
 
         #endregion
@@ -221,7 +222,6 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Component icon to use in BizTalk Editor
         /// </summary>
-        [Browsable(false)]
         public IntPtr Icon
         {
             get
@@ -244,8 +244,6 @@ namespace inSyca.foundation.integration.biztalk.components
             // return errorList.GetEnumerator();
             return null;
         }
-
-
         #endregion
 
         #region IComponent Members
@@ -264,7 +262,7 @@ namespace inSyca.foundation.integration.biztalk.components
         {
             Log.DebugFormat("Execute(IPipelineContext pipelineContext {0}, IBaseMessage inMsg {1})", pipelineContext, inMsg);
 
-            if(string.IsNullOrEmpty(TempFolder))
+            if (string.IsNullOrEmpty(TempFolder))
                 TempFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
             if (string.IsNullOrEmpty(NamespaceBase))
@@ -282,7 +280,7 @@ namespace inSyca.foundation.integration.biztalk.components
             {
                 if (inMsg == null || inMsg.BodyPart == null || inMsg.BodyPart.Data == null)
                 {
-                    diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "pInMsg Error", null));
+                    Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "pInMsg Error", null));
                     throw new ArgumentNullException("pInMsg");
                 }
 
@@ -321,9 +319,9 @@ namespace inSyca.foundation.integration.biztalk.components
             }
             catch (Exception ex)
             {
-                diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
+                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
             }
-          
+
             return outMsg;
         }
 

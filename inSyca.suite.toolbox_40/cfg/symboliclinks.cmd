@@ -1,0 +1,1 @@
+﻿mklink /J C:\Suite C:\Users\ki01\Source\Repos\insyca-Suite

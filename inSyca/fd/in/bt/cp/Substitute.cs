@@ -1,10 +1,26 @@
-﻿using inSyca.foundation.framework;
+﻿///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+
+using inSyca.foundation.framework;
 using inSyca.foundation.framework.configuration;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
@@ -27,19 +43,35 @@ namespace inSyca.foundation.integration.biztalk.components
     {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
-        static string configFilePathName        = "ConfigFilePath";
-        static string xmlElementLowercaseName   = "XmlElementLowercase";
+        static string ConfigFilePathLabel = "ConfigFilePath";
+        static string XmlElementLowercaseLabel = "XmlElementLowercase";
 
         #region Properties
-        [System.ComponentModel.Description("Path to Configuration File: " + "\r\n" + "There is a sample of this file.")]
+        [Description("Path to Configuration File: " + "\r\n" + "There is a sample of this file.")]
+        [DisplayName("ConfigFilePath")]
+        [DefaultValue("")]
         public string ConfigFilePath { get; set; }
 
-        [System.ComponentModel.Description("Lowercase all XML element nodes")]
+        [Description("Lowercase all XML element nodes")]
+        [DisplayName("XmlElementLowercase")]
+        [DefaultValue(true)]
         public bool XmlElementLowercase { get; set; }
 
         #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("substitute_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -65,57 +97,91 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("substitute_description", CultureInfo.InvariantCulture);
-            }
-        }
         #endregion
 
         #region IPersistPropertyBag Members
 
-        void IPersistPropertyBag.GetClassID(out Guid classID)
+        /// <summary>
+        /// Gets class ID of component for usage from unmanaged code.
+        /// </summary>
+        /// <param name="classID">
+        /// Class ID of the component
+        /// </param>
+        public void GetClassID(out Guid classID)
         {
-            classID = new Guid("410689B8-9B77-43DF-9804-A815CF8AC985");
+            classID = new System.Guid("410689B8-9B77-43DF-9804-A815CF8AC985");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
-        void IPersistPropertyBag.InitNew()
+        /// <summary>
+        /// not implemented
+        /// </summary>
+        public void InitNew()
         {
-
+            Log.Debug("InitNew()");
         }
 
-        void IPersistPropertyBag.Load(IPropertyBag pb, int errorLog)
+        /// <summary>
+        /// Loads configuration properties for the component
+        /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
+		public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            object val = null;
-            val = ReadPropertyBag(pb, configFilePathName);
-            if ((val != null))
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
+
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
             {
-                ConfigFilePath = ((string)(val));
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, ConfigFilePathLabel);
+               
+                if (val != null)
+                    ConfigFilePath = (string)val;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, XmlElementLowercaseLabel);
+               
+                if (val != null)
+                    XmlElementLowercase = (bool)val;
             }
 
-            val = ReadPropertyBag(pb, xmlElementLowercaseName);
-            if ((val != null))
-            {
-                XmlElementLowercase = ((bool)(val));
-            }
+            Log.DebugFormat("Load ConfigFilePath {0}", ConfigFilePath);
+            Log.DebugFormat("Load XmlElementLowercase {0}", XmlElementLowercase);
         }
 
-        void IPersistPropertyBag.Save(IPropertyBag pb, bool clearDirty, bool saveAllProperties)
+
+        /// <summary>
+        /// Saves the current component configuration into the property bag
+        /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            WritePropertyBag(pb, configFilePathName, ConfigFilePath);
-            WritePropertyBag(pb, xmlElementLowercaseName, XmlElementLowercase);
+            Log.DebugFormat("Save(IPropertyBag propertyBag {0}, bool clearDirty {1}, bool saveAllProperties {2})", propertyBag, clearDirty, saveAllProperties);
+
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = ConfigFilePath;
+                propertyBag.Write(ConfigFilePathLabel, ref val);
+
+                val = XmlElementLowercase;
+                propertyBag.Write(XmlElementLowercaseLabel, ref val);
+            }
+
+            Log.DebugFormat("Save ConfigFilePath {0}", ConfigFilePath);
+            Log.DebugFormat("Save XmlElementLowercase {0}", XmlElementLowercase);
         }
         #endregion
 
-        #region IComponentUI Members
-
-        IntPtr IComponentUI.Icon
+        #region IComponentUI members
+        /// <summary>
+        /// Component icon to use in BizTalk Editor
+        /// </summary>
+        public IntPtr Icon
         {
             get
             {
@@ -123,8 +189,18 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
-        System.Collections.IEnumerator IComponentUI.Validate(object projectSystem)
+        /// <summary>
+        /// The Validate method is called by the BizTalk Editor during the build 
+        /// of a BizTalk project.
+        /// </summary>
+        /// <param name="obj">An Object containing the configuration properties.</param>
+        /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
+        public IEnumerator Validate(object obj)
         {
+            // example implementation:
+            // ArrayList errorList = new ArrayList();
+            // errorList.Add("This is a compiler error");
+            // return errorList.GetEnumerator();
             return null;
         }
 
@@ -259,57 +335,6 @@ namespace inSyca.foundation.integration.biztalk.components
             }
 
             return ms;
-        }
-
-        #endregion
-
-        #region Utility functionality
-
-        /// <summary>
-        /// Reads property value from property bag
-        /// </summary>
-        /// <param name="pb">Property bag</param>
-        /// <param name="propName">Name of property</param>
-        /// <returns>Value of the property</returns>
-        private object ReadPropertyBag(IPropertyBag pb, string propName)
-        {
-            object val = null;
-            try
-            {
-                pb.Read(propName, out val, 0);
-            }
-            catch (ArgumentException argEx)
-            {
-                diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, argEx));
-                return val;
-            }
-            catch (Exception ex)
-            {
-                diagnostics.Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), null, ex));
-
-                throw new ApplicationException(ex.Message);
-            }
-            return val;
-        }
-
-        /// <summary>
-        /// Writes property values into a property bag.
-        /// </summary>
-        /// <param name="pb">Property bag.</param>
-        /// <param name="propName">Name of property.</param>
-        /// <param name="val">Value of property.</param>
-        private void WritePropertyBag(IPropertyBag pb, string propName, object val)
-        {
-            try
-            {
-                pb.Write(propName, ref val);
-            }
-            catch (Exception ex)
-            {
-                diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
-
-                throw new ApplicationException(ex.Message);
-            }
         }
 
         #endregion

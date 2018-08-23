@@ -1,5 +1,20 @@
-﻿using inSyca.foundation.framework;
+﻿///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+
+using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -24,24 +39,31 @@ namespace inSyca.foundation.integration.biztalk.components
     {
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
-        private string rootNodeName = "RootNodeName";
-
-        public XmlMultiPartAssembler()
-        {
-        }
+        static string RootNodeNameLabel = "RootNodeName";
 
         #region Properties
         /// <summary>
         /// Location of Xsl transform file.
         /// </summary>
-        public string RootNodeName
-        {
-            get { return rootNodeName; }
-            set { rootNodeName = value; }
-        }
+        [Description("RootNodeName")]
+        [DisplayName("RootNodeName")]
+        [DefaultValue("")]
+        public string RootNodeName { get; set; }
         #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("xmlMultiPartAssembler_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -66,84 +88,79 @@ namespace inSyca.foundation.integration.biztalk.components
                 return _resourceManager.GetString("xmlMultiPartAssembler_version", CultureInfo.InvariantCulture);
             }
         }
-
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("xmlMultiPartAssembler_description", CultureInfo.InvariantCulture);
-            }
-        }
         #endregion
 
         #region IPersistPropertyBag Members
 
-        public void GetClassID(out Guid classId)
+        /// <summary>
+        /// Gets class ID of component for usage from unmanaged code.
+        /// </summary>
+        /// <param name="classID">
+        /// Class ID of the component
+        /// </param>
+        public void GetClassID(out Guid classID)
         {
-            classId = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBD");
+            classID = new System.Guid("48BEC85A-20EE-40ad-BFD0-319B59A0DDBD");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
-
+        /// <summary>
+        /// not implemented
+        /// </summary>
         public void InitNew()
         {
+            Log.Debug("InitNew()");
         }
 
+        /// <summary>
+        /// Loads configuration properties for the component
+        /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            string val = (string)ReadPropertyBag(propertyBag, "RootNodeName");
-            if (val != null) rootNodeName = val;
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
+
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, RootNodeNameLabel);
+
+                if (val != null)
+                    RootNodeName = (string)val;
+            }
+            Log.DebugFormat("Load RootNodeName {0}", RootNodeName);
         }
 
-
+        /// <summary>
+        /// Saves the current component configuration into the property bag
+        /// </summary>
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
         public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            object val = (object)rootNodeName;
-            WritePropertyBag(propertyBag, "RootNodeName", val);
-        }
+            Log.DebugFormat("Save(IPropertyBag propertyBag {0}, bool clearDirty {1}, bool saveAllProperties {2})", propertyBag, clearDirty, saveAllProperties);
 
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
 
-        private static object ReadPropertyBag(IPropertyBag propertyBag, string propName)
-        {
-            object val = null;
-
-            try
-            {
-                propertyBag.Read(propName, out val, 0);
-            }
-            catch (ArgumentException)
-            {
-                return val;
-            }
-            catch (Exception)
-            {
-                throw;
+                val = RootNodeName;
+                propertyBag.Write(RootNodeNameLabel, ref val);
             }
 
-            return val;
-        }
-
-
-        private static void WritePropertyBag(IPropertyBag propertyBag, string propName, object val)
-        {
-            try
-            {
-                propertyBag.Write(propName, ref val);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Log.DebugFormat("Save RootNodeName {0}", RootNodeName);
         }
 
         #endregion
 
-        #region IComponentUI Members
-
-        [Browsable(false)]
+        #region IComponentUI members
+        /// <summary>
+        /// Component icon to use in BizTalk Editor
+        /// </summary>
         public IntPtr Icon
         {
             get
@@ -152,9 +169,18 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
-
-        public IEnumerator Validate(object projectSystem)
+        /// <summary>
+        /// The Validate method is called by the BizTalk Editor during the build 
+        /// of a BizTalk project.
+        /// </summary>
+        /// <param name="obj">An Object containing the configuration properties.</param>
+        /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
+        public IEnumerator Validate(object obj)
         {
+            // example implementation:
+            // ArrayList errorList = new ArrayList();
+            // errorList.Add("This is a compiler error");
+            // return errorList.GetEnumerator();
             return null;
         }
 
@@ -196,7 +222,7 @@ namespace inSyca.foundation.integration.biztalk.components
             XmlWriter _Writer = XmlWriter.Create(ms);
 
             _Writer.WriteStartDocument();
-            _Writer.WriteStartElement(rootNodeName);
+            _Writer.WriteStartElement(RootNodeNameLabel);
 
             string strPartname;
 

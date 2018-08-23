@@ -82,6 +82,7 @@
     <Content Include="biztalk\2016\configureSchemaGenerator.cmd" />
     <None Include="biztalk\CreateLocalUsersAndGroupsForBiztalk.ps1" />
     <None Include="cfg\suite.reg" />
+    <None Include="cfg\symboliclinks.cmd" />
     <None Include="destinationDeployment.cmd" />
     <None Include="documentation\ReleaseNotes_Communication_Extensions.rtf" />
     <None Include="documentation\ReleaseNotes_Integration_Extensions.rtf" />

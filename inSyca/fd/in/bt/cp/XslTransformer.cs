@@ -22,6 +22,7 @@
 
 using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.components.diagnostics;
+using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using Microsoft.Win32;
@@ -53,20 +54,28 @@ namespace inSyca.foundation.integration.biztalk.components
 	{
         static private readonly ResourceManager _resourceManager = new ResourceManager("inSyca.foundation.integration.biztalk.components.Properties.Resources", Assembly.GetExecutingAssembly());
 
-		private string xsltPath	= null;
+        static string XsltFilePathLabel = "XsltFilePath";
 
         #region Properties
-        /// <summary>
-		/// Location of Xsl transform file.
-		/// </summary>
-		public string XsltFilePath
-		{
-			get {	return xsltPath;}
-			set {	xsltPath = value;}
-		}
+        [Description("XsltFilePath")]
+        [DisplayName("XsltFilePath")]
+        [DefaultValue("")]
+        public string XsltFilePath { get; set; }
         #endregion
 
         #region IBaseComponent Members
+
+        /// <summary>
+        /// Description of the component
+        /// </summary>
+        [Browsable(false)]
+        public string Description
+        {
+            get
+            {
+                return _resourceManager.GetString("xslTransformer_description", CultureInfo.InvariantCulture);
+            }
+        }
 
         /// <summary>
         /// Name of the component
@@ -92,127 +101,100 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
 
-        /// <summary>
-        /// Description of the component
-        /// </summary>
-        [Browsable(false)]
-        public string Description
-        {
-            get
-            {
-                return _resourceManager.GetString("xslTransformer_description", CultureInfo.InvariantCulture);
-            }
-        }
         #endregion
 
-        #region IPersistPropertyBag
+        #region IPersistPropertyBag Members
 
         /// <summary>
         /// Gets class ID of component for usage from unmanaged code.
         /// </summary>
-        /// <param name="classid">Class ID of the component.</param>
-        public void GetClassID(out Guid classid)
+        /// <param name="classID">
+        /// Class ID of the component
+        /// </param>
+        public void GetClassID(out Guid classID)
         {
-            classid = new System.Guid("FA7F9C55-6E8E-4855-8DAC-FA1BC8A499E2");
+            classID = new System.Guid("FA7F9C55-6E8E-4855-8DAC-FA1BC8A499E2");
+
+            Log.DebugFormat("GetClassID(out Guid {0})", classID);
         }
 
         /// <summary>
-        /// Not implemented.
+        /// not implemented
         /// </summary>
         public void InitNew()
         {
-        }
-
-        public void Load(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, Int32 errlog)
-        {
-            string val = (string)ReadPropertyBag(pb, "XsltFilePath");
-            if (val != null) xsltPath = val;
+            Log.Debug("InitNew()");
         }
 
         /// <summary>
-        /// Saves the current component configuration into the property bag.
+        /// Loads configuration properties for the component
         /// </summary>
-        /// <param name="pb">Configuration property bag.</param>
-        /// <param name="fClearDirty">Not used.</param>
-        /// <param name="fSaveAllProperties">Not used.</param>
-        public void Save(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, Boolean fClearDirty, Boolean fSaveAllProperties)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="errorLog">Error status</param>
+		public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            object val = (object)xsltPath;
-            WritePropertyBag(pb, "XsltFilePath", val);
+            Log.DebugFormat("Load(IPropertyBag propertyBag {0} , int errorLog {1})", propertyBag, errorLog);
+
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
+            {
+                object val = null;
+
+                val = PropertyHelper.ReadPropertyBag(propertyBag, XsltFilePathLabel);
+
+                if (val != null)
+                    XsltFilePath = (string)val;
+            }
+
+            Log.DebugFormat("Load XsltFilePath {0}", XsltFilePath);
         }
 
         /// <summary>
-        /// Reads property value from property bag.
+        /// Saves the current component configuration into the property bag
         /// </summary>
-        /// <param name="pb">Property bag.</param>
-        /// <param name="propName">Name of property.</param>
-        /// <returns>Value of the property.</returns>
-        private static object ReadPropertyBag(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, string propName)
+        /// <param name="propertyBag">Configuration property bag</param>
+        /// <param name="clearDirty">not used</param>
+        /// <param name="saveAllProperties">not used</param>
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            object val = null;
-            try
+            using (DisposableObjectWrapper wrapper = new DisposableObjectWrapper(propertyBag))
             {
-                pb.Read(propName, out val, 0);
+                object val = null;
+
+                val = XsltFilePath;
+                propertyBag.Write(XsltFilePathLabel, ref val);
             }
 
-            catch (System.ArgumentException)
-            {
-                return val;
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(ex.Message);
-            }
-            return val;
-        }
-
-        private static void WritePropertyBag(Microsoft.BizTalk.Component.Interop.IPropertyBag pb, string propName, object val)
-        {
-            try
-            {
-                pb.Write(propName, ref val);
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(ex.Message);
-            }
+            Log.DebugFormat("Save XsltFilePath {0}", XsltFilePath);
         }
 
         #endregion
 
-        #region IComponentUI
+        #region IComponentUI members
         /// <summary>
-        /// Component icon to use in integration Editor.
+        /// Component icon to use in BizTalk Editor
         /// </summary>
-        [Browsable(false)]
         public IntPtr Icon
         {
-            get 
+            get
             {
                 return Properties.Resources.cog.Handle;
             }
         }
 
         /// <summary>
-        /// The Validate method is called by the integration Editor during the build 
-        /// of a integration project.
+        /// The Validate method is called by the BizTalk Editor during the build 
+        /// of a BizTalk project.
         /// </summary>
-        /// <param name="obj">Project system.</param>
-        /// <returns>
-        /// A list of error and/or warning messages encounter during validation
-        /// of this component.
-        /// </returns>
-        public IEnumerator Validate(object projectSystem)
+        /// <param name="obj">An Object containing the configuration properties.</param>
+        /// <returns>The IEnumerator enables the caller to enumerate through a collection of strings containing error messages. These error messages appear as compiler error messages. To report successful property validation, the method should return an empty enumerator.</returns>
+        public IEnumerator Validate(object obj)
         {
-            if (projectSystem == null)
-                throw new System.ArgumentNullException("No project system");
-
             IEnumerator enumerator = null;
             ArrayList strList = new ArrayList();
 
             try
             {
-                GetValidXsltPath(xsltPath);
+                GetValidXsltPath(XsltFilePath);
             }
             catch (Exception e)
             {
@@ -222,11 +204,9 @@ namespace inSyca.foundation.integration.biztalk.components
 
             return enumerator;
         }
-
         #endregion
 
 		#region IComponent
-
 		/// <summary>
 		/// Implements IComponent.Execute method.
 		/// </summary>
@@ -266,7 +246,7 @@ namespace inSyca.foundation.integration.biztalk.components
 			try 
 			{
 				// Get the full path to the Xslt file
-				validXsltPath = GetValidXsltPath(xsltPath);
+                validXsltPath = GetValidXsltPath(XsltFilePath);
 				
 				// Load transform
 				XslCompiledTransform transform = new XslCompiledTransform();
