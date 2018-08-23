@@ -280,7 +280,7 @@ namespace inSyca.foundation.integration.biztalk.components
             {
                 if (inMsg == null || inMsg.BodyPart == null || inMsg.BodyPart.Data == null)
                 {
-                    diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "pInMsg Error", null));
+                    Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "pInMsg Error", null));
                     throw new ArgumentNullException("pInMsg");
                 }
 
@@ -319,7 +319,7 @@ namespace inSyca.foundation.integration.biztalk.components
             }
             catch (Exception ex)
             {
-                diagnostics.Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
+                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
             }
 
             return outMsg;
