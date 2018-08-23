@@ -79,6 +79,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.vs.common_40",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.co.vs.common_40", "inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.vs.common_40\inSyca.fd.co.vs.common_40.csproj", "{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundation", "foundation", "{58DB60F3-BB69-4B26-A021-22765C5D74C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca", "inSyca\inSyca.csproj", "{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -403,6 +407,18 @@ Global
 		{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D}.Release|x86.ActiveCfg = Release|Any CPU
 		{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D}.Release|x86.Build.0 = Release|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Debug|x86.Build.0 = Debug|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -439,5 +455,6 @@ Global
 		{92D01657-90A0-441D-975E-681BC427DB5A} = {6F76D344-4F97-4F5E-AC8B-B1DE2EB9D586}
 		{00CF39F1-D320-41AC-B98A-332836D98BFD} = {1C68EBA4-9FFB-4462-B261-ECCC49201E43}
 		{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D} = {92D01657-90A0-441D-975E-681BC427DB5A}
+		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1} = {58DB60F3-BB69-4B26-A021-22765C5D74C2}
 	EndGlobalSection
 EndGlobal
