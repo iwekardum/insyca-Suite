@@ -43,7 +43,7 @@ namespace inSyca.foundation.integration.biztalk.components
         static string GroupByNodeNameLabel = "GroupByNodeName";
 
         //Used to hold disassembled messages
-        private System.Collections.Queue qOutputMsgs = null;
+        private System.Collections.Queue qOutputMsgs = new System.Collections.Queue();
         private string systemPropertiesNamespace = @"http://schemas.microsoft.com/BizTalk/2003/system-properties";
 
         #region Properties

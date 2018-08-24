@@ -91,6 +91,7 @@
     <Compile Include="configuration\ConfigurationBase.cs" />
     <Compile Include="configuration\Parameters.cs" />
     <Compile Include="configuration\RegistryKeySourceAttribute.cs" />
+    <Compile Include="conversion\StreamConverter.cs" />
     <Compile Include="data\dsFileSystemConfig1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

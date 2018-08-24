@@ -1,9 +1,9 @@
-﻿using inSyca.foundation.framework.xml;
+﻿using inSyca.foundation.framework.conversion;
+using inSyca.foundation.framework.xml;
 using inSyca.foundation.integration.biztalk.components;
 using inSyca.foundation.integration.biztalk.test;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
-using Microsoft.BizTalk.PipelineResources;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using Winterdom.BizTalk.PipelineTesting;
 
 namespace inSyca.foundation.unittest_40
 {
@@ -22,178 +23,70 @@ namespace inSyca.foundation.unittest_40
         [TestMethod]
         public void testRemoveNilAndEmpty()
         {
-            XElement xmldocument = XElement.Load(@"..\..\Testfiles\simple_002.xml");
+            // Create the input message to pass through the pipeline
+            Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
+            IBaseMessage inputMessage = MessageHelper.CreateFromStream(stream);
 
-            xElement.RemoveNilElements(xmldocument);
-            xElement.RemoveEmptyElements(xmldocument);
+            RemoveNil removeNil = new RemoveNil();
 
-            Console.Write(xmldocument);
+            // Execute the pipeline, and check the output
+            ReceivePipelineWrapper pipeline = PipelineFactory.CreateEmptyReceivePipeline();
+            pipeline.AddComponent(removeNil, PipelineStage.Disassemble);
+            MessageCollection outputMessages = pipeline.Execute(inputMessage);
+
+            foreach (var message in outputMessages)
+            {
+                Console.WriteLine("************************** start message **************************\r\n");
+                Console.WriteLine(StreamConverter.StreamToString(message.BodyPart.Data, Encoding.UTF8));
+                Console.WriteLine("\r\n************************** end message **************************");
+            }
         }
 
         [TestMethod]
         public void testXmlSplitter()
         {
-            XElement xml = XElement.Load(@"..\..\Testfiles\simple_002.xml");
-
-            string namespaceURI, rootElement;
-            System.Collections.Generic.IEnumerable<IGrouping<string, XElement>> childNodes;
+            // Create the input message to pass through the pipeline
+            Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
+            IBaseMessage inputMessage = MessageHelper.CreateFromStream(stream);
 
             XmlSplitter xmlSplitter = new XmlSplitter();
-
             xmlSplitter.ChildNodeName = "food";
             xmlSplitter.GroupByNodeName = "name";
 
-            xmlSplitter.ExtractChildNodes(xml, out namespaceURI, out rootElement, out childNodes);
+            // Execute the pipeline, and check the output
+            ReceivePipelineWrapper pipeline = PipelineFactory.CreateEmptyReceivePipeline();
+            pipeline.AddComponent(xmlSplitter, PipelineStage.Disassemble);
+            MessageCollection outputMessages = pipeline.Execute(inputMessage);
 
+            foreach (var message in outputMessages)
+            {
+                Console.WriteLine("************************** start message **************************\r\n");
+                Console.WriteLine(StreamConverter.StreamToString(message.BodyPart.Data, Encoding.UTF8));
+                Console.WriteLine("\r\n************************** end message **************************");
+            }
         }
 
         [TestMethod]
         public void testActiveXReader()
         {
-            XElement xml = XElement.Load(@"..\..\Testfiles\simple_002.xml");
+            // Create the input message to pass through the pipeline
+            Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
+            IBaseMessage inputMessage = MessageHelper.CreateFromStream(stream);
 
-            ActiveXMessageReader amr = new ActiveXMessageReader();
+            ActiveXMessageReader activeXMessageReader = new ActiveXMessageReader();
+            activeXMessageReader.IncomingEncoding = "utf-16";
 
-            amr.IncomingEncoding = "utf-16";
+            // Execute the pipeline, and check the output
+            ReceivePipelineWrapper pipeline = PipelineFactory.CreateEmptyReceivePipeline();
+            pipeline.AddComponent(activeXMessageReader, PipelineStage.Decode);
+            MessageCollection outputMessages = pipeline.Execute(inputMessage);
 
-            IPipelineContext pipelineContext = new PipelineContext();
-            IBaseMessage inMsg = new BaseMessage();
-
-            IBaseMessage resultMessage = amr.Execute(pipelineContext, inMsg);
-        }
-    }
-
-    public class PipelineContext : IPipelineContext
-    {
-
-        public int ComponentIndex
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public IDocumentSpec GetDocumentSpecByName(string DocSpecName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDocumentSpec GetDocumentSpecByType(string DocType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Microsoft.BizTalk.Bam.EventObservation.EventStream GetEventStream()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetGroupSigningCertificate()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBaseMessageFactory GetMessageFactory()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid PipelineID
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string PipelineName
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public IResourceTracker ResourceTracker
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Guid StageID
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public int StageIndex
-        {
-            get { throw new NotImplementedException(); }
-        }
-    }
-
-    public class BaseMessage : IBaseMessage
-    {
-        public void AddPart(string partName, IBaseMessagePart part, bool bBody)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBaseMessagePart BodyPart
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string BodyPartName
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public IBaseMessageContext Context
-        {
-            get
+            foreach (var message in outputMessages)
             {
-                throw new NotImplementedException();
+                Console.WriteLine("************************** start message **************************\r\n");
+                Console.WriteLine(StreamConverter.StreamToString(message.BodyPart.Data, Encoding.UTF8));
+                Console.WriteLine("\r\n************************** end message **************************");
             }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Exception GetErrorInfo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBaseMessagePart GetPart(string partName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBaseMessagePart GetPartByIndex(int index, out string partName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetSize(out ulong lSize, out bool fImplemented)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsMutable
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Guid MessageID
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public int PartCount
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public void RemovePart(string partName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetErrorInfo(Exception errInfo)
-        {
-            throw new NotImplementedException();
         }
     }
 }
