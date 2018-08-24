@@ -1,16 +1,11 @@
 ﻿using inSyca.foundation.framework.conversion;
 using inSyca.foundation.framework.xml;
 using inSyca.foundation.integration.biztalk.components;
-using inSyca.foundation.integration.biztalk.test;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Winterdom.BizTalk.PipelineTesting;
 
