@@ -202,6 +202,10 @@ namespace inSyca.foundation.integration.biztalk.components
 
         public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
         {
+            pInMsg.GetPart("Data");
+            pInMsg.GetPart("Header");
+
+
             throw new NotImplementedException();
         }
 
