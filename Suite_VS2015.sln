@@ -9,6 +9,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundation.integration", "f
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundation.framework", "foundation.framework", "{D591727E-A29A-4C92-B083-98E573218026}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_deployment", "_deployment", "{D98DF312-A578-4C80-A94A-754CA25941D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_unittest", "_unittest", "{B0A6A38C-FED0-49C3-808A-EC042C966CAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_documentation", "_documentation", "{2DCC2466-4D29-4B44-9B58-E16ED516788A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_toolbox", "_toolbox", "{B64FB545-110E-4B47-8074-8FD8B5D24CF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vsix", "vsix", "{1C68EBA4-9FFB-4462-B261-ECCC49201E43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vsix", "vsix", "{92D01657-90A0-441D-975E-681BC427DB5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundation", "foundation", "{58DB60F3-BB69-4B26-A021-22765C5D74C2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.fr_40", "inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj", "{341E5B33-89E7-4349-9E0C-B954103AF331}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.bt.cp_40", "inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.bt.cp_40\inSyca.fd.in.bt.cp_40.csproj", "{5116CD6E-6FB8-4273-A507-B10039DA3B0B}"
@@ -33,12 +47,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.co.vs.wizard_40",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.co.wcf_40", "inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.wcf_40\inSyca.fd.co.wcf_40.csproj", "{E6EBBC01-12D1-4BDE-8ECA-F8BBEF9BB42D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_deployment", "_deployment", "{D98DF312-A578-4C80-A94A-754CA25941D6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_unittest", "_unittest", "{B0A6A38C-FED0-49C3-808A-EC042C966CAF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_documentation", "_documentation", "{2DCC2466-4D29-4B44-9B58-E16ED516788A}"
-EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "inSyca.suite.documentation_40", "inSyca.suite.documentation_40\inSyca.suite.documentation_40.shfbproj", "{7F9CC297-1DED-4CAA-97F2-9953D308D988}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.suite.ut_40", "inSyca.suite.unittest_40\inSyca.suite.ut_40.csproj", "{DAB98C46-25AF-466B-AFAC-8D7B598F49EA}"
@@ -61,25 +69,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.vs.extension_4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.co.vs.extension_46", "inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.vs.template_46\inSyca.fd.co.vs.extension_46.csproj", "{A19D8864-93AC-4934-8C1B-361AD03F6F43}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_toolbox", "_toolbox", "{B64FB545-110E-4B47-8074-8FD8B5D24CF3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.suite.toolbox_40", "inSyca.suite.toolbox_40\inSyca.suite.toolbox_40.csproj", "{398F5A24-33DB-45FA-B4FE-5A6F52447DB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.bt.ap_40", "inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.bt.ap_40\inSyca.fd.in.bt.ap_40.csproj", "{2CA5CA96-7461-441E-8B48-CE3E2FA161B5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vsix", "vsix", "{1C68EBA4-9FFB-4462-B261-ECCC49201E43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.vs.external_40", "inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.vs.external_40\inSyca.fd.in.vs.external_40.csproj", "{6C036F7F-5A8F-4FA5-9091-EF9B5EB9CE40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.co.wsh_40", "inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.wsh_40\inSyca.fd.co.wsh_40.csproj", "{09268D45-83FA-42DD-887B-4D3D9F016124}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vsix", "vsix", "{92D01657-90A0-441D-975E-681BC427DB5A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.vs.common_40", "inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.vs.common_40\inSyca.fd.in.vs.common_40.csproj", "{00CF39F1-D320-41AC-B98A-332836D98BFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.co.vs.common_40", "inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.vs.common_40\inSyca.fd.co.vs.common_40.csproj", "{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundation", "foundation", "{58DB60F3-BB69-4B26-A021-22765C5D74C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca", "inSyca\inSyca.csproj", "{1C45B3B3-1E8A-4274-9732-CA83A397D5C1}"
 EndProject
@@ -424,6 +424,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{1C68EBA4-9FFB-4462-B261-ECCC49201E43} = {38B94730-5BA1-4705-9A7E-F283CABDAB81}
+		{92D01657-90A0-441D-975E-681BC427DB5A} = {6F76D344-4F97-4F5E-AC8B-B1DE2EB9D586}
 		{341E5B33-89E7-4349-9E0C-B954103AF331} = {D591727E-A29A-4C92-B083-98E573218026}
 		{5116CD6E-6FB8-4273-A507-B10039DA3B0B} = {38B94730-5BA1-4705-9A7E-F283CABDAB81}
 		{BD62B35F-89BD-4116-8C44-6C664107590F} = {38B94730-5BA1-4705-9A7E-F283CABDAB81}
@@ -449,10 +451,8 @@ Global
 		{A19D8864-93AC-4934-8C1B-361AD03F6F43} = {92D01657-90A0-441D-975E-681BC427DB5A}
 		{398F5A24-33DB-45FA-B4FE-5A6F52447DB5} = {B64FB545-110E-4B47-8074-8FD8B5D24CF3}
 		{2CA5CA96-7461-441E-8B48-CE3E2FA161B5} = {38B94730-5BA1-4705-9A7E-F283CABDAB81}
-		{1C68EBA4-9FFB-4462-B261-ECCC49201E43} = {38B94730-5BA1-4705-9A7E-F283CABDAB81}
 		{6C036F7F-5A8F-4FA5-9091-EF9B5EB9CE40} = {1C68EBA4-9FFB-4462-B261-ECCC49201E43}
 		{09268D45-83FA-42DD-887B-4D3D9F016124} = {6F76D344-4F97-4F5E-AC8B-B1DE2EB9D586}
-		{92D01657-90A0-441D-975E-681BC427DB5A} = {6F76D344-4F97-4F5E-AC8B-B1DE2EB9D586}
 		{00CF39F1-D320-41AC-B98A-332836D98BFD} = {1C68EBA4-9FFB-4462-B261-ECCC49201E43}
 		{41FE763C-DD13-44AC-9B7B-97E3FDAACD3D} = {92D01657-90A0-441D-975E-681BC427DB5A}
 		{1C45B3B3-1E8A-4274-9732-CA83A397D5C1} = {58DB60F3-BB69-4B26-A021-22765C5D74C2}
