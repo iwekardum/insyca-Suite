@@ -7,7 +7,7 @@ namespace insyca.bt.gl.esb.schemas.entities {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
     [System.SerializableAttribute()]
-    [SchemaRoots(new string[] {@"length", @"mass", @"position", @"quantity", @"time"})]
+    [SchemaRoots(new string[] {@"length", @"mass", @"position", @"quantity", @"time", @"direction", @"location"})]
     public sealed class physical_10 : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
@@ -257,6 +257,84 @@ namespace insyca.bt.gl.esb.schemas.entities {
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name=""direction"">
+    <xs:annotation>
+      <xs:appinfo>
+        <b:recordInfo notes=""Weg, Richtung"" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs=""0"" maxOccurs=""1"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""category"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kategorie"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Typ"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" name=""value"" nillable=""true"" type=""xs:decimal"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Wert"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name=""location"">
+    <xs:annotation>
+      <xs:appinfo>
+        <b:recordInfo notes=""Ort"" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs=""0"" maxOccurs=""1"">
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""category"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Kategorie"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""type"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Typ"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""id"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Eindeutiger Wert für die Identifikation"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""text"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Text"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs=""0"" maxOccurs=""1"" name=""number"" nillable=""true"" type=""xs:string"">
+          <xs:annotation>
+            <xs:appinfo>
+              <b:fieldInfo notes=""Nummer"" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>";
         
         public physical_10() {
@@ -270,12 +348,14 @@ namespace insyca.bt.gl.esb.schemas.entities {
         
         public override string[] RootNodes {
             get {
-                string[] _RootElements = new string [5];
+                string[] _RootElements = new string [7];
                 _RootElements[0] = "length";
                 _RootElements[1] = "mass";
                 _RootElements[2] = "position";
                 _RootElements[3] = "quantity";
                 _RootElements[4] = "time";
+                _RootElements[5] = "direction";
+                _RootElements[6] = "location";
                 return _RootElements;
             }
         }
@@ -450,6 +530,76 @@ namespace insyca.bt.gl.esb.schemas.entities {
                 get {
                     string[] _RootElements = new string [1];
                     _RootElements[0] = "time";
+                    return _RootElements;
+                }
+            }
+            
+            protected override object RawSchema {
+                get {
+                    return _rawSchema;
+                }
+                set {
+                    _rawSchema = value;
+                }
+            }
+        }
+        
+        [Schema(@"http://insyca.bt.gl.esb.schemas.entities.physical_10",@"direction")]
+        [System.SerializableAttribute()]
+        [SchemaRoots(new string[] {@"direction"})]
+        public sealed class direction : Microsoft.XLANGs.BaseTypes.SchemaBase {
+            
+            [System.NonSerializedAttribute()]
+            private static object _rawSchema;
+            
+            public direction() {
+            }
+            
+            public override string XmlContent {
+                get {
+                    return _strSchema;
+                }
+            }
+            
+            public override string[] RootNodes {
+                get {
+                    string[] _RootElements = new string [1];
+                    _RootElements[0] = "direction";
+                    return _RootElements;
+                }
+            }
+            
+            protected override object RawSchema {
+                get {
+                    return _rawSchema;
+                }
+                set {
+                    _rawSchema = value;
+                }
+            }
+        }
+        
+        [Schema(@"http://insyca.bt.gl.esb.schemas.entities.physical_10",@"location")]
+        [System.SerializableAttribute()]
+        [SchemaRoots(new string[] {@"location"})]
+        public sealed class location : Microsoft.XLANGs.BaseTypes.SchemaBase {
+            
+            [System.NonSerializedAttribute()]
+            private static object _rawSchema;
+            
+            public location() {
+            }
+            
+            public override string XmlContent {
+                get {
+                    return _strSchema;
+                }
+            }
+            
+            public override string[] RootNodes {
+                get {
+                    string[] _RootElements = new string [1];
+                    _RootElements[0] = "location";
                     return _RootElements;
                 }
             }
