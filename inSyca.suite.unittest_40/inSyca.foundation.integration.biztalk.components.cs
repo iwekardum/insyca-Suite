@@ -5,7 +5,9 @@ using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml.Linq;
 using Winterdom.BizTalk.PipelineTesting;
 
