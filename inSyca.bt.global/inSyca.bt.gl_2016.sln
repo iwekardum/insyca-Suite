@@ -66,6 +66,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en", "inSyca.bt.gl_2016\insyca.bt.gl.esb.schemas.en\insyca.bt.gl.esb.schemas.en.btproj", "{1159032E-2E47-40C2-8E54-6540E473F45C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hosts", "hosts", "{B306D8A7-5883-4B03-8F5F-9CB0719067ED}"
+	ProjectSection(SolutionItems) = preProject
+		inSyca.bt.gl_2016.deployment\gacInstall.cmd = inSyca.bt.gl_2016.deployment\gacInstall.cmd
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dev", "dev", "{2D864A32-9D77-431C-AD42-3FB586A097E5}"
 	ProjectSection(SolutionItems) = preProject

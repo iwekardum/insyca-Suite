@@ -9,6 +9,12 @@
             Wrapper around a pipeline you can execute
             </summary>
         </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.BasePipelineWrapper.GroupSigningCertificate">
+            <summary>
+            Gets or Set the thumbprint for the Group
+            Signing Certificate. Null by default
+            </summary>
+        </member>
         <member name="M:Winterdom.BizTalk.PipelineTesting.BasePipelineWrapper.#ctor(Microsoft.Test.BizTalk.PipelineObjects.IPipeline,System.Boolean)">
             <summary>
             Initializes an instance
@@ -156,12 +162,6 @@
             <param name="sender">stage or component called</param>
             <param name="args">stage message</param>
         </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.BasePipelineWrapper.GroupSigningCertificate">
-            <summary>
-            Gets or Set the thumbprint for the Group
-            Signing Certificate. Null by default
-            </summary>
-        </member>
         <member name="T:Winterdom.BizTalk.PipelineTesting.InstConfigPropertyBag">
             <summary>
             IPropertyBag implementation for per-instance
@@ -244,54 +244,6 @@
             <summary>
             Creates and configures a Flat File disassembler component
             </summary>
-        </member>
-        <member name="T:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler">
-            <summary>
-            Factory class for standard disassembler components
-            </summary>
-            <remarks>
-            The Disassembler class makes it easy to create standard
-            disassembler components and configure them with the proper
-            document specifications (schema) and other properties before
-            adding them to an empty pipeline; without having to reference
-            assemblies like Microsoft.BizTalk.Component.Utilities, which
-            are only located in the GAC.
-            </remarks>
-            <example><![CDATA[
-            XmlDisassembler xml = Disassembler.Xml()
-              .WithDocumentSpec<MySchema>()
-              .WithValidation(true);
-            //...
-            ReceivePipelineWrapper pipeline = Pipelines.Receive().WithDisassembler(xml);
-            ]]>
-            </example>
-        </member>
-        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.Xml">
-            <summary>
-            Creates a new XML Disassembler component
-            </summary>
-            <returns>The Xml disassembler</returns>
-        </member>
-        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.FlatFile">
-            <summary>
-            Creates a new Flat File Disassembler component
-            </summary>
-            <returns>The flat file disassembler</returns>
-        </member>
-        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.End">
-            <summary>
-            Returns the actual pipeline component
-            created once you've configured it as necessary
-            </summary>
-            <returns>The IBaseComponent object</returns>
-        </member>
-        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.AddSchema(System.Type)">
-            <summary>
-            Adds a Schema to the list of known 
-            schemas by this component. Schemas added here
-            will be passed to the pipeline context
-            </summary>
-            <param name="schemaType">Schema to add</param>
         </member>
         <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.FFDisassembler.WithDocumentSpec(System.Type)">
             <summary>
@@ -538,6 +490,54 @@
             Return the constructed component
             </summary>
             <returns>The XmlDasmComp component</returns>
+        </member>
+        <member name="T:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler">
+            <summary>
+            Factory class for standard disassembler components
+            </summary>
+            <remarks>
+            The Disassembler class makes it easy to create standard
+            disassembler components and configure them with the proper
+            document specifications (schema) and other properties before
+            adding them to an empty pipeline; without having to reference
+            assemblies like Microsoft.BizTalk.Component.Utilities, which
+            are only located in the GAC.
+            </remarks>
+            <example><![CDATA[
+            XmlDisassembler xml = Disassembler.Xml()
+              .WithDocumentSpec<MySchema>()
+              .WithValidation(true);
+            //...
+            ReceivePipelineWrapper pipeline = Pipelines.Receive().WithDisassembler(xml);
+            ]]>
+            </example>
+        </member>
+        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.Xml">
+            <summary>
+            Creates a new XML Disassembler component
+            </summary>
+            <returns>The Xml disassembler</returns>
+        </member>
+        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.FlatFile">
+            <summary>
+            Creates a new Flat File Disassembler component
+            </summary>
+            <returns>The flat file disassembler</returns>
+        </member>
+        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.End">
+            <summary>
+            Returns the actual pipeline component
+            created once you've configured it as necessary
+            </summary>
+            <returns>The IBaseComponent object</returns>
+        </member>
+        <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Disassembler.AddSchema(System.Type)">
+            <summary>
+            Adds a Schema to the list of known 
+            schemas by this component. Schemas added here
+            will be passed to the pipeline context
+            </summary>
+            <param name="schemaType">Schema to add</param>
         </member>
         <member name="T:Winterdom.BizTalk.PipelineTesting.Simple.FFAssembler">
             <summary>
@@ -876,6 +876,11 @@
             Simple interface for creating pipelines
             </summary>
         </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.Simple.Pipelines.Xml">
+            <summary>
+            Standard BizTalk XML pipelines
+            </summary>
+        </member>
         <member name="M:Winterdom.BizTalk.PipelineTesting.Simple.Pipelines.Send">
             <summary>
             Prepares a new Send pipeline for construction
@@ -918,11 +923,6 @@
             </summary>
             <typeparam name="T">The pipeline type</typeparam>
             <returns>A pipeline builder</returns>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.Simple.Pipelines.Xml">
-            <summary>
-            Standard BizTalk XML pipelines
-            </summary>
         </member>
         <member name="T:Winterdom.BizTalk.PipelineTesting.TransactionControl">
             <summary>
@@ -970,6 +970,36 @@
             support
             </remarks>
         </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.ComponentIndex">
+            <summary>
+            Index of the currently executing component
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.PipelineID">
+            <summary>
+            ID of the currently executing pipeline
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.PipelineName">
+            <summary>
+            The pipeline name
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.ResourceTracker">
+            <summary>
+            The Resource Tracker object associated with this pipeline
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.StageID">
+            <summary>
+            The ID of the stage currently executing
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.StageIndex">
+            <summary>
+            The Index of the stage currently executing
+            </summary>
+        </member>
         <member name="M:Winterdom.BizTalk.PipelineTesting.PipelineContext.GetDocumentSpecByName(System.String)">
             <summary>
             Finds a document specification for a schema added
@@ -1004,6 +1034,12 @@
             Gets the message factory object
             </summary>
             <returns>The mesage factory</returns>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.AuthenticationRequiredOnReceivePort">
+            <summary>
+            If true, indicates authentication on the 
+            receive port was enabled
+            </summary>
         </member>
         <member name="M:Winterdom.BizTalk.PipelineTesting.PipelineContext.GetTransaction">
             <summary>
@@ -1042,42 +1078,6 @@
             Enables a transaction for the pipeline execution
             </summary>
             <returns>Object to control the transaction lifetime</returns>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.ComponentIndex">
-            <summary>
-            Index of the currently executing component
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.PipelineID">
-            <summary>
-            ID of the currently executing pipeline
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.PipelineName">
-            <summary>
-            The pipeline name
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.ResourceTracker">
-            <summary>
-            The Resource Tracker object associated with this pipeline
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.StageID">
-            <summary>
-            The ID of the stage currently executing
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.StageIndex">
-            <summary>
-            The Index of the stage currently executing
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineContext.AuthenticationRequiredOnReceivePort">
-            <summary>
-            If true, indicates authentication on the 
-            receive port was enabled
-            </summary>
         </member>
         <member name="T:Winterdom.BizTalk.PipelineTesting.DocSpecLoader">
             <summary>
@@ -1123,6 +1123,26 @@
             where you can add components
             </summary>
         </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.ID">
+            <summary>
+            ID of the pipeline Stage
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.Name">
+            <summary>
+            Name of the stage
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.ExecuteMethod">
+            <summary>
+            ExecuteMethod of the stage
+            </summary>
+        </member>
+        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.IsReceiveStage">
+            <summary>
+            Indicates if this is a stage of a receive pipeline
+            </summary>
+        </member>
         <member name="F:Winterdom.BizTalk.PipelineTesting.PipelineStage.Decode">
             <summary>
             Decode stage of receive pipelines
@@ -1156,26 +1176,6 @@
         <member name="F:Winterdom.BizTalk.PipelineTesting.PipelineStage.Encode">
             <summary>
             Encode stage of receive pipelines
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.ID">
-            <summary>
-            ID of the pipeline Stage
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.Name">
-            <summary>
-            Name of the stage
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.ExecuteMethod">
-            <summary>
-            ExecuteMethod of the stage
-            </summary>
-        </member>
-        <member name="P:Winterdom.BizTalk.PipelineTesting.PipelineStage.IsReceiveStage">
-            <summary>
-            Indicates if this is a stage of a receive pipeline
             </summary>
         </member>
         <member name="T:Winterdom.BizTalk.PipelineTesting.SendPipelineWrapper">
