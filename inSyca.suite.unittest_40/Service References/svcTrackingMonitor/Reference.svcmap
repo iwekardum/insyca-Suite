@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="98c531a7-3594-4416-93e5-06dba5a624da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8820/TrackingMonitor/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ITrackingMonitor.wsdl" MetadataType="Wsdl" ID="f46ef264-ad76-421a-80df-ff88eb5f4c5f" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="44a58ce3-2bb3-45a2-9480-f7c6a0568103" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+    <MetadataFile FileName="trackingmonitor.wsdl" MetadataType="Wsdl" ID="5528c794-d2c1-4f04-9b57-d0d8edf03801" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+    <MetadataFile FileName="ITrackingMonitor.xsd" MetadataType="Schema" ID="729b3b2a-be64-4e53-9101-b7a330b22edb" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="74ad5be6-8049-4b43-8d45-132f6e753baf" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="a30c4aae-ad83-45ac-8d56-91b981e0c1c9" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+    <MetadataFile FileName="inSyca.foundation.integration.itf.xsd" MetadataType="Schema" ID="5b7a2f87-a67d-463d-962c-59014300ea2d" SourceId="1" SourceUrl="net.tcp://localhost:8820/TrackingMonitor/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

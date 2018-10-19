@@ -98,6 +98,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -121,9 +122,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="foundation.integration.wsh.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="inSyca.snk" />
     <None Include="packages.config" />
@@ -148,6 +147,10 @@
     <ProjectReference Include="..\inSyca.fd.in.bt_40\inSyca.fd.in.bt_40.csproj">
       <Project>{00492bd1-23d7-41d4-9dee-83f184078489}</Project>
       <Name>inSyca.fd.in.bt_40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\insyca.fd.in.svc_40\insyca.fd.in.svc_40.csproj">
+      <Project>{d98da53c-fab4-4375-86ae-a67fcb2620df}</Project>
+      <Name>insyca.fd.in.svc_40</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
