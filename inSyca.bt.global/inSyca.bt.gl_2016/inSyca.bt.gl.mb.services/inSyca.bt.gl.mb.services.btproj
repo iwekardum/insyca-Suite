@@ -152,9 +152,6 @@
       <TypeName>MessageBrokerService_www_insyca_com_messagebroker_service_response_10</TypeName>
       <Namespace>inSyca.bt.gl.mb.services.diagnostics</Namespace>
     </Schema>
-    <None Include="diagnostics\MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsc">
-      <DependentUpon>MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsd</DependentUpon>
-    </None>
     <None Include="diagnostics\MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xss">
       <DependentUpon>MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsd</DependentUpon>
     </None>

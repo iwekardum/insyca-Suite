@@ -108,44 +108,57 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
-      <Link>insyca.snk</Link>
-    </None>
-    <Schema Include="accounting_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\accounting_10.xsd">
+      <Link>accounting_10.xsd</Link>
       <TypeName>accounting_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="finance_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\finance_10.xsd">
+      <Link>finance_10.xsd</Link>
       <TypeName>finance_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="logistics_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\logistics_10.xsd">
+      <Link>logistics_10.xsd</Link>
       <TypeName>logistics_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="procurement_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\procurement_10.xsd">
+      <Link>procurement_10.xsd</Link>
       <TypeName>procurement_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="production_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\production_10.xsd">
+      <Link>production_10.xsd</Link>
       <TypeName>production_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="sales_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\sales_10.xsd">
+      <Link>sales_10.xsd</Link>
       <TypeName>sales_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="warehouse_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\template_10.xsd">
+      <Link>template_10.xsd</Link>
+      <TypeName>template_10</TypeName>
+      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\warehouse_10.xsd">
+      <Link>warehouse_10.xsd</Link>
       <TypeName>warehouse_10</TypeName>
       <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
+      <Link>insyca.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
