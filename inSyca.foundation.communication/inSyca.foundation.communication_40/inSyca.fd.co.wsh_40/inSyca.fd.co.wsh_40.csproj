@@ -95,7 +95,7 @@
     <Content Include="inSyca.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="foundation.communication.wsh.config" />
     <None Include="inSyca.snk" />
     <None Include="packages.config" />
   </ItemGroup>
