@@ -4,12 +4,21 @@ using inSyca.foundation.framework.diagnostics;
 using Microsoft.Win32;
 using System;
 using System.Data;
+using inSyca.foundation.framework.configuration;
 
 namespace inSyca.foundation.framework.wsh
 {
     public partial class FrameworkService : windowsServiceHost
     {
-        public FrameworkService()
+		protected override AppSchedules appSchedules
+		{
+			get
+			{
+				return Configuration.GetAppSchedules();
+			}
+		}
+
+		public FrameworkService()
         {
             EvaluateRegistryKey(@"inSyca\foundation.framework", AppDomain.CurrentDomain.BaseDirectory, "foundation.framework.config");
 
@@ -18,13 +27,13 @@ namespace inSyca.foundation.framework.wsh
             SystemEvents.SessionEnding += SystemEvents_SessionEnding;
         }
 
-        void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
-        {
-            if (e.Reason == SessionEndReasons.SystemShutdown)
-                DisposeWatcher();
-        }
+		protected void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
+		{
+			if (e.Reason == SessionEndReasons.SystemShutdown)
+				DisposeWatcher();
+		}
 
-        override protected void ImportLogEntryRow(DataRow dataRow)
+		override protected void ImportLogEntryRow(DataRow dataRow)
         {
             dsLogEntry.dtLogEntryRow logEntryRow = (dsLogEntry.dtLogEntryRow)dataRow;
 

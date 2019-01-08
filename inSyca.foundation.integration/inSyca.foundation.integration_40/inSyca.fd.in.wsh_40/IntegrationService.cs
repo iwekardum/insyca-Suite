@@ -1,17 +1,21 @@
-﻿using inSyca.foundation.framework.application.service;
+﻿using inSyca.foundation.framework;
+using inSyca.foundation.framework.application.service;
 using inSyca.foundation.framework.diagnostics;
-using inSyca.foundation.framework.schedules;
 using inSyca.foundation.integration.biztalk.data;
+using inSyca.foundation.integration.service;
 using inSyca.foundation.integration.wsh.diagnostics;
 using Microsoft.Win32;
 using System;
 using System.Data;
+using System.ServiceModel;
 
 namespace inSyca.foundation.integration.wsh
 {
-    public partial class IntegrationService : windowsServiceHost
+	public partial class IntegrationService : windowsServiceHost
     {
-        override protected framework.configuration.AppSchedules appSchedules
+		public ServiceHost trackingServiceHost = null;
+
+		override protected framework.configuration.AppSchedules appSchedules
         {
             get
             {
@@ -30,47 +34,13 @@ namespace inSyca.foundation.integration.wsh
             SystemEvents.SessionEnding += SystemEvents_SessionEnding;
         }
 
-        // Specify what you want to happen when the Elapsed event is 
-        // raised.
-        override protected void OnScheduledEvent(Task task)
-        {
-            Log.DebugFormat("OnScheduledEvent(Task task {0})", task);
+		protected void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
+		{
+			if (e.Reason == SessionEndReasons.SystemShutdown)
+				DisposeWatcher();
+		}
 
-            switch (task.AppSchedule.Name)
-            {
-                case "inSycaTestOnce":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestOnce", task);
-                    break;
-                case "inSycaTestEveryMinute":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestEveryMinute", task);
-                    break;
-                case "inSycaTestHourly":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestHourly", task);
-                    break;
-                case "inSycaTestDaily":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestDaily", task);
-                    break;
-                case "inSycaTestWeekly":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestWeekly", task);
-                    break;
-                case "inSycaTestMonthly":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestMonthly", task);
-                    break;
-                case "inSycaTestYearly":
-                    Log.InfoFormat("OnScheduledEvent(Task task {0})\ninSycaTestYearly", task);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
-        {
-            if (e.Reason == SessionEndReasons.SystemShutdown)
-                DisposeWatcher();
-        }
-
-        override protected void ImportLogEntryRow(DataRow dataRow)
+		override protected void ImportLogEntryRow(DataRow dataRow)
         {
             dsLogEntry.dtLogEntryRow logEntryRow = (dsLogEntry.dtLogEntryRow)dataRow;
 
@@ -104,22 +74,71 @@ namespace inSyca.foundation.integration.wsh
 
         override protected void InvokeWatcher()
         {
-            eventEntry = new dsEventEntry();
-            logEntry = new dsLogEntry();
+			if (Configuration.GetAppSettingsValue("ActivateWatcher").Equals(false))
+				return;
 
-            biztalk.diagnostics.Monitoring.MonitoringEvent += new EventHandler<MonitoringEventArgs>(MonitoringEvent);
-            biztalk.diagnostics.Monitoring.EventEntryEvent += new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+			eventEntry = new dsEventEntry();
+			logEntry = new dsLogEntry();
 
-            biztalk.diagnostics.Monitoring.invokeWatcher();
-        }
+			biztalk.diagnostics.Monitoring.MonitoringEvent += new EventHandler<MonitoringEventArgs>(MonitoringEvent);
+			biztalk.diagnostics.Monitoring.EventEntryEvent += new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+
+			biztalk.diagnostics.Monitoring.invokeWatcher();
+		}
 
         override protected void DisposeWatcher()
         {
-            biztalk.diagnostics.Monitoring.MonitoringEvent -= new EventHandler<MonitoringEventArgs>(MonitoringEvent);
-            biztalk.diagnostics.Monitoring.EventEntryEvent -= new EventHandler<MonitoringEventArgs>(EventEntryEvent);
+			biztalk.diagnostics.Monitoring.MonitoringEvent -= new EventHandler<MonitoringEventArgs>(MonitoringEvent);
+			biztalk.diagnostics.Monitoring.EventEntryEvent -= new EventHandler<MonitoringEventArgs>(EventEntryEvent);
 
-            biztalk.diagnostics.Monitoring.disposeWatcher();
-        }
+			biztalk.diagnostics.Monitoring.disposeWatcher();
+		}
 
-    }
+		protected override void OnStart(string[] args)
+		{
+			if (trackingServiceHost != null)
+			{
+				Log.Info("inSyca.trackingmonitor.ns already initialized - close and re-initialize");
+
+				trackingServiceHost.Close();
+			}
+
+			// Create a ServiceHost
+			trackingServiceHost = new TrackingServiceHost(typeof(TrackingMonitorService));
+
+			try
+			{
+				// Open the ServiceHostBase to create listeners and start
+				// listening for messages.
+				trackingServiceHost.Open();
+
+				Log.Info("inSyca.trackingmonitor.ns ready");
+			}
+			catch (Exception ex)
+			{
+				Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), args, ex));
+				throw ex;
+			}
+		}
+
+		protected override void OnStop()
+		{
+			if (trackingServiceHost != null)
+			{
+				try
+				{
+					trackingServiceHost.Close();
+
+					Log.Info("inSyca.trackingmonitor.ns closed");
+				}
+				catch (Exception ex)
+				{
+					Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
+					throw ex;
+				}
+
+				trackingServiceHost = null;
+			}
+		}
+	}
 }

@@ -10,12 +10,9 @@ namespace inSyca.foundation.framework.application.service
 {
     abstract public class windowsServiceHost : ServiceBase
     {
-        virtual protected AppSchedules appSchedules
+        abstract protected AppSchedules appSchedules
         {
-            get
-            {
-                return Configuration.GetAppSchedules();
-            }
+			get;
         }
 
         private Scheduler scheduler;
@@ -49,7 +46,7 @@ namespace inSyca.foundation.framework.application.service
             DisposeWatcher();
         }
 
-        protected void EvaluateRegistryKey(string keyName, string configDir, string configFile)
+		protected void EvaluateRegistryKey(string keyName, string configDir, string configFile)
         {
             string registryKeyValue = string.Format(@"SOFTWARE\{0}\", keyName);
 

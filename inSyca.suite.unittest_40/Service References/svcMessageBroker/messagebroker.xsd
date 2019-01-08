@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.inSyca.com/messagebroker" elementFormDefault="qualified" targetNamespace="http://www.inSyca.com/messagebroker" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BizTalkMessageWrapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BizTalkMessage" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BizTalkMessageWrapper" nillable="true" type="tns:BizTalkMessageWrapper" />
+</xs:schema>

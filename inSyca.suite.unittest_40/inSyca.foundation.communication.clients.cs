@@ -14,7 +14,7 @@ namespace inSyca.foundation.unittest_40
         public void testSendToMsgBox()
         {
             XmlReader xmlrdr = XElement.Load(@"..\..\Testfiles\simple_001.xml").CreateReader();
-            Message message = Message.CreateMessage(MessageVersion.Default, "*", xmlrdr);
+			Message message = Message.CreateMessage(MessageVersion.Default, "*", xmlrdr);
 
             BizTalkClient btClient = new BizTalkClient();
             btClient.SendToMsgBox(message);

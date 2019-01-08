@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="data\dsFileSystemEntry.cs">
       <DependentUpon>dsFileSystemEntry.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="data\dsFileSystemEntry.Designer.cs">
       <DependentUpon>dsFileSystemEntry.xsd</DependentUpon>
@@ -115,6 +116,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="defaults\ControlChars.cs" />
     <Compile Include="diagnostics\EventArgs.cs" />
     <Compile Include="diagnostics\Information.cs" />
     <Compile Include="diagnostics\InformationBase.cs" />
