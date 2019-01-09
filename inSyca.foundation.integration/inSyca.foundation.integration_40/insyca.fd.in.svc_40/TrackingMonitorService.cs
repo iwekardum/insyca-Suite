@@ -5,9 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Reflection;
 using System.ServiceModel;
-using System.Xml.Linq;
 
 
 namespace inSyca.foundation.integration.service
