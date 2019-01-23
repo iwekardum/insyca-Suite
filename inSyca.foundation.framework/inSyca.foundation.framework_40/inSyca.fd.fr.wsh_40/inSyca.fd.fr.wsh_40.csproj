@@ -136,9 +136,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="foundation.framework.wsh.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="inSyca.snk" />
     <None Include="packages.config" />

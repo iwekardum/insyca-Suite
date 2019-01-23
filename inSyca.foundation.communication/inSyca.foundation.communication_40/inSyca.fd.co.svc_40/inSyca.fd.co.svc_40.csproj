@@ -76,9 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="inSyca.ico" />
-    <None Include="foundation.communication.service.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\inSyca.fd.co.itf_40\inSyca.fd.co.itf_40.csproj">
@@ -95,6 +92,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="foundation.communication.service.config" />
     <None Include="inSyca.snk" />
     <None Include="packages.config" />
   </ItemGroup>
