@@ -187,7 +187,7 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
 
             string content = File.ReadAllText(file.FullName);
 
-            content = content.Replace("${MANUFACTURER}", "Sunato München");
+            content = content.Replace("${MANUFACTURER}", "inSyca IT Solutions GmbH");
             content = content.Replace("${PRODUCTID}", Guid.NewGuid().ToString());
             content = content.Replace("${PRODUCTUPGRADECODE}", Guid.NewGuid().ToString());
 
