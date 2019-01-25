@@ -57,6 +57,8 @@ namespace inSyca.foundation.communication.wsh
 
 		protected override void OnStart(string[] args)
         {
+			base.OnStart(args);
+
             if (messageBrokerServiceHost != null)
             {
                 Log.Info("inSyca.messagebroker.ns already initialized - close and re-initialize");
@@ -84,7 +86,7 @@ namespace inSyca.foundation.communication.wsh
 
         protected override void OnStop()
         {
-            if (messageBrokerServiceHost != null)
+			if (messageBrokerServiceHost != null)
             {
                 try
                 {
@@ -100,6 +102,8 @@ namespace inSyca.foundation.communication.wsh
 
                 messageBrokerServiceHost = null;
             }
-        }
-    }
+
+			base.OnStop();
+		}
+	}
 }

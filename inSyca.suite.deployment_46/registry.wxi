@@ -5,18 +5,18 @@
     <?define fd.fr        = "foundation.framework" ?>
     <?define fd.fr.app    = "foundation.framework.application" ?>
     <?define fd.fr.cfg    = "configurator.framework" ?>
-    <?define fd.fr.wsh    = "foundation.framework.wsh" ?>
+    <?define fd.fr.wsh    = "inSyca.fd.fr.wsh" ?>
     <?define fd.co.cli    = "foundation.communication.clients" ?>
     <?define fd.co.cp     = "foundation.communication.components" ?>
     <?define fd.co.svc    = "foundation.communication.service" ?>
     <?define fd.co.wcf    = "foundation.communication.wcf" ?>
-    <?define fd.co.wsh    = "foundation.communication.wsh" ?>
+    <?define fd.co.wsh    = "inSyca.fd.co.wsh" ?>
     <?define fd.co.cfg    = "configurator.communication" ?>
     <?define fd.in.bt.ap  = "foundation.integration.biztalk.adapter" ?>
     <?define fd.in.bt.cp  = "foundation.integration.biztalk.components" ?>
     <?define fd.in.bt.fx  = "foundation.integration.biztalk.functions" ?>
     <?define fd.in.bt     = "foundation.integration.biztalk" ?>
-    <?define fd.in.wsh    = "foundation.integration.wsh" ?>
+    <?define fd.in.wsh    = "inSyca.fd.in.wsh" ?>
     <?define fd.in.cfg    = "configurator.integration" ?>
 
     <Component Id="registryEntries_x86" Guid="{A510109E-74EE-4852-B29E-91F4124DB89D}" Win64="no" Directory="INSTALLDIR">

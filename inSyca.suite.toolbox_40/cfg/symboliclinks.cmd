@@ -1,1 +1,1 @@
-﻿mklink /J C:\Suite E:\projects\gh\kardum-iw\insyca-Suite\
+﻿mklink /J C:\Suite D:\projects\github\kardum-iw\insyca-Suite

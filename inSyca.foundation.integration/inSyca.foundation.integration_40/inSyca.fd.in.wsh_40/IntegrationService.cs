@@ -96,6 +96,8 @@ namespace inSyca.foundation.integration.wsh
 
 		protected override void OnStart(string[] args)
 		{
+			base.OnStart(args);
+
 			if (trackingServiceHost != null)
 			{
 				Log.Info("inSyca.trackingmonitor.ns already initialized - close and re-initialize");
@@ -139,6 +141,8 @@ namespace inSyca.foundation.integration.wsh
 
 				trackingServiceHost = null;
 			}
+
+			base.OnStop();
 		}
 	}
 }
