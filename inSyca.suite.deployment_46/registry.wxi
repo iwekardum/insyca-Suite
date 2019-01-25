@@ -4,19 +4,19 @@
 
     <?define fd.fr        = "foundation.framework" ?>
     <?define fd.fr.app    = "foundation.framework.application" ?>
+    <?define fd.fr.wsh    = "foundation.framework.wsh" ?>
     <?define fd.fr.cfg    = "configurator.framework" ?>
-    <?define fd.fr.wsh    = "inSyca.fd.fr.wsh" ?>
     <?define fd.co.cli    = "foundation.communication.clients" ?>
     <?define fd.co.cp     = "foundation.communication.components" ?>
     <?define fd.co.svc    = "foundation.communication.service" ?>
     <?define fd.co.wcf    = "foundation.communication.wcf" ?>
-    <?define fd.co.wsh    = "inSyca.fd.co.wsh" ?>
+    <?define fd.co.wsh    = "foundation.communication.wsh" ?>
     <?define fd.co.cfg    = "configurator.communication" ?>
     <?define fd.in.bt.ap  = "foundation.integration.biztalk.adapter" ?>
     <?define fd.in.bt.cp  = "foundation.integration.biztalk.components" ?>
     <?define fd.in.bt.fx  = "foundation.integration.biztalk.functions" ?>
     <?define fd.in.bt     = "foundation.integration.biztalk" ?>
-    <?define fd.in.wsh    = "inSyca.fd.in.wsh" ?>
+    <?define fd.in.wsh    = "foundation.integration.wsh" ?>
     <?define fd.in.cfg    = "configurator.integration" ?>
 
     <Component Id="registryEntries_x86" Guid="{A510109E-74EE-4852-B29E-91F4124DB89D}" Win64="no" Directory="INSTALLDIR">
@@ -34,7 +34,7 @@
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
-        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.wsh).config"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.inSyca.fd.fr.wsh_40.TargetFileName).config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
@@ -58,7 +58,7 @@
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
-        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.wsh).config"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.inSyca.fd.co.wsh_40.TargetFileName).config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.cp)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
@@ -83,7 +83,7 @@
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
-        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.wsh).config"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.inSyca.fd.in.wsh_40.TargetFileName).config"/>
       </RegistryKey>
       <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Value="inSyca File Adapter"/>
@@ -130,7 +130,7 @@
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.fr.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
-        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.fr.wsh).config"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.inSyca.fd.fr.wsh_40.TargetFileName).config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
@@ -154,7 +154,7 @@
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.co.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
-        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.co.wsh).config"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.inSyca.fd.co.wsh_40.TargetFileName).config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.cfg)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
@@ -180,7 +180,7 @@
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.wsh)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
-        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.wsh).config"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.inSyca.fd.in.wsh_40.TargetFileName).config"/>
       </RegistryKey>
       <RegistryKey Root="HKCR" Key="CLSID\{806457E7-2BA1-4F45-BCF7-B4F4756C5E2A}" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Value="inSyca File Adapter"/>
