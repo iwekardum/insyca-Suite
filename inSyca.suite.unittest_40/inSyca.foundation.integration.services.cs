@@ -10,7 +10,7 @@ namespace inSyca.foundation.unittest_40
 	public class UT_IntegrationService
 	{
 		[TestMethod]
-		public void TestMethod1()
+		public void TestTracking()
 		{
 			Thread th = new Thread(() => StartService());
 			th.Start();

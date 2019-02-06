@@ -106,7 +106,12 @@ namespace inSyca.foundation.integration.visualstudio.external
                                 ReceiveLocation_SB(list, address, receiveLocationTransportTypeData, customProps, receiveLocationName);
                             }
                             break;
-                        default:
+						case "SFTP":
+							{
+								ReceiveLocation_SFTP(list, address, receiveLocationTransportTypeData, customProps, receiveLocationName);
+							}
+							break;
+						default:
                             {
                                 address.Value = string.Format("${{{0}_address}}", receiveLocationName);
                             }
@@ -172,7 +177,12 @@ namespace inSyca.foundation.integration.visualstudio.external
                             SendPort_SB(list, address, transportTypeData, customProps, sendPortName);
                         }
                         break;
-                    default:
+					case "SFTP":
+						{
+							SendPort_SFTP(list, address, transportTypeData, customProps, sendPortName);
+						}
+						break;
+					default:
                         address.Value = string.Format("${{{0}_address}}", sendPortName);
                         break;
                 }
@@ -307,7 +317,31 @@ namespace inSyca.foundation.integration.visualstudio.external
             receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
-        private static void SendPort_WCF_Custom(XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
+		private static void ReceiveLocation_SFTP(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
+		{
+			address.Value = string.Format("sftp://${{{0}_serveraddress}}:${{{0}_port}}/${{{0}_folderpath}}/${{{0}_filemask}}", receiveLocationName);
+
+			XElement serverAddress = customProps.Element("ServerAddress");
+			XElement port = customProps.Element("Port");
+			XElement fileMask = customProps.Element("FileMask");
+			XElement folderPath = customProps.Element("FolderPath");
+
+			list[string.Format("{0}_address", receiveLocationName)].Value = list[string.Format("{0}_address", receiveLocationName)].Value.Replace(fileMask.Value, "");
+
+			list.Add(string.Format("{0}_serveraddress", receiveLocationName), new XElement(serverAddress));
+			list.Add(string.Format("{0}_port", receiveLocationName), new XElement(port));
+			list.Add(string.Format("{0}_filemask", receiveLocationName), new XElement(fileMask));
+			list.Add(string.Format("{0}_folderpath", receiveLocationName), new XElement(folderPath));
+
+			customProps.SetElementValue("ServerAddress", string.Format("${{{0}_serveraddress}}", receiveLocationName));
+			customProps.SetElementValue("Port", string.Format("${{{0}_port}}", receiveLocationName));
+			customProps.SetElementValue("FileMask", string.Format("${{{0}_filemask}}", receiveLocationName));
+			customProps.SetElementValue("Folderpath", string.Format("${{{0}_folderpath}}", receiveLocationName));
+
+			receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
+		}
+
+		private static void SendPort_WCF_Custom(XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
         {
             address.Value = string.Format("${{{0}_address}}", sendPortName);
 
@@ -342,7 +376,7 @@ namespace inSyca.foundation.integration.visualstudio.external
             list.Add(string.Format("{0}_filename", sendPortName), new XElement(FileName));
             list.Add(string.Format("{0}_uri", sendPortName), new XElement(uri));
 
-            SiteUrl.Value = string.Format("${{{0}_siteurl}}", sendPortName);
+			SiteUrl.Value = string.Format("${{{0}_siteurl}}", sendPortName);
             WssLocation.Value = string.Format("${{{0}_wssLocation}}", sendPortName);
             FileName.Value = string.Format("${{{0}_filename}}", sendPortName);
             uri.Value = string.Format("${{{0}_uri}}", sendPortName);
@@ -387,7 +421,33 @@ namespace inSyca.foundation.integration.visualstudio.external
             transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
         }
 
-        private static void ReceiveLocation_File(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
+		private static void SendPort_SFTP(Dictionary<string, XElement> list, XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
+		{
+			address.Value = string.Format("ftp://${{{0}_serveraddress}}:${{{0}_port}}/${{{0}_folderpath}}/${{{0}_targetFileName}}", sendPortName);
+
+			XElement serverAddress = customProps.Element("ServerAddress");
+			XElement port = customProps.Element("Port");
+			XElement targetFileName = customProps.Element("TargetFileName");
+			XElement folderPath = customProps.Element("FolderPath");
+
+			list.Add(string.Format("{0}_serveraddress", sendPortName), new XElement(serverAddress));
+			list.Add(string.Format("{0}_port", sendPortName), new XElement(port));
+			list.Add(string.Format("{0}_targetfilename", sendPortName), new XElement(targetFileName));
+			if (folderPath != null)
+				list.Add(string.Format("{0}_folderpath", sendPortName), new XElement(folderPath));
+
+			list[string.Format("{0}_address", sendPortName)].Value = list[string.Format("{0}_address", sendPortName)].Value.Replace(targetFileName.Value, "");
+
+			serverAddress.Value = string.Format("${{{0}_serveraddress}}", sendPortName);
+			port.Value = string.Format("${{{0}_port}}", sendPortName);
+			targetFileName.Value = string.Format("${{{0}_targetfilename}}", sendPortName);
+			if (folderPath != null)
+				folderPath.Value = string.Format("${{{0}_folderpath}}", sendPortName);
+
+			transportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
+		}
+
+		private static void ReceiveLocation_File(Dictionary<string, XElement> list, XElement address, XElement receiveLocationTransportTypeData, XElement customProps, string receiveLocationName)
         {
             address.Value = string.Format("${{{0}_address}}${{{0}_filemask}}", receiveLocationName);
 
