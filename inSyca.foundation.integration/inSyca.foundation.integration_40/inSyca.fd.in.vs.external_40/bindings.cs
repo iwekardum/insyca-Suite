@@ -336,7 +336,7 @@ namespace inSyca.foundation.integration.visualstudio.external
 			customProps.SetElementValue("ServerAddress", string.Format("${{{0}_serveraddress}}", receiveLocationName));
 			customProps.SetElementValue("Port", string.Format("${{{0}_port}}", receiveLocationName));
 			customProps.SetElementValue("FileMask", string.Format("${{{0}_filemask}}", receiveLocationName));
-			customProps.SetElementValue("Folderpath", string.Format("${{{0}_folderpath}}", receiveLocationName));
+			customProps.SetElementValue("FolderPath", string.Format("${{{0}_folderpath}}", receiveLocationName));
 
 			receiveLocationTransportTypeData.Value = customProps.ToString().Replace(System.Environment.NewLine, string.Empty).Replace("  ", string.Empty);
 		}
