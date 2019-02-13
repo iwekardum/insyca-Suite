@@ -46,12 +46,12 @@
     <ApplicationIcon>inSyca.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BizUnit">
-      <HintPath>..\inSyca.fd.in.bt.bunit_40\BizUnit.dll</HintPath>
+    <Reference Include="BizUnit, Version=4.1.3.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\BizUnit4.4.1.4\lib\net40\BizUnit.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="BizUnit.TestSteps">
-      <HintPath>..\inSyca.fd.in.bt.bunit_40\BizUnit.TestSteps.dll</HintPath>
+    <Reference Include="BizUnit.TestSteps, Version=4.1.3.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\BizUnit4.4.1.4\lib\net40\BizUnit.TestSteps.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="BizUnit.TestSteps.BizTalk">
@@ -126,6 +126,7 @@
     <Content Include="foundation.integration.biztalk.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="app.config" />
     <None Include="foundation.integration.biztalk.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
