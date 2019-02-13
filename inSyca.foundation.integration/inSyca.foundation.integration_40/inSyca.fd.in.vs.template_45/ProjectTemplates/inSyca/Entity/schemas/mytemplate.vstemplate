@@ -16,7 +16,7 @@
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="$saferootprojectname$.esb.schemas.btproj" File="schemas.btproj" ReplaceParameters="true">
+    <Project TargetFileName="$saferootprojectname$.eeb.schemas.btproj" File="schemas.btproj" ReplaceParameters="true">
     </Project>
   </TemplateContent>
   <WizardExtension>

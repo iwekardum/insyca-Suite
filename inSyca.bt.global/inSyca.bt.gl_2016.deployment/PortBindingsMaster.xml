@@ -2,7 +2,7 @@
 <BindingInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Assembly="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Version="3.5.1.0" BindingStatus="FullyBound" BoundEndpoints="1" TotalEndpoints="1">
   <Timestamp>2017-11-14T11:31:56.8624046+01:00</Timestamp>
   <ModuleRefCollection>
-    <ModuleRef Name="insyca.bt.gl.esb.orchestrations" Version="1.1.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.esb.orchestrations, Version=1.1.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
+    <ModuleRef Name="insyca.bt.gl.eeb.orchestrations" Version="1.1.0.0" Culture="neutral" PublicKeyToken="604954d691f5a615" FullName="insyca.bt.gl.eeb.orchestrations, Version=1.1.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615">
       <Services>
         <Service Name="inSyca.bt.gl.mb.orchestrations.supportinfo_11" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
           <Ports>
@@ -15,7 +15,7 @@
           <Roles />
           <Host Name="inSyca_global" Type="1" Trusted="false" />
         </Service>
-        <Service Name="insyca.bt.gl.esb.orchestrations.global_11" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
+        <Service Name="insyca.bt.gl.eeb.orchestrations.global_11" State="Started" TrackingOption="ServiceStartEnd MessageSendReceive InboundMessageBody OutboundMessageBody OrchestrationEvents TrackPropertiesForIncomingMessages TrackPropertiesForOutgoingMessages" Description="">
           <Ports />
           <Roles />
           <Host Name="inSyca_global" Type="1" Trusted="false" />

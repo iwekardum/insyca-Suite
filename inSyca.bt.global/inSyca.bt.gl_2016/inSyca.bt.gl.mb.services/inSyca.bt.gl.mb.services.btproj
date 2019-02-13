@@ -56,7 +56,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.esb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.eeb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">

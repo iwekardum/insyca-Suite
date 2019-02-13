@@ -33,13 +33,13 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>..\..\insyca.bt.gl.esb.schemas\inSyca.ico</ApplicationIcon>
+    <ApplicationIcon>..\..\insyca.bt.gl.eeb.schemas\inSyca.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.esb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.eeb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="inSyca.fd.in.bt.cp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
@@ -77,7 +77,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">
+    <Content Include="..\..\insyca.bt.gl.eeb.schemas\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
     <Pipeline Include="..\..\insyca.bt.gl.pipelines\remove_nil_and_empty_nodes_11.btp">
@@ -88,7 +88,7 @@
     </Pipeline>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
+    <None Include="..\..\insyca.bt.gl.eeb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
   </ItemGroup>

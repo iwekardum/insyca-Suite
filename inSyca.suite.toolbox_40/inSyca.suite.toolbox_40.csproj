@@ -81,6 +81,9 @@
     <Content Include="biztalk\2016\inSycaBizTalkConfiguration.xml" />
     <Content Include="biztalk\2016\configureSchemaGenerator.cmd" />
     <None Include="biztalk\CreateLocalUsersAndGroupsForBiztalk.ps1" />
+    <None Include="cfg\BRE_EnableStaticMethodCall.reg" />
+    <None Include="cfg\GetWinSCPForBizTalk.ps1" />
+    <None Include="cfg\Open XML SDK.url" />
     <None Include="cfg\suite.reg" />
     <None Include="cfg\symboliclinks.cmd" />
     <None Include="destinationDeployment.cmd" />
@@ -103,13 +106,13 @@
     <Content Include="eventviewer\inSyca.xml" />
     <Content Include="eventviewer\MessageBroker.xml" />
     <Content Include="libraries\Winterdom.BizTalk.PipelineTesting.dll" />
-    <Content Include="libraries\Winterdom.BizTalk.PipelineTesting.pdb" />
-    <Content Include="libraries\Winterdom.BizTalk.PipelineTesting.XML" />
     <Content Include="ressources\banner_bitmap_001.bmp" />
     <Content Include="ressources\banner_bitmap_002.bmp" />
     <Content Include="ressources\inSyca.ico" />
     <Content Include="ressources\logo.png" />
     <Content Include="ressources\warning.bmp" />
+    <Content Include="tracking\isc_tracking.sql" />
+    <Content Include="tracking\isc_tracking_task.xml" />
     <Content Include="xslt\copy_all.xslt" />
     <Content Include="xslt\emptyvalue_to_nil.xslt" />
     <Content Include="xslt\key_value.xslt" />

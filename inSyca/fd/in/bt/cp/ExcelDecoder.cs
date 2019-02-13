@@ -266,7 +266,7 @@ namespace inSyca.foundation.integration.biztalk.components
                 TempFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
             if (string.IsNullOrEmpty(NamespaceBase))
-                NamespaceBase = "http://insyca.bt.gl.esb.schemas.integration.components.exceldecoder_10";
+                NamespaceBase = "http://insyca.bt.gl.eeb.schemas.integration.components.exceldecoder_10";
 
             if (string.IsNullOrEmpty(RootNodeName))
                 RootNodeName = "exceldecoder";

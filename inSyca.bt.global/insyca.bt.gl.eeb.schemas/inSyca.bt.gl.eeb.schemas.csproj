@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>inSyca.bt.gl.eeb.schemas</RootNamespace>
+    <AssemblyName>inSyca.bt.gl.eeb.schemas</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>inSyca.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>insyca.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="entities.business\accounting_10.xsd" />
+    <None Include="entities.business\finance_10.xsd" />
+    <None Include="entities.business\logistics_10.xsd" />
+    <None Include="entities.business\procurement_10.xsd" />
+    <None Include="entities.business\production_10.xsd" />
+    <None Include="entities.business\sales_10.xsd" />
+    <None Include="entities.business\warehouse_10.xsd" />
+    <Schema Include="entities\information_10.xsd">
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="entities\contract_10.xsd">
+      <SubType>Task</SubType>
+    </Schema>
+    <None Include="entities\tracing_10.xsd" />
+    <None Include="entities\goods_10.xsd" />
+    <None Include="entities\government_10.xsd" />
+    <None Include="entities\monetary_10.xsd" />
+    <None Include="entities\physical_10.xsd" />
+    <None Include="entities\roles_10.xsd" />
+    <None Include="entities.business\template_10.xsd" />
+    <None Include="entities\event_10.xsd" />
+    <None Include="entities\contact_10.xsd" />
+    <None Include="generic_10.xsd" />
+    <None Include="insyca.snk" />
+    <Schema Include="properties.xsd">
+      <SubType>Task</SubType>
+    </Schema>
+    <None Include="_documentation\License.rtf" />
+    <None Include="_documentation\ReleaseNotes.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_bindings\GenericReceivePortWCF.xml" />
+    <Content Include="_bindings\SupportSendPortSharepoint.xml" />
+    <Content Include="_ressources\banner_bitmap_001.bmp" />
+    <Content Include="_ressources\banner_bitmap_002.bmp" />
+    <Content Include="_ressources\product.ico" />
+    <Content Include="inSyca.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

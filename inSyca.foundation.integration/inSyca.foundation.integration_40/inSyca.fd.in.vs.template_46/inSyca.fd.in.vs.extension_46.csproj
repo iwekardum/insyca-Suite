@@ -167,19 +167,19 @@
     <Content Include="ProjectTemplates\inSyca\Entity\schemas\mytemplate.vstemplate" />
     <Content Include="ProjectTemplates\inSyca\Entity\schemas\_preprocess.xml" />
     <Content Include="ProjectTemplates\inSyca\Entity\_preprocess.xml" />
-    <Content Include="ProjectTemplates\inSyca\ESB\Definitions\CSharp.vstemplate">
+    <Content Include="ProjectTemplates\inSyca\EEB\Definitions\CSharp.vstemplate">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ProjectTemplates\inSyca\ESB\deployment\mytemplate.vstemplate" />
-    <Content Include="ProjectTemplates\inSyca\ESB\deployment\_preprocess.xml" />
-    <Content Include="ProjectTemplates\inSyca\ESB\maps\mytemplate.vstemplate" />
-    <Content Include="ProjectTemplates\inSyca\ESB\maps\_preprocess.xml" />
-    <Content Include="ProjectTemplates\inSyca\ESB\orchestrations\mytemplate.vstemplate" />
-    <Content Include="ProjectTemplates\inSyca\ESB\orchestrations\_preprocess.xml" />
-    <Content Include="ProjectTemplates\inSyca\ESB\schemas\mytemplate.vstemplate" />
-    <Content Include="ProjectTemplates\inSyca\ESB\schemas\_preprocess.xml" />
-    <Content Include="ProjectTemplates\inSyca\ESB\unittest\mytemplate.vstemplate" />
-    <Content Include="ProjectTemplates\inSyca\ESB\unittest\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\EEB\deployment\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\EEB\deployment\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\EEB\maps\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\EEB\maps\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\EEB\orchestrations\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\EEB\orchestrations\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\EEB\schemas\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\EEB\schemas\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\EEB\unittest\mytemplate.vstemplate" />
+    <Content Include="ProjectTemplates\inSyca\EEB\unittest\_preprocess.xml" />
     <Content Include="ProjectTemplates\inSyca\Utility\Definitions\CSharp.vstemplate" />
     <Content Include="ProjectTemplates\inSyca\Utility\deployment\mytemplate.vstemplate" />
     <Content Include="ProjectTemplates\inSyca\Utility\deployment\_preprocess.xml" />
@@ -214,8 +214,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProjectTemplates\inSyca\ESB\logo_64x64.png" />
-    <Content Include="ProjectTemplates\inSyca\ESB\_preprocess.xml" />
+    <Content Include="ProjectTemplates\inSyca\EEB\logo_64x64.png" />
+    <Content Include="ProjectTemplates\inSyca\EEB\_preprocess.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\inSyca.fd.in.vs.external_40\inSyca.fd.in.vs.external_40.csproj">

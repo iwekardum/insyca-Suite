@@ -36,7 +36,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\insyca.bt.gl.esb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\insyca.bt.gl.eeb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="inSyca.fd.in.bt.cp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
@@ -74,7 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\insyca.bt.gl.esb.schemas\insyca.snk">
+    <None Include="..\insyca.bt.gl.eeb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
   </ItemGroup>

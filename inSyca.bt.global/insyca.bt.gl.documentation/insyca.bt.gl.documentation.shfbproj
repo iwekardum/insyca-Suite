@@ -50,7 +50,7 @@
           <includeLinkUriInKeywordK>false</includeLinkUriInKeywordK>
           <annotationTransformFile path="AnnotationTranform.xslt" />
           <schemaFiles>
-            <schemaFile path="..\insyca.bt.gl.esb.schemas\generic_10.xsd" />
+            <schemaFile path="..\insyca.bt.gl.eeb.schemas\generic_10.xsd" />
           </schemaFiles>
           <dependencyFiles />
           <docFiles>

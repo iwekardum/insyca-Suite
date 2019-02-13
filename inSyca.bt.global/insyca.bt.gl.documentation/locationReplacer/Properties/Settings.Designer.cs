@@ -25,7 +25,7 @@ namespace locationReplacer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("xs:import schemaLocation=\"insyca.bt.gl.esb.schemas")]
+        [global::System.Configuration.DefaultSettingValueAttribute("xs:import schemaLocation=\"insyca.bt.gl.eeb.schemas")]
         public string lineIdentifier {
             get {
                 return ((string)(this["lineIdentifier"]));
@@ -52,7 +52,7 @@ namespace locationReplacer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("insyca.bt.gl.esb.schemas")]
+        [global::System.Configuration.DefaultSettingValueAttribute("insyca.bt.gl.eeb.schemas")]
         public string stringIdentifier {
             get {
                 return ((string)(this["stringIdentifier"]));

@@ -8,8 +8,8 @@
     <ProjectTypeGuids>{EF7E3281-CD33-11D4-8326-00C04FA0CE8D};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>library</OutputType>
     <GenericProcessing>true</GenericProcessing>
-    <RootNamespace>insyca.bt.gl.esb.schemas.entities.business</RootNamespace>
-    <AssemblyName>insyca.bt.gl.esb.schemas.en.bu</AssemblyName>
+    <RootNamespace>insyca.bt.gl.eeb.schemas.entities.business</RootNamespace>
+    <AssemblyName>insyca.bt.gl.eeb.schemas.en.bu</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <BpelCompliance>True</BpelCompliance>
     <FileUpgradeFlags>
@@ -54,13 +54,13 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>..\..\insyca.bt.gl.esb.schemas\inSyca.ico</ApplicationIcon>
+    <ApplicationIcon>..\..\insyca.bt.gl.eeb.schemas\inSyca.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.esb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\insyca.bt.gl.eeb.schemas\insyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -104,60 +104,60 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\insyca.bt.gl.esb.schemas\inSyca.ico">
+    <Content Include="..\..\insyca.bt.gl.eeb.schemas\inSyca.ico">
       <Link>inSyca.ico</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\accounting_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\accounting_10.xsd">
       <Link>accounting_10.xsd</Link>
       <TypeName>accounting_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\finance_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\finance_10.xsd">
       <Link>finance_10.xsd</Link>
       <TypeName>finance_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\logistics_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\logistics_10.xsd">
       <Link>logistics_10.xsd</Link>
       <TypeName>logistics_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\procurement_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\procurement_10.xsd">
       <Link>procurement_10.xsd</Link>
       <TypeName>procurement_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\production_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\production_10.xsd">
       <Link>production_10.xsd</Link>
       <TypeName>production_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\sales_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\sales_10.xsd">
       <Link>sales_10.xsd</Link>
       <TypeName>sales_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\template_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\template_10.xsd">
       <Link>template_10.xsd</Link>
       <TypeName>template_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="..\..\insyca.bt.gl.esb.schemas\entities.business\warehouse_10.xsd">
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities.business\warehouse_10.xsd">
       <Link>warehouse_10.xsd</Link>
       <TypeName>warehouse_10</TypeName>
-      <Namespace>insyca.bt.gl.esb.schemas.entities.business</Namespace>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities.business</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <None Include="..\..\insyca.bt.gl.esb.schemas\insyca.snk">
+    <None Include="..\..\insyca.bt.gl.eeb.schemas\insyca.snk">
       <Link>insyca.snk</Link>
     </None>
   </ItemGroup>

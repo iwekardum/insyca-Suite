@@ -106,14 +106,14 @@
 
   <!-- Schemas -->
   <ItemGroup>
-    <Schemas Include="inSyca.bt.gl.esb.schemas.dll">
-      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas\bin\$(Configuration)</LocationPath>
+    <Schemas Include="inSyca.bt.gl.eeb.schemas.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.eeb.schemas\bin\$(Configuration)</LocationPath>
     </Schemas>
-    <Schemas Include="inSyca.bt.gl.esb.schemas.en.dll">
-      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en\bin\$(Configuration)</LocationPath>
+    <Schemas Include="inSyca.bt.gl.eeb.schemas.en.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.eeb.schemas.en\bin\$(Configuration)</LocationPath>
     </Schemas>
-    <Schemas Include="inSyca.bt.gl.esb.schemas.en.bu.dll">
-      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.schemas.en.bu\bin\$(Configuration)</LocationPath>
+    <Schemas Include="inSyca.bt.gl.eeb.schemas.en.bu.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.eeb.schemas.en.bu\bin\$(Configuration)</LocationPath>
     </Schemas>
   </ItemGroup>
 
@@ -126,8 +126,8 @@
 
   <!-- Orchestrations -->
   <ItemGroup>
-    <Orchestrations Include="inSyca.bt.gl.esb.orchestrations.dll">
-      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.esb.orchestrations\bin\$(Configuration)</LocationPath>
+    <Orchestrations Include="inSyca.bt.gl.eeb.orchestrations.dll">
+      <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.eeb.orchestrations\bin\$(Configuration)</LocationPath>
     </Orchestrations>
     <!--<Orchestrations Include="inSyca.bt.gl.mb.orchestrations.dll">
       <LocationPath>..\inSyca.bt.gl_2013R2\inSyca.bt.gl.mb.orchestrations\bin\$(Configuration)</LocationPath>
@@ -155,7 +155,7 @@
   <Target Name="CustomRedist">
     <MakeDir Directories="$(RedistDir)\SchemaFiles"/>
     <!-- Force MSBuild to expand the item spec into physical file specs -->
-    <CreateItem Include="..\insyca.bt.gl.esb.schemas\**\*.xsd">
+    <CreateItem Include="..\insyca.bt.gl.eeb.schemas\**\*.xsd">
       <Output TaskParameter="Include" ItemName="SchemaFilesSourceGroup" />
     </CreateItem>
     <!-- Copy all of the files and subfolders from ..\SchemaFiles to $(RedistDir)\SchemaFiles -->
@@ -183,12 +183,12 @@
     <Exec Command="BTSTask.exe AddApp -ApplicationName:&quot;BizTalk.Global&quot; -Description:&quot;inSyca Global Integration Components&quot;" Condition="'$(gl_Exists)' == 'false'" ContinueOnError="true" />
 
     <!-- schemas -->
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.schemas.en.bu.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.schemas.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.schemas.en.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.schemas.en.bu.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
 
     <!-- orchestrations -->
-    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.esb.orchestrations.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.orchestrations.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
 
     <!-- pipelines -->
     <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.pipelines.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
@@ -242,12 +242,12 @@
     <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.pipelines, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
 
     <!-- orchestrations -->
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
 
     <!-- schemas -->
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en.bu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas.en, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
-    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.esb.schemas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.schemas.en.bu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.schemas.en, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.schemas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
 
   </Target>
 
@@ -265,7 +265,7 @@
   </Target>
 
   <Target Name="CustomPostInstaller">
-    <Copy SourceFiles="..\insyca.bt.gl.esb.schemas\_documentation\ReleaseNotes.rtf" DestinationFolder="$(TargetDir)" ContinueOnError="true" />
+    <Copy SourceFiles="..\insyca.bt.gl.eeb.schemas\_documentation\ReleaseNotes.rtf" DestinationFolder="$(TargetDir)" ContinueOnError="true" />
     <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\insyca\insyca.bt.global&quot; &quot;$(MSBuildProjectDirectory)\hosts\*.*&quot;" ContinueOnError="true" />
   </Target>
 

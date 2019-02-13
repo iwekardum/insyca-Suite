@@ -7,7 +7,7 @@
   <TemplateInfo Path="CSharp\Web\Custom\Subcategory"/>
   -->
   <Replacements Include="*.*" Exclude="*.vstemplate;*.fsproj;*.vbproj;*.jpg;*.png;*.ico;_preprocess.xml;_project.vstemplate.xml">
-    <add key="inSyca.esb.ns" value="$safeprojectname$"/>
-    <add key="inSyca.esb.root.ns" value="$saferootprojectname$"/>
+    <add key="inSyca.eeb.ns" value="$safeprojectname$"/>
+    <add key="inSyca.eeb.root.ns" value="$saferootprojectname$"/>
   </Replacements>
 </Preprocess>

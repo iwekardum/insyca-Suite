@@ -64,19 +64,19 @@
     </DirectoryRef>
 
     <Component Id='productDocumentation' Guid='{37C584B8-40A9-4D9A-AF11-254D845F800E}' Directory="documentation">
-      <File Source='..\insyca.bt.gl.esb.schemas\_documentation\ReleaseNotes.rtf' Vital='yes'/>
+      <File Source='..\insyca.bt.gl.eeb.schemas\_documentation\ReleaseNotes.rtf' Vital='yes'/>
       <File Source='..\insyca.bt.gl.documentation\Help\insyca.bt.gl.documentation.chm' Vital='yes'/>
     </Component>
 
     <Component Id='productBindings' Guid='{37C584B8-40A9-4D9A-AB11-254D845F800E}' Directory="bindings">
-      <File Source='..\insyca.bt.gl.esb.schemas\_bindings\GenericReceivePortWCF.xml' Vital='yes'/>
-      <File Source='..\insyca.bt.gl.esb.schemas\_bindings\SupportSendPortSharepoint.xml' Vital='yes'/>
+      <File Source='..\insyca.bt.gl.eeb.schemas\_bindings\GenericReceivePortWCF.xml' Vital='yes'/>
+      <File Source='..\insyca.bt.gl.eeb.schemas\_bindings\SupportSendPortSharepoint.xml' Vital='yes'/>
     </Component>
 
     <Property Id="WIXUI_PRODUCTVERSION" Value="{\WixUI_Font_Title}Version: $(var.ProductVersion)" />
-    <WixVariable Id="WixUIBannerBmp" Value="..\insyca.bt.gl.esb.schemas\_ressources\banner_bitmap_002.bmp" />
-    <WixVariable Id="WixUIDialogBmp" Value="..\insyca.bt.gl.esb.schemas\_ressources\banner_bitmap_001.bmp" />
-    <WixVariable Id="WixUILicenseRtf" Value="..\insyca.bt.gl.esb.schemas\_documentation\ReleaseNotes.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="..\insyca.bt.gl.eeb.schemas\_ressources\banner_bitmap_002.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="..\insyca.bt.gl.eeb.schemas\_ressources\banner_bitmap_001.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="..\insyca.bt.gl.eeb.schemas\_documentation\ReleaseNotes.rtf" />
     <WixVariable Id="WixUISupportPerUser" Value="0" />
 
     <?if $(var.ExplicitInstallDir) != ""?>
@@ -84,7 +84,7 @@
     <?endif?>
 
     <!-- Set up icons -->
-    <Icon Id="product.ico" SourceFile="..\insyca.bt.gl.esb.schemas\_ressources\product.ico"/>
+    <Icon Id="product.ico" SourceFile="..\insyca.bt.gl.eeb.schemas\_ressources\product.ico"/>
     <Property Id="ARPPRODUCTICON" Value="product.ico" />
 
     <Property Id="LicenseAccepted" Value="1" />
