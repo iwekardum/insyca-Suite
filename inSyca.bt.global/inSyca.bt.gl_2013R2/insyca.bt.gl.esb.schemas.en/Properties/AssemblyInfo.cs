@@ -7,11 +7,11 @@ using Microsoft.BizTalk.XLANGs.BTXEngine;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("insyca.bt.gl.esb.schemas.entities.roles")]
+[assembly: AssemblyTitle("insyca.bt.gl.eeb.schemas.entities.roles")]
 [assembly: AssemblyDescription("ESB Entities - Roles")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("insyca.bt.gl.esb.schemas.en.ro")]
+[assembly: AssemblyProduct("insyca.bt.gl.eeb.schemas.en.ro")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

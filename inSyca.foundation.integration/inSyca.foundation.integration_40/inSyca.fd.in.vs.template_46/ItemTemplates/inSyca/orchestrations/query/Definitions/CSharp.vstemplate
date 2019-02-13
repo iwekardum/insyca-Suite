@@ -1,7 +1,7 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
   <TemplateData>
-    <Name>ESB Query Orchestration</Name>
-    <Description>Projectitem Template for ESB Query Orchestration</Description>
+    <Name>EEB Query Orchestration</Name>
+    <Description>Projectitem Template for EEB Query Orchestration</Description>
     <DefaultName>OrchestrationName</DefaultName>
     <ProjectType>BizTalk</ProjectType>
     <ProjectSubType></ProjectSubType>

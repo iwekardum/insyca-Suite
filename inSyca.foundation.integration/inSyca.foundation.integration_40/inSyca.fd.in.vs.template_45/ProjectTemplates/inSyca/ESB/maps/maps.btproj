@@ -8,8 +8,8 @@
     <ProjectTypeGuids>{EF7E3281-CD33-11D4-8326-00C04FA0CE8D};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>library</OutputType>
     <GenericProcessing>true</GenericProcessing>
-    <RootNamespace>inSyca.esb.ns</RootNamespace>
-    <AssemblyName>inSyca.esb.ns</AssemblyName>
+    <RootNamespace>inSyca.eeb.ns</RootNamespace>
+    <AssemblyName>inSyca.eeb.ns</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <BpelCompliance>True</BpelCompliance>
   </PropertyGroup>
@@ -65,8 +65,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\inSyca.esb.root.ns.esb.schemas\inSyca.esb.root.ns.esb.schemas.btproj">
-      <Name>inSyca.esb.root.ns.esb.schemas</Name>
+    <ProjectReference Include="..\inSyca.eeb.root.ns.eeb.schemas\inSyca.eeb.root.ns.eeb.schemas.btproj">
+      <Name>inSyca.eeb.root.ns.eeb.schemas</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

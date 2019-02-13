@@ -42,23 +42,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.mb.services", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_common", "_common", "{308002AE-5FB8-41D0-BE1E-BF05DE245DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.esb.schemas", "insyca.bt.gl.esb.schemas\inSyca.bt.gl.esb.schemas.csproj", "{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.eeb.schemas", "insyca.bt.gl.eeb.schemas\inSyca.bt.gl.eeb.schemas.csproj", "{9302AD9E-4FEB-427D-8D3E-B7E17A65DBAC}"
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "insyca.bt.gl.documentation", "insyca.bt.gl.documentation\insyca.bt.gl.documentation.shfbproj", "{2AD15402-7B6F-4202-B068-8C4B8E604548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.orchestrations", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.orchestrations\insyca.bt.gl.esb.orchestrations.btproj", "{5FDED9B2-CAEF-4E9B-9B99-2D414102322D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.orchestrations", "inSyca.bt.gl_2013R2\insyca.bt.gl.eeb.orchestrations\insyca.bt.gl.eeb.orchestrations.btproj", "{5FDED9B2-CAEF-4E9B-9B99-2D414102322D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.orchestrations", "insyca.bt.gl.esb.orchestrations\insyca.bt.gl.esb.orchestrations.csproj", "{31B014EF-F310-4262-B69D-F91FF37AA0E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.orchestrations", "insyca.bt.gl.eeb.orchestrations\insyca.bt.gl.eeb.orchestrations.csproj", "{31B014EF-F310-4262-B69D-F91FF37AA0E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.pipelines", "insyca.bt.gl.pipelines\insyca.bt.gl.pipelines.csproj", "{05AD4D30-AC63-42F4-9B7F-9781127AADD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.bt.gl.pipelines", "inSyca.bt.gl_2013R2\inSyca.bt.gl.pipelines\inSyca.bt.gl.pipelines.btproj", "{C182F238-0FB5-456A-B07E-F094360B2907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas\insyca.bt.gl.esb.schemas.btproj", "{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.schemas", "inSyca.bt.gl_2013R2\insyca.bt.gl.eeb.schemas\insyca.bt.gl.eeb.schemas.btproj", "{9D813F25-B8E6-4CCF-A0D1-A27BB221C29D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.en\insyca.bt.gl.esb.schemas.en.btproj", "{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.schemas.en", "inSyca.bt.gl_2013R2\insyca.bt.gl.eeb.schemas.en\insyca.bt.gl.eeb.schemas.en.btproj", "{5DF07CDF-82BB-444A-A4E6-7C1726D3162A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.esb.schemas.en.bu", "inSyca.bt.gl_2013R2\insyca.bt.gl.esb.schemas.en.bu\insyca.bt.gl.esb.schemas.en.bu.btproj", "{937E93A3-34AC-436D-89FB-CC8991CD8076}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.schemas.en.bu", "inSyca.bt.gl_2013R2\insyca.bt.gl.eeb.schemas.en.bu\insyca.bt.gl.eeb.schemas.en.bu.btproj", "{937E93A3-34AC-436D-89FB-CC8991CD8076}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hosts", "hosts", "{81B5359F-D65F-482A-AD64-082ACBA1B061}"
 	ProjectSection(SolutionItems) = preProject

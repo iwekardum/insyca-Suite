@@ -3,6 +3,10 @@
   <ComponentGroup Id="gac">
 
     <Component Guid='*'  Directory="gac_40">
+      <File Id="Winterdom.BizTalk.PipelineTesting" Source='$(var.Winterdom.BizTalk.PipelineTesting.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
       <File Id="inSyca.fd.fr.app_40" Source='$(var.inSyca.fd.fr.app_40.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
     </Component>
 

@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  Deployment Framework for BizTalk 5.0
+  Copyright (C) 2004-2012 Thomas F. Abraham and Scott Colestock
+  
+  Modified by: Iwe Kardum
+-->
+<!-- 
+        P L A C E H O L D E R
+
+  ${COMPANY}            = Customer Companyname
+  ${MAINPROCESS}        = Name (Abbreviation) of Mainprocess
+  ${SUBPROCESS}         = Name (Abbreviation) of Subprocess
+  ${PRODUCTNAME}        = ProductName
+  ${PACKAGEDESCRIPTION} = Packagedescription
+  ${PACKAGECOMMENTS}    = PackageComments
+  ${ENTITY_1}           = Receive BizTalk Entity 
+  ${ENTITY_2}           = Send BizTalk Entity
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Installer" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <SchemaVersion>1.0</SchemaVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ProjectName>inSyca.eeb.root.ns</ProjectName>
+    <ProjectVersion>1.0</ProjectVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludeMessagingBindings>true</IncludeMessagingBindings>
+    <IncludeSchemas>true</IncludeSchemas>
+    <IncludeTransforms>true</IncludeTransforms>
+    <IncludeOrchestrations>true</IncludeOrchestrations>
+    <IncludePipelines>false</IncludePipelines>
+    <IncludePipelineComponents>false</IncludePipelineComponents>
+    <IncludeVocabAndRules>false</IncludeVocabAndRules>
+    <IncludeComponents>false</IncludeComponents>
+    <IncludeBAM>false</IncludeBAM>
+    <IncludeEsbItineraries>false</IncludeEsbItineraries>
+    <IncludeCustomFunctoids>false</IncludeCustomFunctoids>
+    <IncludeVirtualDirectories>false</IncludeVirtualDirectories>
+    <IncludeSSO>false</IncludeSSO>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UsingMasterBindings>True</UsingMasterBindings>
+    <RequireXmlPreprocessDirectives>False</RequireXmlPreprocessDirectives>
+    <SkipIISReset>True</SkipIISReset>
+    <StartApplicationOnDeploy>True</StartApplicationOnDeploy>
+  </PropertyGroup>
+
+  <!-- Properties related to building an MSI for server deployments -->
+  <!-- BizTalk App Version Upgrade -->
+  <!--   For each new product release to be deployed to your BizTalk servers: -->
+  <!--     1) Increment ProductVersion -->
+  <!--     2) Generate a new GUID and update ProductId with the new GUID -->
+  <!--   This allows the new MSI to automatically uninstall (not undeploy!) the old MSI and install the new one. -->
+  <PropertyGroup>
+    <MsiName>inSyca.eeb.root.ns</MsiName>
+    <ProductVersion>1.0.0</ProductVersion>
+
+    <!-- BizTalk App Version Upgrade -->
+    <ProductName>${PRODUCTNAME}</ProductName>
+    <Manufacturer>${MANUFACTURER}</Manufacturer>
+    <PackageDescription>${PACKAGEDESCRIPTION}</PackageDescription>
+
+    <!-- NEVER change the ProductUpgradeCode. -->
+    <PackageComments>${PACKAGECOMMENTS}</PackageComments>
+    <ProductId>${PRODUCTID}</ProductId>
+    <ProductUpgradeCode>${PRODUCTUPGRADECODE}</ProductUpgradeCode>
+  </PropertyGroup>
+
+  <!-- Under TFS Team Build, set CustomizableOutDir property to true in TFS 2005/2008/2010 UpgradeTemplate. -->
+  <!-- With a workflow build, copy the default template then modify the MSBuild task for the solution build. Set OutDir to blank and -->
+  <!-- CommandLineArguments to String.Format("/p:SkipInvalidConfigurations=true;TeamBuildOutDir=""{0}"" {1}", BinariesDirectory, MSBuildArguments). -->
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DeploymentFrameworkTargetsPath>.\custom\</DeploymentFrameworkTargetsPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' == ''">bin\Debug\</OutputPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' != ''">$(TeamBuildOutDir)</OutputPath>
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DeploymentFrameworkTargetsPath>.\custom\</DeploymentFrameworkTargetsPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' == ''">bin\Release\</OutputPath>
+    <OutputPath Condition="'$(TeamBuildOutDir)' != ''">$(TeamBuildOutDir)</OutputPath>
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Server'">
+    <DeploymentFrameworkTargetsPath>Framework\</DeploymentFrameworkTargetsPath>
+    <!-- Get our PDBs into the GAC so we get file/line number information in stack traces. -->
+    <DeployPDBsToGac>false</DeployPDBsToGac>
+  </PropertyGroup>
+  
+<!--
+  <ItemGroup>
+  <AppsToReference Include="${COMPANY}.bt.global"/>
+  </ItemGroup>
+-->
+  
+  <ItemGroup>
+    <BizTalkHosts Include="${COMPANY}_bt_${MAINPROCESS}_${SUBPROCESS}_esb" />
+<!-- Entity Hosts
+    <BizTalkHosts Include="${COMPANY}_bt_${MAINPROCESS}_${SUBPROCESS}_${ENTITY_1}" />
+    <BizTalkHosts Include="${COMPANY}_bt_${MAINPROCESS}_${SUBPROCESS}_${ENTITY_2}" />
+    <BizTalkHosts Include="${COMPANY}_bt_${MAINPROCESS}_${SUBPROCESS}_${ENTITY_1}_receive" />
+    <BizTalkHosts Include="${COMPANY}_bt_${MAINPROCESS}_${SUBPROCESS}_${ENTITY_2}_send" />
+-->
+  </ItemGroup>
+
+  <!-- Add ItemGroup elements that contain one or more Schemas, Orchestrations, Transforms, etc. elements that describe -->
+  <!-- the specific artifacts in your solution that need to be deployed. Use IntelliSense as a guide. -->
+
+  <!-- Schemas -->
+  <ItemGroup>
+    <Schemas Include="inSyca.eeb.root.ns.eeb.schemas.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.eeb.schemas\bin\$(Configuration)</LocationPath>
+    </Schemas>
+<!-- Entity Schemas
+    <Schemas Include="inSyca.eeb.root.ns.${ENTITY_1}.schemas.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_1}\inSyca.eeb.root.ns.${ENTITY_1}.schemas\bin\$(Configuration)</LocationPath>
+    </Schemas>
+    <Schemas Include="inSyca.eeb.root.ns.${ENTITY_2}.schemas.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_2}\inSyca.eeb.root.ns.${ENTITY_2}.schemas\bin\$(Configuration)</LocationPath>
+    </Schemas>
+-->
+  </ItemGroup>
+
+  <!-- Maps -->
+  <ItemGroup>
+    <Transforms Include="inSyca.eeb.root.ns.eeb.maps.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.eeb.maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
+<!-- Entity Maps
+    <Transforms Include="inSyca.eeb.root.ns.${ENTITY_1}.maps.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_1}\inSyca.eeb.root.ns.${ENTITY_1}.maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
+    <Transforms Include="inSyca.eeb.root.ns.${ENTITY_2}.maps.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_2}\inSyca.eeb.root.ns.${ENTITY_2}.maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
+-->
+  </ItemGroup>
+
+  <!-- Orchestrations -->
+  <ItemGroup>
+    <Orchestrations Include="inSyca.eeb.root.ns.eeb.orchestrations.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.eeb.orchestrations\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+<!-- Entity Orchestrations
+    <Orchestrations Include="inSyca.eeb.root.ns.${ENTITY_1}.orchestrations.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_1}\inSyca.eeb.root.ns.${ENTITY_1}.orchestrations\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+    <Orchestrations Include="inSyca.eeb.root.ns.${ENTITY_2}.orchestrations.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_2}\inSyca.eeb.root.ns.${ENTITY_2}.orchestrations\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+-->
+  </ItemGroup>
+
+  <!-- Services -->
+  <ItemGroup>
+<!-- Entity Service Artefacts
+    <Orchestrations Include="inSyca.eeb.root.ns.${ENTITY_1}.services.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_1}\inSyca.eeb.root.ns.${ENTITY_1}.services\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+    <Orchestrations Include="inSyca.eeb.root.ns.${ENTITY_2}.services.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_2}\inSyca.eeb.root.ns.${ENTITY_2}.services\bin\$(Configuration)</LocationPath>
+    </Orchestrations>
+-->
+  </ItemGroup>
+
+  <!-- Pipelines -->
+  <ItemGroup>
+<!-- Entity Pipelines
+    <Pipelines Include="inSyca.eeb.root.ns.${ENTITY_1}.pipelines.dll">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.${ENTITY_1}\inSyca.eeb.root.ns.${ENTITY_1}.pipelines\bin\$(Configuration)</LocationPath>
+    </Pipelines>
+-->
+  </ItemGroup>
+
+  <!-- Business Rules -->
+<!--
+  <ItemGroup>
+    <AdditionalFiles Include="inSyca.eeb.root.ns.setSize.policy.xml">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.bre</LocationPath>
+    </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <FilesToXmlPreprocess Include="inSyca.eeb.root.ns.setSize.policy.xml">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.bre</LocationPath>
+    </FilesToXmlPreprocess>
+  </ItemGroup>
+  <ItemGroup>
+    <RulePolicies Include="inSyca.eeb.root.ns.setSize.policy.xml">
+      <LocationPath>..\inSyca.eeb.root.ns\inSyca.eeb.root.ns.bre</LocationPath>
+    </RulePolicies>
+  </ItemGroup>
+
+  <Target Name="CustomDeployTarget" Condition="'$(Configuration)' == 'Server'">
+    <Copy sourceFiles="..\inSyca.eeb.root.ns.setSize.policy.xml" DestinationFolder="..\BRE\Policies"/>
+  </Target>
+-->
+
+  <!-- If you wish to set up IIS application pools, specify one or more IISAppPool definitions. -->
+<!--
+  <ItemGroup>
+    <IISAppPool Include="TestProjectPool">
+      <DotNetFrameworkVersion>v4.0</DotNetFrameworkVersion>
+      <PipelineMode>Integrated</PipelineMode>
+      <Enable32Bit>False</Enable32Bit>
+      <IdentityType>SpecificUser</IdentityType>
+      <UserName>BizTalk</UserName>
+      <Password>password</Password>
+      <DeployAction>Create</DeployAction>
+      <UndeployAction>Delete</UndeployAction>
+    </IISAppPool>
+  </ItemGroup>
+-->
+  <!-- If you wish to set up IIS applications, specify one or more IISApp definitions. -->
+<!--
+  <ItemGroup>
+    <IISApp Include="TestProject">
+      <AppPoolName>TestProjectPool</AppPoolName>
+      <SiteName>Default Web Site</SiteName>
+      <VirtualPath>/TestProject</VirtualPath>
+      <PhysicalPath>..\TestProjectVDir</PhysicalPath>
+      <DeployAction>Create</DeployAction>
+      <UndeployAction>Delete</UndeployAction>
+    </IISApp>
+  </ItemGroup>
+-->  
+  <!-- Additional Files -->
+  <ItemGroup>
+    <AdditionalFiles Include="releasenotes.rtf">
+      <LocationPath>$(DeploymentFrameworkProjectPath)documentation</LocationPath>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <Import Project="$(DeploymentFrameworkTargetsPath)BizTalkDeploymentFramework.targets" />
+<!--
+    The Deployment Framework automatically packages most files into the server install MSI.
+    However, if there are special folders that you need to include in the MSI, you can
+    copy them to the folder $(RedistDir) in the CustomRedist target.
+    To include individual files, add an ItemGroup with AdditionalFiles elements.
+-->
+
+  <!-- Runs at the absolute beginning of the process, before the Deployment Framework has done any initialization -->
+  <Target Name="CustomPreInitialize">
+
+  <!-- stop inSyca Foundation Monitoring  (no messages during installation) -->
+<!--
+  <Exec Command="net stop &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+  <Exec Command="net stop &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+ -->
+  </Target>
+
+  <Target Name="CustomDeployTarget">
+
+    <GetBizTalkAppExists ApplicationName="inSyca.eeb.root.ns">
+      <Output TaskParameter="appExists" PropertyName="main_App_Exists" />
+    </GetBizTalkAppExists>
+
+    <!-- create applications -->
+    <Exec Command="BTSTask.exe AddApp -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Description:&quot;${PACKAGEDESCRIPTION}&quot;" Condition="'$(main_App_Exists)' == 'false'" ContinueOnError="true" />
+
+    <!-- esb -->
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.eeb.schemas.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.eeb.maps.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.eeb.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+
+    <!-- ${ENTITY_1}  -->
+    <!--
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_1}.services.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_1}.schemas.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_1}.maps.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_1}.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    -->
+    
+    <!-- ${ENTITY_2} -->
+    <!--
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_2}.services.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_2}.schemas.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_2}.maps.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.eeb.root.ns.${ENTITY_2}.orchestrations.dll&quot; -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+    -->
+    
+  </Target>
+
+  <!-- Attention! Breaks GAC Deployment in MultiServer Environment-->
+  <Target Name="CustomPostDeployTarget">
+  </Target>
+
+  <!-- Runs just after the host instances were restarted -->
+  <Target Name="CustomFinalDeploy">
+
+    <!-- start inSyca.eeb.root.ns application -->
+    <ControlBizTalkApp ApplicationName="inSyca.eeb.root.ns" StartOption="StartAll" Condition="'$(main_App_Exists)' == 'true'" ContinueOnError="true"/>
+
+    <!-- start inSyca Foundation Monitoring (enable monitoring after installation) -->
+    <!-- 
+    <Exec Command="net start &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+    <Exec Command="net start &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+    -->
+
+  </Target>
+  
+  <Target Name="CustomUndeployTarget">
+
+    <!-- verify existing biztalk applications -->
+    <GetBizTalkAppExists ApplicationName="inSyca.eeb.root.ns">
+      <Output TaskParameter="appExists" PropertyName="main_App_Exists" />
+    </GetBizTalkAppExists>
+
+    <!-- Indicates the flags from the ApplicationStopOption enumeration used when starting a BizTalk application -->
+    <PropertyGroup Condition="'$(ControlBizTalkAppStopOption)' == ''">
+      <ControlBizTalkAppStopOption>DisableAllReceiveLocations,UndeployAllPolicies,UnenlistAllOrchestrations,UnenlistAllSendPortGroups,UnenlistAllSendPorts</ControlBizTalkAppStopOption>
+    </PropertyGroup>
+
+    <!-- stop biztalk applications -->
+    <ControlBizTalkApp ApplicationName="inSyca.eeb.root.ns" StopOption="$(ControlBizTalkAppStopOption)" Condition="'$(main_App_Exists)' == 'true'" ContinueOnError="true"/>
+
+    <!-- remove resources-->
+    <!-- ${ENTITY_2} -->
+    <!--
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_2}.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_2}.maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_2}.schemas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_2}.services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    -->
+
+    <!-- ${ENTITY_1}  -->
+    <!--
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_1}.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_1}.maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_1}.schemas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.${ENTITY_1}.services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    -->
+
+    <!-- esb -->
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.eeb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.eeb.maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;inSyca.eeb.root.ns&quot; -Luid:&quot;inSyca.eeb.root.ns.eeb.schemas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a59c73d05ca5c06&quot;" ContinueOnError="true" />
+
+  </Target>
+
+  <Target Name="CustomPostUndeployTarget">
+  </Target>
+
+    <!-- Runs just after the host instances were restarted -->
+  <Target Name="CustomFinalUndeploy">
+
+    <!-- start inSyca.eeb.root.ns application -->
+    <ControlBizTalkApp ApplicationName="inSyca.eeb.root.ns" StartOption="StartAll" Condition="'$(main_App_Exists)' == 'true'" ContinueOnError="true"/>
+
+    <!-- start inSyca Foundation Monitoring (enable monitoring after deinstallation) -->
+    <!--
+    <Exec Command="net start &quot;Foundation Framework&quot;" ContinueOnError="true"/>
+    <Exec Command="net start &quot;Foundation Integration&quot;" ContinueOnError="true"/>
+    -->
+  </Target>
+
+  <Target Name="CustomPostInstaller">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\documentation\ReleaseNotes.rtf" DestinationFolder="$(TargetDir)" ContinueOnError="true" />
+    <Exec Command="&quot;$(MSBuildProjectDirectory)\destinationDeployment.cmd&quot; &quot;$(TargetDir)*.*&quot; &quot;c:\setup\${COMPANY}\inSyca.eeb.root.ns&quot; &quot;$(MSBuildProjectDirectory)\hosts\*.*&quot;" ContinueOnError="true" />
+  </Target>
+
+</Project>

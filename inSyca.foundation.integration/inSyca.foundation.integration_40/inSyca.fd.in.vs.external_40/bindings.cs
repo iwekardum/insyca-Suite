@@ -423,7 +423,7 @@ namespace inSyca.foundation.integration.visualstudio.external
 
 		private static void SendPort_SFTP(Dictionary<string, XElement> list, XElement address, XElement transportTypeData, XElement customProps, string sendPortName)
 		{
-			address.Value = string.Format("ftp://${{{0}_serveraddress}}:${{{0}_port}}/${{{0}_folderpath}}/${{{0}_targetFileName}}", sendPortName);
+			address.Value = string.Format("sftp://${{{0}_serveraddress}}:${{{0}_port}}/${{{0}_folderpath}}/${{{0}_targetFileName}}", sendPortName);
 
 			XElement serverAddress = customProps.Element("ServerAddress");
 			XElement port = customProps.Element("Port");
