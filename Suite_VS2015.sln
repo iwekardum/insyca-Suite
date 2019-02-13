@@ -93,7 +93,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_3rdparty", "_3rdparty", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winterdom.BizTalk.PipelineTesting", "Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj", "{E0249498-3585-4D40-91B6-81B7C5C5F608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.bt.tr_40", "inSyca.fd.in.bt.tr_40\inSyca.fd.in.bt.tr_40.csproj", "{EEA8B434-4491-4DBA-92F3-6C5E4FB9F344}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inSyca.fd.in.bt.tr_40", "inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.bt.tr_40\inSyca.fd.in.bt.tr_40.csproj", "{EEA8B434-4491-4DBA-92F3-6C5E4FB9F344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

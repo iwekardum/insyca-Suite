@@ -16,6 +16,7 @@
       <File Id='inSyca.fd.in.wsh_40' Source='$(var.inSyca.fd.in.wsh_40.TargetPath)' Vital='yes'/>
       <File Id='inSyca.fd.co.configurator_40' Source='$(var.inSyca.fd.co.configurator_40.TargetPath)' Vital='yes'/>
       <File Id='inSyca.fd.co.wsh_40' Source='$(var.inSyca.fd.co.wsh_40.TargetPath)' Vital='yes'/>
+      <File Id='inSyca.fd.in.bt.tr_40' Source='$(var.inSyca.fd.in.bt.tr_40.TargetPath)' Vital='yes'/>
     </Component>
 
     <Component Id='frameworkConfiguration' Guid='{6342FCFA-A177-44D5-820F-E0E8354D3432}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">

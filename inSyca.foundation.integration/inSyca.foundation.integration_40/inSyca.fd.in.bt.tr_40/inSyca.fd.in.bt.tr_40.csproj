@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>inSyca.foundation.integration.biztalk.tracking</RootNamespace>
-    <AssemblyName>inSyca.fd.@in.bt.tr_40</AssemblyName>
+    <AssemblyName>integration.tracking.processing</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="foundation.framework\configuration.cs" />
+    <Compile Include="foundation.framework\log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -79,6 +81,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
+      <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
+      <Name>inSyca.fd.fr_40</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using Microsoft.BizTalk.Agent.Interop;
+﻿using inSyca.foundation.integration.biztalk.tracking.diagnostics;
+using Microsoft.BizTalk.Agent.Interop;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
 using System;
@@ -23,6 +24,16 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
 		static void Main(string[] args)
 		{
+			string logString = "Main(string[] args)\nArguments:\n";
+
+			if (args.Length < 1)
+				logString += "none";
+			else
+				foreach (var argument in args)
+					logString += string.Format("{0}\n", argument);
+
+			Log.InfoFormat("integration.tracking.processing started\n{0}", logString);
+
 			string pipelineAssemblyName = string.Concat(ConfigurationManager.AppSettings["PipelineAssemblyLocation"], ConfigurationManager.AppSettings["PipelineAssemblyName"]);
 			string compressionStreamsTypeName = ConfigurationManager.AppSettings["CompressionStreamsTypeName"];
 			decryptAndTransferMessagesConnection = ConfigurationManager.AppSettings["Connection"];
@@ -31,17 +42,17 @@ namespace inSyca.foundation.integration.biztalk.tracking
 			Assembly pipelineAssembly = Assembly.LoadFrom(ConfigurationManager.AppSettings["PipelineAssemblyName"]);
 			compressionStreamsType = pipelineAssembly.GetType(compressionStreamsTypeName, true);
 
-			DecryptTrackingData1();
+			ProcessTrackingData();
 		}
 
-		static void DecryptTrackingData1()
+		static void ProcessTrackingData()
 		{
 			SqlConnection conSelect;
 			SqlConnection conSQLServer;
 
 			using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
 			{
-				EventLog.WriteEntry("DecryptTrackingData", "Delete old messages");
+				Log.Info("Delete old messages");
 
 				conSQLServer.Open();
 				//           using (SqlCommand sqlDelOldMessages = conSQLServer.CreateCommand())
@@ -58,7 +69,7 @@ namespace inSyca.foundation.integration.biztalk.tracking
 			var table = new DataTable();
 			using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
 			{
-				using (var adapter = new SqlDataAdapter("SELECT TOP 0 * FROM tbl_pipeline_messages", conSQLServer))
+				using (var adapter = new SqlDataAdapter("SELECT TOP 0 * FROM isc_pipeline_messages", conSQLServer))
 					adapter.Fill(table);
 			}
 
@@ -72,7 +83,7 @@ namespace inSyca.foundation.integration.biztalk.tracking
 				{
 					sqlGetLastTimestamp.CommandTimeout = 0;
 
-					sqlGetLastTimestamp.CommandText = "proc_get_timestamp";
+					sqlGetLastTimestamp.CommandText = "isc_get_timestamp";
 					sqlGetLastTimestamp.CommandType = CommandType.StoredProcedure;
 
 					lastTimestamp = sqlGetLastTimestamp.ExecuteScalar();
@@ -80,7 +91,7 @@ namespace inSyca.foundation.integration.biztalk.tracking
 					if (lastTimestamp.Equals(DBNull.Value))
 						lastTimestamp = DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd HH:mm:ss.fff");
 
-					EventLog.WriteEntry("DecryptTrackingData", lastTimestamp.ToString());
+					Log.InfoFormat("isc_get_timestamp: {0}", lastTimestamp);
 				}
 			}
 
@@ -88,7 +99,7 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
 			using (conSelect = new SqlConnection(bizsqlMessagesConnection))
 			{
-				EventLog.WriteEntry("DecryptTrackingData", "OpenConnection");
+				Log.Info("OpenConnection");
 
 				conSelect.Open();
 
@@ -98,7 +109,8 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
 					SqlDataReader reader = selectCmd.ExecuteReader();
 
-					EventLog.WriteEntry("DecryptTrackingData", "ExecuteReader");
+
+					Log.Info("ExecuteReader");
 
 					while (reader.Read())
 					{
@@ -134,7 +146,7 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
 			using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
 			{
-				EventLog.WriteEntry("DecryptTrackingData", "BulkCopy");
+				Log.InfoFormat("BulkCopy: {0}", table.Rows.Count);
 
 				conSQLServer.Open();
 				using (var bulk = new SqlBulkCopy(conSQLServer))

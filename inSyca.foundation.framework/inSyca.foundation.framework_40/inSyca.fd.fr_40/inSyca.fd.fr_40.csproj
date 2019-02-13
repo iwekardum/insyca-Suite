@@ -99,7 +99,6 @@
     </Compile>
     <Compile Include="data\dsFileSystemEntry.cs">
       <DependentUpon>dsFileSystemEntry.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="data\dsFileSystemEntry.Designer.cs">
       <DependentUpon>dsFileSystemEntry.xsd</DependentUpon>
