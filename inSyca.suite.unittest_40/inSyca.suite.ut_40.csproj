@@ -97,6 +97,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
+      <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
+      <Name>Winterdom.BizTalk.PipelineTesting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.cli_40\inSyca.fd.co.cli_40.csproj">
       <Project>{b7e9f9d8-ae72-41ea-bc1e-4875d5820388}</Project>
       <Name>inSyca.fd.co.cli_40</Name>
@@ -136,10 +140,6 @@
     <ProjectReference Include="..\inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.vs.external_40\inSyca.fd.in.vs.external_40.csproj">
       <Project>{6C036F7F-5A8F-4FA5-9091-EF9B5EB9CE40}</Project>
       <Name>inSyca.fd.in.vs.external_40</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
-      <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
-      <Name>Winterdom.BizTalk.PipelineTesting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -65,6 +65,38 @@
     <Folder Include="custom" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\3rdParty\BizUnit.TestSteps.BizTalk\BizUnit.TestSteps.BizTalk.csproj">
+      <Name>BizUnit.TestSteps.BizTalk</Name>
+      <Project>{772a474b-0d95-4002-bf5b-910986d1326b}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\3rdParty\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
+      <Name>BizUnit.TestSteps</Name>
+      <Project>{5bfef184-0834-4fba-addb-ad798ce0b58d}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\3rdParty\BizUnit\BizUnit.csproj">
+      <Name>BizUnit</Name>
+      <Project>{7c85248a-15d4-4a17-a496-aecf789e0f10}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
+      <Name>Winterdom.BizTalk.PipelineTesting</Name>
+      <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\inSyca.foundation.communication\inSyca.foundation.communication_40\inSyca.fd.co.cli_40\inSyca.fd.co.cli_40.csproj">
       <Name>inSyca.fd.co.cli_40</Name>
       <Project>{b7e9f9d8-ae72-41ea-bc1e-4875d5820388}</Project>
@@ -260,14 +292,6 @@
     <ProjectReference Include="..\inSyca.suite.toolbox_40\inSyca.suite.toolbox_40.csproj">
       <Name>inSyca.suite.toolbox_40</Name>
       <Project>{398f5a24-33db-45fa-b4fe-5a6f52447db5}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-    <ProjectReference Include="..\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
-      <Name>Winterdom.BizTalk.PipelineTesting</Name>
-      <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>

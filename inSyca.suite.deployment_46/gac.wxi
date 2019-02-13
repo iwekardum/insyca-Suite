@@ -71,7 +71,7 @@
     </Component>
 
     <Component Guid='*'  Directory="gac_40">
-      <File Id="BizUnit.TestSteps.BizTalk" Source='$(var.inSyca.fd.in.bt_40.TargetDir)BizUnit.TestSteps.BizTalk.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
+      <File Id="BizUnit.TestSteps.BizTalk" Source='$(var.inSyca.suite.toolbox_40.ProjectDir)\libraries\BizUnit.TestSteps.BizTalk.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
     </Component>
 
   </ComponentGroup>

@@ -47,9 +47,9 @@
     <Compile Include="testcase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="BizUnit, Version=4.0.154.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL" />
-    <Reference Include="BizUnit.TestSteps, Version=4.0.154.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL" />
-    <Reference Include="BizUnit.TestSteps.BizTalk, Version=4.0.154.0, Culture=neutral, PublicKeyToken=7eb7d82981ae5162, processorArchitecture=MSIL" />
+    <Reference Include="BizUnit, Version=4.1.3.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL" />
+    <Reference Include="BizUnit.TestSteps, Version=4.1.3.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL" />
+    <Reference Include="BizUnit.TestSteps.BizTalk, Version=4.1.3.0, Culture=neutral, PublicKeyToken=7eb7d82981ae5162, processorArchitecture=MSIL" />
     <Reference Include="inSyca.fd.in.bt, Version=1.0.4.0, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
   </ItemGroup>

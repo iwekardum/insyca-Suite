@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--http://wixtoolset.org/documentation/manual/v3/votive/votive_project_references.html-->
 <Include>
   <?define upgradeId = "{E21C7181-41BA-4671-A22C-04823489D7D0}" ?>
   <?define setupId = "{2F67BB43-685B-4121-860B-054EE2FECCB9}" ?>

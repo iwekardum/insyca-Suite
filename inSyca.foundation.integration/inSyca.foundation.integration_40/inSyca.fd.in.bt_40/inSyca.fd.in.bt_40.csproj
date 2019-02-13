@@ -46,18 +46,6 @@
     <ApplicationIcon>inSyca.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BizUnit, Version=4.1.3.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\BizUnit4.4.1.4\lib\net40\BizUnit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="BizUnit.TestSteps, Version=4.1.3.0, Culture=neutral, PublicKeyToken=8ab3cc29608bfce0, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\BizUnit4.4.1.4\lib\net40\BizUnit.TestSteps.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="BizUnit.TestSteps.BizTalk, Version=4.0.154.0, Culture=neutral, PublicKeyToken=7eb7d82981ae5162, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\BizUnit.TestSteps.BizTalk.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -179,6 +167,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\3rdParty\BizUnit.TestSteps.BizTalk\BizUnit.TestSteps.BizTalk.csproj">
+      <Project>{772a474b-0d95-4002-bf5b-910986d1326b}</Project>
+      <Name>BizUnit.TestSteps.BizTalk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdParty\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
+      <Project>{5bfef184-0834-4fba-addb-ad798ce0b58d}</Project>
+      <Name>BizUnit.TestSteps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdParty\BizUnit\BizUnit.csproj">
+      <Project>{7c85248a-15d4-4a17-a496-aecf789e0f10}</Project>
+      <Name>BizUnit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
       <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
       <Name>inSyca.fd.fr_40</Name>
