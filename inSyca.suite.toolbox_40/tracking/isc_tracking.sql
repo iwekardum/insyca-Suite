@@ -121,3 +121,19 @@ ALTER FULLTEXT INDEX ON dbo.isc_pipeline_messages ENABLE;
 GO 
 ALTER FULLTEXT INDEX ON dbo.isc_pipeline_messages START FULL POPULATION;
 GO
+
+/****** CREATE STORED PROCEDURES ******/
+USE [isc_tracking]
+GO
+
+CREATE PROCEDURE [dbo].[isc_get_timestamp]
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT MAX([timestamp]) 
+	FROM [dbo].[tbl_pipeline_messages]
+END

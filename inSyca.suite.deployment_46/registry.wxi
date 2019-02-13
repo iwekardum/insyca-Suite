@@ -15,6 +15,7 @@
     <?define fd.in.bt.ap  = "foundation.integration.biztalk.adapter" ?>
     <?define fd.in.bt.cp  = "foundation.integration.biztalk.components" ?>
     <?define fd.in.bt.fx  = "foundation.integration.biztalk.functions" ?>
+    <?define fd.in.bt.tr  = "integration.tracking.processing" ?>
     <?define fd.in.bt     = "foundation.integration.biztalk" ?>
     <?define fd.in.wsh    = "foundation.integration.wsh" ?>
     <?define fd.in.cfg    = "configurator.integration" ?>
@@ -76,6 +77,10 @@
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.fx)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
         <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.fx).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.tr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.tr).exe.config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
@@ -169,6 +174,10 @@
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.ap)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
         <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.ap).config"/>
+      </RegistryKey>
+      <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.tr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.tr).exe.config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.fx)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
         <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>

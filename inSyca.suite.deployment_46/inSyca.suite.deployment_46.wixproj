@@ -185,6 +185,14 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+    <ProjectReference Include="..\inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.bt.tr_40\inSyca.fd.in.bt.tr_40.csproj">
+      <Name>inSyca.fd.in.bt.tr_40</Name>
+      <Project>{eea8b434-4491-4dba-92f3-6c5e4fb9f344}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\inSyca.foundation.integration\inSyca.foundation.integration_40\inSyca.fd.in.bt_40\inSyca.fd.in.bt_40.csproj">
       <Name>inSyca.fd.in.bt_40</Name>
       <Project>{00492bd1-23d7-41d4-9dee-83f184078489}</Project>
