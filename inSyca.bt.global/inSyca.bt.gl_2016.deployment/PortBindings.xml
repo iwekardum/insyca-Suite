@@ -40,7 +40,7 @@
         <Primary>true</Primary>
         <OrderedDelivery>false</OrderedDelivery>
         <DeliveryNotification>1</DeliveryNotification>
-        <SendHandler Name="inSyca_global_send" HostTrusted="false">
+        <SendHandler Name="inSyca_global_send_32" HostTrusted="false">
           <TransportType Name="Windows SharePoint Services" Capabilities="15371" ConfigurationClsid="ba7dad66-5fc8-4a24-a27e-d9f68fd67c3a" />
         </SendHandler>
       </PrimaryTransport>
