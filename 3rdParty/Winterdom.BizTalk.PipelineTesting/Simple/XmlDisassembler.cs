@@ -4,23 +4,17 @@
 //
 // Author:
 //    Tomas Restrepo (tomas@winterdom.com)
-using System;
-using System.Collections;
-using System.Reflection;
-using System.Text;
-
-using Microsoft.BizTalk.PipelineOM;
-using Microsoft.BizTalk.Message.Interop;
 using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Component.Utilities;
+using System;
 
 namespace Winterdom.BizTalk.PipelineTesting.Simple
 {
-   /// <summary>
-   /// Creates and configures an XML disassembler component.
-   /// </summary>
-   public class XmlDisassembler : Disassembler
+	/// <summary>
+	/// Creates and configures an XML disassembler component.
+	/// </summary>
+	public class XmlDisassembler : Disassembler
    {
       private XmlDasmComp _disassembler;
 
