@@ -59,6 +59,7 @@
           <Directory Id='documentation' Name="documentation"/>
           <Directory Id='batch' Name="batch"/>
           <Directory Id='xslt' Name="xslt"/>
+          <Directory Id='tracking' Name="tracking"/>
           <Directory Id='cfg' Name="cfg"/>
           <Directory Id='biztalk' Name="biztalk"/>
           <Directory Id='eventviewer' Name="eventviewer"/>

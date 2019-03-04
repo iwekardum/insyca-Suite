@@ -2,12 +2,12 @@
 <BtsAdminConfiguration>
   <Hosts>
     <Host hostname='inSyca_global' ntgroupname='DOMAIN\TEST-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
-    <Host hostname='inSyca_global_send' ntgroupname='DOMAIN\TEST-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_send_32' ntgroupname='DOMAIN\TEST-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
     <Host hostname='inSyca_global_receive' ntgroupname='DOMAIN\TEST-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
   </Hosts>
   <HostInstances>
     <HostInstance servername='.' hostname='inSyca_global' username='DOMAIN\TEST-svcBIZhost' password='*****' startinstance='true'/>
-    <HostInstance servername='.' hostname='inSyca_global_send' username='DOMAIN\TEST-svcBIZhost' password='*****' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_send_32' username='DOMAIN\TEST-svcBIZhost' password='*****' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_receive' username='DOMAIN\TEST-svcBIZhost' password='*****' startinstance='true'/>
   </HostInstances>
   <Adapters>
@@ -18,7 +18,7 @@
       <ReceiveHandler hostname='inSyca_global_receive'/>
     </Adapter>
     <Adapter name='Windows SharePoint Services' type='Windows SharePoint Services' comment='Windows SharePoint Services adapter'>
-      <SendHandler hostname='inSyca_global_send'/>
+      <SendHandler hostname='inSyca_global_send_32'/>
     </Adapter>
   </Adapters>
 </BtsAdminConfiguration>

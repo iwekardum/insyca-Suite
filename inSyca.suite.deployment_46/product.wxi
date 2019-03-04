@@ -16,7 +16,6 @@
       <File Id='inSyca.fd.in.wsh_40' Source='$(var.inSyca.fd.in.wsh_40.TargetPath)' Vital='yes'/>
       <File Id='inSyca.fd.co.configurator_40' Source='$(var.inSyca.fd.co.configurator_40.TargetPath)' Vital='yes'/>
       <File Id='inSyca.fd.co.wsh_40' Source='$(var.inSyca.fd.co.wsh_40.TargetPath)' Vital='yes'/>
-      <File Id='inSyca.fd.in.bt.tr_40' Source='$(var.inSyca.fd.in.bt.tr_40.TargetPath)' Vital='yes'/>
     </Component>
 
     <Component Id='frameworkConfiguration' Guid='{6342FCFA-A177-44D5-820F-E0E8354D3432}' NeverOverwrite='yes' Permanent='yes' Directory="INSTALLDIR">
@@ -82,6 +81,14 @@
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)batch\createService.cmd' Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)batch\deleteService.cmd' Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)batch\updateService.cmd' Vital='yes'/>
+    </Component>
+
+    <Component Id='productTracking' Guid='{E742F05A-3E39-44F5-A66D-C870189C1C20}' Directory="tracking">
+      <File Source='$(var.inSyca.fd.in.bt.tr_40.TargetPath)' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.in.bt.tr_40.TargetPath).config' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.in.bt.tr_40.TargetDir)Microsoft.BizTalk.StreamProcessing.dll' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)tracking\isc_tracking.sql' Vital='yes'/>
+      <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)tracking\isc_tracking_task.xml' Vital='yes'/>
     </Component>
 
   </ComponentGroup>

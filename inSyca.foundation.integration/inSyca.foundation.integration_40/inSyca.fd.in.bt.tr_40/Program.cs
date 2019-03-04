@@ -152,7 +152,7 @@ namespace inSyca.foundation.integration.biztalk.tracking
 				using (var bulk = new SqlBulkCopy(conSQLServer))
 				{
 					bulk.BulkCopyTimeout = 0;
-					bulk.DestinationTableName = "tbl_pipeline_messages";
+					bulk.DestinationTableName = "isc_pipeline_messages";
 					bulk.WriteToServer(table);
 				}
 			}

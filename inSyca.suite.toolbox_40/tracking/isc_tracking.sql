@@ -16,6 +16,15 @@ GO
 USE [isc_tracking]
 GO
 
+CREATE TABLE [dbo].[isc_port_names](
+	[name] [nvarchar](256) NOT NULL,
+ CONSTRAINT [PK_isc_port_names] PRIMARY KEY CLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 CREATE TABLE [dbo].[isc_pipeline_messages](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[messageinstanceid] [uniqueidentifier] NOT NULL,
@@ -135,5 +144,232 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT MAX([timestamp]) 
-	FROM [dbo].[tbl_pipeline_messages]
+	FROM [dbo].[isc_pipeline_messages]
+END
+GO
+
+CREATE PROCEDURE [dbo].[isc_select_detail] 
+	-- Add the parameters for the stored procedure here
+	@id int = 0
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+SELECT TOP (1) [id]
+      ,[interchangeid]
+      ,[timestamp]
+      ,[direction]
+      ,[port]
+      ,[url]
+      ,[hostname]
+      ,[starttime]
+      ,[endtime]
+      ,[context]
+      ,[propbag]
+      ,[part]
+  FROM [dbo].[isc_pipeline_messages]
+  WHERE id = @id
+  END
+GO
+
+CREATE PROCEDURE [dbo].[isc_select_fieldnames] 
+	-- Add the parameters for the stored procedure here
+	@date_from datetime = '2000-01-01', 
+	@date_to datetime = '2000-01-01',
+	@searchvalue nvarchar(20) = '%%',
+	@direction nvarchar(10) = '%%',
+	@resultrows int = 100
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	IF(@date_from = '2000-01-01')
+			SET @date_from = DATEADD(day, -5, GETDATE())
+
+	IF(@date_to = '2000-01-01')
+			SET @date_to = GETDATE()
+
+    -- Insert statements for procedure here
+SELECT TOP (@resultrows) [id]
+      ,[interchangeid]
+--      ,[timestamp]
+      ,[direction]
+      ,[port]
+      ,[url]
+   --      ,[hostname]
+      ,[starttime]
+      ,[endtime]
+--      ,[context]
+--      ,[propbag]
+--      ,[part]
+  FROM [dbo].[isc_pipeline_messages]
+  WHERE timestamp BETWEEN @date_from AND @date_to AND 
+  (port IN (Select name from isc_port_names where name like '%' + @searchvalue + '%')) 
+  AND ( @direction = '%%' or [direction] = @direction)
+  ORDER BY timestamp DESC
+  END
+GO
+
+CREATE PROCEDURE [dbo].[isc_select_freetext] 
+	-- Add the parameters for the stored procedure here
+	@date_from datetime = '2000-01-01', 
+	@date_to datetime = '2000-01-01',
+	@searchvalue nvarchar(20) = '%%',
+	@direction nvarchar(10) = '%%',
+	@resultrows int = 100
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	IF(@date_from = '2000-01-01')
+			SET @date_from = DATEADD(day, -5, GETDATE())
+
+	IF(@date_to = '2000-01-01')
+			SET @date_to = GETDATE()
+
+    -- Insert statements for procedure here
+SELECT TOP (@resultrows) [id]
+      ,[interchangeid]
+--      ,[timestamp]
+      ,[direction]
+      ,[port]
+      ,[url]
+      ,[hostname]
+      ,[starttime]
+      ,[endtime]
+--      ,[context]
+--      ,[propbag]
+--      ,[part]
+  FROM [dbo].[isc_pipeline_messages]
+  WHERE timestamp BETWEEN @date_from AND @date_to AND 
+  CONTAINS((part,propbag,context), @searchvalue) 
+  AND ( @direction = '%%' or [direction] = @direction)
+  ORDER BY timestamp DESC
+  END
+  GO
+
+  CREATE PROCEDURE [dbo].[isc_select_initial] 
+	-- Add the parameters for the stored procedure here
+	@date_from datetime = '2000-01-01', 
+	@date_to datetime = '2000-01-01',
+	@searchvalue nvarchar(20) = '%%',
+	@direction nvarchar(10) = '%%',
+	@resultrows int = 50
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+SELECT TOP (50) [id]
+      ,[messageinstanceid]
+      ,[serviceinstanceid]
+      ,[activityid]
+      ,[interchangeid]
+      ,[timestamp]
+      ,[servicetype]
+      ,[direction]
+      ,[adapter]
+      ,[port]
+      ,[url]
+      ,[servicename]
+      ,[hostname]
+      ,[starttime]
+      ,[endtime]
+      ,[state]
+      ,[context]
+      ,[propbag]
+      ,[part]
+      ,[nNumFragments]
+      ,[uidPartID]
+  FROM [dbo].[isc_pipeline_messages] ORDER BY [timestamp] DESC
+  END
+  GO
+
+  CREATE PROCEDURE [dbo].[isc_select_related] 
+	-- Add the parameters for the stored procedure here
+	@interchangeid uniqueidentifier = '',
+	@direction nvarchar(10) = '%%'
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+SELECT TOP 100 [id]
+      ,[interchangeid]
+      ,[timestamp]
+      ,[direction]
+      ,[port]
+      ,[url]
+      ,[hostname]
+      ,[starttime]
+      ,[endtime]
+  FROM [dbo].[isc_pipeline_messages]
+  WHERE interchangeid = @interchangeid 
+  AND ( @direction = '%%' or [direction] = @direction)
+  ORDER BY [timestamp] DESC
+  END
+GO
+
+CREATE PROCEDURE [dbo].[isc_del_old_messages] 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	DELETE FROM [dbo].[isc_pipeline_messages] WHERE [timestamp] < DATEADD(dd, -20, GETDATE())
+END
+GO
+
+CREATE PROCEDURE [dbo].[isc_get_messagecount] 
+	@date_min		datetime,
+	@date_max		datetime,
+	@item			xml
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	SELECT T.C.value('.', 'NVARCHAR(256)') AS [Name]
+    INTO #tblArtefactParams
+    FROM @item.nodes('/item/Name') as T(C)
+
+    -- Insert statements for procedure here
+SELECT 
+      A.port,
+	  MIN(A.timestamp) as date_min,
+	  MAX(A.timestamp) as date_max,
+	  Count(*)as messages
+   
+  FROM 
+  (SELECT port, timestamp FROM [isc_pipeline_messages] WHERE timestamp Between @date_min and @date_max AND port IN (SELECT Name FROM #tblArtefactParams ))as A
+  GROUP BY A.port
+  END
+  GO
+
+CREATE PROCEDURE [dbo].[isc_update_ports] 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+INSERT INTO [isc_port_names] (name)
+	SELECT DISTINCT port FROM dbo.isc_pipeline_messages
+EXCEPT
+	Select name from isc_port_names
 END

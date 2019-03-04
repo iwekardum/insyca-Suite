@@ -468,7 +468,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s78"><Data ss:Type="String">bt_host_02</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">inSyca_global_send</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">inSyca_global_send_32</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">BizTalkServerApplication</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>

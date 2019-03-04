@@ -98,7 +98,7 @@
   <ItemGroup>
     <BizTalkHosts Include="inSyca_global" />
     <BizTalkHosts Include="inSyca_global_receive" />
-    <BizTalkHosts Include="inSyca_global_send" />
+    <BizTalkHosts Include="inSyca_global_send_32" />
   </ItemGroup>
 
   <!-- Add ItemGroup elements that contain one or more Schemas, Orchestrations, Transforms, etc. elements that describe -->

@@ -105,10 +105,8 @@
     <Content Include="eventviewer\BizTalk.xml" />
     <Content Include="eventviewer\inSyca.xml" />
     <Content Include="eventviewer\MessageBroker.xml" />
-    <Content Include="libraries\BizUnit.dll" />
-    <Content Include="libraries\BizUnit.TestSteps.BizTalk.dll" />
-    <Content Include="libraries\BizUnit.TestSteps.dll" />
-    <Content Include="libraries\BizUnit.TestSteps.Ssis.dll" />
+    <Content Include="libraries\Microsoft.BizTalk.Pipeline.Components.dll" />
+    <Content Include="libraries\PipelineObjects.dll" />
     <Content Include="ressources\banner_bitmap_001.bmp" />
     <Content Include="ressources\banner_bitmap_002.bmp" />
     <Content Include="ressources\inSyca.ico" />
