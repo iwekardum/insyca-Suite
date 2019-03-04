@@ -97,7 +97,7 @@
         </ReceiveLocation>
         <ReceiveLocation Name="rl_insyca_suite_bt_generic_file">
           <Description xsi:nil="true" />
-          <Address>C:\BT_TEST\_REAPPLY\*.xml</Address>
+          <Address>c:\biztalk.exchange\_reapply\*.xml</Address>
           <PublicAddress />
           <Primary>false</Primary>
           <ReceiveLocationServiceWindowEnabled>false</ReceiveLocationServiceWindowEnabled>

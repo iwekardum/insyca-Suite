@@ -79,7 +79,7 @@
         <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.fx).config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.tr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
-        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]tracking\"/>
         <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.tr).exe.config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
@@ -176,7 +176,7 @@
         <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.ap).config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.tr)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
-        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]"/>
+        <RegistryValue Type="string" Name="ConfigDir" Value="[INSTALLDIR]tracking\"/>
         <RegistryValue Type="string" Name="ConfigFile" Value="$(var.fd.in.bt.tr).exe.config"/>
       </RegistryKey>
       <RegistryKey Root="HKLM" Key="Software\$(var.manufacturer)\$(var.fd.in.bt.fx)" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
