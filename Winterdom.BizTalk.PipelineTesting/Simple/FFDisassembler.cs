@@ -6,23 +6,17 @@
 //    Tomas Restrepo (tomas@winterdom.com)
 //
 
-using System;
-using System.Collections;
-using System.Reflection;
-using System.Text;
-
-using Microsoft.BizTalk.PipelineOM;
-using Microsoft.BizTalk.Message.Interop;
 using Microsoft.BizTalk.Component;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Component.Utilities;
+using System;
 
 namespace Winterdom.BizTalk.PipelineTesting.Simple
 {
-   /// <summary>
-   /// Creates and configures a Flat File disassembler component
-   /// </summary>
-   public class FFDisassembler : Disassembler
+	/// <summary>
+	/// Creates and configures a Flat File disassembler component
+	/// </summary>
+	public class FFDisassembler : Disassembler
    {
       private FFDasmComp _disassembler;
 
