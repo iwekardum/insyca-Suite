@@ -90,12 +90,16 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
 					if (lastTimestamp.Equals(DBNull.Value))
 						lastTimestamp = DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd HH:mm:ss.fff");
+					else
+						lastTimestamp = Convert.ToDateTime(lastTimestamp).ToString("yyyy-MM-dd HH:mm:ss.fff");
 
 					Log.InfoFormat("isc_get_timestamp: {0}", lastTimestamp);
 				}
 			}
 
-			string decryptAndTransferMessagesConnectionSelectCommand = string.Format(Properties.Resources.vw_pipeline_messages.ToString(), DateTime.Parse(lastTimestamp.ToString()).ToString("yyyy-MM-dd HH:mm:ss.fff"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+			string decryptAndTransferMessagesConnectionSelectCommand = string.Format(Properties.Resources.vw_pipeline_messages.ToString(), lastTimestamp, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+
+			Log.InfoFormat("select command: {0}", decryptAndTransferMessagesConnectionSelectCommand);
 
 			using (conSelect = new SqlConnection(bizsqlMessagesConnection))
 			{
