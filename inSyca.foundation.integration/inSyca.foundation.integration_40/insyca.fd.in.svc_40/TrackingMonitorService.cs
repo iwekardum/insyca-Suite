@@ -22,7 +22,7 @@ namespace inSyca.foundation.integration.service
 			return null;
 		}
 
-		public IEnumerable<TrackingInformation> GetTrackingInformation(string command, Dictionary<string, object> parameters)
+		public IEnumerable<TrackingInformation> GetTrackingInformationCollection(string command, Dictionary<string, object> parameters)
 		{
 			List<TrackingInformation> lstMessages = new List<TrackingInformation>();
 
@@ -95,69 +95,78 @@ namespace inSyca.foundation.integration.service
 			return lstMessages.AsEnumerable();
 		}
 
-		public IEnumerable<KPI> GetKPI(string command, Dictionary<string, object> parameters)
+		public IEnumerable<KPI> GetKPICollection(string command, Dictionary<string, object> parameters)
 		{
 			List<KPI> lstKPI = new List<KPI>();
 
-			return lstKPI;
+			using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+			{
+				con.Open();
 
-			//var configuration = XElement.Load(Server.MapPath("~/App_Data/dashboard.xml")).Descendants("kpi").Descendants("item");
+				using (SqlCommand cmd = new SqlCommand(command, con))
+				{
+					cmd.CommandType = CommandType.StoredProcedure;
 
-			//using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
-			//{
-			//	con.Open();
+					foreach (var item in parameters)
+						cmd.Parameters.AddWithValue(item.Key, item.Value);
 
-			//	using (SqlCommand cmd = new SqlCommand("proc_get_messagecount", con))
-			//	{
-			//		cmd.CommandType = CommandType.StoredProcedure;
+					SqlDataReader reader = cmd.ExecuteReader();
 
-			//		foreach (XElement item in configuration)
-			//		{
-			//			KPI kpi = new KPI();
+					while (reader.Read())
+					{
+						KPI kpi = new KPI();
 
-			//			DateTime minDate = DateTime.MaxValue;
-			//			DateTime maxDate = DateTime.MinValue;
+						kpi.Item = reader["port"].ToString();
+						kpi.From = DateTime.Parse(reader["date_min"].ToString());
+						kpi.To = DateTime.Parse(reader["date_max"].ToString());
+						kpi.Amount = int.Parse(reader["messages"].ToString());
 
-			//			cmd.Parameters.Clear();
-			//			cmd.Parameters.Add(new SqlParameter("date_min", searchParameters.From));
-			//			cmd.Parameters.Add(new SqlParameter("date_max", searchParameters.To));
-			//			cmd.Parameters.Add(new SqlParameter("item", item.ToString()));
+						lstKPI.Add(kpi);
+					}
 
-			//			SqlDataReader reader = cmd.ExecuteReader();
+					reader.Close();
+				}
+			}
 
-
-			//			while (reader.Read())
-			//			{
-			//				DateTime dtmin = DateTime.Parse(reader["date_min"].ToString());
-			//				DateTime dtmax = DateTime.Parse(reader["date_max"].ToString());
-			//				if (dtmin < minDate)
-			//					minDate = dtmin;
-
-			//				if (dtmax > maxDate)
-			//					maxDate = dtmax;
-
-			//				kpi.Amount += int.Parse(reader["messages"].ToString());
-			//			}
-
-			//			kpi.From = minDate;
-			//			kpi.To = maxDate;
-
-			//			kpi.Item = item.Attribute("name").Value;
-			//			kpi.Direction = item.Attribute("direction").Value;
-			//			kpi.Params = item;
-
-			//			if (kpi.Amount > 0)
-			//				lstKPI.Add(kpi);
-
-			//			reader.Close();
-			//		}
-			//	}
-			//}
-
-			//return lstKPI.AsEnumerable();
+			return lstKPI.AsEnumerable();
 		}
 
-		public IEnumerable<MetaData> GetMetaData()
+		public IEnumerable<Port> GetPortCollection(string command, Dictionary<string, object> parameters)
+		{
+			List<Port> lstPort = new List<Port>();
+
+			lstPort.Add(new Port { Name = "%%", FriendlyName = "All" });
+
+			using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+			{
+				using (SqlCommand cmd = new SqlCommand(command, con))
+				{
+					cmd.CommandTimeout = 0;
+
+					foreach (var item in parameters)
+						cmd.Parameters.AddWithValue(item.Key, item.Value);
+
+					cmd.CommandType = CommandType.StoredProcedure;
+
+					con.Open();
+					SqlDataReader reader = cmd.ExecuteReader();
+
+					while (reader.Read())
+					{
+						Port btPort = new Port();
+
+						btPort.Name = reader["name"].ToString();
+						btPort.FriendlyName = reader["friendlyname"].ToString();
+
+						lstPort.Add(btPort);
+					}
+				}
+			}
+
+			return lstPort.AsEnumerable();
+		}
+
+		public IEnumerable<MetaData> GetMetaDataCollection()
 		{
 			List<MetaData> metadata = new List<MetaData>();
 

@@ -52,18 +52,21 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
 			using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
 			{
-				Log.Info("Delete old messages");
+				Log.Info("Update ports");
 
 				conSQLServer.Open();
-				//           using (SqlCommand sqlDelOldMessages = conSQLServer.CreateCommand())
-				//           {
-				//sqlDelOldMessages.CommandTimeout = 0;
 
-				//sqlDelOldMessages.CommandText = "proc_del_old_messages";
-				//               sqlDelOldMessages.CommandType = CommandType.StoredProcedure;
+				using (SqlCommand sqlUpdatePorts = conSQLServer.CreateCommand())
+				{
+					sqlUpdatePorts.CommandTimeout = 0;
 
-				//               sqlDelOldMessages.ExecuteNonQuery();
-				//           }
+					sqlUpdatePorts.CommandText = "isc_update_ports";
+					sqlUpdatePorts.CommandType = CommandType.StoredProcedure;
+
+					var sqlUpdatePortsResult = sqlUpdatePorts.ExecuteScalar();
+
+					Log.InfoFormat("isc_update_ports: {0}", sqlUpdatePortsResult);
+				}
 			}
 
 			var table = new DataTable();

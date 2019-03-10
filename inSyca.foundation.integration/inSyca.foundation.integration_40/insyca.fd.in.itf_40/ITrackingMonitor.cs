@@ -6,19 +6,20 @@ using System.Xml.Linq;
 
 namespace inSyca.foundation.integration.itf
 {
-
 	[ServiceContract(Namespace = "http://www.inSyca.com/ITrackingMonitor")]
 	public interface ITrackingMonitor
 	{
 		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetVersion")]
 		object getVersion();
 
-		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetTrackingInformation")]
-		IEnumerable<TrackingInformation> GetTrackingInformation(string command, Dictionary<string, object> parameters);
-		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetKPI")]
-		IEnumerable<KPI> GetKPI(string command, Dictionary<string, object> parameters);
-		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetMetadata")]
-		IEnumerable<MetaData> GetMetaData();
+		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetTrackingInformationCollection")]
+		IEnumerable<TrackingInformation> GetTrackingInformationCollection(string command, Dictionary<string, object> parameters);
+		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetPortCollection")]
+		IEnumerable<Port> GetPortCollection(string command, Dictionary<string, object> parameters);
+		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetKPICollection")]
+		IEnumerable<KPI> GetKPICollection(string command, Dictionary<string, object> parameters);
+		[OperationContract(Action = "http://www.inSyca.com/ITrackingMonitor/GetMetadataCollection")]
+		IEnumerable<MetaData> GetMetaDataCollection();
 	}
 
 	[DataContract]
@@ -64,6 +65,16 @@ namespace inSyca.foundation.integration.itf
 		[DataMember]
 		public String Label { get; set; }
 	}
+
+	[DataContract]
+	public class Port
+	{
+		[DataMember]
+		public String Name { get; set; }
+		[DataMember]
+		public String FriendlyName { get; set; }
+	}
+
 	[DataContract]
 	public class KPI
 	{
