@@ -121,7 +121,10 @@ namespace inSyca.foundation.integration.wsh
 				Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), args, ex));
 				throw ex;
 			}
-		}
+
+            
+
+        }
 
 		protected override void OnStop()
 		{
