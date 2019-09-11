@@ -18,6 +18,7 @@ GO
 
 CREATE TABLE [dbo].[isc_port_names](
 	[name] [nvarchar](256) NOT NULL,
+	[friendlyname] [nvarchar](256) NOT NULL,
  CONSTRAINT [PK_isc_port_names] PRIMARY KEY CLUSTERED 
 (
 	[name] ASC
@@ -181,6 +182,7 @@ CREATE PROCEDURE [dbo].[isc_select_fieldnames]
 	@date_to datetime = '2000-01-01',
 	@searchvalue nvarchar(20) = '%%',
 	@direction nvarchar(10) = '%%',
+	@port nvarchar(10) = '%%',
 	@resultrows int = 100
 AS
 BEGIN
@@ -201,7 +203,7 @@ SELECT TOP (@resultrows) [id]
       ,[direction]
       ,[port]
       ,[url]
-   --      ,[hostname]
+      ,[hostname]
       ,[starttime]
       ,[endtime]
 --      ,[context]
@@ -221,6 +223,7 @@ CREATE PROCEDURE [dbo].[isc_select_freetext]
 	@date_to datetime = '2000-01-01',
 	@searchvalue nvarchar(20) = '%%',
 	@direction nvarchar(10) = '%%',
+	@port nvarchar(10) = '%%',
 	@resultrows int = 100
 AS
 BEGIN
@@ -261,6 +264,7 @@ SELECT TOP (@resultrows) [id]
 	@date_to datetime = '2000-01-01',
 	@searchvalue nvarchar(20) = '%%',
 	@direction nvarchar(10) = '%%',
+	@port nvarchar(10) = '%%',
 	@resultrows int = 50
 AS
 BEGIN
