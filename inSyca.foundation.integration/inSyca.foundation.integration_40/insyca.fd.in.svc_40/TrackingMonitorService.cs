@@ -24,7 +24,8 @@ namespace inSyca.foundation.integration.service
 
 		public IEnumerable<TrackingInformation> GetTrackingInformationCollection(string command, Dictionary<string, object> parameters)
 		{
-			List<TrackingInformation> lstMessages = new List<TrackingInformation>();
+            SqlDataReader reader = null;
+            List<TrackingInformation> lstMessages = new List<TrackingInformation>();
 
 			int timeOffset = 2;
 
@@ -39,10 +40,17 @@ namespace inSyca.foundation.integration.service
 
 					cmd.CommandType = CommandType.StoredProcedure;
 
-					con.Open();
-					SqlDataReader reader = cmd.ExecuteReader();
+                    try
+                    { 
+					    con.Open();
+					    reader = cmd.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+                        return lstMessages.AsEnumerable();
+                    }
 
-					while (reader.Read())
+                    while (reader.Read())
 					{
 						DateTime dtValue;
 						TrackingInformation btMessage = new TrackingInformation();
@@ -98,11 +106,11 @@ namespace inSyca.foundation.integration.service
 		public IEnumerable<KPI> GetKPICollection(string command, Dictionary<string, object> parameters)
 		{
 			List<KPI> lstKPI = new List<KPI>();
+            SqlDataReader reader = null;
 
-			using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
 			{
-				con.Open();
-
 				using (SqlCommand cmd = new SqlCommand(command, con))
 				{
 					cmd.CommandType = CommandType.StoredProcedure;
@@ -110,7 +118,15 @@ namespace inSyca.foundation.integration.service
 					foreach (var item in parameters)
 						cmd.Parameters.AddWithValue(item.Key, item.Value);
 
-					SqlDataReader reader = cmd.ExecuteReader();
+                    try
+                    {
+                        con.Open();
+                        reader = cmd.ExecuteReader();
+                    }
+                    catch(Exception ex)
+                    {
+                        return lstKPI.AsEnumerable();
+                    }
 
 					while (reader.Read())
 					{
@@ -134,8 +150,9 @@ namespace inSyca.foundation.integration.service
 		public IEnumerable<Port> GetPortCollection(string command, Dictionary<string, object> parameters)
 		{
 			List<Port> lstPort = new List<Port>();
+            SqlDataReader reader = null;
 
-			lstPort.Add(new Port { Name = "%%", FriendlyName = "All" });
+            lstPort.Add(new Port { Name = "%%", FriendlyName = "All" });
 
 			using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
 			{
@@ -148,10 +165,17 @@ namespace inSyca.foundation.integration.service
 
 					cmd.CommandType = CommandType.StoredProcedure;
 
-					con.Open();
-					SqlDataReader reader = cmd.ExecuteReader();
+                    try
+                    {
+                        con.Open();
+                        reader = cmd.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+                        return lstPort.AsEnumerable();
+                    }
 
-					while (reader.Read())
+                    while (reader.Read())
 					{
 						Port btPort = new Port();
 

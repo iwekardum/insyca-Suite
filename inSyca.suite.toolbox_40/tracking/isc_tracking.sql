@@ -18,6 +18,7 @@ GO
 
 CREATE TABLE [dbo].[isc_port_names](
 	[name] [nvarchar](256) NOT NULL,
+	[friendlyname] [nvarchar](256) NULL,
  CONSTRAINT [PK_isc_port_names] PRIMARY KEY CLUSTERED 
 (
 	[name] ASC
@@ -181,6 +182,7 @@ CREATE PROCEDURE [dbo].[isc_select_fieldnames]
 	@date_to datetime = '2000-01-01',
 	@searchvalue nvarchar(20) = '%%',
 	@direction nvarchar(10) = '%%',
+	@port nvarchar(50) = '%%',
 	@resultrows int = 100
 AS
 BEGIN
@@ -201,7 +203,49 @@ SELECT TOP (@resultrows) [id]
       ,[direction]
       ,[port]
       ,[url]
-   --      ,[hostname]
+      ,[hostname]
+      ,[starttime]
+      ,[endtime]
+--      ,[context]
+--      ,[propbag]
+--      ,[part]
+  FROM [dbo].[isc_pipeline_messages]
+  WHERE 
+  ([timestamp] BETWEEN @date_from AND @date_to) 
+  AND [port] LIKE @port
+  AND [direction] LIKE @direction
+  ORDER BY timestamp DESC
+  END
+  GO
+
+  CREATE PROCEDURE [dbo].[isc_select_contains] 
+	-- Add the parameters for the stored procedure here
+	@date_from datetime = '2000-01-01', 
+	@date_to datetime = '2000-01-01',
+	@searchvalue nvarchar(20) = '%%',
+	@direction nvarchar(10) = '%%',
+	@port nvarchar(10) = '%%',
+	@resultrows int = 100
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	IF(@date_from = '2000-01-01')
+			SET @date_from = DATEADD(day, -5, GETDATE())
+
+	IF(@date_to = '2000-01-01')
+			SET @date_to = GETDATE()
+
+    -- Insert statements for procedure here
+SELECT TOP (@resultrows) [id]
+      ,[interchangeid]
+--      ,[timestamp]
+      ,[direction]
+      ,[port]
+      ,[url]
+      ,[hostname]
       ,[starttime]
       ,[endtime]
 --      ,[context]
@@ -209,11 +253,11 @@ SELECT TOP (@resultrows) [id]
 --      ,[part]
   FROM [dbo].[isc_pipeline_messages]
   WHERE timestamp BETWEEN @date_from AND @date_to AND 
-  (port IN (Select name from isc_port_names where name like '%' + @searchvalue + '%')) 
+  CONTAINS((part,propbag,context), @searchvalue) 
   AND ( @direction = '%%' or [direction] = @direction)
   ORDER BY timestamp DESC
   END
-GO
+  GO
 
 CREATE PROCEDURE [dbo].[isc_select_freetext] 
 	-- Add the parameters for the stored procedure here
@@ -249,7 +293,7 @@ SELECT TOP (@resultrows) [id]
 --      ,[part]
   FROM [dbo].[isc_pipeline_messages]
   WHERE timestamp BETWEEN @date_from AND @date_to AND 
-  CONTAINS((part,propbag,context), @searchvalue) 
+  FREETEXT((part,propbag,context), @searchvalue) 
   AND ( @direction = '%%' or [direction] = @direction)
   ORDER BY timestamp DESC
   END
@@ -293,6 +337,19 @@ SELECT TOP (50) [id]
   FROM [dbo].[isc_pipeline_messages] ORDER BY [timestamp] DESC
   END
   GO
+
+  CREATE PROCEDURE [dbo].[isc_select_port] 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FROM dbo.isc_port_names
+	ORDER BY dbo.isc_port_names.friendlyname
+END
+GO
 
   CREATE PROCEDURE [dbo].[isc_select_related] 
 	-- Add the parameters for the stored procedure here

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using inSyca.foundation.framework;
-using inSyca.foundation.integration.biztalk;
+﻿using System.ServiceProcess;
 using inSyca.foundation.integration.wsh.diagnostics;
+using System;
+using inSyca.foundation.framework;
 
 namespace inSyca.foundation.integration.wsh
 {
@@ -40,7 +36,7 @@ namespace inSyca.foundation.integration.wsh
             // Debug code: this allows the process to run as a non-service.
             // It will kick off the service start point, but never kill it.
             // Shut down the debugger to exit
-            Log.Info("inSyca.foundation.framework.wsh started in DEBUG mode");
+            Log.Error("inSyca.foundation.integration.wsh started in DEBUG mode");
 
             try
             {
@@ -48,7 +44,7 @@ namespace inSyca.foundation.integration.wsh
 
                 service.Start();
 
-                Log.InfoFormat("inSyca.foundation.framework.wsh ready\n{0}", logString);
+                Log.InfoFormat("inSyca.foundation.integration.wsh ready\n{0}", logString);
             }
             catch (Exception ex)
             {
@@ -60,7 +56,7 @@ namespace inSyca.foundation.integration.wsh
             // your service when it has finished its work
             System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
 
-            Log.InfoFormat("inSyca.foundation.framework.wsh shutdown\n{0}", logString);
+            Log.InfoFormat("inSyca.foundation.integration.wsh shutdown\n{0}", logString);
 #endif
         }
         }

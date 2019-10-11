@@ -37,7 +37,7 @@ namespace inSyca.foundation.framework.wsh
             // Debug code: this allows the process to run as a non-service.
             // It will kick off the service start point, but never kill it.
             // Shut down the debugger to exit
-            Log.Info("inSyca.foundation.framework.wsh started in DEBUG mode");
+            Log.Error("inSyca.foundation.framework.wsh started in DEBUG mode");
 
             try
             {

@@ -50,12 +50,18 @@ namespace inSyca.foundation.framework.application.windowsforms
                                                 where SmtpMonitoringAppender.Attribute("name").Value == "SmtpMonitoringAppender"
                                                 select SmtpMonitoringAppender).FirstOrDefault();
 
+            if(xSmtpMonitoringAppender.Elements("smtpHost").Count() > 0)
             propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("smtpHost").FirstOrDefault()));
-            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("port").FirstOrDefault()));
-            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("authentication").FirstOrDefault()));
-            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("username").FirstOrDefault()));
-            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("password").FirstOrDefault()));
-            propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("EnableSsl").FirstOrDefault()));
+            if (xSmtpMonitoringAppender.Elements("port").Count() > 0)
+                propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("port").FirstOrDefault()));
+            if (xSmtpMonitoringAppender.Elements("authentication").Count() > 0)
+                propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("authentication").FirstOrDefault()));
+            if (xSmtpMonitoringAppender.Elements("username").Count() > 0)
+                propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("username").FirstOrDefault()));
+            if (xSmtpMonitoringAppender.Elements("password").Count() > 0)
+                propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("password").FirstOrDefault()));
+            if (xSmtpMonitoringAppender.Elements("EnableSsl").Count() > 0)
+                propertyComponent.AddProperty(transformSMTPSettingsXnode(xSmtpMonitoringAppender.Elements("EnableSsl").FirstOrDefault()));
 
             timeout = TimeSpan.FromMilliseconds(20000);
             service = new ServiceController(ServiceName);

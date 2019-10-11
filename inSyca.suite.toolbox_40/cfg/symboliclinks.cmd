@@ -1,3 +1,3 @@
 ﻿mklink /J C:\setup "C:\Users\%USERNAME%\inSyca IT Solutions GmbH\Operations - Documents\products\"
-mklink /J C:\Suite C:\projects\git\%USERNAME%\insyca-Suite
+mklink /J C:\Suite P:\projects\github\kardum-iw
 PAUSE
