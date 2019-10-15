@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="foundation.framework\configuration.cs" />
+    <Compile Include="foundation.framework\log.cs" />
     <Compile Include="TrackingMonitorService.cs" />
     <Compile Include="TrackingServiceHost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +64,10 @@
     <None Include="inSyca.snk" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
+      <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
+      <Name>inSyca.fd.fr_40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\insyca.fd.in.itf_40\insyca.fd.in.itf_40.csproj">
       <Project>{e829a534-4a10-480c-b8df-ca0bbf61c07f}</Project>
       <Name>insyca.fd.in.itf_40</Name>

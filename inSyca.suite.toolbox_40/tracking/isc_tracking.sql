@@ -304,6 +304,7 @@ SELECT TOP (@resultrows) [id]
 	@date_from datetime = '2000-01-01', 
 	@date_to datetime = '2000-01-01',
 	@searchvalue nvarchar(20) = '%%',
+	@port nvarchar(20) = '%%',
 	@direction nvarchar(10) = '%%',
 	@resultrows int = 50
 AS

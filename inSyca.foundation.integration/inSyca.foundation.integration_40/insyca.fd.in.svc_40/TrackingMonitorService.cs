@@ -1,10 +1,13 @@
-﻿using inSyca.foundation.integration.itf;
+﻿using inSyca.foundation.framework;
+using inSyca.foundation.integration.itf;
+using inSyca.foundation.integration.service.diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.ServiceModel;
 
 
@@ -24,10 +27,13 @@ namespace inSyca.foundation.integration.service
 
 		public IEnumerable<TrackingInformation> GetTrackingInformationCollection(string command, Dictionary<string, object> parameters)
 		{
+            Log.Info(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }));
+
             SqlDataReader reader = null;
             List<TrackingInformation> lstMessages = new List<TrackingInformation>();
 
 			int timeOffset = 2;
+            bool hasAdditionalData = false;
 
 			using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
 			{
@@ -47,65 +53,83 @@ namespace inSyca.foundation.integration.service
                     }
                     catch (Exception ex)
                     {
+                        Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }, ex));
+
                         return lstMessages.AsEnumerable();
                     }
 
+                    if (Enumerable.Range(0, reader.FieldCount).Any(i => string.Equals(reader.GetName(i), "propbag", StringComparison.OrdinalIgnoreCase))
+                        && Enumerable.Range(0, reader.FieldCount).Any(i => string.Equals(reader.GetName(i), "context", StringComparison.OrdinalIgnoreCase))
+                        && Enumerable.Range(0, reader.FieldCount).Any(i => string.Equals(reader.GetName(i), "part", StringComparison.OrdinalIgnoreCase)))
+                        hasAdditionalData = true;
+
                     while (reader.Read())
-					{
-						DateTime dtValue;
-						TrackingInformation btMessage = new TrackingInformation();
+                    {
+                        DateTime dtValue;
+                        TrackingInformation btMessage = new TrackingInformation();
 
-						btMessage.ID = (int)reader["id"];
+                        btMessage.ID = (int)reader["id"];
 
-						if (!reader["interchangeid"].Equals(DBNull.Value))
-							btMessage.InterchangeID = Guid.Parse(reader["interchangeid"].ToString());
+                        if (!reader["interchangeid"].Equals(DBNull.Value))
+                            btMessage.InterchangeID = Guid.Parse(reader["interchangeid"].ToString());
 
-						if (DateTime.TryParse(reader["starttime"].ToString(), out dtValue))
-							btMessage.StartTime = dtValue.AddHours(timeOffset);
+                        if (DateTime.TryParse(reader["starttime"].ToString(), out dtValue))
+                            btMessage.StartTime = dtValue.AddHours(timeOffset);
 
-						if (DateTime.TryParse(reader["endtime"].ToString(), out dtValue))
-							btMessage.EndTime = dtValue.AddHours(timeOffset);
+                        if (DateTime.TryParse(reader["endtime"].ToString(), out dtValue))
+                            btMessage.EndTime = dtValue.AddHours(timeOffset);
 
-						btMessage.Direction = reader["direction"].ToString();
-						btMessage.Port = reader["port"].ToString();
-						btMessage.Url = reader["url"].ToString();
-						btMessage.Host = reader["hostname"].ToString();
+                        btMessage.Direction = reader["direction"].ToString();
+                        btMessage.Port = reader["port"].ToString();
+                        btMessage.Url = reader["url"].ToString();
+                        btMessage.Host = reader["hostname"].ToString();
 
-						try
-						{
-							btMessage.MessageProperties = reader["propbag"].ToString();
-						}
-						catch (IndexOutOfRangeException)
-						{
-						}
+                        if(hasAdditionalData)
+                            ExtractAdditionalData(command, parameters, reader, btMessage);
 
-						try
-						{
-							btMessage.Context = reader["context"].ToString();
-						}
-						catch (IndexOutOfRangeException)
-						{
-						}
-
-						try
-						{
-							btMessage.Message = reader["part"].ToString();
-						}
-						catch (IndexOutOfRangeException)
-						{
-						}
-
-						lstMessages.Add(btMessage);
-					}
-				}
+                        lstMessages.Add(btMessage);
+                    }
+                }
 			}
 
 			return lstMessages.AsEnumerable();
 		}
 
-		public IEnumerable<KPI> GetKPICollection(string command, Dictionary<string, object> parameters)
+        private static void ExtractAdditionalData(string command, Dictionary<string, object> parameters, SqlDataReader reader, TrackingInformation btMessage)
+        {
+            try
+            {
+                    btMessage.MessageProperties = reader["propbag"].ToString();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }, ex));
+            }
+
+            try
+            {
+                    btMessage.Context = reader["context"].ToString();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }, ex));
+            }
+
+            try
+            {
+                    btMessage.Message = reader["part"].ToString();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }, ex));
+            }
+        }
+
+        public IEnumerable<KPI> GetKPICollection(string command, Dictionary<string, object> parameters)
 		{
-			List<KPI> lstKPI = new List<KPI>();
+            Log.Info(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }));
+
+            List<KPI> lstKPI = new List<KPI>();
             SqlDataReader reader = null;
 
 
@@ -125,6 +149,7 @@ namespace inSyca.foundation.integration.service
                     }
                     catch(Exception ex)
                     {
+                        Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }, ex));
                         return lstKPI.AsEnumerable();
                     }
 
@@ -149,7 +174,9 @@ namespace inSyca.foundation.integration.service
 
 		public IEnumerable<Port> GetPortCollection(string command, Dictionary<string, object> parameters)
 		{
-			List<Port> lstPort = new List<Port>();
+            Log.Info(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }));
+
+            List<Port> lstPort = new List<Port>();
             SqlDataReader reader = null;
 
             lstPort.Add(new Port { Name = "%%", FriendlyName = "All" });
@@ -172,6 +199,7 @@ namespace inSyca.foundation.integration.service
                     }
                     catch (Exception ex)
                     {
+                        Log.Error(new LogEntry(MethodBase.GetCurrentMethod(), new object[] { command, parameters }, ex));
                         return lstPort.AsEnumerable();
                     }
 
@@ -192,7 +220,9 @@ namespace inSyca.foundation.integration.service
 
 		public IEnumerable<MetaData> GetMetaDataCollection()
 		{
-			List<MetaData> metadata = new List<MetaData>();
+            Log.Info(new LogEntry(MethodBase.GetCurrentMethod(), null));
+
+            List<MetaData> metadata = new List<MetaData>();
 
 			//var configuration = XElement.Load(Server.MapPath("~/App_Data/dashboard.xml")).Descendants("searchitems").Elements();
 
