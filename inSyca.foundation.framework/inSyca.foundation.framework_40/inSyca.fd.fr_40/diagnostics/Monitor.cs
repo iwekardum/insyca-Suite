@@ -62,7 +62,7 @@ namespace inSyca.foundation.framework.diagnostics
 
             int eventEntryTypeCode = SetupEventEntry(logEntryDataTable, out eventEntryDataRow);
 
-            Log.DebugFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow\nEventEntryType: {2})", e, eventType, eventEntryTypeCode );
+            Log.DebugFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow\nEventEntryType: {2})", e, eventType, eventEntryTypeCode);
 
             switch (eventEntryTypeCode)
             {
@@ -80,14 +80,14 @@ namespace inSyca.foundation.framework.diagnostics
                     SetInformation(eventEntryDataRow);
                     break;
                 default:
-                    Log.WarnFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow\nEvententry type unknown: {2})", e, eventType, eventEntryTypeCode );
+                    Log.WarnFormat("SetEvent(EventArrivedEventArgs e {0}, string eventType {1}, out DataRow eventEntryDataRow\nEvententry type unknown: {2})", e, eventType, eventEntryTypeCode);
                     break;
             }
         }
 
         protected void SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs, string eventType, DataSet logEntryDataSet, DataRow logEntryDataRow)
         {
-            Log.DebugFormat("SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, DataSet logEntryDataSet {2}, DataRow logEntryDataRow {3})", eventArrivedEventArgs, eventType, logEntryDataSet, logEntryDataRow );
+            Log.DebugFormat("SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, DataSet logEntryDataSet {2}, DataRow logEntryDataRow {3})", eventArrivedEventArgs, eventType, logEntryDataSet, logEntryDataRow);
 
             using (ManagementBaseObject managementBaseObject = eventArrivedEventArgs.NewEvent)
             {
@@ -125,7 +125,7 @@ namespace inSyca.foundation.framework.diagnostics
 
                 logEntryDataSet.EnforceConstraints = true;
 
-                Log.DebugFormat("SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, DataSet logEntryDataSet {2}, DataRow logEntryDataRow {3})\nBefore Fire Monitoring Event: MonitoringEvent {4}", eventArrivedEventArgs, eventType, logEntryDataSet, logEntryDataRow, MonitoringEvent );
+                Log.DebugFormat("SetLogEntry(EventArrivedEventArgs eventArrivedEventArgs {0}, string eventType {1}, DataSet logEntryDataSet {2}, DataRow logEntryDataRow {3})\nBefore Fire Monitoring Event: MonitoringEvent {4}", eventArrivedEventArgs, eventType, logEntryDataSet, logEntryDataRow, MonitoringEvent);
 
                 if (MonitoringEvent != null)
                     MonitoringEvent(null, new MonitoringEventArgs(logEntryDataRow));
@@ -140,13 +140,16 @@ namespace inSyca.foundation.framework.diagnostics
         {
             Log.DebugFormat("TransformLogEntry(DataTable logEntryTable {0}, DataRow eventEntryDataRow {1})", logEntryTable, eventEntryDataRow);
 
-            Stream logEntryStream = new MemoryStream();
-            logEntryTable.WriteXml(logEntryStream);
-            logEntryStream.Position = 0;
-            Attachments.Add(new Attachment(logEntryStream, "LogEntry.xml"));
+            using (Stream logEntryStream = new MemoryStream())
+            {
+                logEntryTable.WriteXml(logEntryStream);
+                logEntryStream.Position = 0;
+                Attachments.Add(new Attachment(logEntryStream, "LogEntry.xml"));
+            }
 
             foreach (DataRow logEntryRow in logEntryTable.Rows)
                 SetEventEntry(logEntryRow, eventEntryDataRow);
+
         }
 
         private void SetError(DataRow eventEntryRow)

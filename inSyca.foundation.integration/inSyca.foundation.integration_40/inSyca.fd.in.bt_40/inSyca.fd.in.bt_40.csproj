@@ -116,7 +116,6 @@
     <Content Include="foundation.integration.biztalk.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="app.config" />
     <None Include="foundation.integration.biztalk.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
