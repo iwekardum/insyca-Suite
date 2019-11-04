@@ -299,7 +299,7 @@ namespace inSyca.foundation.integration.biztalk.functions
             }
             else
             {
-                Log.Warn(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { inputDateString, defaultDateString, inputDateFormat, outputDateFormat, inputCultureInfoName, outputCultureInfoName }, "DateTime.TryParseExact\n\rFirst Level Warning: {0}", new object[] { string.Format("inputDateString '{0}' is not in an acceptable format.", new object[] { inputDateString }) }));
+                Log.Info(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { inputDateString, defaultDateString, inputDateFormat, outputDateFormat, inputCultureInfoName, outputCultureInfoName }, "DateTime.TryParseExact\n\rFirst Level Warning: {0}", new object[] { string.Format("inputDateString '{0}' is not in an acceptable format.", new object[] { inputDateString }) }));
 
                 try
                 {
@@ -310,7 +310,7 @@ namespace inSyca.foundation.integration.biztalk.functions
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { inputDateString, defaultDateString, inputDateFormat, outputDateFormat, inputCultureInfoName, outputCultureInfoName }, "DateTime.Parse\n\rSecond Level Warning: {0}", new object[] { ex.Message }));
+                    Log.Info(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), new object[] { inputDateString, defaultDateString, inputDateFormat, outputDateFormat, inputCultureInfoName, outputCultureInfoName }, "DateTime.Parse\n\rSecond Level Warning: {0}", new object[] { ex.Message }));
                 }
             }
 

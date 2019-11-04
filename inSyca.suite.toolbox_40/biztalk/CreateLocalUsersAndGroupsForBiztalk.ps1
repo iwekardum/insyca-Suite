@@ -1,4 +1,7 @@
-﻿$Computer = $env:COMPUTERNAME
+﻿# Add Azure AD User to Local Groups
+# net localgroup grp_biz.admins AzureAD\operations /add
+
+$Computer = $env:COMPUTERNAME
 $ADSI = [ADSI]("WinNT://$Computer")
 
 # BizTalk Server accounts and groups
