@@ -25,6 +25,7 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
         Project hostsTstProject;
         Project environmentsettingsProject;
         Project ressourcesProject;
+        Project tempProject;
         //Project testfilesMainProject;
         //Project testfilesEntityProject;
 
@@ -61,6 +62,8 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
             hostsTstProject = ((SolutionFolder)hostsProject.Object).AddSolutionFolder("tst");
             environmentsettingsProject = solutionFolder.AddSolutionFolder("environmentsettings");
             ressourcesProject = solutionFolder.AddSolutionFolder("ressources");
+            tempProject = solutionFolder.AddSolutionFolder("temp");
+
 
             // Get the project template
             templateDirectory = solution.GetProjectTemplate("EEB.csharp.zip", "BizTalk");
@@ -175,6 +178,12 @@ namespace inSyca.foundation.integration.visualstudio.wizard_40
             }
 
             foreach (var dirCustom in dirInfoTarget.EnumerateDirectories("ressources", SearchOption.TopDirectoryOnly))
+            {
+                foreach (var file in dirCustom.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                    ressourcesProject.ProjectItems.AddFromFile(file.FullName);
+            }
+
+            foreach (var dirCustom in dirInfoTarget.EnumerateDirectories("temp", SearchOption.TopDirectoryOnly))
             {
                 foreach (var file in dirCustom.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
                     ressourcesProject.ProjectItems.AddFromFile(file.FullName);
