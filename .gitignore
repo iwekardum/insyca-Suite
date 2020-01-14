@@ -270,3 +270,7 @@ ModelManifest.xml
 /.vs/Suite_VS2015/v16/TestStore/0/testlog.manifest
 /inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/organization_10.cs
 /inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/organization_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/contract_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/information_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/physical_10.xsd.cs
+/inSyca.bt.global/insyca.bt.gl.pipelines/remove_nil_and_empty_nodes_11.btp.cs

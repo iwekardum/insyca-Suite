@@ -89,10 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\insyca.bt.gl.eeb.schemas\entities\organization_10.cs">
-      <Link>organization_10.cs</Link>
-      <DependentUpon>organization_10.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
