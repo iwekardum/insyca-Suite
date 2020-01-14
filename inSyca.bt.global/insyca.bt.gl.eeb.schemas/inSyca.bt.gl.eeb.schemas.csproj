@@ -57,6 +57,7 @@
     <Schema Include="entities\contract_10.xsd">
       <SubType>Task</SubType>
     </Schema>
+    <None Include="entities\organization_10.xsd" />
     <None Include="entities\tracing_10.xsd" />
     <None Include="entities\goods_10.xsd" />
     <None Include="entities\government_10.xsd" />

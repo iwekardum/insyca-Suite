@@ -89,6 +89,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\insyca.bt.gl.eeb.schemas\entities\organization_10.cs">
+      <Link>organization_10.cs</Link>
+      <DependentUpon>organization_10.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +164,12 @@
     <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities\contract_10.xsd">
       <Link>contract_10.xsd</Link>
       <TypeName>contract_10</TypeName>
+      <Namespace>insyca.bt.gl.eeb.schemas.entities</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="..\..\insyca.bt.gl.eeb.schemas\entities\organization_10.xsd">
+      <Link>organization_10.xsd</Link>
+      <TypeName>organization_10</TypeName>
       <Namespace>insyca.bt.gl.eeb.schemas.entities</Namespace>
       <SubType>Task</SubType>
     </Schema>

@@ -268,3 +268,5 @@ ModelManifest.xml
 /.vs/Suite_VS2015/v16/Server/sqlite3
 /.vs/Suite_VS2015/v16/TestStore/0/000-0000.testlog
 /.vs/Suite_VS2015/v16/TestStore/0/testlog.manifest
+/inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/organization_10.cs
+/inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/organization_10.xsd.cs
