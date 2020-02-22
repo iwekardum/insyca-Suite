@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="inSyca.fd.in.bt.cp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.BizTalk.Pipeline.Components, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -83,6 +84,20 @@
       <TypeName>remove_nil_and_empty_nodes</TypeName>
       <Namespace>inSyca.bt.gl.pipelines</Namespace>
       <SubType>Designer</SubType>
+    </Pipeline>
+  </ItemGroup>
+  <ItemGroup>
+    <Pipeline Include="JSONReceive.btp">
+      <TypeName>JSONReceive</TypeName>
+      <Namespace>inSyca.bt.gl.pipelines</Namespace>
+      <SubType>Task</SubType>
+    </Pipeline>
+  </ItemGroup>
+  <ItemGroup>
+    <Pipeline Include="JSONTransmit.btp">
+      <TypeName>JSONTransmit</TypeName>
+      <Namespace>inSyca.bt.gl.pipelines</Namespace>
+      <SubType>Task</SubType>
     </Pipeline>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

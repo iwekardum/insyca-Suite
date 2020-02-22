@@ -274,3 +274,5 @@ ModelManifest.xml
 /inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/information_10.xsd.cs
 /inSyca.bt.global/insyca.bt.gl.eeb.schemas/entities/physical_10.xsd.cs
 /inSyca.bt.global/insyca.bt.gl.pipelines/remove_nil_and_empty_nodes_11.btp.cs
+/inSyca.bt.global/insyca.bt.gl.pipelines/JSONReceive.btp.cs
+/inSyca.bt.global/insyca.bt.gl.pipelines/JSONTransmit.btp.cs
