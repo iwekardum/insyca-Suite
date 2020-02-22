@@ -48,7 +48,7 @@ namespace inSyca.foundation.integration.biztalk.components
     /// be placed only in Encoding stage of send pipeline
     /// </remarks>
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
-	[ComponentCategory(CategoryTypes.CATID_Encoder)]
+	[ComponentCategory(CategoryTypes.CATID_Serializer)]
 	[System.Runtime.InteropServices.Guid("FA7F9C55-6E8E-4855-8DAC-FA1BC8A499E2")]
 	public class XslTransformer : IBaseComponent, IComponent, IPersistPropertyBag, IComponentUI
 	{

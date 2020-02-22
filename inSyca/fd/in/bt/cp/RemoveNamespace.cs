@@ -15,8 +15,11 @@ namespace inSyca.foundation.integration.biztalk.components
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_AssemblingSerializer)]
     [System.Runtime.InteropServices.Guid("a97048da-37eb-4abf-b0f1-50b55874083c")]
-    public class RemoveNamespace : IBaseComponent, IComponentUI, IComponent, IPersistPropertyBag
+    public class RemoveNamespace : IAssemblerComponent, IBaseComponent, IComponentUI, IComponent, IPersistPropertyBag
     {
+        //Used to hold disassembled messages
+        private System.Collections.Queue qOutputMsgs = new System.Collections.Queue();
+        private string systemPropertiesNamespace = @"http://schemas.microsoft.com/BizTalk/2003/system-properties";
 
         #region IBaseComponent
         public string Description
@@ -113,30 +116,7 @@ namespace inSyca.foundation.integration.biztalk.components
 
         public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
         {
-            Log.DebugFormat("Execute(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})", pContext, pInMsg);
-
-            try
-            {
-                if (pInMsg == null || pInMsg.BodyPart == null || pInMsg.BodyPart.Data == null)
-                {
-                    Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "pInMsg Error", null));
-                    throw new ArgumentNullException("pInMsg Error");
-                }
-
-                Stream stream = TransformMessage(pInMsg.BodyPart.GetOriginalDataStream()); ;
-
-                Log.DebugFormat("Execute(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})\nstream.Length={2})", pContext, pInMsg, stream.Length);
-
-                // Rewind the stream ready to read from it elsewhere
-                stream.Position = 0;
-                pInMsg.BodyPart.Data = stream;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
-            }
-
-            return pInMsg;
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -176,5 +156,55 @@ namespace inSyca.foundation.integration.biztalk.components
             }
         }
         #endregion
+
+        /// <summary>
+        /// Used to pass output messages`to next stage
+        /// </summary>
+        public IBaseMessage GetNext(IPipelineContext pContext)
+        {
+            if (qOutputMsgs.Count > 0)
+                return (IBaseMessage)qOutputMsgs.Dequeue();
+            else
+                return null;
+        }
+
+        public void AddDocument(IPipelineContext pContext, IBaseMessage pInMsg)
+        {
+            Log.DebugFormat("Execute(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})", pContext, pInMsg);
+
+            try
+            {
+                if (pInMsg == null || pInMsg.BodyPart == null || pInMsg.BodyPart.Data == null)
+                {
+                    Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, "pInMsg Error", null));
+                    throw new ArgumentNullException("pInMsg Error");
+                }
+
+                Stream stream = TransformMessage(pInMsg.BodyPart.GetOriginalDataStream()); ;
+
+                Log.DebugFormat("Execute(IPipelineContext pContext {0}, IBaseMessage pInMsg {1})\nstream.Length={2})", pContext, pInMsg, stream.Length);
+
+                // Rewind the stream ready to read from it elsewhere
+                stream.Position = 0;
+                pInMsg.BodyPart.Data = stream;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(new LogEntry(System.Reflection.MethodBase.GetCurrentMethod(), null, ex));
+            }
+
+            qOutputMsgs.Enqueue(pInMsg);
+        }
+
+        public IBaseMessage Assemble(IPipelineContext pContext)
+        {
+            if (qOutputMsgs.Count > 0)
+            {
+                IBaseMessage msg = (IBaseMessage)qOutputMsgs.Dequeue();
+                return msg;
+            }
+            else
+                return null;
+        }
     }
 }
