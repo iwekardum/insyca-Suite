@@ -1,33 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<breakfast_menu>
-  <food>
-    <name>Belgian Waffles</name>
-    <price>$5.95</price>
-    <description>Two of our famous Belgian Waffles with plenty of real maple syrup</description>
-    <calories>650</calories>
-  </food>
-  <food>
-    <name>Strawberry Belgian Waffles</name>
-    <price>$7.95</price>
-    <description>Light Belgian waffles covered with strawberries and whipped cream</description>
-    <calories>900</calories>
-  </food>
-  <food>
-    <name>Berry-Berry Belgian Waffles</name>
-    <price>$8.95</price>
-    <description>Light Belgian waffles covered with an assortment of fresh berries and whipped cream</description>
-    <calories>900</calories>
-  </food>
-  <food>
-    <name>French Toast</name>
-    <price>$4.50</price>
-    <description>Thick slices made from our homemade sourdough bread</description>
-    <calories>600</calories>
-  </food>
-  <food>
-    <name>Homestyle Breakfast</name>
-    <price/>
-    <description nil="true"/>
-    <calories/>
-  </food>
-</breakfast_menu>
+<ns0:notification xmlns:ns0="http://insyca.bt.gl.eeb.schemas.generic_10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <instruction>
+    <process>process_0</process>
+    <type>type_0</type>
+    <action>action_0</action>
+  </instruction>
+  <sender>
+    <id>id_0</id>
+    <number>100</number>
+    <label>label_0</label>
+  </sender>
+  <receiver>
+    <id>id_0</id>
+    <number>100</number>
+    <label>label_0</label>
+  </receiver>
+  <message>
+    <any0 xmlns:ns1="http://insyca.bt.gl.eeb.schemas.generic_10" xmlns:ns0="http://insyca.bt.bpa.global.eeb.schemas.notificator_10">anyContents0</any0>
+  </message>
+  <parameters>
+    <parameter>
+      <name>name_0</name>
+      <value>value_0</value>
+    </parameter>
+    <operator>and</operator>
+  </parameters>
+  <parameters>
+    <parameter>
+      <name>name_0</name>
+      <value>value_0</value>
+    </parameter>
+    <operator>and</operator>
+  </parameters>
+  <parameters>
+    <parameter>
+      <name>name_0</name>
+      <value>value_0</value>
+    </parameter>
+    <operator>and</operator>
+  </parameters>
+</ns0:notification>

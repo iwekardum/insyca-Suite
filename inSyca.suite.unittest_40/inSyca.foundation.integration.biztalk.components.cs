@@ -3,6 +3,7 @@ using inSyca.foundation.integration.biztalk.components;
 using Microsoft.BizTalk.Message.Interop;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Xml.Linq;
@@ -15,7 +16,7 @@ namespace inSyca.foundation.unittest_40
     {
 
         [TestMethod]
-        public void testRemoveNilAndEmpty()
+        public void PipelineComponent_RemoveNilAndEmpty()
         {
             // Create the input message to pass through the pipeline
             Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
@@ -37,7 +38,29 @@ namespace inSyca.foundation.unittest_40
         }
 
         [TestMethod]
-        public void testXmlSplitter()
+        public void PipelineComponent_RemoveNamespace()
+        {
+            // Create the input message to pass through the pipeline
+            Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
+            IBaseMessage inputMessage = MessageHelper.CreateFromStream(stream);
+
+            RemoveNamespace component = new RemoveNamespace();
+
+            // Execute the pipeline, and check the output
+            ReceivePipelineWrapper pipeline = PipelineFactory.CreateEmptyReceivePipeline();
+            pipeline.AddComponent(component, PipelineStage.Disassemble);
+            MessageCollection outputMessages = pipeline.Execute(inputMessage);
+
+            foreach (var message in outputMessages)
+            {
+                Console.WriteLine("************************** start message **************************\r\n");
+                Console.WriteLine(StreamConverter.StreamToString(message.BodyPart.Data, Encoding.UTF8));
+                Console.WriteLine("\r\n************************** end message **************************");
+            }
+        }
+
+        [TestMethod]
+        public void PipelineComponent_XmlSplitter()
         {
             // Create the input message to pass through the pipeline
             Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
@@ -61,7 +84,7 @@ namespace inSyca.foundation.unittest_40
         }
 
         [TestMethod]
-        public void testActiveXReader()
+        public void PipelineComponent_ActiveXReader()
         {
             // Create the input message to pass through the pipeline
             Stream stream = StreamConverter.StringToStream(XElement.Load(@"..\..\Testfiles\simple_002.xml").ToString(), Encoding.UTF8);
