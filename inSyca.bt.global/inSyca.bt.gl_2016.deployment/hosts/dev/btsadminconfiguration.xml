@@ -2,22 +2,30 @@
 <BtsAdminConfiguration>
   <Hosts>
     <Host hostname='inSyca_global' ntgroupname='DOMAIN\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_send' ntgroupname='DOMAIN\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
     <Host hostname='inSyca_global_send_32' ntgroupname='DOMAIN\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
     <Host hostname='inSyca_global_receive' ntgroupname='DOMAIN\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
+    <Host hostname='inSyca_global_receive_32' ntgroupname='DOMAIN\DEV-dgBIZhosts' isdefault='false' hosttracking='false' authtrusted='false' hosttype='1' ishost32bitonly='false'/>
   </Hosts>
   <HostInstances>
     <HostInstance servername='.' hostname='inSyca_global' username='DOMAIN\DEV-svcBIZhost' password='*****' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_send' username='DOMAIN\DEV-svcBIZhost' password='*****' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_send_32' username='DOMAIN\DEV-svcBIZhost' password='*****' startinstance='true'/>
     <HostInstance servername='.' hostname='inSyca_global_receive' username='DOMAIN\DEV-svcBIZhost' password='*****' startinstance='true'/>
+    <HostInstance servername='.' hostname='inSyca_global_receive_32' username='DOMAIN\DEV-svcBIZhost' password='*****' startinstance='true'/>
   </HostInstances>
   <Adapters>
-    <Adapter name='FILE' type='FILE' comment='FILE adapter'>
+    <Adapter name='FILE' type='FILE'>
       <ReceiveHandler hostname='inSyca_global_receive'/>
     </Adapter>
-    <Adapter name='WCF-Custom' type='WCF-Custom' comment='WCF-Custom adapter'>
+    <Adapter name='WCF-Custom' type='WCF-Custom'>
       <ReceiveHandler hostname='inSyca_global_receive'/>
     </Adapter>
-    <Adapter name='Windows SharePoint Services' type='Windows SharePoint Services' comment='Windows SharePoint Services adapter'>
+    <Adapter name='WCF-WebHttp' type='WCF-WebHttp'>
+      <ReceiveHandler hostname='inSyca_global_receive'/>
+      <SendHandler hostname='inSyca_global_send'/>
+    </Adapter>
+    <Adapter name='Windows SharePoint Services' type='Windows SharePoint Services'>
       <SendHandler hostname='inSyca_global_send_32'/>
     </Adapter>
   </Adapters>

@@ -2,11 +2,11 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="8f7c5e02-b45d-440a-ab10-a3062404bf9b" LowerBound="1.1" HigherBound="31.1">
+    <om:Element Type="Module" OID="8f7c5e02-b45d-440a-ab10-a3062404bf9b" LowerBound="1.1" HigherBound="61.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="insyca.bt.gl.eeb.orchestrations" />
         <om:Property Name="Signal" Value="False" />
-        <om:Element Type="ServiceDeclaration" OID="d028a55b-f5ec-41a1-a61e-404c80bc31d2" ParentLink="Module_ServiceDeclaration" LowerBound="23.1" HigherBound="30.1">
+        <om:Element Type="ServiceDeclaration" OID="d028a55b-f5ec-41a1-a61e-404c80bc31d2" ParentLink="Module_ServiceDeclaration" LowerBound="53.1" HigherBound="60.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="True" />
             <om:Property Name="TypeModifier" Value="Public" />
@@ -17,12 +17,25 @@
                 <om:Property Name="Signal" Value="False" />
             </om:Element>
         </om:Element>
-        <om:Element Type="MultipartMessageType" OID="302ef6f3-6c77-4475-af52-edeff2c54ced" ParentLink="Module_MessageType" LowerBound="4.1" HigherBound="8.1">
+        <om:Element Type="MultipartMessageType" OID="8d31a289-be08-41c9-943f-fa703563b01b" ParentLink="Module_MessageType" LowerBound="4.1" HigherBound="8.1">
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="mpt_notify_response" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="bbbe8cb8-f221-440e-8ca5-24a73b476520" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="6.1" HigherBound="7.1">
+                <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.notify_response" />
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mp_notify_response" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="MultipartMessageType" OID="302ef6f3-6c77-4475-af52-edeff2c54ced" ParentLink="Module_MessageType" LowerBound="8.1" HigherBound="12.1">
             <om:Property Name="TypeModifier" Value="Public" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="mpt_query_10_request" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="PartDeclaration" OID="15b252d4-d3d0-41dd-a32c-775a24403d88" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="6.1" HigherBound="7.1">
+            <om:Element Type="PartDeclaration" OID="15b252d4-d3d0-41dd-a32c-775a24403d88" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="10.1" HigherBound="11.1">
                 <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.query_request" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -30,12 +43,12 @@
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
         </om:Element>
-        <om:Element Type="MultipartMessageType" OID="43f7a55d-c8fe-4167-a6ad-03278474e3ca" ParentLink="Module_MessageType" LowerBound="8.1" HigherBound="12.1">
+        <om:Element Type="MultipartMessageType" OID="43f7a55d-c8fe-4167-a6ad-03278474e3ca" ParentLink="Module_MessageType" LowerBound="12.1" HigherBound="16.1">
             <om:Property Name="TypeModifier" Value="Public" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="mpt_query_10_response" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="PartDeclaration" OID="7b519909-a8b0-4cf7-840c-69aef558fc39" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="10.1" HigherBound="11.1">
+            <om:Element Type="PartDeclaration" OID="7b519909-a8b0-4cf7-840c-69aef558fc39" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="14.1" HigherBound="15.1">
                 <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.query_response" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -43,12 +56,12 @@
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
         </om:Element>
-        <om:Element Type="MultipartMessageType" OID="085a3083-cbc2-4b8a-a199-b1b2aa037318" ParentLink="Module_MessageType" LowerBound="12.1" HigherBound="16.1">
+        <om:Element Type="MultipartMessageType" OID="085a3083-cbc2-4b8a-a199-b1b2aa037318" ParentLink="Module_MessageType" LowerBound="16.1" HigherBound="20.1">
             <om:Property Name="TypeModifier" Value="Public" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="mpt_batch_10" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="PartDeclaration" OID="3b62e88f-2220-4f77-8a87-0e51fa12e1e3" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="14.1" HigherBound="15.1">
+            <om:Element Type="PartDeclaration" OID="3b62e88f-2220-4f77-8a87-0e51fa12e1e3" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="18.1" HigherBound="19.1">
                 <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.batch" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -56,25 +69,114 @@
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
         </om:Element>
-        <om:Element Type="PortType" OID="55550216-6c0f-42be-b173-1d08d3346b7d" ParentLink="Module_PortType" LowerBound="16.1" HigherBound="23.1">
+        <om:Element Type="MultipartMessageType" OID="4dac4b99-7285-4dc0-a39a-7fb0ff015c0d" ParentLink="Module_MessageType" LowerBound="20.1" HigherBound="24.1">
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="mpt_dispatch_request" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="408d4da9-bfd5-4104-8b41-7feae822479e" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="22.1" HigherBound="23.1">
+                <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.dispatch_request" />
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mp_dispatch_request" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="MultipartMessageType" OID="a23d3530-3933-4a7f-a4d3-83a816487b8e" ParentLink="Module_MessageType" LowerBound="24.1" HigherBound="28.1">
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="mpt_notify_request" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="579a47f1-c96f-4600-ae99-04f00b4714b1" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="26.1" HigherBound="27.1">
+                <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.notifiy_request" />
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mp_notify_request" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="MultipartMessageType" OID="78e42626-e228-4a36-ae70-7f179a1d413b" ParentLink="Module_MessageType" LowerBound="28.1" HigherBound="32.1">
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="mpt_dispatch_response" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="PartDeclaration" OID="f700b611-1abe-4408-a098-91c22a112d1c" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="30.1" HigherBound="31.1">
+                <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.dispatch_response" />
+                <om:Property Name="IsBodyPart" Value="True" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mp_dispatch_response" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="55550216-6c0f-42be-b173-1d08d3346b7d" ParentLink="Module_PortType" LowerBound="32.1" HigherBound="39.1">
             <om:Property Name="Synchronous" Value="True" />
             <om:Property Name="TypeModifier" Value="Public" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="pt_query_10" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="OperationDeclaration" OID="829058de-00c4-4252-8c63-12134795f485" ParentLink="PortType_OperationDeclaration" LowerBound="18.1" HigherBound="22.1">
+            <om:Element Type="OperationDeclaration" OID="829058de-00c4-4252-8c63-12134795f485" ParentLink="PortType_OperationDeclaration" LowerBound="34.1" HigherBound="38.1">
                 <om:Property Name="OperationType" Value="RequestResponse" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="op_query_10" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="8f693b3e-c650-406c-b106-5a4ac0840df4" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="20.13" HigherBound="20.33">
+                <om:Element Type="MessageRef" OID="8f693b3e-c650-406c-b106-5a4ac0840df4" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="36.13" HigherBound="36.33">
                     <om:Property Name="Ref" Value="insyca.bt.gl.eeb.orchestrations.mpt_query_10_request" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Request" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
-                <om:Element Type="MessageRef" OID="6947dd12-0353-41c8-b68b-1fe15200cb4c" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="20.35" HigherBound="20.56">
+                <om:Element Type="MessageRef" OID="6947dd12-0353-41c8-b68b-1fe15200cb4c" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="36.35" HigherBound="36.56">
                     <om:Property Name="Ref" Value="insyca.bt.gl.eeb.orchestrations.mpt_query_10_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="66db2b9b-ad78-40dd-a902-0689f910fabb" ParentLink="Module_PortType" LowerBound="39.1" HigherBound="46.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="pt_dispatcher" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="OperationDeclaration" OID="0d3a959e-b783-4b9f-b351-a217fa45162d" ParentLink="PortType_OperationDeclaration" LowerBound="41.1" HigherBound="45.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="op_dispatch" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="54770847-9229-44dd-af94-6485522e0977" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="43.13" HigherBound="43.33">
+                    <om:Property Name="Ref" Value="insyca.bt.gl.eeb.orchestrations.mpt_dispatch_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="2e620f90-9248-424b-9286-441cde129ca2" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="43.35" HigherBound="43.56">
+                    <om:Property Name="Ref" Value="insyca.bt.gl.eeb.orchestrations.mpt_dispatch_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="7eb99266-787e-4baa-a689-470eec6fc3ad" ParentLink="Module_PortType" LowerBound="46.1" HigherBound="53.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="pt_notify" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="OperationDeclaration" OID="2f9c7996-6d57-4257-8c04-141423b1253d" ParentLink="PortType_OperationDeclaration" LowerBound="48.1" HigherBound="52.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="op_notify" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="d7b4acd2-0fdf-40d2-8563-87fc54a83f49" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="50.13" HigherBound="50.31">
+                    <om:Property Name="Ref" Value="insyca.bt.gl.eeb.orchestrations.mpt_notify_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="8e8b1b8b-ee3b-4059-8d92-cb7941bff96d" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="50.33" HigherBound="50.52">
+                    <om:Property Name="Ref" Value="insyca.bt.gl.eeb.orchestrations.mpt_notify_response" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Response" />
                     <om:Property Name="Signal" Value="True" />
@@ -87,6 +189,10 @@
 [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
 module insyca.bt.gl.eeb.orchestrations
 {
+    public messagetype mpt_notify_response
+    {
+        body insyca.bt.gl.eeb.schemas.generic_10.notify_response mp_notify_response;
+    };
     public messagetype mpt_query_10_request
     {
         body insyca.bt.gl.eeb.schemas.generic_10.query_request mp_query_10_request;
@@ -99,11 +205,37 @@ module insyca.bt.gl.eeb.orchestrations
     {
         body insyca.bt.gl.eeb.schemas.generic_10.batch mp_batch_10;
     };
+    public messagetype mpt_dispatch_request
+    {
+        body insyca.bt.gl.eeb.schemas.generic_10.dispatch_request mp_dispatch_request;
+    };
+    public messagetype mpt_notify_request
+    {
+        body insyca.bt.gl.eeb.schemas.generic_10.notifiy_request mp_notify_request;
+    };
+    public messagetype mpt_dispatch_response
+    {
+        body insyca.bt.gl.eeb.schemas.generic_10.dispatch_response mp_dispatch_response;
+    };
     public porttype pt_query_10
     {
         requestresponse op_query_10
         {
             mpt_query_10_request, mpt_query_10_response
+        };
+    };
+    public porttype pt_dispatcher
+    {
+        requestresponse op_dispatch
+        {
+            mpt_dispatch_request, mpt_dispatch_response
+        };
+    };
+    public porttype pt_notify
+    {
+        requestresponse op_notify
+        {
+            mpt_notify_request, mpt_notify_response
         };
     };
     [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]

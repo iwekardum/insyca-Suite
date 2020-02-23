@@ -93,6 +93,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.mb.orchestrati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.mb.services", "insyca.bt.gl.mb.services\insyca.bt.gl.mb.services.csproj", "{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.maps", "insyca.bt.gl.eeb.maps\insyca.bt.gl.eeb.maps.csproj", "{8EB56274-CBF2-4C00-A2EE-9C640BE6CC0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insyca.bt.gl.eeb.maps", "inSyca.bt.gl_2016\insyca.bt.gl.eeb.maps\insyca.bt.gl.eeb.maps.btproj", "{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +167,16 @@ Global
 		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB56274-CBF2-4C00-A2EE-9C640BE6CC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB56274-CBF2-4C00-A2EE-9C640BE6CC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB56274-CBF2-4C00-A2EE-9C640BE6CC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB56274-CBF2-4C00-A2EE-9C640BE6CC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56C0C5B-2FA0-4FF3-B06B-29F5B5ED3474}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,5 +195,6 @@ Global
 		{05AD4D30-AC63-42F4-9B7F-9781127AADD9} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
 		{49F761CB-F0AE-4959-B878-35E11D107EF5} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
 		{C0FAB4D9-468F-4702-85F2-3C8327EF6F07} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
+		{8EB56274-CBF2-4C00-A2EE-9C640BE6CC0F} = {308002AE-5FB8-41D0-BE1E-BF05DE245DA0}
 	EndGlobalSection
 EndGlobal

@@ -30,7 +30,7 @@
   <PropertyGroup>
     <IncludeMessagingBindings>True</IncludeMessagingBindings>
     <IncludeSchemas>True</IncludeSchemas>
-    <IncludeTransforms>False</IncludeTransforms>
+    <IncludeTransforms>True</IncludeTransforms>
     <IncludeOrchestrations>True</IncludeOrchestrations>
     <IncludePipelines>True</IncludePipelines>
     <IncludePipelineComponents>False</IncludePipelineComponents>
@@ -98,6 +98,8 @@
   <ItemGroup>
     <BizTalkHosts Include="inSyca_global" />
     <BizTalkHosts Include="inSyca_global_receive" />
+    <BizTalkHosts Include="inSyca_global_receive_32" />
+    <BizTalkHosts Include="inSyca_global_send" />
     <BizTalkHosts Include="inSyca_global_send_32" />
   </ItemGroup>
 
@@ -129,6 +131,16 @@
     <Orchestrations Include="inSyca.bt.gl.eeb.orchestrations.dll">
       <LocationPath>..\inSyca.bt.gl_2016\inSyca.bt.gl.eeb.orchestrations\bin\$(Configuration)</LocationPath>
     </Orchestrations>
+    <!--<Orchestrations Include="inSyca.bt.gl.mb.orchestrations.dll">
+      <LocationPath>..\inSyca.bt.gl_2016\inSyca.bt.gl.mb.orchestrations\bin\$(Configuration)</LocationPath>
+    </Orchestrations>-->
+  </ItemGroup>
+
+  <!-- Transforms -->
+  <ItemGroup>
+    <Transforms Include="inSyca.bt.gl.eeb.maps.dll">
+      <LocationPath>..\inSyca.bt.gl_2016\inSyca.bt.gl.eeb.maps\bin\$(Configuration)</LocationPath>
+    </Transforms>
     <!--<Orchestrations Include="inSyca.bt.gl.mb.orchestrations.dll">
       <LocationPath>..\inSyca.bt.gl_2016\inSyca.bt.gl.mb.orchestrations\bin\$(Configuration)</LocationPath>
     </Orchestrations>-->
@@ -190,6 +202,9 @@
     <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.schemas.en.bu.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
     <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.schemas.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
 
+        <!-- maps -->
+    <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.maps.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
+
     <!-- orchestrations -->
     <Exec Command="BTSTask.exe -Overwrite AddResource -Type:BizTalkAssembly -Source:&quot;..\inSyca.bt.gl.eeb.orchestrations.dll&quot; -ApplicationName:&quot;BizTalk.Global&quot; -Options:GacOnAdd,GacOnImport,GacOnInstall" ContinueOnError="true" />
 
@@ -246,6 +261,9 @@
 
     <!-- orchestrations -->
     <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.orchestrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
+
+    <!-- maps -->
+    <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
 
     <!-- schemas -->
     <Exec Command="BTSTask.exe RemoveResource -ApplicationName:&quot;BizTalk.Global&quot; -Luid:&quot;inSyca.bt.gl.eeb.schemas.en.bu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=604954d691f5a615&quot;" ContinueOnError="true" />
