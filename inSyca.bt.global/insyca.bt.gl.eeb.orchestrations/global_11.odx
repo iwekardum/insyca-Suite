@@ -88,7 +88,7 @@
             <om:Property Name="Name" Value="mpt_notify_request" />
             <om:Property Name="Signal" Value="True" />
             <om:Element Type="PartDeclaration" OID="579a47f1-c96f-4600-ae99-04f00b4714b1" ParentLink="MultipartMessageType_PartDeclaration" LowerBound="26.1" HigherBound="27.1">
-                <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.notifiy_request" />
+                <om:Property Name="ClassName" Value="insyca.bt.gl.eeb.schemas.generic_10.notify_request" />
                 <om:Property Name="IsBodyPart" Value="True" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="mp_notify_request" />
@@ -211,7 +211,7 @@ module insyca.bt.gl.eeb.orchestrations
     };
     public messagetype mpt_notify_request
     {
-        body insyca.bt.gl.eeb.schemas.generic_10.notifiy_request mp_notify_request;
+        body insyca.bt.gl.eeb.schemas.generic_10.notify_request mp_notify_request;
     };
     public messagetype mpt_dispatch_response
     {
