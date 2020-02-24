@@ -3,8 +3,9 @@ using inSyca.foundation.integration.biztalk.functions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using System.Xml;
+using System.Xml.Linq;
 
-namespace inSyca.foundation.communication.unittest_40
+namespace inSyca.foundation.integration.biztalk.functions.unittest_40
 {
     [TestClass]
     public class testFunctions
@@ -16,7 +17,7 @@ namespace inSyca.foundation.communication.unittest_40
 
             childXmlDocument.Load(new XmlTextReader(@"..\..\Testfiles\simple_002.xml"));
 
-            childXmlDocument = components.xml.scripting.createLogMessage(childXmlDocument);
+            //childXmlDocument = scripting.createLogMessage(childXmlDocument);
         }
 
         [TestMethod]
@@ -57,5 +58,14 @@ namespace inSyca.foundation.communication.unittest_40
             output = scripting.FormatNumber(input, "0", "", string.Empty, string.Empty);
             Debug.WriteLine("FormatNumber: {0} - {1}", input, output);
         }
+
+        [TestMethod]
+        public void ExtractFromDispatchMessage()
+        {
+            XElement xElement = XElement.Load(@"..\..\Testfiles\simple_002.xml");
+
+            string test = scripting.ExtractFromDispatchMessage(xElement.ToString());
+        }
+
     }
 }

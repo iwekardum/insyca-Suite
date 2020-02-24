@@ -1,8 +1,12 @@
 ﻿using inSyca.foundation.framework;
 using inSyca.foundation.integration.biztalk.functions.diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web;
+using System.Xml.Linq;
 
 namespace inSyca.foundation.integration.biztalk.functions
 {
@@ -11,6 +15,25 @@ namespace inSyca.foundation.integration.biztalk.functions
     /// </summary>
     public class scripting
     {
+        public static string ExtractFromDispatchMessage(string strSourceMessage)
+        {
+            Log.DebugFormat("ExtractFromDispatchMessage(string strSourceMessage {0}", strSourceMessage);
+
+            try
+            {
+                XElement xmlSourceMessage = XElement.Parse(strSourceMessage);
+                string xmlDecodedMessage = HttpUtility.HtmlDecode(xmlSourceMessage.Element("message").Descendants().FirstOrDefault().Value.Trim());
+                return xmlDecodedMessage;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"ExtractFromDispatchMessage(string strSourceMessage {strSourceMessage}", ex);
+
+                throw;
+            }
+        }
+
         static public object GetIdentityValue(object id, object label, object number)
         {
             Log.DebugFormat("GetIdentityValue(object id {0}, object label {1}, object number {2})", id, label, number);

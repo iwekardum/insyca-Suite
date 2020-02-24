@@ -109,6 +109,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Schema Include="properties.xsd">
+      <TypeName>bpa</TypeName>
+      <Namespace>insyca.bt.gl.eeb.schemas.properties</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <Schema Include="..\..\insyca.bt.gl.eeb.schemas\generic_10.xsd">
       <Link>generic_10.xsd</Link>
       <TypeName>generic_10</TypeName>
