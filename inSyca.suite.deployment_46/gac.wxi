@@ -3,7 +3,11 @@
   <ComponentGroup Id="gac">
 
     <Component Guid='*'  Directory="gac_40">
-      <File Id="Winterdom.BizTalk.PipelineTesting" Source='$(var.Winterdom.BizTalk.PipelineTesting.TargetPath)' Vital='yes' KeyPath="yes" Assembly='.net'/>
+      <File Id="Winterdom.BizTalk.PipelineTesting" Source='$(var.inSyca.suite.toolbox_40.TargetDir)Winterdom.BizTalk.PipelineTesting.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="log4net.elasticsearch" Source='$(var.inSyca.suite.toolbox_40.TargetDir)log4net.elasticsearch.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
     </Component>
 
     <Component Guid='*'  Directory="gac_40">
@@ -35,7 +39,15 @@
     </Component>
 
     <Component Guid='*'  Directory="gac_40">
-      <File Id="log4net" Source='$(var.inSyca.fd.fr_40.TargetDir)log4net.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
+      <File Id="log4net" Source='$(var.inSyca.suite.toolbox_40.TargetDir)log4net.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="restsharp" Source='$(var.inSyca.suite.toolbox_40.TargetDir)restsharp.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
+    </Component>
+
+    <Component Guid='*'  Directory="gac_40">
+      <File Id="newtonsoft.json" Source='$(var.inSyca.suite.toolbox_40.TargetDir)newtonsoft.json.dll' Vital='yes' KeyPath="yes" Assembly='.net'/>
     </Component>
 
     <Component Guid='*'  Directory="gac_40">

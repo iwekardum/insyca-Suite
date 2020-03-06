@@ -73,6 +73,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="batch\createService.cmd" />
     <None Include="batch\deleteService.cmd" />
     <None Include="batch\updateService.cmd" />
@@ -91,6 +92,8 @@
     <None Include="documentation\ReleaseNotes_Integration_Extensions.rtf" />
     <None Include="documentation\ReleaseNotes.rtf" />
     <None Include="documentation\WCF.rtf" />
+    <None Include="LICENSE" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="biztalk\BiztalkConfigLoader.exe" />
@@ -107,6 +110,7 @@
     <Content Include="eventviewer\MessageBroker.xml" />
     <Content Include="libraries\Microsoft.BizTalk.Pipeline.Components.dll" />
     <Content Include="libraries\PipelineObjects.dll" />
+    <Content Include="readme.txt" />
     <Content Include="ressources\banner_bitmap_001.bmp" />
     <Content Include="ressources\banner_bitmap_002.bmp" />
     <Content Include="ressources\inSyca.ico" />
@@ -119,7 +123,23 @@
     <Content Include="xslt\key_value.xslt" />
     <Content Include="xslt\splitstring.xslt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharpSigned.105.2.3\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
+      <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
+      <Name>Winterdom.BizTalk.PipelineTesting</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(MSBuildProjectDirectory)\destinationDeployment.cmd $(ProjectDir)documentation\releasenotes.rtf "c:\setup\inSyca\inSyca.foundation.suite_40"</PostBuildEvent>

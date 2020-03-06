@@ -23,36 +23,6 @@ namespace inSyca.foundation.framework.diagnostics
             }
         }
 
-        //public static bool Debug(LogEntry logEntry)
-        //{
-        //    inSycaLogger.Debug(logEntry);
-        //    return true;
-        //}
-
-        //public static bool Info(LogEntry logEntry)
-        //{
-        //    inSycaLogger.Info(logEntry);
-        //    return true;
-        //}
-
-        //public static bool Warn(LogEntry logEntry)
-        //{
-        //    inSycaLogger.Warn(logEntry);
-        //    return true;
-        //}
-
-        //public static bool Error(LogEntry logEntry)
-        //{
-        //    inSycaLogger.Error(logEntry);
-        //    return true;
-        //}
-
-        //public static bool Fatal(LogEntry logEntry)
-        //{
-        //    inSycaLogger.Error(logEntry);
-        //    return true;
-        //}
-
         #region ILog Implementation
         public static bool IsDebugEnabled
         {
@@ -125,6 +95,31 @@ namespace inSyca.foundation.framework.diagnostics
         public static void DebugFormat(string format, object arg0)
         {
             inSycaLogger.DebugFormat(format, arg0);
+        }
+
+        public static void Debug(LogEntry logEntry)
+        {
+            inSycaLogger.Debug(logEntry.ToString());
+        }
+
+        public static void Info(LogEntry logEntry)
+        {
+            inSycaLogger.Info(logEntry.ToString());
+        }
+
+        public static void Warn(LogEntry logEntry)
+        {
+            inSycaLogger.Warn(logEntry.ToString());
+        }
+
+        public static void Error(LogEntry logEntry)
+        {
+            inSycaLogger.Error(logEntry.ToString());
+        }
+
+        public static void Fatal(LogEntry logEntry)
+        {
+            inSycaLogger.Error(logEntry.ToString());
         }
 
         public static void DebugFormat(string format, params object[] args)

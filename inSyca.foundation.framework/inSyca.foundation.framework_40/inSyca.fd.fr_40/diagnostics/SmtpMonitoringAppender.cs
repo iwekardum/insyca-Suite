@@ -1,5 +1,6 @@
 ﻿using log4net.Appender;
 using log4net.Core;
+using System;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Mail;
@@ -24,8 +25,8 @@ namespace inSyca.foundation.framework.diagnostics
 
         void IAppender.DoAppend(LoggingEvent loggingEvent)
         {
-            if(loggingEvent.MessageObject is LogEntry)
-            { 
+            if (loggingEvent.MessageObject is LogEntry)
+            {
                 LogEntry = loggingEvent.MessageObject as LogEntry;
                 LogEntry.LoggingEvent = loggingEvent;
             }
@@ -98,7 +99,14 @@ namespace inSyca.foundation.framework.diagnostics
 
             smtpClient.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
 
-            smtpClient.SendAsync(mailMessage, LogEntry);
+            try
+            {
+                smtpClient.SendAsync(mailMessage, LogEntry);
+            }
+            catch(Exception ex)
+            {
+                Log.Error("SendAsync(smtpClient.SendAsync(mailMessage, LogEntry);", ex);
+            }
         }
 
         private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)

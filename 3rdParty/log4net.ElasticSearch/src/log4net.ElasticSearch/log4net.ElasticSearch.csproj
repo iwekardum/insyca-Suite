@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>log4net.ElasticSearch</Title>
+    <AssemblyName>log4net.ElasticSearch</AssemblyName>
+    <Version>2.6.0-preview2</Version>
+    <TargetFrameworks>net40;net45;netstandard2.0</TargetFrameworks>
+    <RootNamespace>log4net.ElasticSearch</RootNamespace>
+
+    <!-- Properties for nuget packing -->
+    <PackageId>log4net.ElasticSearch</PackageId>
+    <Authors>JP Toto</Authors>
+    <PackageIconUrl>http://nest.azurewebsites.net/images/nuget-icon.png</PackageIconUrl>
+    <PackageLicense>MIT</PackageLicense>
+    <PackageProjectUrl>https://bruno-garcia.github.io/log4net.ElasticSearch/</PackageProjectUrl>
+    <Description>log4net.Elasticsearch is a log4net adapter for easy logging of exceptions and messages to Elasticsearch indices. Tested through Elasticsearch 6.2</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright 2019</Copyright>
+    <PackageReleaseNotes>Please refer to https://github.com/bruno-garcia/log4net.ElasticSearch/releases</PackageReleaseNotes>
+    <PackageTags>log logging exception elasticsearch log4net</PackageTags>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeSymbols>true</IncludeSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <AssemblyVersion>2.5.0.0</AssemblyVersion>
+    <FileVersion>2.5.0.0</FileVersion>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>inSyca.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net40|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net40|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\readme.txt" Link="readme.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\LICENSE" Link="LICENSE" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net45'" />
+  </ItemGroup>
+
+</Project>

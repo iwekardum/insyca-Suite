@@ -116,6 +116,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="defaults\ControlChars.cs" />
+    <Compile Include="diagnostics\ElasticSearchAppender.cs" />
     <Compile Include="diagnostics\EventArgs.cs" />
     <Compile Include="diagnostics\Information.cs" />
     <Compile Include="diagnostics\InformationBase.cs" />
@@ -220,7 +221,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

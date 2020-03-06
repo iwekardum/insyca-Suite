@@ -40,6 +40,9 @@
     <AssemblyOriginatorKeyFile>inSyca.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -62,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="inSyca.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">

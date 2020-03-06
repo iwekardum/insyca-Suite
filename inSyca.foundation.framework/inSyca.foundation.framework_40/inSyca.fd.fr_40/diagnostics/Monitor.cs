@@ -160,6 +160,7 @@ namespace inSyca.foundation.framework.diagnostics
 
             SetHtmlMessage(eventEntryRow, out logEntry);
             monitorLogger.Error(logEntry);
+            Log.Error(logEntry);
         }
 
         private void SetWarning(DataRow eventEntryRow)
@@ -170,6 +171,7 @@ namespace inSyca.foundation.framework.diagnostics
 
             SetHtmlMessage(eventEntryRow, out logEntry);
             monitorLogger.Warn(logEntry);
+            Log.Warn(logEntry);
         }
 
         private void SetInformation(DataRow eventEntryRow)
@@ -180,6 +182,7 @@ namespace inSyca.foundation.framework.diagnostics
 
             SetHtmlMessage(eventEntryRow, out logEntry);
             monitorLogger.Info(logEntry);
+            Log.Info(logEntry);
         }
 
         protected abstract void InsertAdditionalEntryRow(string eventType, DataSet logEntryDataSet, DataRow logEntryDataRow, ManagementBaseObject managementBaseObject);

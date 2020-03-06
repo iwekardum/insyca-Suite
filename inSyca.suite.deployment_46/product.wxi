@@ -89,6 +89,8 @@
       <File Source='$(var.inSyca.fd.in.bt.tr_40.TargetDir)Microsoft.BizTalk.StreamProcessing.dll' Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)tracking\isc_tracking.sql' Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)tracking\isc_tracking_task.xml' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.in.bt.tr_40.TargetDir)Newtonsoft.Json.dll' Vital='yes'/>
+      <File Source='$(var.inSyca.fd.in.bt.tr_40.TargetDir)RestSharp.dll' Vital='yes'/>
     </Component>
 
   </ComponentGroup>

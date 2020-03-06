@@ -1,13 +1,18 @@
-﻿using inSyca.foundation.integration.biztalk.tracking.diagnostics;
+﻿using inSyca.foundation.integration.biztalk.tracking.data;
+using inSyca.foundation.integration.biztalk.tracking.diagnostics;
+using inSyca.foundation.integration.biztalk.tracking.helper;
 using Microsoft.BizTalk.Agent.Interop;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using RestSharp.Authenticators;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -20,10 +25,10 @@ namespace inSyca.foundation.integration.biztalk.tracking
     class Program
     {
         static Type compressionStreamsType;
-        static string decryptAndTransferMessagesConnection;
         static string bizsqlMessagesConnection;
-        static CultureInfo cultureInfo;
         static int maxDaysForInitialization;
+        static CultureInfo cultureInfo;
+        static string dateTimePattern;
 
         static void Main(string[] args)
         {
@@ -39,7 +44,6 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
             string pipelineAssemblyName = string.Concat(ConfigurationManager.AppSettings["PipelineAssemblyLocation"], ConfigurationManager.AppSettings["PipelineAssemblyName"]);
             string compressionStreamsTypeName = ConfigurationManager.AppSettings["CompressionStreamsTypeName"];
-            decryptAndTransferMessagesConnection = ConfigurationManager.AppSettings["Connection"];
             bizsqlMessagesConnection = ConfigurationManager.AppSettings["ConnectionBizSQL"];
 
             string dateTimeCulture = ConfigurationManager.AppSettings["DateTimeCulture"];
@@ -47,7 +51,10 @@ namespace inSyca.foundation.integration.biztalk.tracking
             Log.InfoFormat("DateTimeCulture {0}", dateTimeCulture);
 
             if (!string.IsNullOrEmpty(dateTimeCulture))
+            {
                 cultureInfo = new CultureInfo(dateTimeCulture);
+                dateTimePattern = cultureInfo.DateTimeFormat.ShortDatePattern + " HH:mm:ss.fff";
+            }
             else
                 cultureInfo = null;
 
@@ -55,19 +62,59 @@ namespace inSyca.foundation.integration.biztalk.tracking
                 maxDaysForInitialization = 1;
 
             Log.InfoFormat("MaxDaysForInitialization {0}", maxDaysForInitialization);
-            
-            Assembly pipelineAssembly = Assembly.LoadFrom(ConfigurationManager.AppSettings["PipelineAssemblyName"]);
-            compressionStreamsType = pipelineAssembly.GetType(compressionStreamsTypeName, true);
 
-            ProcessTrackingData();
+            try
+            {
+                Assembly pipelineAssembly = Assembly.LoadFrom(ConfigurationManager.AppSettings["PipelineAssemblyName"]);
+                compressionStreamsType = pipelineAssembly.GetType(compressionStreamsTypeName, true);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Assembly.LoadFrom(ConfigurationManager.AppSettings['PipelineAssemblyName'])", ex);
+            }
+
+            if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["ConnectionES"]))
+                ProcessTrackingDataSQL();
+            else
+                ProcessTrackingDataES();
         }
 
-        static void ProcessTrackingData()
+        private static void ProcessTrackingDataES()
         {
-            SqlConnection conSelect;
-            SqlConnection conSQLServer;
+            IAuthenticator authenticator = new HttpBasicAuthenticator(ConfigurationManager.AppSettings["userES"], ConfigurationManager.AppSettings["passwordES"]);
 
-            using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
+            Dictionary<string, string> _headers = new Dictionary<string, string>
+                                                        {
+                                                            { "Content-Type", "application/json" },
+                                                        };
+
+            Uri uri = new Uri($"{ConfigurationManager.AppSettings["ConnectionES"]}/biztalk/_search");
+            JToken jsonResponse = RestWrapper.GetJsonResponse("POST", uri, _headers, PayLoad.SearchTimestamp, authenticator);
+
+            DateTime[] timestampArray = jsonResponse
+                .SelectTokens("hits.hits[*]._source")
+                .Select(t => t["timestamp"].ToObject<DateTime>())
+                .ToArray();
+
+            DateTime lastTimestamp = DateTime.MinValue;
+            if (timestampArray.Any())
+                lastTimestamp = timestampArray.First();
+
+            List<JObject> trackingMessages = GetMessagesFromBizTalk(lastTimestamp);
+
+            if (trackingMessages.Any())
+            {
+                Log.InfoFormat("Messages found {0}", trackingMessages.Count);
+
+                uri = new Uri($"{ConfigurationManager.AppSettings["ConnectionES"]}/biztalk/_bulk");
+                JToken jsonResponseList = RestWrapper.GetJsonResponse("POST", uri, _headers, trackingMessages, authenticator);
+            }
+            else
+                Log.InfoFormat("No Messages found");
+        }
+        static void ProcessTrackingDataSQL()
+        {
+            using (SqlConnection conSQLServer = new SqlConnection(ConfigurationManager.AppSettings["ConnectionConnectionSQL"]))
             {
                 Log.Info("Update ports");
 
@@ -84,22 +131,13 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
                     Log.InfoFormat("isc_update_ports: {0}", sqlUpdatePortsResult);
                 }
-            }
 
-            var table = new DataTable();
-            using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
-            {
+                var table = new DataTable();
                 using (var adapter = new SqlDataAdapter("SELECT TOP 0 * FROM isc_pipeline_messages", conSQLServer))
                     adapter.Fill(table);
-            }
 
-            object interchangeID;
-            object lastTimestamp;
-            object actualTimestamp;
+                DateTime lastTimestamp;
 
-            using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
-            {
-                conSQLServer.Open();
                 using (SqlCommand sqlGetLastTimestamp = conSQLServer.CreateCommand())
                 {
                     sqlGetLastTimestamp.CommandTimeout = 0;
@@ -107,40 +145,94 @@ namespace inSyca.foundation.integration.biztalk.tracking
                     sqlGetLastTimestamp.CommandText = "isc_get_timestamp";
                     sqlGetLastTimestamp.CommandType = CommandType.StoredProcedure;
 
-                    lastTimestamp = sqlGetLastTimestamp.ExecuteScalar();
-
-                    if (lastTimestamp.Equals(DBNull.Value))
-                    {
-                        if (cultureInfo != null)
-                            lastTimestamp = DateTime.Now.AddDays(0 - maxDaysForInitialization).ToString(cultureInfo.DateTimeFormat);
-                        else
-                            lastTimestamp = DateTime.Now.AddDays(0 - maxDaysForInitialization).ToString("yyyy-MM-dd HH:mm:ss.fff");
-                    }
-                    else
-                    {
-                        if (cultureInfo != null)
-                            lastTimestamp = Convert.ToDateTime(lastTimestamp).ToString(cultureInfo.DateTimeFormat);
-                        else
-                            lastTimestamp = Convert.ToDateTime(lastTimestamp).ToString("yyyy-MM-dd HH:mm:ss.fff");
-                    }
+                    lastTimestamp = Convert.ToDateTime(sqlGetLastTimestamp.ExecuteScalar());
 
                     Log.InfoFormat("isc_get_timestamp: {0}", lastTimestamp);
                 }
+
+                List<JObject> test = GetMessagesFromBizTalk(lastTimestamp);
+
+                foreach (var item in test)
+                {
+                    var row = table.NewRow();
+                    row["messageinstanceid"] = item["messageinstanceid"];
+                    row["serviceinstanceid"] = item["serviceinstanceid"];
+                    row["activityid"] = item["activityid"];
+                    row["timestamp"] = item["timestamp"];
+                    row["servicetype"] = item["servicetype"];
+                    row["direction"] = item["direction"];
+                    row["adapter"] = item["adapter"];
+                    row["port"] = item["port"];
+                    row["url"] = item["url"];
+                    row["servicename"] = item["servicename"];
+                    row["hostname"] = item["hostname"];
+                    row["starttime"] = item["starttime"];
+                    row["endtime"] = item["endtime"];
+                    row["state"] = item["state"];
+                    //row["imgcontext"] = reader["imgcontext"];
+                    //row["imgpropbag"] = reader["imgpropbag"];
+                    //row["imgpart"] = reader["imgpart"];
+                    row["context"] = item["context"];
+                    row["interchangeid"] = item["interchangeID"];
+                    row["propbag"] = item["imgpropbag"];
+                    row["part"] = item["part"];
+                    row["nNumFragments"] = item["nNumFragments"];
+                    row["uidPartID"] = item["uidPartID"];
+                    row["processed"] = DBNull.Value;
+                    table.Rows.Add(row);
+                }
+
+                Log.InfoFormat("BulkCopy: {0}", table.Rows.Count);
+
+                using (var bulk = new SqlBulkCopy(conSQLServer))
+                {
+                    bulk.BulkCopyTimeout = 0;
+                    bulk.DestinationTableName = "isc_pipeline_messages";
+                    bulk.WriteToServer(table);
+                }
+            }
+        }
+
+        private static List<JObject> GetMessagesFromBizTalk(DateTime lastTimestamp)
+        {
+            SqlConnection conSelect;
+            object interchangeID;
+            string strLastTimestamp;
+            string strActualTimestamp;
+
+            List<JObject> test = new List<JObject>();
+
+            Log.Info($"lastTimestamp {lastTimestamp}");
+
+            if (lastTimestamp.Equals(DateTime.MinValue) || lastTimestamp.Equals(DBNull.Value))
+            {
+                if (cultureInfo != null)
+                    strLastTimestamp = DateTime.Now.AddDays(0 - maxDaysForInitialization).ToUniversalTime().ToString(dateTimePattern);
+                else
+                    strLastTimestamp = DateTime.Now.AddDays(0 - maxDaysForInitialization).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss.fff");
+            }
+            else
+            {
+                if (cultureInfo != null)
+                    strLastTimestamp = lastTimestamp.ToString(dateTimePattern);
+                else
+                    strLastTimestamp = lastTimestamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
             }
 
             if (cultureInfo != null)
-                actualTimestamp = DateTime.Now.ToString(cultureInfo.DateTimeFormat);
+                strActualTimestamp = DateTime.Now.AddSeconds(-30).ToUniversalTime().ToString(dateTimePattern);
             else
-                actualTimestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                strActualTimestamp = DateTime.Now.AddSeconds(-30).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss.fff");
 
+            Log.Debug($"strActualTimestamp {strActualTimestamp} | strLastTimestamp {strLastTimestamp}");
 
-            string decryptAndTransferMessagesConnectionSelectCommand = string.Format(Properties.Resources.vw_pipeline_messages.ToString(), lastTimestamp, actualTimestamp);
+            string decryptAndTransferMessagesConnectionSelectCommand = string.Format(Properties.Resources.vw_pipeline_messages.ToString(), strLastTimestamp, strActualTimestamp);
 
-            Log.InfoFormat("select command: {0}", decryptAndTransferMessagesConnectionSelectCommand);
+            Log.Debug($"select command: {decryptAndTransferMessagesConnectionSelectCommand.Substring(0,200)}...");
 
             using (conSelect = new SqlConnection(bizsqlMessagesConnection))
             {
-                Log.Info("OpenConnection");
+                Log.Debug("OpenConnection");
 
                 conSelect.Open();
 
@@ -150,53 +242,45 @@ namespace inSyca.foundation.integration.biztalk.tracking
 
                     SqlDataReader reader = selectCmd.ExecuteReader();
 
-
                     Log.Info("ExecuteReader");
 
                     while (reader.Read())
                     {
-                        var row = table.NewRow();
-                        row["messageinstanceid"] = reader["messageinstanceid"];
-                        row["serviceinstanceid"] = reader["serviceinstanceid"];
-                        row["activityid"] = reader["activityid"];
-                        row["timestamp"] = reader["timestamp"];
-                        row["servicetype"] = reader["servicetype"];
-                        row["direction"] = reader["direction"];
-                        row["adapter"] = reader["adapter"];
-                        row["port"] = reader["port"];
-                        row["url"] = reader["url"];
-                        row["servicename"] = reader["servicename"];
-                        row["hostname"] = reader["hostname"];
-                        row["starttime"] = reader["starttime"];
-                        row["endtime"] = reader["endtime"];
-                        row["state"] = reader["state"];
-                        //row["imgcontext"] = reader["imgcontext"];
-                        //row["imgpropbag"] = reader["imgpropbag"];
-                        //row["imgpart"] = reader["imgpart"];
-                        row["context"] = getContext(reader["imgcontext"], out interchangeID);
-                        row["interchangeid"] = interchangeID;
-                        row["propbag"] = getPropertyBag(reader["imgpropbag"]);
-                        row["part"] = getMessage(reader["imgPart"], reader["nNumFragments"], reader["uidPartID"]);
-                        row["nNumFragments"] = reader["nNumFragments"];
-                        row["uidPartID"] = reader["uidPartID"];
-                        //row["processed"] = DBNull.Value;
-                        table.Rows.Add(row);
+                        test.Add(
+                            new JObject
+                            {
+                                ["id"] = Guid.NewGuid(),
+                                ["messageinstanceid"] = reader["messageinstanceid"].ToString(),
+                                ["serviceinstanceid"] = reader["serviceinstanceid"].ToString(),
+                                ["activityid"] = reader["activityid"].ToString(),
+                                ["timestamp"] = Convert.ToDateTime(reader["timestamp"]),
+                                ["servicetype"] = reader["servicetype"].ToString(),
+                                ["direction"] = reader["direction"].ToString(),
+                                ["adapter"] = reader["adapter"].ToString(),
+                                ["port"] = reader["port"].ToString(),
+                                ["url"] = reader["url"].ToString(),
+                                ["servicename"] = reader["servicename"].ToString(),
+                                ["hostname"] = reader["hostname"].ToString(),
+                                ["starttime"] = reader["starttime"] != DBNull.Value ? Convert.ToDateTime(reader["starttime"]) : DateTime.MinValue,
+                                ["endtime"] = reader["endtime"] != DBNull.Value ? Convert.ToDateTime(reader["endtime"]) : DateTime.MinValue,
+                                ["state"] = reader["state"].ToString(),
+                                //["imgcontext"] = reader["imgcontext"].ToString(),
+                                //["imgpropbag"] = reader["imgpropbag"].ToString(),
+                                //["imgpart"] = reader["imgpart"].ToString(),
+                                ["context"] = getContext(reader["imgcontext"], out interchangeID).ToString(),
+                                ["interchangeid"] = interchangeID.ToString(),
+                                ["propbag"] = getPropertyBag(reader["imgpropbag"]).ToString(),
+                                ["part"] = getMessage(reader["imgPart"], reader["nNumFragments"], reader["uidPartID"]).ToString(),
+                                ["nNumFragments"] = reader["nNumFragments"].ToString(),
+                                ["uidPartID"] = reader["uidPartID"].ToString(),
+                                ["processed"] = false,
+                            }
+                        );
                     }
                 }
             }
 
-            using (conSQLServer = new SqlConnection(decryptAndTransferMessagesConnection))
-            {
-                Log.InfoFormat("BulkCopy: {0}", table.Rows.Count);
-
-                conSQLServer.Open();
-                using (var bulk = new SqlBulkCopy(conSQLServer))
-                {
-                    bulk.BulkCopyTimeout = 0;
-                    bulk.DestinationTableName = "isc_pipeline_messages";
-                    bulk.WriteToServer(table);
-                }
-            }
+            return test;
         }
 
         static object getMessage(object readerImgPart, object readerNumFragments, object readerPartID)
@@ -325,8 +409,6 @@ namespace inSyca.foundation.integration.biztalk.tracking
         {
             try
             {
-
-
                 string decryptAndTransferMessagesConnection = ConfigurationManager.AppSettings["Connection"];
                 string decryptAndTransferMessagesConnectionSelectCommand = ConfigurationManager.AppSettings["SelectCommand"];
                 string decryptAndTransferMessagesConnectionUpdateCommand = ConfigurationManager.AppSettings["UpdateCommand"];
