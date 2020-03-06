@@ -221,6 +221,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Users\operations\Source\Repos\insyca-Suite\3rdParty\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
+      <Project>{416ef8ae-7474-420d-929e-875b7cf48933}</Project>
+      <Name>log4net.ElasticSearch</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
