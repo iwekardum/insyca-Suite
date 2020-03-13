@@ -108,6 +108,7 @@
     <Content Include="eventviewer\BizTalk.xml" />
     <Content Include="eventviewer\inSyca.xml" />
     <Content Include="eventviewer\MessageBroker.xml" />
+    <Content Include="libraries\log4net.dll" />
     <Content Include="libraries\Microsoft.BizTalk.Pipeline.Components.dll" />
     <Content Include="libraries\PipelineObjects.dll" />
     <Content Include="readme.txt" />
@@ -136,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Users\operations\Source\Repos\insyca-Suite\3rdParty\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
-      <Project>{416ef8ae-7474-420d-929e-875b7cf48933}</Project>
+      <Project>{a4ab774d-7acd-4855-bbd6-56c3199b1384}</Project>
       <Name>log4net.ElasticSearch</Name>
     </ProjectReference>
     <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">

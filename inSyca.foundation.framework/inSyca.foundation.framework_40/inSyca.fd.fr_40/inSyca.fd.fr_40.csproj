@@ -70,8 +70,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -223,7 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\Users\operations\Source\Repos\insyca-Suite\3rdParty\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
-      <Project>{416ef8ae-7474-420d-929e-875b7cf48933}</Project>
+      <Project>{a4ab774d-7acd-4855-bbd6-56c3199b1384}</Project>
       <Name>log4net.ElasticSearch</Name>
     </ProjectReference>
   </ItemGroup>
