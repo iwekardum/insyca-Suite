@@ -104,6 +104,9 @@
     <Compile Include="..\..\..\inSyca\fd\in\bt\cp\FFXmlSplitter.cs">
       <Link>FFXmlSplitter.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\inSyca\fd\in\bt\cp\ReflectionDisassembler.cs">
+      <Link>ReflectionDisassembler.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\inSyca\fd\in\bt\cp\RemoveNamespace.cs">
       <Link>RemoveNamespace.cs</Link>
     </Compile>

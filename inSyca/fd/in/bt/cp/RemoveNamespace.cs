@@ -53,7 +53,7 @@ namespace inSyca.foundation.integration.biztalk.components
         {
             get
             {
-                return new System.IntPtr();
+                return Properties.Resources.cog.Handle;
             }
         }
 
