@@ -139,7 +139,6 @@
     <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="inSyca.snk" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="inSyca.ico" />

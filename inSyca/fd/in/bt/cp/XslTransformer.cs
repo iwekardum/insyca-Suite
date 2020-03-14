@@ -206,21 +206,21 @@ namespace inSyca.foundation.integration.biztalk.components
         }
         #endregion
 
-		#region IComponent
-		/// <summary>
-		/// Implements IComponent.Execute method.
-		/// </summary>
-		/// <param name="pc">Pipeline context</param>
-		/// <param name="inmsg">Input message.</param>
-		/// <returns>Converted to HTML input message.</returns>
-		/// <remarks>
-		/// IComponent.Execute method is used to convert XML messages
-		/// to HTML messages using provided Xslt file.
-		/// It also sets the content type of the message part to be "text/html"
-		/// which is necessary for client mail applications to correctly render
-		/// the message
-		/// </remarks>
-		public IBaseMessage Execute(IPipelineContext pipelineContext, IBaseMessage inMsg)
+        #region IComponent
+        /// <summary>
+        /// Implements IComponent.Execute method.
+        /// </summary>
+        /// <param name="pipelineContext">Pipeline context</param>
+        /// <param name="inMsg">Input message.</param>
+        /// <returns>Converted to HTML input message.</returns>
+        /// <remarks>
+        /// IComponent.Execute method is used to convert XML messages
+        /// to HTML messages using provided Xslt file.
+        /// It also sets the content type of the message part to be "text/html"
+        /// which is necessary for client mail applications to correctly render
+        /// the message
+        /// </remarks>
+        public IBaseMessage Execute(IPipelineContext pipelineContext, IBaseMessage inMsg)
 		{
             Log.DebugFormat("Execute(IPipelineContext pipelineContext {0}, IBaseMessage inMsg {1})", pipelineContext, inMsg);
 
@@ -228,15 +228,15 @@ namespace inSyca.foundation.integration.biztalk.components
 			inMsg.BodyPart.ContentType = "text/html";
 			return inMsg;
 		}
-		#endregion
+        #endregion
 
-		#region Helper
-		/// <summary>
-		/// Transforms XML message in input stream to HTML message
-		/// </summary>
-		/// <param name="stm">Stream with input XML message</param>
-		/// <returns>Stream with output HTML message</returns>
-		private Stream TransformMessage(Stream stream)
+        #region Helper
+        /// <summary>
+        /// Transforms XML message in input stream to HTML message
+        /// </summary>
+        /// <param name="stream">Stream with input XML message</param>
+        /// <returns>Stream with output HTML message</returns>
+        private Stream TransformMessage(Stream stream)
 		{
             Log.DebugFormat("TransformMessage(Stream stream {0})", stream);
 

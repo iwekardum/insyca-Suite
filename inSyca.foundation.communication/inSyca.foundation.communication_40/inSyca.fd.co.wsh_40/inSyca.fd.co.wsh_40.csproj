@@ -112,7 +112,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="inSyca.snk" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CommunicationInstaller.resx">

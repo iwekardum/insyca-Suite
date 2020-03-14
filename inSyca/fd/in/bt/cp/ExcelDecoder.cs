@@ -9,7 +9,7 @@
 /// IsFirstRowHeader:   -   Flag to indicate if the first row represents column names.
 /// 
 /// Note:   
-/// This solution is based on the VirtualStream supported in BizTalk Server 2006 and up. The caching is set to to disk. The default location is for this file is 'C:\Documents and Settings\<BTSHostInstanceName>\Local Settings\Temp'. For performance reasons this location should be moved to a non OS-Drive. Make sure that BizTalk Host Instance account has full control of this folder. 
+/// This solution is based on the VirtualStream supported in BizTalk Server 2006 and up. The caching is set to to disk. The default location is for this file is 'C:\Documents and Settings\BTSHostInstanceName\Local Settings\Temp'. For performance reasons this location should be moved to a non OS-Drive. Make sure that BizTalk Host Instance account has full control of this folder. 
 /// </summary>
 
 using inSyca.foundation.framework;

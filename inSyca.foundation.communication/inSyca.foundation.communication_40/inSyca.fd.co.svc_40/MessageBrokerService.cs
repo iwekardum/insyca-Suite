@@ -151,7 +151,6 @@ namespace inSyca.foundation.communication.service
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="inDocument"></param>
         /// <param name="outDocument"></param>
         /// <param name="xElementMessage"></param>
         /// <returns></returns>
@@ -230,7 +229,6 @@ namespace inSyca.foundation.communication.service
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="xmlServiceResponse"></param>
         /// <returns></returns>
         virtual protected bool AssembleServiceResponse()
         {

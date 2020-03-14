@@ -246,7 +246,8 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Transforms XML message in input stream to HTML message
         /// </summary>
-        /// <param name="stm">Stream with input XML message</param>
+        /// <param name="stream">Stream with input XML message</param>
+        /// <param name="xElementMessages"></param>
         /// <returns>Stream with output HTML message</returns>
         public bool TransformMessage(Stream stream, out List<XElement> xElementMessages)
         {

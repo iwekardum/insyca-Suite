@@ -28,8 +28,9 @@ namespace inSyca.foundation.integration.biztalk.components
         /// FixMsgStream constructor.
         /// </summary>
         /// <param name="stm">Stream object.</param>
-        /// <param name="PrependDataLabel">Bytes to prepend at the beginning of stream.</param>
+        /// <param name="prependData">Bytes to prepend at the beginning of stream.</param>
         /// <param name="appendData">Bytes to append at the end of stream.</param>
+        /// <param name="_resourceManager"></param>
         public FixMsgStream(Stream stm, byte[] prependData, byte[] appendData, ResourceManager _resourceManager)
         {
             this.stm = stm;
@@ -102,7 +103,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Seeks within the stream (also used for retrieving the current position within the stream).
         /// </summary>
-        /// <param name="pos">Seek position.</param>
+        /// <param name="offset">Seek position.</param>
         /// <param name="origin">Seek origin.</param>
         /// <returns>New position in the stream.</returns>
         override public long Seek(long offset, SeekOrigin origin)

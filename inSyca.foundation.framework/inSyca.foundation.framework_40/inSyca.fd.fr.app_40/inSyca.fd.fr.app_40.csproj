@@ -216,7 +216,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="inSyca.ico" />
-    <None Include="packages.config" />
     <None Include="resources\inSyca.png" />
     <None Include="resources\logo.png" />
     <None Include="resources\company.png" />

@@ -146,6 +146,9 @@
   <ItemGroup>
     <Content Include="inSyca.ico" />
     <EmbeddedResource Include="Properties\logo.png" />
+    <None Include="..\..\..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Resources\logo.png" />
     <None Include="foundation.framework.config">
       <SubType>Designer</SubType>

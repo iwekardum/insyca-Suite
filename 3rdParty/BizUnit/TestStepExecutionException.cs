@@ -29,7 +29,8 @@ namespace BizUnit
         /// </summary>
         /// <param name="message">The message associated with this exception.</param>
         /// <param name="testCaseName">The name of the BizUnit test case executing whilst the validation step failed.</param>
-        /// 
+        /// <param name="stage"></param>
+        /// <param name="testStepName"></param>
         /// <remarks>
         /// The following example demonstrates how to create and call BizUnit using 
         /// the BizUnit Test Case Object Model:
@@ -47,7 +48,9 @@ namespace BizUnit
         /// </summary>
         /// <param name="message">The message associated with this exception.</param>
         /// <param name="testCaseName">The name of the BizUnit test case executing whilst the validation step failed.</param>
-        /// 
+        /// <param name="innerException"></param>
+        /// <param name="testStepName"></param>
+        /// <param name="stage"></param>
         /// <remarks>
         /// The following example demonstrates how to create and call BizUnit using 
         /// the BizUnit Test Case Object Model:

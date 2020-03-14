@@ -206,8 +206,8 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Implements IComponent.Execute method.
         /// </summary>
-        /// <param name="pc">Pipeline context</param>
-        /// <param name="inmsg">Input message.</param>
+        /// <param name="pipelineContext">Pipeline context</param>
+        /// <param name="inMsg">Input message.</param>
         /// <returns>Converted to HTML input message.</returns>
         /// <remarks>
         /// IComponent.Execute method is used to convert XML messages
@@ -229,7 +229,7 @@ namespace inSyca.foundation.integration.biztalk.components
         /// <summary>
         /// Transforms XML message in input stream to HTML message
         /// </summary>
-        /// <param name="stm">Stream with input XML message</param>
+        /// <param name="stream">Stream with input XML message</param>
         /// <returns>Stream with output HTML message</returns>
         private Stream TransformMessage(Stream stream)
         {

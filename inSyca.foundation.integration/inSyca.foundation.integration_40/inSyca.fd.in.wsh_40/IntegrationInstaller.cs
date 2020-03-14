@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Configuration.Install;
 using System.Linq;
 using System.ServiceProcess;
-
+using System.Windows.Forms;
 
 namespace inSyca.foundation.integration.wsh
 {
@@ -19,7 +19,15 @@ namespace inSyca.foundation.integration.wsh
 
         private void MessageBrokerServiceInstaller_AfterInstall(object sender, InstallEventArgs e)
         {
-            new ServiceController(integrationServiceInstaller.ServiceName).Start();
+            try
+            {
+                new ServiceController(integrationServiceInstaller.ServiceName).Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Start Service", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void MessageBrokerServiceInstaller_BeforeInstall(object sender, InstallEventArgs e)

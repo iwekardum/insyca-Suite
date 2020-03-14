@@ -19,7 +19,6 @@ namespace inSyca.foundation.integration.biztalk.components
     {
         //Used to hold disassembled messages
         private System.Collections.Queue qOutputMsgs = new System.Collections.Queue();
-        private string systemPropertiesNamespace = @"http://schemas.microsoft.com/BizTalk/2003/system-properties";
 
         #region IBaseComponent
         public string Description
@@ -79,14 +78,10 @@ namespace inSyca.foundation.integration.biztalk.components
 
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            object val;
-
         }
 
         public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
         {
-            object val;
-
         }
 
         private static object ReadPropertyBag(IPropertyBag pb, string propName)

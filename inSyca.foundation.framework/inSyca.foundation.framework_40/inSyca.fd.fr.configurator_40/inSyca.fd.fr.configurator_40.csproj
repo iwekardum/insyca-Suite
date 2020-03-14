@@ -181,7 +181,6 @@
     <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="inSyca.snk" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

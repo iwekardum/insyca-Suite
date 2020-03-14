@@ -161,7 +161,7 @@ namespace BizUnit.TestSteps.BizTalk.Bre
                             Type type;
                             if (fact.AssemblyPath.Length > 0)
                             {
-                                asm = System.Reflection.Assembly.LoadWithPartialName(fact.AssemblyPath);
+                                asm = System.Reflection.Assembly.Load(fact.AssemblyPath);
                                 if (asm == null)
                                 {
                                     // fail

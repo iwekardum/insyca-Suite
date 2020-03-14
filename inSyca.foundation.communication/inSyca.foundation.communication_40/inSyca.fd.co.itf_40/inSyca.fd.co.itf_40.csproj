@@ -80,7 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="inSyca.snk" />
-    <None Include="packages.config" />
     <None Include="service_response_10.xsc">
       <DependentUpon>service_response_10.xsd</DependentUpon>
     </None>

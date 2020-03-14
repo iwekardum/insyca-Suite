@@ -203,6 +203,8 @@ namespace inSyca.foundation.framework.application.windowsforms
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            MessageBox.Show("Attention: Username requires form\ndomain\\username or .\\username", "Install Service", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             try
             {
                 ManagedInstallerClass.InstallHelper(new string[] { ServiceAssemblyName });
