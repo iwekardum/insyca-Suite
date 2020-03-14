@@ -136,10 +136,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Users\operations\Source\Repos\insyca-Suite\3rdParty\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
-      <Project>{a4ab774d-7acd-4855-bbd6-56c3199b1384}</Project>
-      <Name>log4net.ElasticSearch</Name>
-    </ProjectReference>
     <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
       <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
       <Name>Winterdom.BizTalk.PipelineTesting</Name>
