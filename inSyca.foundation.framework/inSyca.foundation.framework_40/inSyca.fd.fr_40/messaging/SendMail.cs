@@ -111,6 +111,11 @@ namespace inSyca.foundation.framework.messaging
             else
                 Log.InfoFormat("SendCompletedCallback(object sender {0}, AsyncCompletedEventArgs e {1})\nMessage sent!!!\n", sender, e);
 
+            MailMessage mailMessage = e.UserState as MailMessage;
+            
+            if (mailMessage != null)
+                mailMessage.Dispose();
+
             SmtpClient smtpClient = sender as SmtpClient;
             smtpClient.Dispose();
         }

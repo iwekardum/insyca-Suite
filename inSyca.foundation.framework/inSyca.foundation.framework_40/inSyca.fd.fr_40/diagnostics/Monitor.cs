@@ -140,12 +140,13 @@ namespace inSyca.foundation.framework.diagnostics
         {
             Log.DebugFormat("TransformLogEntry(DataTable logEntryTable {0}, DataRow eventEntryDataRow {1})", logEntryTable, eventEntryDataRow);
 
-            using (Stream logEntryStream = new MemoryStream())
-            {
-                logEntryTable.WriteXml(logEntryStream);
-                logEntryStream.Position = 0;
-                Attachments.Add(new Attachment(logEntryStream, "LogEntry.xml"));
-            }
+            //using (Stream logEntryStream = new MemoryStream())
+            //{
+            Stream logEntryStream = new MemoryStream();
+            logEntryTable.WriteXml(logEntryStream);
+            logEntryStream.Position = 0;
+            Attachments.Add(new Attachment(logEntryStream, "LogEntry.xml"));
+            //}
 
             foreach (DataRow logEntryRow in logEntryTable.Rows)
                 SetEventEntry(logEntryRow, eventEntryDataRow);
