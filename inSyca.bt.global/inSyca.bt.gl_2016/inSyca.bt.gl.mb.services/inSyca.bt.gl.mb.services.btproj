@@ -87,12 +87,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\insyca.bt.gl.mb.services\diagnostics\MessageBrokerService_www_insyca_com_messagebroker_service_response_10.Designer.cs">
-      <Link>diagnostics\MessageBrokerService_www_insyca_com_messagebroker_service_response_10.Designer.cs</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MessageBrokerService_www_insyca_com_messagebroker_service_response_10.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

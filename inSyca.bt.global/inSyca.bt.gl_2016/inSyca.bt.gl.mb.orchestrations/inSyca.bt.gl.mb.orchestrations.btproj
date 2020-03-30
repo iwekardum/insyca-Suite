@@ -62,7 +62,7 @@
     <ApplicationIcon>..\..\insyca.bt.gl.eeb.schemas\inSyca.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="inSyca.fd.co.cp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
+    <Reference Include="inSyca.fd.co.cp, Version=1.0.4.21016, Culture=neutral, PublicKeyToken=604954d691f5a615, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
