@@ -1,4 +1,4 @@
-@echo off
+@echo on
 for /f "delims=" %%a in ('wmic OS Get localdatetime  ^| find "."') do set dt=%%a
 set datestamp=%dt:~0,8%
 set timestamp=%dt:~8,6%
