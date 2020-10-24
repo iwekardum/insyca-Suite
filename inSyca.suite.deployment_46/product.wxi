@@ -46,7 +46,7 @@
     <Component Id='productDocumentation' Guid='{37C584B8-40A9-4D9A-AF11-254D845F800E}' Directory="documentation">
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)documentation\ReleaseNotes.rtf' Vital='yes'/>
       <File Source='$(var.inSyca.suite.toolbox_40.ProjectDir)documentation\WCF.rtf' Vital='yes'/>
-      <File Source='$(var.inSyca.suite.documentation_40.ProjectDir)help\inSyca Suite Help.chm' Vital='yes'/>
+      <!--<File Source='$(var.inSyca.suite.documentation_40.ProjectDir)help\inSyca Suite Help.chm' Vital='yes'/>-->
     </Component>
 
     <Component Id='productCFG' Guid='{AB03A811-31CE-4955-AA2A-397B47761834}' Directory="cfg">

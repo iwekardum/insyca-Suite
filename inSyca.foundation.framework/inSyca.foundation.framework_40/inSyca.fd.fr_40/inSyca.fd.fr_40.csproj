@@ -225,8 +225,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\3rdParty\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
-      <Project>{4aedc62c-9e47-42cc-a793-b1c191582dc7}</Project>
+    <ProjectReference Include="..\..\..\..\opencode\bruno-garcia\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
+      <Project>{0d319284-be4d-4ace-89a6-54c13d5d87ae}</Project>
       <Name>log4net.ElasticSearch</Name>
     </ProjectReference>
   </ItemGroup>

@@ -46,19 +46,26 @@
     </Reference>
     <Reference Include="Microsoft.BizTalk.Adapter.Framework">
       <Name>Microsoft.Biztalk.Adapter.Framework</Name>
-      <HintPath>..\..\..\..\..\..\Developer Tools\Microsoft.Biztalk.Adapter.Framework.dll</HintPath>
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.Biztalk.Adapter.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.BizTalk.GlobalPropertySchemas, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.GlobalPropertySchemas.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.BizTalk.Interop.TransportProxy">
       <Name>Microsoft.BizTalk.Interop.TransportProxy</Name>
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.Interop.TransportProxy.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.BizTalk.Pipeline">
       <Name>Microsoft.BizTalk.Pipeline</Name>
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.Pipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Pipeline.Components">
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.Pipeline.Components.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.XLANGs.BaseTypes">
       <Name>Microsoft.XLANGs.BaseTypes</Name>
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.XLANGs.BaseTypes.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

@@ -109,7 +109,12 @@
     <Content Include="eventviewer\inSyca.xml" />
     <Content Include="eventviewer\MessageBroker.xml" />
     <Content Include="libraries\log4net.dll" />
+    <Content Include="libraries\Microsoft.Biztalk.Adapter.Framework.dll" />
+    <Content Include="libraries\Microsoft.BizTalk.GlobalPropertySchemas.dll" />
+    <Content Include="libraries\Microsoft.BizTalk.Interop.TransportProxy.dll" />
+    <Content Include="libraries\Microsoft.BizTalk.Operations.dll" />
     <Content Include="libraries\Microsoft.BizTalk.Pipeline.Components.dll" />
+    <Content Include="libraries\Microsoft.XLANGs.BaseTypes.dll" />
     <Content Include="libraries\PipelineObjects.dll" />
     <Content Include="readme.txt" />
     <Content Include="ressources\banner_bitmap_001.bmp" />
@@ -134,16 +139,6 @@
     <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharpSigned.105.2.3\lib\net45\RestSharp.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\3rdParty\log4net.ElasticSearch\src\log4net.ElasticSearch\log4net.ElasticSearch.csproj">
-      <Project>{4aedc62c-9e47-42cc-a793-b1c191582dc7}</Project>
-      <Name>log4net.ElasticSearch</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
-      <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
-      <Name>Winterdom.BizTalk.PipelineTesting</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

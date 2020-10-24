@@ -46,13 +46,17 @@
     <ApplicationIcon>inSyca.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BizTalk.Operations, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Microsoft.BizTalk.Operations.dll</HintPath>
+    <Reference Include="Microsoft.BizTalk.Operations">
+      <HintPath>..\..\..\..\..\Users\inSycaITSolutionsGmb\source\repos\insyca-Suite\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.Operations.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.BizTalk.Pipeline, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Microsoft.BizTalk.Pipeline.dll</HintPath>
+    <Reference Include="Microsoft.BizTalk.Pipeline">
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.Pipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Pipeline.Components">
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\Microsoft.BizTalk.Pipeline.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="PipelineObjects">
+      <HintPath>..\..\..\inSyca.suite.toolbox_40\libraries\PipelineObjects.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -103,8 +107,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="test\BizTalkTestCase.cs" />
-    <Compile Include="test\BizTalkTestEnvironment.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\SuspendedMessage.html" />
@@ -161,17 +163,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\3rdParty\BizUnit.TestSteps.BizTalk\BizUnit.TestSteps.BizTalk.csproj">
-      <Project>{772a474b-0d95-4002-bf5b-910986d1326b}</Project>
-      <Name>BizUnit.TestSteps.BizTalk</Name>
+    <ProjectReference Include="..\..\..\..\opencode\bizunit\Src\BizUnit.Core\BizUnit.Core.csproj">
+      <Project>{7c85248a-15d4-4a17-a496-aecf789e0f10}</Project>
+      <Name>BizUnit.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\3rdParty\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
+    <ProjectReference Include="..\..\..\..\opencode\bizunit\Src\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
       <Project>{5bfef184-0834-4fba-addb-ad798ce0b58d}</Project>
       <Name>BizUnit.TestSteps</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\3rdParty\BizUnit\BizUnit.csproj">
-      <Project>{7c85248a-15d4-4a17-a496-aecf789e0f10}</Project>
-      <Name>BizUnit</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\inSyca.foundation.framework\inSyca.foundation.framework_40\inSyca.fd.fr_40\inSyca.fd.fr_40.csproj">
       <Project>{341e5b33-89e7-4349-9e0c-b954103af331}</Project>
