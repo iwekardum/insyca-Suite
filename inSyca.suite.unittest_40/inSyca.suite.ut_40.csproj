@@ -97,7 +97,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\3rdParty\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
+    <ProjectReference Include="..\..\..\Users\inSycaITSolutionsGmb\source\repos\opencode\tomasr\pipelinetesting\Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj">
       <Project>{e0249498-3585-4d40-91b6-81b7c5c5f608}</Project>
       <Name>Winterdom.BizTalk.PipelineTesting</Name>
     </ProjectReference>
