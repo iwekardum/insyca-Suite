@@ -5,6 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
+*.sqlite
 
 # Build results
 [Dd]ebug/
@@ -293,4 +294,4 @@ ModelManifest.xml
 /3rdParty/log4net.ElasticSearch/LICENSE
 /3rdParty/log4net.ElasticSearch/appveyor.yml
 /3rdParty/log4net.ElasticSearch/.gitignore
-/.vs/Suite_VS2015/DesignTimeBuild/.dtbcache.v2
+.vs/
