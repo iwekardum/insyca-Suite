@@ -1,5 +1,8 @@
 #inSyca Suite
-Components for Integration and Communication
+- Components for Integration and Communication
+- Tools for Microsoft BizTalk Server to simplify integration tasks
+- Modular architecture for reusable components
+- Written in C# with .NET Framework
 
 ⚠️ **Legacy Project**  
 This project was originally developed as a set of open source tools for Microsoft BizTalk integration.  
